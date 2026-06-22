@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKBeauty Artistry | Elevated Bridal Hair &amp; Makeup</title>
+<meta name="description" content="MKBeauty Artistry is a luxury bridal hair and makeup team offering elevated experiences across the Southeast and Upstate New York, led by Morgan Kelly Baird.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231A1714'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23C4A882'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF7F2;
+    --warm-white:#FFFDF9;
+    --parchment:#F2EDE4;
+    --ink:#1A1714;
+    --muted:#8A8279;
+    --border:#E4DDD4;
+    --accent:#C4A882;
+    --accent-light:#F0E8DC;
+    --accent-dark:#9E7D5A;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+
+  .container{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- Type helpers ---------- */
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    font-weight:500;
+    font-size:12.5px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent-dark);
+    margin:0 0 18px;
+  }
+  .eyebrow.on-dark{color:var(--accent);}
+  .center{text-align:center;}
+
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:400;
+    margin:0;
+    color:var(--ink);
+  }
+  .accent-italic{
+    font-style:italic;
+    color:var(--accent-dark);
+    font-weight:500;
+  }
+  .on-dark .accent-italic{color:var(--accent);}
+
+  .heading-lg{
+    font-size:clamp(30px, 4vw, 44px);
+    line-height:1.2;
+    margin-bottom:22px;
+  }
+
+  p.lede{
+    font-size:18px;
+    color:var(--muted);
+    max-width:560px;
+  }
+  p.lede.center{margin:0 auto;}
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 32px;
+    background:transparent;
+    transition:background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(250,247,242,0.92);
+    backdrop-filter:blur(6px);
+    padding:14px 32px;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-logo{
+    font-family:'Cormorant Garamond', serif;
+    font-size:21px;
+    color:var(--cream);
+    transition:color 0.4s ease;
+    letter-spacing:0.01em;
+  }
+  .nav.scrolled .nav-logo{color:var(--ink);}
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:34px;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .nav-links a{
+    color:var(--cream);
+    transition:color 0.4s ease, opacity 0.2s ease;
+    opacity:0.92;
+  }
+  .nav.scrolled .nav-links a{color:var(--ink);}
+  .nav-links a:hover{opacity:1;color:var(--accent-dark);}
+  .nav-icon{
+    width:18px;height:18px;
+    display:inline-flex;
+  }
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    color:var(--cream);
+    padding:10px;
+    margin:-10px;
+  }
+  .nav.scrolled .nav-toggle{color:var(--ink);}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 32px;
+    font-family:'Jost', sans-serif;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border-radius:2px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn:focus-visible{outline:2px solid var(--accent-dark);outline-offset:3px;}
+  .btn-primary{background:var(--ink);color:var(--cream);}
+  .btn-primary:hover{background:var(--accent-dark);}
+  .btn-outline-dark{border-color:rgba(250,247,242,0.55);color:var(--cream);}
+  .btn-outline-dark:hover{border-color:var(--cream);background:rgba(250,247,242,0.08);}
+  .btn-gold{background:var(--accent);color:var(--ink);}
+  .btn-gold:hover{background:var(--accent-dark);color:var(--cream);}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    background:var(--ink);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-10%;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;height:900px;
+    background:radial-gradient(circle, rgba(196,168,130,0.28) 0%, rgba(196,168,130,0.08) 38%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:140px 32px 80px;
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .hero-title{
+    font-size:clamp(42px, 7vw, 76px);
+    color:var(--cream);
+    line-height:1.05;
+    margin:0 0 26px;
+  }
+  .hero-sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(18px, 2vw, 23px);
+    color:rgba(250,247,242,0.82);
+    max-width:540px;
+    margin:0 0 44px;
+    line-height:1.55;
+  }
+  .hero-divider{
+    width:60px;height:1px;
+    background:var(--accent);
+    margin:0 0 28px;
+  }
+
+  /* ---------- Sections ---------- */
+  .section{padding:110px 0;}
+  .section-parchment{background:var(--parchment);}
+  .section-ink{background:var(--ink);color:var(--cream);}
+  .section-ink .lede{color:rgba(250,247,242,0.72);}
+
+  .two-col{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+    align-items:start;
+  }
+  .body-col p{margin:0 0 18px;color:var(--ink);}
+  .body-col p:last-child{margin-bottom:0;}
+
+  /* ---------- Cards ---------- */
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+    margin-top:54px;
+  }
+  .card{
+    background:var(--warm-white);
+    border:1px solid var(--border);
+    border-radius:2px;
+    padding:36px 32px;
+  }
+  .card h3{
+    font-size:24px;
+    margin-bottom:12px;
+  }
+  .card p{
+    font-size:14.5px;
+    color:var(--muted);
+    margin:0;
+  }
+
+  /* ---------- Pricing CTA ---------- */
+  .pricing-card{
+    max-width:680px;
+    margin:0 auto;
+    text-align:center;
+    padding:0 12px;
+  }
+  .pricing-frame{
+    border:1px solid rgba(196,168,130,0.35);
+    padding:48px 36px;
+    margin-top:44px;
+    position:relative;
+  }
+  .pricing-frame::before,
+  .pricing-frame::after{
+    content:"";
+    position:absolute;
+    width:22px;height:22px;
+    border:1px solid var(--accent);
+  }
+  .pricing-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+  .pricing-frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+  /* ---------- Contact ---------- */
+  .pill-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:32px;
+  }
+  .pill{
+    padding:11px 22px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--ink);
+    transition:border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  }
+  .pill:hover{border-color:var(--accent-dark);color:var(--accent-dark);background:var(--warm-white);}
+
+  .gform-frame{
+    background:var(--warm-white);
+    border:1px solid var(--border);
+    padding:14px;
+    line-height:0;
+  }
+  .gform-frame iframe{
+    display:block;
+    width:100%;
+    height:1047px;
+    border:none;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--cream);
+    padding:64px 32px 36px;
+    text-align:center;
+  }
+  .footer-brand{
+    font-family:'Cormorant Garamond', serif;
+    font-size:26px;
+    margin:0 0 6px;
+  }
+  .footer-tagline{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--accent);
+    margin:0 0 16px;
+  }
+  .footer-name{
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:rgba(250,247,242,0.6);
+    margin:0 0 22px;
+  }
+  .footer-links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px 26px;
+    margin-bottom:30px;
+    font-size:13px;
+  }
+  .footer-links a{
+    color:rgba(250,247,242,0.78);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+  .footer-links a:hover{color:var(--accent);border-color:var(--accent);}
+
+  .footer-team-cta{
+    margin:0 0 30px;
+    padding-top:28px;
+    border-top:1px solid rgba(250,247,242,0.14);
+  }
+  .footer-team-cta p{
+    font-size:12px;
+    color:rgba(250,247,242,0.55);
+    margin:0 0 16px;
+    letter-spacing:0.02em;
+  }
+  .pill-dark{
+    display:inline-block;
+    padding:11px 24px;
+    border:1px solid rgba(250,247,242,0.35);
+    border-radius:999px;
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--cream);
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  .pill-dark:hover{border-color:var(--accent);color:var(--accent);}
+  .footer-copy{
+    font-size:11.5px;
+    color:rgba(250,247,242,0.4);
+    letter-spacing:0.04em;
+    margin:0;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .two-col{grid-template-columns:1fr;gap:40px;}
+    .card-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .section{padding:80px 0;}
+  }
+  @media (max-width: 680px){
+    .container{padding:0 22px;}
+    .nav{padding:18px 22px;}
+    .nav.scrolled{padding:12px 22px;}
+    .nav-links{
+      position:fixed;
+      top:0;right:0;
+      height:100vh;
+      width:78%;
+      max-width:300px;
+      background:var(--ink);
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      gap:30px;
+      padding:0 40px;
+      transform:translateX(100%);
+      transition:transform 0.35s ease;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a{color:var(--cream) !important;}
+    .nav-toggle{display:block;}
+    .nav-icon-link{display:none;}
+    .hero-content{padding:120px 22px 64px;}
+    .hero-sub{max-width:none;}
+    .section{padding:64px 0;}
+    .card{padding:28px 24px;}
+    .card-grid{margin-top:38px;}
+    .pricing-frame{padding:32px 20px;}
+    .gform-frame{padding:8px;}
+    .gform-frame iframe{height:1450px;}
+    .pill-row{gap:10px;}
+    .pill{padding:12px 20px;}
+  }
+  @media (max-width: 380px){
+    .hero-title{font-size:38px;}
+    .btn{padding:14px 24px;font-size:12px;}
+    .btn-row{gap:12px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">MKBeauty Artistry</a>
+  <div class="nav-links" id="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">What We Do</a>
+    <a href="https://claude.ai/public/artifacts/946c1365-6691-4a29-89f5-4358438685d2" target="_blank" rel="noopener">Pricing</a>
+    <a href="#contact">Contact</a>
+    <a href="https://instagram.com/mkbeauty5_mua" target="_blank" rel="noopener" aria-label="Instagram" class="nav-icon-link">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+    </a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="eyebrow on-dark">Elevated Bridal Beauty Team</p>
+    <h1 class="hero-title">MKBeauty <em class="accent-italic">Artistry</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Bridal hair and makeup for the women who notice every detail, serving from the Southeast to Upstate New York.</p>
+    <div class="btn-row">
+      <a href="https://claude.ai/public/artifacts/946c1365-6691-4a29-89f5-4358438685d2" target="_blank" rel="noopener" class="btn btn-gold">View Pricing Guide</a>
+      <a href="#contact" class="btn btn-outline-dark">Start an Inquiry</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container two-col reveal">
+    <div>
+      <p class="eyebrow">Who We Are</p>
+      <h2 class="heading-lg">Led by <em class="accent-italic">Morgan Kelly Baird</em></h2>
+    </div>
+    <div class="body-col">
+      <p>MKBeauty Artistry began with one artist and grew into a curated team delivering an elevated standard of bridal beauty across the Southeast and into Upstate New York. Every artist on our roster is selected and trained to the same standard, so wherever you find us, the experience feels the same: considered, calm, and entirely about you.</p>
+      <p>We work alongside brides, their mothers, their bridal parties, and everyone gathered to celebrate. The same care goes into a quiet morning in a getting ready suite as a full wedding weekend with forty guests in tow.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-parchment" id="services">
+  <div class="container">
+    <div class="reveal center" style="max-width:620px;margin:0 auto;">
+      <p class="eyebrow center">What We Do</p>
+      <h2 class="heading-lg">Elevated beauty for every part of the <em class="accent-italic">celebration</em></h2>
+    </div>
+    <div class="card-grid reveal">
+      <div class="card">
+        <h3>Bridal <em class="accent-italic">Beauty</em></h3>
+        <p>Hair and makeup for the woman the day is about. Lashes included with every service, always.</p>
+      </div>
+      <div class="card">
+        <h3>Bridal Party &amp; <em class="accent-italic">Guests</em></h3>
+        <p>For the mothers, the sisters, the women standing beside you. Booked individually or as a full party.</p>
+      </div>
+      <div class="card">
+        <h3>Wedding <em class="accent-italic">Weekends</em></h3>
+        <p>Welcome parties, rehearsal dinners, multi day celebrations. One team and one standard, the whole weekend through.</p>
+      </div>
+      <div class="card">
+        <h3><em class="accent-italic">Previews</em></h3>
+        <p>A chance to design your look together before the day arrives, on your schedule and at your pace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ink on-dark" id="pricing">
+  <div class="container pricing-card reveal">
+    <p class="eyebrow on-dark center">Pricing</p>
+    <h2 class="heading-lg" style="color:var(--cream);">Curious what your day could <em class="accent-italic">look like</em>?</h2>
+    <div class="pricing-frame">
+      <p class="lede center" style="color:rgba(250,247,242,0.78);">Our full pricing guide walks through every service and what is included, so you arrive at your inquiry already knowing what an elevated experience with us looks like.</p>
+      <div style="margin-top:30px;">
+        <a href="https://claude.ai/public/artifacts/946c1365-6691-4a29-89f5-4358438685d2" target="_blank" rel="noopener" class="btn btn-gold">View Pricing Guide</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container two-col reveal">
+    <div>
+      <p class="eyebrow">Let's Talk</p>
+      <h2 class="heading-lg">Begin with an <em class="accent-italic">inquiry</em></h2>
+      <p class="lede">Tell us a little about your day. We will follow up within a day or two with next steps.</p>
+      <div class="pill-row">
+        <a href="tel:+17708561008" class="pill">Call</a>
+        <a href="sms:+17708561008" class="pill">Text</a>
+        <a href="mailto:morgan@mkbeautyeducator.com" class="pill">Email</a>
+        <a href="https://instagram.com/mkbeauty5_mua" target="_blank" rel="noopener" class="pill">Instagram</a>
+      </div>
+    </div>
+
+    <div class="gform-frame">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf22F3lASJCke_ce1QT9-Yj69sfux-tv2G1yqm_lDZefbS3Xg/viewform?embedded=true" width="100%" height="1047" frameborder="0" marginheight="0" marginwidth="0" title="MKBeauty Artistry inquiry form">Loading&hellip;</iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-brand">MKBeauty Artistry</p>
+  <p class="footer-tagline">Luxury, Elevated Experiences</p>
+  <p class="footer-name">Morgan Kelly Baird &middot; Southeast &amp; Upstate New York</p>
+  <div class="footer-links">
+    <a href="tel:+17708561008">770.856.1008</a>
+    <a href="mailto:morgan@mkbeautyeducator.com">morgan@mkbeautyeducator.com</a>
+    <a href="https://instagram.com/mkbeauty5_mua" target="_blank" rel="noopener">@mkbeauty5_mua</a>
+  </div>
+  <div class="footer-team-cta">
+    <p>Artists &amp; stylists, we're always looking for talented hands.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeV-hzsTP8qjRgcc8oHiEhdZygFz8L73FHTIbxNJd_Yfq3dBA/viewform" target="_blank" rel="noopener" class="pill-dark">Join Our Team</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 MKBeauty Artistry</p>
+</footer>
+
+<script>
+  // Nav background on scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+</html>
