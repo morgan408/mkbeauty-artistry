@@ -139,7 +139,7 @@
   }
   .about-photo img{
     width:100%;height:100%;
-    object-fit:cover;object-position:center top;
+    object-fit:cover;object-position:center 15%;
   }
   .about-heading{font-size:clamp(28px,3vw,42px);margin-bottom:20px;}
   .about-text p{
@@ -182,7 +182,7 @@
   }
   .photo-strip img{
     width:100%;height:100%;
-    object-fit:cover;object-position:center 35%;
+    object-fit:cover;object-position:center top;
   }
   .photo-strip-overlay{
     position:absolute;inset:0;
@@ -330,6 +330,8 @@
     .strip-quote{padding:0 26px;font-size:18px;}
     .gform-frame iframe{height:1450px;}
     .gform-frame{padding:8px;}
+    .about-photo img{object-position:center 5%;}
+    .photo-strip img{object-position:center top;}
   }
   @media(max-width:380px){
     .hero-title{font-size:32px;}
