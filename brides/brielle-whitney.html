@@ -476,7 +476,7 @@
    CONFIG — the only two things that change per bride when you duplicate
    this file. Everything else pulls live from the sheet automatically.
    ===================================================================== */
-const EVENT_ID = "EVT-006"; // e.g. "EVT-006", must match Bookings Pipeline exactly
+const EVENT_ID = "SET_EVENT_ID_HERE"; // e.g. "EVT-006", must match Bookings Pipeline exactly
 const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
 
 let record = {};        // the fetched, merged row (Bookings Pipeline + Experience Data)
@@ -495,6 +495,10 @@ async function fetchRecord(pw){
 // Queues a field to be written back to the sheet. Multiple fields changed in
 // quick succession get batched into a single POST after a short pause.
 function queueFieldSave(fieldName, value){
+  if (EVENT_ID === "SET_EVENT_ID_HERE") {
+    console.warn('EVENT_ID was never set for this page, refusing to save:', fieldName);
+    return;
+  }
   pendingChanges[fieldName] = value;
   flushPendingSaves();
 }
@@ -661,12 +665,17 @@ function initLook(){
   const savedService = visionData.servicesBooked || '';
   if(savedService) document.getElementById('q_servicesBooked').value = savedService;
   document.getElementById('q_servicesBooked').addEventListener('change', updateServiceVisibility);
-  updateServiceVisibility();
+  applyServiceVisibility(); // just show/hide sections on load, no save
 }
 function updateServiceVisibility(){
+  // Fires only on real user interaction (change event), safe to save here
   const val = document.getElementById('q_servicesBooked').value;
   visionData.servicesBooked = val;
   saveVisionBundle();
+  applyServiceVisibility();
+}
+function applyServiceVisibility(){
+  const val = document.getElementById('q_servicesBooked').value;
   const sections = document.querySelectorAll('[data-service]');
   sections.forEach(el=>{
     if(!val){ el.style.display = ''; return; }
