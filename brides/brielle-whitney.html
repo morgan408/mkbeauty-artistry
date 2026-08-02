@@ -132,38 +132,9 @@
   .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:22px;text-align:center;
     color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:17px;line-height:1.6;}
 
-  /* Locked team section */
-  .team-zone{background:var(--burgundy);width:100%;}
-  .team-zone .section-label{color:var(--stone);}
-  .team-zone .section-label::after{background:rgba(232,228,223,0.25);}
-  .team-zone .section-title{color:var(--cream);}
-  .team-zone .look-sub-title{color:var(--stone);}
-  .team-zone .card{background:rgba(255,255,255,0.06);border:1px solid rgba(172,154,138,0.3);color:var(--cream);}
-  .team-zone .roster-pill{background:transparent;border:1px solid rgba(172,154,138,0.5);color:var(--cream);
-    text-transform:uppercase;font-size:11px;letter-spacing:0.08em;padding:9px 16px;}
-  .team-zone .roster-pill.lead{background:var(--ink);border-color:var(--ink);color:var(--cream);font-weight:500;}
-  .team-zone .chip{background:transparent;border-color:rgba(172,154,138,0.5);color:var(--cream);
-    text-transform:uppercase;font-size:11px;letter-spacing:0.08em;transition:all 0.2s ease;}
-  .team-zone .chip.active{background:var(--ink);border-color:var(--ink);color:var(--cream);box-shadow:0 2px 10px rgba(0,0,0,0.35);}
-  .btn-team{width:100%;max-width:200px;margin:0 auto;display:block;font-family:'Jost';font-size:13px;letter-spacing:0.08em;
-    text-transform:uppercase;background:var(--ink);color:var(--cream);border:none;border-radius:24px;padding:15px;
-    min-height:50px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,0.2);}
-  .service-count-row{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.12);}
-  .pay-reveal{background:rgba(255,255,255,0.06);border:1px solid var(--stone);border-radius:10px;padding:18px;margin-top:14px;display:none;}
-  .pay-reveal.show{display:block;}
-  .pay-reveal .pay-row{display:flex;justify-content:space-between;font-size:14px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.12);color:var(--cream);}
-  .pay-reveal .pay-total{font-family:'Cormorant Garamond';font-size:26px;color:var(--stone);text-align:right;margin-top:10px;}
-  .locked-panel{background:rgba(255,255,255,0.05);border:1px solid rgba(172,154,138,0.35);color:var(--cream);border-radius:12px;padding:26px 22px;text-align:center;}
-  .locked-panel .eyebrow{margin-bottom:10px;color:var(--stone);}
-  .locked-panel input{background:rgba(255,255,255,0.06);border:1px solid rgba(172,154,138,0.4);color:var(--cream);
-    text-align:center;margin:14px 0;}
-  .locked-panel input::placeholder{color:rgba(250,247,242,0.4);}
-  #teamPassword{background:#4A1A21;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;caret-color:#FFFFFF;
-    border:1px solid rgba(172,154,138,0.5);}
-  .team-content{display:none;}
-  .team-content.show{display:block;}
   .roster-pill{display:inline-block;background:var(--parchment);border:1px solid var(--burgundy);border-radius:20px;
-    padding:8px 16px;font-size:13px;margin:4px 6px 4px 0;color:var(--ink);}
+    padding:10px 18px;font-size:14px;margin:4px 8px 4px 0;color:var(--ink);}
+  .roster-pill .role{display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
 
   .footer{background:var(--ink);color:var(--cream);text-align:center;padding:40px 20px 48px;margin-top:10px;}
   .footer .brand{font-family:'Cormorant Garamond';font-size:22px;font-style:italic;color:var(--cream);}
@@ -182,7 +153,7 @@
   <a href="#details">Details</a>
   <a href="#vision">Your Vision</a>
   <a href="#brief">Your Brief</a>
-  <a href="#team" class="locked">Team</a>
+  <a href="#team">Your Team</a>
 </nav>
 
 <div class="hero">
@@ -402,68 +373,12 @@
   -->
 </div>
 
-<!-- ===================== TEAM (LOCKED) ===================== -->
-<div class="team-zone">
+<!-- ===================== YOUR TEAM ===================== -->
 <div class="section" id="team">
   <div class="section-label">V</div>
-  <h2 class="section-title">Team Access</h2>
-
-  <div class="locked-panel" id="lockedPanel">
-    <div class="eyebrow">Private · Team Only</div>
-    <div class="serif" style="font-size:20px;color:var(--cream);">This section is for the MKBeauty team</div>
-    <input type="text" id="teamPassword" placeholder="Password">
-    <button class="btn-team" onclick="checkTeamPassword()">Unlock</button>
-  </div>
-
-  <div class="team-content" id="teamContent">
-    <div class="look-sub">
-      <div class="look-sub-title">Booking Snapshot</div>
-      <div class="card">
-        <div class="service-count-row"><span>Tier</span><span id="tz_tier">—</span></div>
-        <div class="service-count-row"><span>Status</span><span id="tz_status">—</span></div>
-        <div class="service-count-row"><span>Services Booked</span><span id="tz_services">—</span></div>
-        <div class="service-count-row" style="border-bottom:none;"><span>Party Size</span><span id="tz_partySize">—</span></div>
-      </div>
-    </div>
-
-    <div class="look-sub">
-      <div class="look-sub-title">Team Roster</div>
-      <div class="card" id="tz_roster">Loading...</div>
-    </div>
-
-    <div class="look-sub">
-      <div class="look-sub-title">Wedding Feel / Notes</div>
-      <div class="card" id="tz_weddingFeel">Loading...</div>
-    </div>
-
-    <div class="look-sub">
-      <div class="look-sub-title">Run of Show</div>
-      <div class="card" id="tz_runOfShow">Loading...</div>
-    </div>
-
-    <div class="look-sub">
-      <div class="look-sub-title">Travel &amp; Logistics</div>
-      <div class="card" id="tz_travel">Loading...</div>
-    </div>
-
-    <div class="look-sub">
-      <div class="look-sub-title">Notes from Morgan</div>
-      <div class="card" id="tz_internalNotes">Loading...</div>
-    </div>
-
-    <div class="look-sub">
-      <div class="look-sub-title">Glam Team Notes</div>
-      <div class="card" id="tz_glamNotes">Loading...</div>
-    </div>
-
-    <div class="look-sub">
-      <div class="look-sub-title">Artist Pay</div>
-      <p class="section-hint" style="color:rgba(232,228,223,0.6);margin-bottom:14px;">Tap a name to reveal that artist's pay. Only one shows at a time, and figures live nowhere else on this page.</p>
-      <div class="chip-group" id="payPills"></div>
-      <div id="payReveals"></div>
-    </div>
-  </div>
-</div>
+  <h2 class="section-title">Your Team</h2>
+  <p class="section-hint">The artists bringing your vision to life on the day.</p>
+  <div class="card" id="teamRoster">Loading...</div>
 </div>
 
 <div class="footer">
@@ -517,58 +432,20 @@ const saveVisionBundle = debounce(() => {
   queueFieldSave("Vision (JSON)", JSON.stringify(visionData));
 }, 700);
 
-/* ---------- Artist Pay Reveal ---------- */
-// Parsed from the "Artist Pay" cell. Expected line format, one artist per line:
-// Name, Role, Service label:amount + Service label:amount, Total
-// e.g. "Emily, Hair, Bridal Hair:100 + Guest Hair x2:170, 270"
-function parseArtistPay(raw){
-  if (!raw) return [];
-  return String(raw).split('\n').map(line => line.trim()).filter(Boolean).map(line => {
-    const parts = line.split(',').map(p => p.trim());
-    const name = parts[0] || '';
-    const role = parts[1] || '';
-    const servicesRaw = parts[2] || '';
-    const total = parts[3] || '';
-    const services = servicesRaw.split('+').map(s => s.trim()).filter(Boolean).map(s => {
-      const [label, amount] = s.split(':').map(x => (x || '').trim());
-      return { label: label || s, amount: amount || '' };
-    });
-    return { name, role, services, total };
-  });
-}
-let artistPay = [];
-let openPayIndex = null;
-function renderPayPills(){
-  const wrap = document.getElementById('payPills');
-  wrap.innerHTML = '';
-  artistPay.forEach((a,i)=>{
-    const pill = document.createElement('div');
-    pill.className = 'chip' + (openPayIndex===i ? ' active' : '');
-    pill.textContent = a.name;
-    pill.onclick = ()=>{ openPayIndex = (openPayIndex===i) ? null : i; renderPayPills(); renderPayReveal(); };
-    wrap.appendChild(pill);
-  });
-}
-function renderPayReveal(){
-  const wrap = document.getElementById('payReveals');
-  wrap.innerHTML = '';
-  if(openPayIndex === null) return;
-  const a = artistPay[openPayIndex];
-  const div = document.createElement('div');
-  div.className = 'pay-reveal show';
-  div.innerHTML = `<div style="font-family:'Cormorant Garamond';font-size:20px;color:var(--cream);margin-bottom:10px;">${a.name}, ${a.role}</div>`
-    + a.services.map(s=>`<div class="pay-row"><span>${s.label}</span><span>$${s.amount}</span></div>`).join('')
-    + `<div class="pay-total">$${a.total}</div>`;
-  wrap.appendChild(div);
-}
-
-// Parsed from "Artist Assignments", e.g. "Morgan: Bride MUA x1, Guest MUA x5 | Heather: Bride Hair x1"
-function parseRosterNames(raw){
-  if (!raw) return [];
-  return String(raw).split('|').map(part => {
-    const colonIdx = part.indexOf(':');
-    return colonIdx === -1 ? part.trim() : part.substring(0, colonIdx).trim();
-  }).filter(Boolean);
+/* ---------- Your Team (public, no password) ---------- */
+// Rendered straight from the "Public Roster" array the backend already
+// resolved (real name + real title from Artist Roster). No service counts,
+// no pay, ever, on this page.
+function renderTeamRoster(){
+  const wrap = document.getElementById('teamRoster');
+  const roster = record["Public Roster"] || [];
+  if (roster.length === 0) {
+    wrap.textContent = 'Your team will be confirmed closer to your date.';
+    return;
+  }
+  wrap.innerHTML = roster.map(a =>
+    `<span class="roster-pill">${a.name}<span class="role">${a.role}</span></span>`
+  ).join('');
 }
 
 /* ---------- Basics + profile fields (direct sheet columns) ---------- */
@@ -862,43 +739,6 @@ function populatePublicContent(){
   }
 }
 
-/* ---------- Team zone ---------- */
-function populateTeamContent(){
-  document.getElementById('tz_tier').textContent = record["Tier"] || '—';
-  document.getElementById('tz_status').textContent = record["Status"] || '—';
-  document.getElementById('tz_services').textContent = record["Services Booked"] || '—';
-  document.getElementById('tz_partySize').textContent = record["Party Size"] || '—';
-  document.getElementById('tz_weddingFeel').textContent = record["Wedding Feel / Notes"] || 'Nothing added yet.';
-  document.getElementById('tz_runOfShow').textContent = record["Run of Show"] || 'Nothing added yet.';
-  document.getElementById('tz_travel').textContent = record["Travel Logistics"] || 'Nothing added yet.';
-  document.getElementById('tz_internalNotes').textContent = record["Internal Notes"] || 'Nothing added yet.';
-  document.getElementById('tz_glamNotes').textContent = record["Glam Team Notes"] || 'Nothing added yet.';
-
-  const rosterNames = parseRosterNames(record["Artist Assignments"]);
-  const rosterEl = document.getElementById('tz_roster');
-  rosterEl.innerHTML = rosterNames.length
-    ? rosterNames.map(n => `<span class="roster-pill">${n}</span>`).join('')
-    : 'Not yet assigned.';
-
-  artistPay = parseArtistPay(record["Artist Pay"]);
-  openPayIndex = null;
-  renderPayPills();
-  renderPayReveal();
-}
-async function checkTeamPassword(){
-  const val = document.getElementById('teamPassword').value;
-  const data = await fetchRecord(val);
-  if (data.teamUnlocked) {
-    record = Object.assign({}, record, data);
-    teamUnlocked = true;
-    document.getElementById('lockedPanel').style.display = 'none';
-    document.getElementById('teamContent').classList.add('show');
-    populateTeamContent();
-  } else {
-    alert('Incorrect password.');
-  }
-}
-
 /* ---------- Init ---------- */
 (async function(){
   try{
@@ -914,6 +754,7 @@ async function checkTeamPassword(){
   try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
 
   populatePublicContent();
+  renderTeamRoster();
   initBasics();
   initProfile();
   initLook();
