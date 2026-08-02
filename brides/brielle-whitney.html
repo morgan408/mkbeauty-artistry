@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>{Bride Name} Wedding Experience {MM.DD.YY} | MKBeauty</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
+    --ink:#191714; --muted:#797672; --border:#CBC5BE;
+    --accent:#D9AEB5; --accent-light:#EFEAE5; --accent-dark:#AC9A8A;
+    --burgundy:#632B37; --rose:#D9AEB5; --blush-light:#EFE9E3; --stone:#AC9A8A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  em{font-style:italic;color:var(--burgundy);}
+  .hero em{color:var(--accent);}
+
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(250,247,242,0.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
+    min-height:36px;display:flex;align-items:center;}
+  .navbar a:active{background:var(--accent-light);color:var(--accent-dark);border-color:var(--accent-dark);}
+  .navbar a.locked{margin-left:auto;color:var(--accent-dark);border-color:var(--accent-dark);}
+
+  .hero{background:radial-gradient(ellipse at top, #2a2420 0%, var(--ink) 60%);color:var(--cream);
+    padding:52px 24px 44px;text-align:center;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+  .hero h1{font-size:40px;font-weight:400;margin:0 0 6px;line-height:1.15;}
+  .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:18px;color:rgba(250,247,242,0.75);margin-bottom:18px;}
+  .divider-gold{width:60px;height:1px;background:var(--accent);margin:20px auto;}
+  .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:12px;letter-spacing:0.05em;color:rgba(250,247,242,0.8);}
+  .hero-meta span{border:1px solid rgba(217,174,181,0.35);border-radius:14px;padding:8px 14px;}
+
+  .section{padding:44px 20px;max-width:760px;margin:0 auto;scroll-margin-top:64px;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-title{font-size:28px;font-weight:400;margin:0 0 6px;}
+  .section-hint{font-size:14px;color:var(--muted);font-style:italic;margin-bottom:24px;line-height:1.55;}
+
+  .card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px;}
+  .card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  textarea, input[type=text], select{width:100%;font-family:'Jost';font-weight:300;font-size:15px;color:var(--ink);
+    background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px;line-height:1.5;}
+  textarea{min-height:90px;resize:vertical;}
+  textarea:focus, input[type=text]:focus, select:focus{outline:none;border-color:var(--accent-dark);background:var(--warm-white);}
+  label.field-label{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .vision-box{background:var(--parchment);border:1px solid var(--burgundy);border-radius:10px;padding:22px;}
+  .vision-box textarea{background:transparent;border:none;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:19px;line-height:1.55;color:var(--burgundy);min-height:100px;padding:0;}
+  .vision-box textarea:focus{outline:none;}
+  .vision-box textarea::placeholder{color:#a89e8f;}
+
+  .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;}
+  @media(max-width:560px){.profile-grid{grid-template-columns:1fr;}}
+
+  .chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .chip{font-family:'Jost';font-size:13px;padding:9px 16px;border-radius:18px;border:1px solid var(--accent-dark);
+    background:var(--warm-white);color:var(--ink);min-height:38px;display:flex;align-items:center;cursor:pointer;user-select:none;}
+  .chip.active{background:var(--accent-dark);border-color:var(--accent-dark);color:var(--cream);}
+
+  .slider-wrap{margin:6px 0 22px;}
+  .slider-labels{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .slider-labels span:first-child{text-align:left;}
+  .slider-labels span:last-child{text-align:right;}
+  .slider-labels .mid{font-family:'Cormorant Garamond';font-style:italic;text-transform:none;letter-spacing:0;color:var(--burgundy);text-align:center;}
+  input[type=range]{-webkit-appearance:none;width:100%;height:2px;background:var(--border);border-radius:2px;margin:14px 0;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+    background:var(--ink);border:3px solid var(--accent);cursor:pointer;margin-top:-10px;}
+
+  .look-sub{margin-bottom:28px;}
+  .look-sub:last-child{margin-bottom:0;}
+  .look-sub-title{font-size:18px;font-family:'Cormorant Garamond';font-weight:500;margin-bottom:10px;}
+
+  .la-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.la-columns{grid-template-columns:1fr;}}
+  .la-col{border:1px solid var(--border);border-radius:10px;padding:16px;background:var(--warm-white);}
+  .la-col.avoid{background:var(--blush-light);}
+  .la-col-title{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;color:var(--burgundy);}
+  .la-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;}
+  .la-item .dash{color:var(--accent-dark);}
+  .la-item .remove{margin-left:auto;color:var(--muted);font-size:16px;cursor:pointer;padding:4px 8px;}
+  .la-add{display:flex;gap:8px;margin-top:10px;}
+  .la-add input{flex:1;font-size:13px;padding:9px 12px;min-height:38px;}
+  .la-add button{min-height:38px;padding:0 14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:16px;}
+
+  .photo-grid{display:flex;flex-wrap:wrap;gap:3%;}
+  .photo-tile{width:48.5%;aspect-ratio:3/4;margin-bottom:14px;border:1px solid var(--border);border-radius:10px;
+    overflow:hidden;background:var(--warm-white);position:relative;display:flex;flex-direction:column;}
+  .photo-img-wrap{flex:1;display:flex;align-items:center;justify-content:center;background:var(--parchment);position:relative;overflow:hidden;}
+  .photo-img-wrap img{width:100%;height:100%;object-fit:cover;}
+  .photo-placeholder{font-size:12px;color:var(--muted);letter-spacing:0.05em;text-align:center;padding:12px;}
+  .photo-placeholder .plus{font-size:26px;display:block;margin-bottom:4px;color:var(--accent-dark);}
+  .photo-remove{position:absolute;top:6px;right:6px;background:rgba(26,23,20,0.65);color:#fff;width:26px;height:26px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;z-index:2;}
+  .add-tile{width:100%;min-height:56px;border:1px dashed var(--accent-dark);border-radius:10px;background:transparent;
+    color:var(--accent-dark);font-family:'Jost';font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;}
+  input[type=file]{display:none;}
+
+  .btn-primary{width:100%;font-family:'Jost';font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--burgundy);color:var(--cream);border:none;border-radius:24px;padding:16px;min-height:52px;cursor:pointer;}
+  .btn-secondary{width:100%;font-family:'Jost';font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    background:transparent;color:var(--burgundy);border:1px solid var(--burgundy);border-radius:24px;
+    padding:15px;min-height:50px;cursor:pointer;margin-top:10px;}
+
+  /* Quote card styles */
+  .service-card{background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:14px;}
+  .service-card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  .tier-tag{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;}
+  .service-name{font-family:'Cormorant Garamond';font-size:26px;font-weight:400;margin:0 0 6px;}
+  .service-desc{font-size:13px;color:var(--muted);margin-bottom:10px;}
+  .service-price{font-family:'Cormorant Garamond';font-size:28px;text-align:right;}
+  .total-block{background:#000000;color:var(--cream);border-radius:12px;padding:28px 22px;text-align:center;margin:20px 0;}
+  .total-block .label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(220,217,212,0.6);margin-bottom:8px;}
+  .total-block .amount{font-family:'Cormorant Garamond';font-size:42px;}
+  .booking-note{background:var(--accent-light);border-left:3px solid var(--accent-dark);border-radius:0 8px 8px 0;padding:16px 18px;font-size:13px;line-height:1.6;}
+
+  /* Brief styles */
+  .brief-essence{font-family:'Cormorant Garamond';font-style:italic;font-size:19px;line-height:1.6;color:var(--burgundy);}
+  .brief-table{width:100%;border-collapse:collapse;}
+  .brief-table td{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;vertical-align:top;}
+  .brief-table td:first-child{width:38%;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:22px;text-align:center;
+    color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:17px;line-height:1.6;}
+
+  /* Locked team section */
+  .team-zone{background:var(--burgundy);width:100%;}
+  .team-zone .section-label{color:var(--stone);}
+  .team-zone .section-label::after{background:rgba(232,228,223,0.25);}
+  .team-zone .section-title{color:var(--cream);}
+  .team-zone .look-sub-title{color:var(--stone);}
+  .team-zone .card{background:rgba(255,255,255,0.06);border:1px solid rgba(172,154,138,0.3);color:var(--cream);}
+  .team-zone .roster-pill{background:transparent;border:1px solid rgba(172,154,138,0.5);color:var(--cream);
+    text-transform:uppercase;font-size:11px;letter-spacing:0.08em;padding:9px 16px;}
+  .team-zone .roster-pill.lead{background:var(--ink);border-color:var(--ink);color:var(--cream);font-weight:500;}
+  .team-zone .chip{background:transparent;border-color:rgba(172,154,138,0.5);color:var(--cream);
+    text-transform:uppercase;font-size:11px;letter-spacing:0.08em;transition:all 0.2s ease;}
+  .team-zone .chip.active{background:var(--ink);border-color:var(--ink);color:var(--cream);box-shadow:0 2px 10px rgba(0,0,0,0.35);}
+  .btn-team{width:100%;max-width:200px;margin:0 auto;display:block;font-family:'Jost';font-size:13px;letter-spacing:0.08em;
+    text-transform:uppercase;background:var(--ink);color:var(--cream);border:none;border-radius:24px;padding:15px;
+    min-height:50px;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,0.2);}
+  .service-count-row{display:flex;justify-content:space-between;font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.12);}
+  .pay-reveal{background:rgba(255,255,255,0.06);border:1px solid var(--stone);border-radius:10px;padding:18px;margin-top:14px;display:none;}
+  .pay-reveal.show{display:block;}
+  .pay-reveal .pay-row{display:flex;justify-content:space-between;font-size:14px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.12);color:var(--cream);}
+  .pay-reveal .pay-total{font-family:'Cormorant Garamond';font-size:26px;color:var(--stone);text-align:right;margin-top:10px;}
+  .locked-panel{background:rgba(255,255,255,0.05);border:1px solid rgba(172,154,138,0.35);color:var(--cream);border-radius:12px;padding:26px 22px;text-align:center;}
+  .locked-panel .eyebrow{margin-bottom:10px;color:var(--stone);}
+  .locked-panel input{background:rgba(255,255,255,0.06);border:1px solid rgba(172,154,138,0.4);color:var(--cream);
+    text-align:center;margin:14px 0;}
+  .locked-panel input::placeholder{color:rgba(250,247,242,0.4);}
+  #teamPassword{background:#4A1A21;color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;caret-color:#FFFFFF;
+    border:1px solid rgba(172,154,138,0.5);}
+  .team-content{display:none;}
+  .team-content.show{display:block;}
+  .roster-pill{display:inline-block;background:var(--parchment);border:1px solid var(--burgundy);border-radius:20px;
+    padding:8px 16px;font-size:13px;margin:4px 6px 4px 0;color:var(--ink);}
+
+  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:40px 20px 48px;margin-top:10px;}
+  .footer .brand{font-family:'Cormorant Garamond';font-size:22px;font-style:italic;color:var(--cream);}
+  .footer .sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,228,223,0.55);margin-top:8px;}
+
+  .confirm-screen{display:none;text-align:center;padding:60px 24px;}
+  .confirm-screen.show{display:block;}
+  .confirm-screen h2{font-size:30px;}
+  ::selection{background:var(--accent-light);}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#quote">Your Quote</a>
+  <a href="#details">Details</a>
+  <a href="#vision">Your Vision</a>
+  <a href="#brief">Your Brief</a>
+  <a href="#team" class="locked">Team</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Prepared Exclusively For</div>
+  <h1 id="heroName"><em>{First}</em> {Last}</h1>
+  <div class="sub">Wedding Day</div>
+  <div class="divider-gold"></div>
+  <div class="hero-meta">
+    <span id="heroDate">{Wedding Date}</span>
+    <span id="heroVenue">{Venue / City}</span>
+  </div>
+  <a href="#vision" style="display:inline-block;margin-top:26px;background:var(--burgundy);color:var(--cream);
+    text-decoration:none;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:14px 30px;
+    border-radius:24px;">Begin Your Vision</a>
+</div>
+
+<!-- ===================== YOUR QUOTE =====================
+  AUTHORITATIVE PRICING (verify against current project memory before using):
+  Chiffon:   Bride MU $175 | Bride Hair $100 | Guest MU $125 | Guest Hair $85
+  Soie:      Bride MU $225 | Bride Hair $125 | Guest MU $175 | Guest Hair $100
+  Cachemire: Bride MU $300+ | Bride Hair $150+ | Guest MU $200+ | Guest Hair $125+
+  Travel: $0.75/mi, 20mi gifted radius. Booking fee: $150 flat.
+  Touch-up (Cachemire only, optional add-on): $200+, always itemized separately.
+======================================================= -->
+<div class="section" id="quote">
+  <div class="section-label">I</div>
+  <h2 class="section-title">Your Quote</h2>
+  <p class="section-hint">Thoughtfully curated for your day, where every detail is meant to feel like you.</p>
+
+  <div class="service-card featured" id="quoteLinkCard">
+    <div class="tier-tag">Your Full Quote</div>
+    <div class="service-name">View Your <em>Quote</em></div>
+    <div class="service-desc" id="quoteLinkDesc">Loading your quote details...</div>
+    <a href="#" id="quoteLinkButton" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:var(--burgundy);
+      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+      padding:14px 30px;border-radius:24px;">Open Full Quote</a>
+  </div>
+
+  <div class="booking-note">
+    Your full pricing breakdown, payment schedule, and total live on your quote page above. This page stays focused on your vision, your details, and your day.
+  </div>
+</div>
+
+<!-- ===================== DETAILS ON FILE =====================
+  PRE-FILL with value="..." from Morgan when building this bride's page: Bride Phone, Bride Email, Contract Link href,
+  and Getting-Ready Address if Morgan already has it (sometimes differs from the venue).
+  LEAVE BLANK: Day-Of Contact and Day-Of Contact Phone, and Getting-Ready Address if not yet known, the bride fills these in herself.
+======================================================= -->
+<div class="section" id="details">
+  <div class="section-label">II</div>
+  <h2 class="section-title">Details on File</h2>
+  <p class="section-hint">Everything we need to reach you, and where your signed agreement lives.</p>
+
+  <div class="card">
+    <div class="profile-grid">
+      <div><label class="field-label">Your Phone</label><input type="text" id="q_bridePhone"></div>
+      <div><label class="field-label">Your Email</label><input type="text" id="q_brideEmail"></div>
+      <div style="grid-column:1/-1;"><label class="field-label">Getting-Ready Address</label><input type="text" id="q_gettingReady" placeholder="Where the morning-of prep is happening, if different from the venue"></div>
+      <div><label class="field-label">Day-Of Contact</label><input type="text" id="q_dayOfContact" placeholder="Name, relationship"></div>
+      <div><label class="field-label">Day-Of Contact Phone</label><input type="text" id="q_dayOfPhone"></div>
+    </div>
+  </div>
+
+  <div class="card featured" style="text-align:center;">
+    <div class="tier-tag">On File</div>
+    <div class="service-name">Signed Contract</div>
+    <a href="{Contract Link}" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;background:var(--burgundy);
+      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+      padding:14px 30px;border-radius:24px;">View Signed Contract</a>
+  </div>
+</div>
+
+<!-- ===================== YOUR VISION ===================== -->
+<div class="section" id="vision">
+  <div class="section-label">III</div>
+  <h2 class="section-title">Your Vision</h2>
+  <p class="section-hint">Before we meet, tell us everything. The more we know now, the more time we get to spend perfecting rather than discovering. Take your time, you can always come back and finish this later.</p>
+
+  <div id="visionForm">
+
+    <div class="look-sub">
+      <div class="look-sub-title">In Your Own Words</div>
+      <div class="vision-box">
+        <textarea id="q_vision" placeholder="Describe the feeling you want on your wedding day. Glowy and bronzed? Soft and romantic? Bold and editorial? Paint the whole picture..."></textarea>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Services &amp; Day-Of Basics</div>
+      <div class="card">
+        <div class="profile-grid" id="basicsGrid">
+          <div><label class="field-label">Ceremony Time</label><input type="text" id="q_ceremonyTime"></div>
+          <div><label class="field-label">Services Booked</label>
+            <select id="q_servicesBooked" onchange="updateServiceVisibility()">
+              <option value="">Select...</option>
+              <option value="both">Hair &amp; Makeup</option>
+              <option value="hair">Hair Only</option>
+              <option value="makeup">Makeup Only</option>
+            </select>
+          </div>
+          <div><label class="field-label">Additional Events</label><input type="text" id="q_additionalEvents" placeholder="Welcome party, rehearsal, etc."></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Bridal Profile</div>
+      <div class="card">
+        <div class="profile-grid" id="profileGrid"></div>
+      </div>
+    </div>
+
+    <div class="look-sub" data-service="makeup">
+      <div class="look-sub-title">Makeup Finish</div>
+      <div class="slider-wrap">
+        <div class="slider-labels"><span>Matte</span><span class="mid" id="finishMidLabel">In Between</span><span>Dewy / Glowy</span></div>
+        <input type="range" min="0" max="100" value="50" id="finishSlider">
+      </div>
+    </div>
+
+    <div id="lookSections"></div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Love &amp; To Avoid</div>
+      <div class="la-columns">
+        <div class="la-col">
+          <div class="la-col-title">The Vision</div>
+          <div id="lovedList"></div>
+          <div class="la-add"><input type="text" id="lovedInput" placeholder="Add something you love"><button onclick="addListItem('loved')">+</button></div>
+        </div>
+        <div class="la-col avoid">
+          <div class="la-col-title">To Avoid</div>
+          <div id="avoidList"></div>
+          <div class="la-add"><input type="text" id="avoidInput" placeholder="Add something to avoid"><button onclick="addListItem('avoid')">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="look-sub" data-service="hair">
+      <div class="look-sub-title">Hair</div>
+      <label class="field-label" style="margin-bottom:8px;display:block;">General style</label>
+      <div class="chip-group" id="chips_hair"></div>
+      <div class="card">
+        <label class="field-label">Anything else about the style you're picturing</label>
+        <textarea id="q_hairDetails" placeholder="A few examples: soft curls half up, a sleek low updo, romantic waves down, a braided detail woven in..." style="margin-bottom:14px;"></textarea>
+        <label class="field-label">Veil placement, combs, or accessories you're wearing</label>
+        <textarea id="q_veilAccessories" placeholder="Where the veil attaches, and any combs, pins, or pieces you already have..." style="margin-bottom:14px;"></textarea>
+        <label class="field-label">Clip-in hair extensions</label>
+        <input type="text" id="q_extensions" placeholder="Will you be using clip-ins? Leave blank if this doesn't apply">
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Jewelry &amp; Everyday Habits</div>
+      <div class="card">
+        <label class="field-label">What jewelry will you wear (earrings, necklace)</label>
+        <input type="text" id="q_jewelry" style="margin-bottom:14px;">
+        <label class="field-label">Your everyday hair and makeup habits</label>
+        <textarea id="q_everyday" placeholder="Do you wear makeup daily, only for occasions, somewhere in between? Do you usually wear your hair up or down?"></textarea>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Big Day Considerations</div>
+      <div class="card">
+        <textarea id="q_bigDay" placeholder="Outdoor ceremony? Expecting heat, tears, a lot of dancing? Anything about your skin that tends to shift through a long day?"></textarea>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Inspo Photos</div>
+      <p class="section-hint" style="margin-bottom:14px;">Tap the tiles below to build your inspo board, just for you to organize your thoughts. When you're ready to actually send them to us, use the button underneath, photos travel better that way than through a form.</p>
+      <div class="photo-grid" id="photoGrid"></div>
+      <button class="add-tile" onclick="addPhotoTile()">+ Add Photo Tile</button>
+      <input type="file" id="photoFileInput" accept="image/*">
+    </div>
+
+    <div style="margin-top:30px;">
+      <button class="btn-secondary" onclick="sharePhotos()">Send These Photos to Morgan</button>
+      <button class="btn-primary" style="margin-top:10px;" onclick="submitVision()">Submit My Vision</button>
+    </div>
+  </div>
+
+  <div class="confirm-screen" id="confirmScreen">
+    <div class="eyebrow" style="color:var(--accent-dark);">Received, With Love</div>
+    <h2 class="serif">Thank you<span id="confirmName"></span></h2>
+    <p style="color:var(--muted);font-size:15px;line-height:1.6;">Your vision is in our hands now. We'll be in touch before your preview, and this page will hold your Brief once it's ready.</p>
+    <button class="btn-secondary" style="max-width:240px;margin:20px auto 0;" onclick="reopenVisionForm()">Edit My Answers</button>
+  </div>
+</div>
+
+<!-- ===================== YOUR BRIEF ===================== -->
+<div class="section" id="brief">
+  <div class="section-label">IV</div>
+  <h2 class="section-title">Your Bridal Beauty Brief</h2>
+  <p class="section-hint">The plan, refined and reflected back to you.</p>
+
+  <div class="placeholder-note">
+    Being thoughtfully prepared with love. Once we've reviewed your Vision, your full Brief will appear right here, your palette, your look, your loved and to-avoid, all reflected back to you.
+  </div>
+
+  <!-- STRUCTURE REFERENCE FOR BUILDING THE REAL BRIEF (not visible to any bride):
+  <div class="card featured"><div class="brief-essence">{Essence paragraph}</div></div>
+  <div class="look-sub"><div class="look-sub-title">Bridal Profile</div><div class="card">
+    <table class="brief-table">
+      <tr><td>Overall Vision</td><td>{answer}</td></tr>
+      <tr><td>Hair Style</td><td>{answer}</td></tr>
+      <tr><td>Skin Type</td><td>{answer}</td></tr>
+      <tr><td>Desired Finish</td><td>{answer}</td></tr>
+      <tr><td>Allergies</td><td>{answer}</td></tr>
+    </table>
+  </div></div>
+  <div class="look-sub"><div class="look-sub-title">Love &amp; To Avoid</div><div class="la-columns">
+    <div class="la-col"><div class="la-col-title">The Vision</div><div class="la-item"><span class="dash">—</span><span>{item}</span></div></div>
+    <div class="la-col avoid"><div class="la-col-title">To Avoid</div><div class="la-item"><span class="dash">—</span><span>{item}</span></div></div>
+  </div></div>
+  -->
+</div>
+
+<!-- ===================== TEAM (LOCKED) ===================== -->
+<div class="team-zone">
+<div class="section" id="team">
+  <div class="section-label">V</div>
+  <h2 class="section-title">Team Access</h2>
+
+  <div class="locked-panel" id="lockedPanel">
+    <div class="eyebrow">Private · Team Only</div>
+    <div class="serif" style="font-size:20px;color:var(--cream);">This section is for the MKBeauty team</div>
+    <input type="text" id="teamPassword" placeholder="Password">
+    <button class="btn-team" onclick="checkTeamPassword()">Unlock</button>
+  </div>
+
+  <div class="team-content" id="teamContent">
+    <div class="look-sub">
+      <div class="look-sub-title">Booking Snapshot</div>
+      <div class="card">
+        <div class="service-count-row"><span>Tier</span><span id="tz_tier">—</span></div>
+        <div class="service-count-row"><span>Status</span><span id="tz_status">—</span></div>
+        <div class="service-count-row"><span>Services Booked</span><span id="tz_services">—</span></div>
+        <div class="service-count-row" style="border-bottom:none;"><span>Party Size</span><span id="tz_partySize">—</span></div>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Team Roster</div>
+      <div class="card" id="tz_roster">Loading...</div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Wedding Feel / Notes</div>
+      <div class="card" id="tz_weddingFeel">Loading...</div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Run of Show</div>
+      <div class="card" id="tz_runOfShow">Loading...</div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Travel &amp; Logistics</div>
+      <div class="card" id="tz_travel">Loading...</div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Notes from Morgan</div>
+      <div class="card" id="tz_internalNotes">Loading...</div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Glam Team Notes</div>
+      <div class="card" id="tz_glamNotes">Loading...</div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Artist Pay</div>
+      <p class="section-hint" style="color:rgba(232,228,223,0.6);margin-bottom:14px;">Tap a name to reveal that artist's pay. Only one shows at a time, and figures live nowhere else on this page.</p>
+      <div class="chip-group" id="payPills"></div>
+      <div id="payReveals"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="footer">
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="sub">Morgan Kelly Baird</div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIG — the only two things that change per bride when you duplicate
+   this file. Everything else pulls live from the sheet automatically.
+   ===================================================================== */
+const EVENT_ID = "SET_EVENT_ID_HERE"; // e.g. "EVT-006", must match Bookings Pipeline exactly
+const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
+
+let record = {};        // the fetched, merged row (Bookings Pipeline + Experience Data)
+let visionData = {};    // everything that lives inside the single "Vision (JSON)" cell
+let teamUnlocked = false;
+let pendingChanges = {};
+
+function debounce(fn, ms){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); }; }
+
+async function fetchRecord(pw){
+  const url = API_URL + "?id=" + encodeURIComponent(EVENT_ID) + (pw ? "&pw=" + encodeURIComponent(pw) : "");
+  const res = await fetch(url);
+  return await res.json();
+}
+
+// Queues a field to be written back to the sheet. Multiple fields changed in
+// quick succession get batched into a single POST after a short pause.
+function queueFieldSave(fieldName, value){
+  pendingChanges[fieldName] = value;
+  flushPendingSaves();
+}
+const flushPendingSaves = debounce(async () => {
+  if (Object.keys(pendingChanges).length === 0) return;
+  const payload = Object.assign({ "Event ID": EVENT_ID }, pendingChanges);
+  pendingChanges = {};
+  try{
+    await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
+  }catch(e){ console.error('Save failed', e); }
+}, 700);
+
+// Vision (JSON) is one cell holding everything from the Vision section.
+// Any change to any piece of it re-saves the whole bundle.
+const saveVisionBundle = debounce(() => {
+  queueFieldSave("Vision (JSON)", JSON.stringify(visionData));
+}, 700);
+
+/* ---------- Artist Pay Reveal ---------- */
+// Parsed from the "Artist Pay" cell. Expected line format, one artist per line:
+// Name, Role, Service label:amount + Service label:amount, Total
+// e.g. "Emily, Hair, Bridal Hair:100 + Guest Hair x2:170, 270"
+function parseArtistPay(raw){
+  if (!raw) return [];
+  return String(raw).split('\n').map(line => line.trim()).filter(Boolean).map(line => {
+    const parts = line.split(',').map(p => p.trim());
+    const name = parts[0] || '';
+    const role = parts[1] || '';
+    const servicesRaw = parts[2] || '';
+    const total = parts[3] || '';
+    const services = servicesRaw.split('+').map(s => s.trim()).filter(Boolean).map(s => {
+      const [label, amount] = s.split(':').map(x => (x || '').trim());
+      return { label: label || s, amount: amount || '' };
+    });
+    return { name, role, services, total };
+  });
+}
+let artistPay = [];
+let openPayIndex = null;
+function renderPayPills(){
+  const wrap = document.getElementById('payPills');
+  wrap.innerHTML = '';
+  artistPay.forEach((a,i)=>{
+    const pill = document.createElement('div');
+    pill.className = 'chip' + (openPayIndex===i ? ' active' : '');
+    pill.textContent = a.name;
+    pill.onclick = ()=>{ openPayIndex = (openPayIndex===i) ? null : i; renderPayPills(); renderPayReveal(); };
+    wrap.appendChild(pill);
+  });
+}
+function renderPayReveal(){
+  const wrap = document.getElementById('payReveals');
+  wrap.innerHTML = '';
+  if(openPayIndex === null) return;
+  const a = artistPay[openPayIndex];
+  const div = document.createElement('div');
+  div.className = 'pay-reveal show';
+  div.innerHTML = `<div style="font-family:'Cormorant Garamond';font-size:20px;color:var(--cream);margin-bottom:10px;">${a.name}, ${a.role}</div>`
+    + a.services.map(s=>`<div class="pay-row"><span>${s.label}</span><span>$${s.amount}</span></div>`).join('')
+    + `<div class="pay-total">$${a.total}</div>`;
+  wrap.appendChild(div);
+}
+
+// Parsed from "Artist Assignments", e.g. "Morgan: Bride MUA x1, Guest MUA x5 | Heather: Bride Hair x1"
+function parseRosterNames(raw){
+  if (!raw) return [];
+  return String(raw).split('|').map(part => {
+    const colonIdx = part.indexOf(':');
+    return colonIdx === -1 ? part.trim() : part.substring(0, colonIdx).trim();
+  }).filter(Boolean);
+}
+
+/* ---------- Basics + profile fields (direct sheet columns) ---------- */
+// These map straight to real Bookings Pipeline / Experience Data column headers.
+const directFieldMap = {
+  q_bridePhone: "Phone",
+  q_brideEmail: "Email",
+  q_ceremonyTime: "Ceremony Time",
+  q_gettingReady: "Getting-Ready Address",
+  q_dayOfContact: "Day-Of Contact",
+  q_dayOfPhone: "Day-Of Contact Phone"
+};
+function initBasics(){
+  Object.keys(directFieldMap).forEach(id=>{
+    const el = document.getElementById(id);
+    const header = directFieldMap[id];
+    if (record[header]) el.value = record[header];
+    el.addEventListener('input', debounce(()=>{
+      queueFieldSave(header, el.value);
+    }, 500));
+  });
+  // These live inside the Vision (JSON) bundle, not their own columns
+  const bundledIds = ['q_additionalEvents','q_hairDetails','q_veilAccessories','q_extensions','q_jewelry','q_everyday','q_bigDay','q_vision'];
+  bundledIds.forEach(id=>{
+    const el = document.getElementById(id);
+    if (visionData[id]) el.value = visionData[id];
+    el.addEventListener('input', debounce(()=>{
+      visionData[id] = el.value;
+      saveVisionBundle();
+    }, 500));
+  });
+}
+
+const profileFields = [
+  {id:'skinType', label:'Skin Type'},
+  {id:'skinConcerns', label:'Skin Concerns'},
+  {id:'eyeColor', label:'Eye Color'},
+  {id:'hairColor', label:'Hair Color'},
+  {id:'freckles', label:'Freckles / Texture Notes'},
+  {id:'allergies', label:'Allergies / Sensitivities'}
+];
+function initProfile(){
+  const grid = document.getElementById('profileGrid');
+  const savedProfile = visionData.profile || {};
+  profileFields.forEach(f=>{
+    const wrap = document.createElement('div');
+    const val = savedProfile[f.id] || '';
+    wrap.innerHTML = `<label class="field-label">${f.label}</label><input type="text" id="pf_${f.id}" value="${String(val).replace(/"/g,'&quot;')}">`;
+    grid.appendChild(wrap);
+  });
+  profileFields.forEach(f=>{
+    document.getElementById('pf_'+f.id).addEventListener('input', debounce(()=>{
+      if (!visionData.profile) visionData.profile = {};
+      visionData.profile[f.id] = document.getElementById('pf_'+f.id).value;
+      saveVisionBundle();
+    }, 400));
+  });
+}
+
+/* ---------- Look sections (chips) ---------- */
+const lookConfig = [
+  {key:'hair', title:'Hair', service:'hair', presets:['Half-Up','Down, Curled','Low Updo','High Updo','Braided Detail','Soft Waves','Sleek','Voluminous','Textured / Undone','Unsure']},
+  {key:'base', title:'Base & Complexion', service:'makeup', presets:['Dewy','Satin','Soft Matte','Full Coverage','Medium Coverage','Skin-Like']},
+  {key:'eyes', title:'Eyes', service:'makeup', presets:['Soft Glam','Smokey','Warm Neutral','Peach-Orange','Shimmer','Matte','Soft Wing']},
+  {key:'cheeks', title:'Cheeks', service:'makeup', presets:['Warm Bronze','Pink Flush','Sculpted','Sun-Kissed']},
+  {key:'lips', title:'Lips', service:'makeup', presets:['Nude','Pink','Glossy Nude','Berry','Classic Red','Matte']},
+  {key:'brows', title:'Brows', service:'makeup', presets:['Natural','Defined','Soft Powder','Full & Groomed']}
+];
+let lookState = {};
+function initLook(){
+  const container = document.getElementById('lookSections');
+  lookState = visionData.look || {};
+  lookConfig.forEach(sec=>{
+    if(!lookState[sec.key]) lookState[sec.key] = {chips:sec.presets.map(()=>false)};
+    if(sec.key === 'hair'){
+      renderLookChips(sec);
+      return;
+    }
+    const div = document.createElement('div');
+    div.className = 'look-sub';
+    div.dataset.service = sec.service;
+    div.innerHTML = `<div class="look-sub-title">${sec.title}</div><div class="chip-group" id="chips_${sec.key}"></div>`;
+    container.appendChild(div);
+    renderLookChips(sec);
+  });
+  const finishVal = visionData.finish != null ? visionData.finish : 50;
+  document.getElementById('finishSlider').value = finishVal;
+  updateFinishLabel(finishVal);
+  document.getElementById('finishSlider').addEventListener('input', (e)=>{
+    updateFinishLabel(e.target.value);
+    visionData.finish = e.target.value;
+    saveVisionBundle();
+  });
+  const savedService = visionData.servicesBooked || '';
+  if(savedService) document.getElementById('q_servicesBooked').value = savedService;
+  document.getElementById('q_servicesBooked').addEventListener('change', updateServiceVisibility);
+  updateServiceVisibility();
+}
+function updateServiceVisibility(){
+  const val = document.getElementById('q_servicesBooked').value;
+  visionData.servicesBooked = val;
+  saveVisionBundle();
+  const sections = document.querySelectorAll('[data-service]');
+  sections.forEach(el=>{
+    if(!val){ el.style.display = ''; return; }
+    if(val === 'both'){ el.style.display = ''; return; }
+    el.style.display = (el.dataset.service === val) ? '' : 'none';
+  });
+}
+function updateFinishLabel(val){
+  const label = document.getElementById('finishMidLabel');
+  if(val < 33) label.textContent = 'Matte';
+  else if(val > 66) label.textContent = 'Dewy / Glowy';
+  else label.textContent = 'In Between';
+}
+function renderLookChips(sec){
+  const wrap = document.getElementById('chips_'+sec.key);
+  wrap.innerHTML = '';
+  const st = lookState[sec.key];
+  sec.presets.forEach((label, i)=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip' + (st.chips[i] ? ' active' : '');
+    chip.textContent = label;
+    chip.onclick = ()=>{
+      st.chips[i] = !st.chips[i];
+      renderLookChips(sec);
+      visionData.look = lookState;
+      saveVisionBundle();
+    };
+    wrap.appendChild(chip);
+  });
+}
+
+/* ---------- Loved / Avoid ---------- */
+let listState = {loved:[], avoid:[]};
+function initLists(){
+  listState = visionData.lovedAvoid || {loved:[], avoid:[]};
+  renderList('loved'); renderList('avoid');
+}
+function renderList(type){
+  const wrap = document.getElementById(type+'List');
+  wrap.innerHTML = '';
+  listState[type].forEach((item, i)=>{
+    const row = document.createElement('div');
+    row.className = 'la-item';
+    row.innerHTML = `<span class="dash">—</span><span>${item}</span><span class="remove" onclick="removeListItem('${type}', ${i})">✕</span>`;
+    wrap.appendChild(row);
+  });
+}
+function addListItem(type){
+  const input = document.getElementById(type+'Input');
+  const val = input.value.trim();
+  if(!val) return;
+  listState[type].push(val); input.value='';
+  renderList(type);
+  visionData.lovedAvoid = listState;
+  saveVisionBundle();
+}
+function removeListItem(type, i){
+  listState[type].splice(i,1);
+  renderList(type);
+  visionData.lovedAvoid = listState;
+  saveVisionBundle();
+}
+
+/* ---------- Photos (device-local only, never synced to the sheet) ---------- */
+// Photos stay on-device and are shared to Morgan via the native share sheet
+// button below, the same as before. They are not part of Vision (JSON).
+function saveDraft(key, value){ try{ localStorage.setItem(key, JSON.stringify(value)); }catch(e){} }
+function loadDraft(key, fallback){ try{ const raw = localStorage.getItem(key); return raw!==null ? JSON.parse(raw) : fallback; }catch(e){ return fallback; } }
+let photoState = [];
+let activeTileIndex = null;
+function initPhotos(){
+  photoState = loadDraft('bp_photos_'+EVENT_ID, []);
+  if(photoState.length === 0){ photoState = [{},{}]; }
+  renderPhotos();
+  document.getElementById('photoFileInput').addEventListener('change', handlePhotoFile);
+}
+function renderPhotos(){
+  const grid = document.getElementById('photoGrid');
+  grid.innerHTML = '';
+  photoState.forEach((tile, i)=>{
+    const div = document.createElement('div');
+    div.className = 'photo-tile';
+    div.innerHTML = tile.dataUrl
+      ? `<div class="photo-img-wrap" onclick="triggerUpload(${i})"><img src="${tile.dataUrl}"><span class="photo-remove" onclick="event.stopPropagation();removePhoto(${i})">✕</span></div>`
+      : `<div class="photo-img-wrap" onclick="triggerUpload(${i})"><div class="photo-placeholder"><span class="plus">+</span>Tap to add</div></div>`;
+    grid.appendChild(div);
+  });
+}
+function triggerUpload(i){ activeTileIndex = i; document.getElementById('photoFileInput').click(); }
+function addPhotoTile(){ photoState.push({}); renderPhotos(); saveDraft('bp_photos_'+EVENT_ID, photoState); }
+function removePhoto(i){ photoState[i] = {}; renderPhotos(); saveDraft('bp_photos_'+EVENT_ID, photoState); }
+function handlePhotoFile(e){
+  const file = e.target.files[0];
+  if(!file || activeTileIndex === null) return;
+  compressImage(file, (dataUrl)=>{
+    photoState[activeTileIndex].dataUrl = dataUrl;
+    renderPhotos();
+    saveDraft('bp_photos_'+EVENT_ID, photoState);
+  });
+  e.target.value = '';
+}
+function compressImage(file, callback){
+  const reader = new FileReader();
+  reader.onload = function(evt){
+    const img = new Image();
+    img.onload = function(){
+      const maxDim = 1000;
+      let w = img.width, h = img.height;
+      if(w > h && w > maxDim){ h = h*(maxDim/w); w = maxDim; }
+      else if(h > maxDim){ w = w*(maxDim/h); h = maxDim; }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      callback(canvas.toDataURL('image/jpeg', 0.78));
+    };
+    img.src = evt.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+async function sharePhotos(){
+  const files = [];
+  for(const tile of photoState){
+    if(!tile.dataUrl) continue;
+    const res = await fetch(tile.dataUrl);
+    const blob = await res.blob();
+    files.push(new File([blob], 'inspo.jpg', {type:'image/jpeg'}));
+  }
+  if(files.length === 0){ alert('Add at least one photo first.'); return; }
+  if(navigator.canShare && navigator.canShare({files})){
+    try{
+      await navigator.share({files, title:'My Inspo Photos', text:'Inspo photos for my wedding look'});
+    }catch(e){ /* user cancelled */ }
+  } else {
+    alert("Your browser can't share images directly. Please save them and text or email them to us instead.");
+  }
+}
+
+/* ---------- Submit vision ---------- */
+function submitVision(){
+  document.getElementById('visionForm').style.display = 'none';
+  document.getElementById('confirmScreen').classList.add('show');
+  const name = document.getElementById('heroName').textContent.trim();
+  document.getElementById('confirmName').textContent = name ? ', ' + name.split(' ')[0] : '';
+}
+function reopenVisionForm(){
+  document.getElementById('confirmScreen').classList.remove('show');
+  document.getElementById('visionForm').style.display = 'block';
+}
+
+/* ---------- Populate hero, details, quote link, brief from fetched record ---------- */
+function populatePublicContent(){
+  const name = record["Bride / Client Name"] || "";
+  document.getElementById('heroName').innerHTML = name ? `<em>${name.split(' ')[0]}</em> ${name.split(' ').slice(1).join(' ')}` : '<em>Your</em> Name';
+  document.title = (name ? name + ' ' : '') + document.title.replace(/^\{Bride Name\}\s*/, '');
+
+  if (record["Event Date"]) {
+    const d = new Date(record["Event Date"]);
+    if (!isNaN(d)) {
+      document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    }
+  }
+  const venueBits = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
+  if (venueBits) document.getElementById('heroVenue').textContent = venueBits;
+
+  const quoteLink = record["Quote Link"];
+  const quoteBtn = document.getElementById('quoteLinkButton');
+  const quoteDesc = document.getElementById('quoteLinkDesc');
+  if (quoteLink) {
+    quoteBtn.href = quoteLink;
+    quoteDesc.textContent = "Your full pricing, payment schedule, and total are all on your quote page.";
+  } else {
+    quoteBtn.style.display = 'none';
+    quoteDesc.textContent = "Your quote link hasn't been added yet, check back soon.";
+  }
+
+  const contractLink = record["Contract Link"] || record["contract_link"];
+  const contractBtn = document.querySelector('a[href="{Contract Link}"]');
+  if (contractBtn && contractLink) contractBtn.href = contractLink;
+
+  const briefEssence = record["Brief Essence"];
+  if (briefEssence) {
+    document.querySelector('#brief .placeholder-note').outerHTML =
+      `<div class="card featured"><div class="brief-essence">${briefEssence}</div></div>`;
+  }
+}
+
+/* ---------- Team zone ---------- */
+function populateTeamContent(){
+  document.getElementById('tz_tier').textContent = record["Tier"] || '—';
+  document.getElementById('tz_status').textContent = record["Status"] || '—';
+  document.getElementById('tz_services').textContent = record["Services Booked"] || '—';
+  document.getElementById('tz_partySize').textContent = record["Party Size"] || '—';
+  document.getElementById('tz_weddingFeel').textContent = record["Wedding Feel / Notes"] || 'Nothing added yet.';
+  document.getElementById('tz_runOfShow').textContent = record["Run of Show"] || 'Nothing added yet.';
+  document.getElementById('tz_travel').textContent = record["Travel Logistics"] || 'Nothing added yet.';
+  document.getElementById('tz_internalNotes').textContent = record["Internal Notes"] || 'Nothing added yet.';
+  document.getElementById('tz_glamNotes').textContent = record["Glam Team Notes"] || 'Nothing added yet.';
+
+  const rosterNames = parseRosterNames(record["Artist Assignments"]);
+  const rosterEl = document.getElementById('tz_roster');
+  rosterEl.innerHTML = rosterNames.length
+    ? rosterNames.map(n => `<span class="roster-pill">${n}</span>`).join('')
+    : 'Not yet assigned.';
+
+  artistPay = parseArtistPay(record["Artist Pay"]);
+  openPayIndex = null;
+  renderPayPills();
+  renderPayReveal();
+}
+async function checkTeamPassword(){
+  const val = document.getElementById('teamPassword').value;
+  const data = await fetchRecord(val);
+  if (data.teamUnlocked) {
+    record = Object.assign({}, record, data);
+    teamUnlocked = true;
+    document.getElementById('lockedPanel').style.display = 'none';
+    document.getElementById('teamContent').classList.add('show');
+    populateTeamContent();
+  } else {
+    alert('Incorrect password.');
+  }
+}
+
+/* ---------- Init ---------- */
+(async function(){
+  try{
+    record = await fetchRecord();
+    if (record.error) {
+      console.error('Could not load this bride\'s record. Check that EVENT_ID matches Bookings Pipeline exactly.');
+      record = {};
+    }
+  }catch(e){
+    console.error('Fetch failed', e);
+    record = {};
+  }
+  try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
+
+  populatePublicContent();
+  initBasics();
+  initProfile();
+  initLook();
+  initLists();
+  initPhotos();
+})();
+</script>
+</body>
+</html>
