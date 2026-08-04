@@ -11,7 +11,7 @@
   :root{
     --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
     --ink:#191714; --muted:#797672; --border:#CBC5BE;
-    --accent-dark:#AC9A8A; --accent-light:#EFEAE5;
+    --accent-dark:#AC9A8A; --accent-light:#EFEAE5; --accent:#D9AEB5;
     --burgundy:#632B37; --stone:#AC9A8A;
   }
   *{box-sizing:border-box;}
@@ -26,16 +26,16 @@
     text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
     min-height:36px;display:flex;align-items:center;}
 
-  .hero{background:radial-gradient(ellipse at top, #2a2420 0%, var(--ink) 60%);color:var(--cream);
+  .hero{background:radial-gradient(ellipse at top, #332C27 0%, #241F1B 60%);color:var(--cream);
     padding:44px 24px 36px;text-align:center;}
-  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:14px;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--burgundy);margin-bottom:14px;}
   .hero h1{font-size:34px;font-weight:400;margin:0 0 6px;line-height:1.15;color:var(--cream);}
-  .hero h1 em{color:var(--stone);}
+  .hero h1 em{color:var(--accent);}
   .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:16px;color:rgba(220,217,212,0.7);margin-bottom:16px;}
   .divider{width:50px;height:1px;background:var(--accent-dark);margin:16px auto;}
   .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:12px;letter-spacing:0.05em;color:rgba(220,217,212,0.85);margin-bottom:22px;}
   .hero-meta span{border:1px solid rgba(172,154,138,0.4);border-radius:14px;padding:8px 14px;}
-  .experience-link{display:inline-block;background:var(--accent-dark);color:var(--ink);text-decoration:none;
+  .experience-link{display:inline-block;background:var(--burgundy);color:var(--cream);text-decoration:none;
     font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;border-radius:24px;font-weight:500;}
 
   .section{padding:36px 20px;max-width:760px;margin:0 auto;scroll-margin-top:64px;}
@@ -44,27 +44,16 @@
   .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
   .section-title{font-size:24px;font-weight:400;margin:0 0 16px;}
 
-  .card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:14px;}
+  .card{background:var(--warm-white);border:1px solid var(--border);border-left:3px solid var(--burgundy);border-radius:10px;padding:20px;margin-bottom:14px;}
   .card.featured{background:var(--parchment);border-color:var(--burgundy);}
   .row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--border);}
   .row:last-child{border-bottom:none;}
-  .row .label{color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;flex:0 0 auto;}
+  .row .label{color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;flex:0 0 auto;}
   .row .value{text-align:right;}
 
   .roster-pill{display:inline-block;background:var(--parchment);border:1px solid var(--burgundy);border-radius:20px;
     padding:10px 18px;font-size:14px;margin:4px 8px 4px 0;color:var(--ink);}
   .roster-pill .role{display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
-
-  .chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
-  .chip{font-family:'Jost';font-size:13px;padding:10px 18px;border-radius:20px;border:1px solid var(--burgundy);
-    background:var(--warm-white);color:var(--ink);min-height:40px;display:flex;align-items:center;cursor:pointer;user-select:none;}
-  .chip.active{background:var(--burgundy);border-color:var(--burgundy);color:var(--cream);}
-  .pay-reveal{background:var(--parchment);border:1px solid var(--burgundy);border-radius:10px;padding:18px;margin-top:6px;display:none;}
-  .pay-reveal.show{display:block;}
-  .pay-reveal .name{font-family:'Cormorant Garamond';font-size:20px;margin-bottom:2px;}
-  .pay-reveal .role{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;}
-  .pay-reveal .pay-row{display:flex;justify-content:space-between;font-size:14px;padding:7px 0;border-bottom:1px solid var(--border);}
-  .pay-reveal .pay-total{font-family:'Cormorant Garamond';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);}
 
   .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:20px;text-align:center;
     color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:16px;line-height:1.6;}
@@ -96,6 +85,7 @@
   <div class="divider"></div>
   <div class="hero-meta">
     <span id="heroDate">{Wedding Date}</span>
+    <span id="heroCallTime">{Call Time}</span>
     <span id="heroVenue">{Venue / City}</span>
   </div>
   <a href="#" id="experienceLinkButton" target="_blank" rel="noopener" class="experience-link">View Her Experience Page</a>
@@ -104,17 +94,19 @@
 <!-- ===================== OVERVIEW ===================== -->
 <div class="section" id="overview">
   <div class="section-label">I</div>
-  <h2 class="section-title">Event Overview</h2>
+  <h2 class="section-title">Event <em>Overview</em></h2>
   <div class="card">
-    <div class="row"><span class="label">Tier</span><span class="value" id="ov_tier">—</span></div>
-    <div class="row"><span class="label">Status</span><span class="value" id="ov_status">—</span></div>
-    <div class="row"><span class="label">Services Booked</span><span class="value" id="ov_services">—</span></div>
     <div class="row"><span class="label">Party Size</span><span class="value" id="ov_partySize">—</span></div>
-    <div class="row"><span class="label">Contract</span><span class="value" id="ov_contract">—</span></div>
     <div class="row"><span class="label">Day-Of Contact</span><span class="value" id="ov_dayOfContact">—</span></div>
     <div class="row"><span class="label">Getting-Ready Address</span><span class="value" id="ov_gettingReady">—</span></div>
     <div class="row"><span class="label">Ceremony Time</span><span class="value" id="ov_ceremonyTime">—</span></div>
     <div class="row"><span class="label">Ready By</span><span class="value" id="ov_readyByTime">—</span></div>
+  </div>
+  <div class="card featured" style="text-align:center;" id="ov_contractCard">
+    <div class="tier-tag" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;">Contract</div>
+    <a href="#" id="ov_contractLink" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;background:var(--burgundy);
+      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+      padding:13px 26px;border-radius:24px;">View Signed Contract</a>
   </div>
   <div class="card featured">
     <div class="row" style="border:none;"><span class="label">Wedding Feel / Notes</span></div>
@@ -125,32 +117,30 @@
 <!-- ===================== VISION RECAP ===================== -->
 <div class="section" id="vision">
   <div class="section-label">II</div>
-  <h2 class="section-title">Bride's Vision Recap</h2>
+  <h2 class="section-title">Bride's <em>Vision</em> Recap</h2>
   <div id="visionRecap"><div class="placeholder-note">She hasn't submitted her Vision yet.</div></div>
 </div>
 
 <!-- ===================== TEAM & PAY ===================== -->
 <div class="section" id="team">
   <div class="section-label">III</div>
-  <h2 class="section-title">Team</h2>
+  <h2 class="section-title">The <em>Team</em></h2>
 
   <div class="look-sub" style="margin-bottom:28px;">
-    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Roster</div>
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Roster</div>
     <div id="teamRoster"><div class="placeholder-note">No artist assignments yet.</div></div>
   </div>
 
   <div class="look-sub">
-    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Artist Pay</div>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Tap a name to see that artist's services and total.</p>
-    <div class="chip-group" id="payPills"></div>
-    <div id="payReveal"></div>
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Artist Pay</div>
+    <div id="artistPayoutsWrap"><div class="placeholder-note">Pay hasn't been entered yet.</div></div>
   </div>
 </div>
 
 <!-- ===================== LOGISTICS ===================== -->
 <div class="section" id="logistics">
   <div class="section-label">IV</div>
-  <h2 class="section-title">Run of Show &amp; Logistics</h2>
+  <h2 class="section-title">Run of Show &amp; <em>Logistics</em></h2>
   <div class="card">
     <div class="row" style="border:none;"><span class="label">Run of Show</span></div>
     <div id="lg_runOfShow" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
@@ -241,6 +231,10 @@ function populateHeroAndOverview(){
   const venueBits = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
   if (venueBits) document.getElementById('heroVenue').textContent = venueBits;
 
+  const callTime = formatTimeValue(record["Call Time"]);
+  const callTimeEl = document.getElementById('heroCallTime');
+  if (callTime) { callTimeEl.textContent = 'Call Time ' + callTime; } else { callTimeEl.style.display = 'none'; }
+
   const expBtn = document.getElementById('experienceLinkButton');
   if (EXPERIENCE_URL && EXPERIENCE_URL !== "SET_EXPERIENCE_URL_HERE") {
     expBtn.href = EXPERIENCE_URL;
@@ -248,11 +242,14 @@ function populateHeroAndOverview(){
     expBtn.style.display = 'none';
   }
 
-  document.getElementById('ov_tier').textContent = textOrDash(record["Tier"]);
-  document.getElementById('ov_status').textContent = textOrDash(record["Status"]);
-  document.getElementById('ov_services').textContent = textOrDash(record["Services Booked"]);
   document.getElementById('ov_partySize').textContent = textOrDash(record["Party Size"]);
-  document.getElementById('ov_contract').textContent = textOrDash(record["Contract Status"]);
+  const contractLink = record["Contract Link"];
+  const contractCard = document.getElementById('ov_contractCard');
+  if (contractLink) {
+    document.getElementById('ov_contractLink').href = contractLink;
+  } else {
+    contractCard.style.display = 'none';
+  }
   document.getElementById('ov_dayOfContact').textContent = textOrDash(
     [record["Day-Of Contact"], record["Day-Of Contact Phone"]].filter(Boolean).join(', ')
   );
@@ -296,24 +293,7 @@ function populateVisionRecap(){
   if (bits.length) wrap.innerHTML = bits.join('');
 }
 
-/* ---------- Team roster with real names, roles, services, and pay ---------- */
-// "Artist Pay" line format, one artist per line:
-// Name, Role, Service label:amount + Service label:amount, Total
-function parseArtistPay(raw){
-  if (!raw) return [];
-  return String(raw).split('\n').map(line => line.trim()).filter(Boolean).map(line => {
-    const parts = line.split(',').map(p => p.trim());
-    const name = parts[0] || '';
-    const role = parts[1] || '';
-    const servicesRaw = parts[2] || '';
-    const total = parts[3] || '';
-    const services = servicesRaw.split('+').map(s => s.trim()).filter(Boolean).map(s => {
-      const [label, amount] = s.split(':').map(x => (x || '').trim());
-      return { label: label || s, amount: amount || '' };
-    });
-    return { name, role, services, total };
-  });
-}
+/* ---------- Team roster with real names and roles ---------- */
 function renderTeamRoster(){
   const wrap = document.getElementById('teamRoster');
   const roster = record["Public Roster"] || [];
@@ -323,34 +303,37 @@ function renderTeamRoster(){
   ).join('');
 }
 
-let artistPay = [];
-let openPayIndex = null;
-function renderPayPills(){
-  const wrap = document.getElementById('payPills');
-  if (artistPay.length === 0) {
-    wrap.innerHTML = '<div class="placeholder-note">Pay hasn\'t been entered yet.</div>';
-    return;
-  }
-  wrap.innerHTML = '';
-  artistPay.forEach((a, i) => {
-    const pill = document.createElement('div');
-    pill.className = 'chip' + (openPayIndex === i ? ' active' : '');
-    pill.textContent = a.name;
-    pill.onclick = () => { openPayIndex = (openPayIndex === i) ? null : i; renderPayPills(); renderPayReveal(); };
-    wrap.appendChild(pill);
+// Artist Pay itemized detail (service, qty, rate, subtotal) pulls straight
+// from the Artist Payouts tab on the Accounting Hub sheet, grouped by
+// artist with a computed total per artist. Rows arrive pre-filtered to
+// this event by the backend (getArtistPayoutsForEvent in ExperinceSync.gs).
+function renderArtistPayouts(){
+  const wrap = document.getElementById('artistPayoutsWrap');
+  const rows = record["Artist Payouts"] || [];
+  if (rows.length === 0) return; // leave placeholder
+
+  const byArtist = {};
+  rows.forEach(r => {
+    const name = r.artist || 'Unassigned';
+    if (!byArtist[name]) byArtist[name] = [];
+    byArtist[name].push(r);
   });
-}
-function renderPayReveal(){
-  const wrap = document.getElementById('payReveal');
-  wrap.innerHTML = '';
-  if (openPayIndex === null) return;
-  const a = artistPay[openPayIndex];
-  const div = document.createElement('div');
-  div.className = 'pay-reveal show';
-  div.innerHTML = `<div class="name">${a.name}</div><div class="role">${a.role}</div>`
-    + a.services.map(s => `<div class="pay-row"><span>${s.label}</span><span>$${s.amount}</span></div>`).join('')
-    + `<div class="pay-total">$${a.total}</div>`;
-  wrap.appendChild(div);
+
+  wrap.innerHTML = Object.keys(byArtist).map(name => {
+    const items = byArtist[name];
+    const total = items.reduce((sum, i) => sum + (parseFloat(i.subtotal) || 0), 0);
+    const itemRows = items.map(i => {
+      const qty = Number(i.qty) || 1;
+      const rate = Number(i.rate) || 0;
+      const label = qty > 1 ? `${i.service} (${qty} &times; $${rate.toFixed(2)})` : i.service;
+      return `<div class="row"><span class="label" style="text-transform:none;font-size:13px;">${label}</span><span class="value">$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`;
+    }).join('');
+    return `<div class="card featured">
+      <div style="font-family:'Cormorant Garamond';font-size:20px;margin-bottom:8px;">${name}</div>
+      ${itemRows}
+      <div style="font-family:'Cormorant Garamond';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);">$${total.toFixed(2)}</div>
+    </div>`;
+  }).join('');
 }
 
 /* ---------- Logistics ---------- */
@@ -378,9 +361,7 @@ function populateLogistics(){
   populateHeroAndOverview();
   populateVisionRecap();
   renderTeamRoster();
-  artistPay = parseArtistPay(record["Artist Pay"]);
-  renderPayPills();
-  renderPayReveal();
+  renderArtistPayouts();
   populateLogistics();
 })();
 </script>
