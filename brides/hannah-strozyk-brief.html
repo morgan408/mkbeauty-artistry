@@ -78,9 +78,9 @@
 <nav class="navbar">
   <a href="#overview">Overview</a>
   <a href="#vision">Vision Recap</a>
-  <a href="#team">Team &amp; Pay</a>
   <a href="#logistics">Logistics</a>
   <a href="#details">Note</a>
+  <a href="#team">Team &amp; Pay</a>
 </nav>
 
 <div class="hero">
@@ -94,6 +94,10 @@
     <span id="heroVenue">{Venue / City}</span>
   </div>
   <a href="#" id="experienceLinkButton" target="_blank" rel="noopener" class="experience-link">View Her Experience Page</a>
+</div>
+
+<div style="padding:22px 20px 4px;text-align:center;max-width:760px;margin:0 auto;">
+  <div id="topRoster"></div>
 </div>
 
 <!-- ===================== OVERVIEW ===================== -->
@@ -126,30 +130,63 @@
   <div id="visionRecap"><div class="placeholder-note">She hasn't submitted her Vision yet.</div></div>
 </div>
 
-<!-- ===================== TEAM & PAY ===================== -->
-<div class="section" id="team">
-  <div class="section-label">III</div>
-  <h2 class="section-title">The <em>Team</em></h2>
-
-  <div class="look-sub" style="margin-bottom:28px;">
-    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Roster</div>
-    <div id="teamRoster"><div class="placeholder-note">No artist assignments yet.</div></div>
-  </div>
-
-  <div class="look-sub">
-    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Artist Pay</div>
-    <div id="artistPayoutsWrap"><div class="placeholder-note">Pay hasn't been entered yet.</div></div>
-  </div>
-</div>
-
 <!-- ===================== LOGISTICS ===================== -->
 <div class="section" id="logistics">
-  <div class="section-label">IV</div>
+  <div class="section-label">III</div>
   <h2 class="section-title">Run of Show &amp; <em>Logistics</em></h2>
   <div class="card">
     <div class="row" style="border:none;"><span class="label">Run of Show</span></div>
     <div id="lg_runOfShow"><div class="placeholder-note" style="padding:16px;">Nothing added yet.</div></div>
   </div>
+
+  <!-- ===================== ARTIST INSPO PHOTOS =====================
+    BUILD-TIME ONLY, right after Run of Show: per-bride reference photos
+    grouped by artist name, filled in by Claude from whatever Morgan shares
+    in that bride's chat. Not synced from the sheet. Use .photo-grid /
+    .photo-tile, one look-sub block per artist. Leave this whole comment
+    block and skip straight to the next card if no photos were shared.
+  ======================================================================= -->
+
+  <div class="look-sub" style="margin-bottom:24px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:10px;">Baylee</div>
+    <div class="photo-grid">
+      <div class="photo-tile"><img src="images/hannah-strozyk/baylee-1.jpg" alt="Baylee inspo 1"></div>
+      <div class="photo-tile"><img src="images/hannah-strozyk/baylee-2.jpg" alt="Baylee inspo 2"></div>
+    </div>
+  </div>
+
+  <div class="look-sub" style="margin-bottom:24px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:10px;">Caitlyn</div>
+    <div class="photo-grid">
+      <div class="photo-tile"><img src="images/hannah-strozyk/caitlyn-1.jpg" alt="Caitlyn inspo 1"></div>
+      <div class="photo-tile"><img src="images/hannah-strozyk/caitlyn-2.jpg" alt="Caitlyn inspo 2"></div>
+    </div>
+  </div>
+
+  <div class="look-sub" style="margin-bottom:24px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:10px;">Courtney</div>
+    <div class="photo-grid">
+      <div class="photo-tile"><img src="images/hannah-strozyk/courtney-1.jpg" alt="Courtney inspo 1"></div>
+      <div class="photo-tile"><img src="images/hannah-strozyk/courtney-2.jpg" alt="Courtney inspo 2"></div>
+    </div>
+  </div>
+
+  <div class="look-sub" style="margin-bottom:24px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:10px;">Vee</div>
+    <div class="photo-grid">
+      <div class="photo-tile"><img src="images/hannah-strozyk/vee-1.jpg" alt="Vee inspo 1"></div>
+      <div class="photo-tile"><img src="images/hannah-strozyk/vee-2.jpg" alt="Vee inspo 2"></div>
+    </div>
+  </div>
+
+  <div class="look-sub" style="margin-bottom:24px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:10px;">Vee Makeup</div>
+    <div class="photo-grid">
+      <div class="photo-tile"><img src="images/hannah-strozyk/vee-makeup-1.jpg" alt="Vee Makeup inspo 1"></div>
+      <div class="photo-tile"><img src="images/hannah-strozyk/vee-makeup-2.jpg" alt="Vee Makeup inspo 2"></div>
+    </div>
+  </div>
+
   <div class="card">
     <div class="row" style="border:none;"><span class="label">Travel &amp; Logistics</span></div>
     <div id="lg_travel" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
@@ -172,9 +209,25 @@
   real bride. Use .photo-grid / .photo-tile for any embedded images.
 ======================================================================= -->
 <div class="section" id="details">
-  <div class="section-label">V</div>
+  <div class="section-label">IV</div>
   <h2 class="section-title">A Note from <em>Morgan</em></h2>
-  <div class="placeholder-note">Nothing yet for this bride. A little something from Morgan, just for this event, goes here once she's shared it.</div>
+  <div class="placeholder-note" style="border:none;text-align:left;color:var(--ink);font-family:'Jost';font-style:normal;font-size:14px;line-height:1.7;padding:4px 2px;">Kenzie, I am so excited to be working with you! Thank you so much for being part of MKB!! 🌹</div>
+</div>
+
+<!-- ===================== TEAM & PAY ===================== -->
+<div class="section" id="team">
+  <div class="section-label">V</div>
+  <h2 class="section-title">The <em>Team</em></h2>
+
+  <div class="look-sub" style="margin-bottom:28px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Roster</div>
+    <div id="teamRoster"><div class="placeholder-note">No artist assignments yet.</div></div>
+  </div>
+
+  <div class="look-sub">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Artist Pay</div>
+    <div id="artistPayoutsWrap"><div class="placeholder-note">Pay hasn't been entered yet.</div></div>
+  </div>
 </div>
 
 <div class="footer">
@@ -300,12 +353,21 @@ function populateVisionRecap(){
 
 /* ---------- Team roster with real names and roles ---------- */
 function renderTeamRoster(){
-  const wrap = document.getElementById('teamRoster');
   const roster = record["Public Roster"] || [];
-  if (roster.length === 0) return; // leave placeholder
-  wrap.innerHTML = roster.map(a =>
-    `<span class="roster-pill">${a.name}<span class="role">${a.role}</span></span>`
-  ).join('');
+
+  const bottomWrap = document.getElementById('teamRoster');
+  if (roster.length > 0) {
+    bottomWrap.innerHTML = roster.map(a =>
+      `<span class="roster-pill">${a.name}<span class="role">${a.role}</span></span>`
+    ).join('');
+  }
+
+  // Compact version right under the hero, names only, no roles or pay
+  const topWrap = document.getElementById('topRoster');
+  if (roster.length > 0) {
+    topWrap.innerHTML = `<div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:8px;">Your Team</div>`
+      + roster.map(a => `<span class="roster-pill" style="padding:7px 14px;">${a.name}</span>`).join('');
+  }
 }
 
 // Artist Pay itemized detail (service, qty, rate, subtotal) pulls straight
