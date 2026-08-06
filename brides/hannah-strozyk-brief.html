@@ -28,7 +28,7 @@
 
   .hero{background:radial-gradient(ellipse at top, #332C27 0%, #241F1B 60%);color:var(--cream);
     padding:44px 24px 36px;text-align:center;}
-  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--burgundy);margin-bottom:14px;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
   .hero h1{font-size:34px;font-weight:400;margin:0 0 6px;line-height:1.15;color:var(--cream);}
   .hero h1 em{color:var(--accent);}
   .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:16px;color:rgba(220,217,212,0.7);margin-bottom:16px;}
@@ -57,6 +57,11 @@
 
   .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:20px;text-align:center;
     color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:16px;line-height:1.6;}
+
+  .schedule-block{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .schedule-block:last-child{border-bottom:none;}
+  .schedule-time{flex:0 0 auto;min-width:78px;font-family:'Cormorant Garamond';font-size:16px;color:var(--burgundy);font-weight:500;}
+  .schedule-desc{font-size:14px;color:var(--ink);padding-top:1px;}
 
   .photo-grid{display:flex;flex-wrap:wrap;gap:3%;margin-top:12px;}
   .photo-tile{width:31%;aspect-ratio:3/4;margin-bottom:10px;border-radius:8px;overflow:hidden;border:1px solid var(--border);}
@@ -143,7 +148,7 @@
   <h2 class="section-title">Run of Show &amp; <em>Logistics</em></h2>
   <div class="card">
     <div class="row" style="border:none;"><span class="label">Run of Show</span></div>
-    <div id="lg_runOfShow" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+    <div id="lg_runOfShow"><div class="placeholder-note" style="padding:16px;">Nothing added yet.</div></div>
   </div>
   <div class="card">
     <div class="row" style="border:none;"><span class="label">Travel &amp; Logistics</span></div>
@@ -336,9 +341,30 @@ function renderArtistPayouts(){
   }).join('');
 }
 
+// Run of Show renders as a real timeline, not one paragraph. In the sheet,
+// type one line per item as "TIME - what happens", e.g.:
+//   9:00 AM - Hair & makeup begins
+//   1:00 PM - Ceremony
+// Each line becomes its own block with the time as a bold label. Lines
+// without a recognizable "TIME - description" pattern just show as-is.
+function renderScheduleBlocks(elId, raw){
+  const el = document.getElementById(elId);
+  if (!raw) return; // leave placeholder
+  const lines = String(raw).split('\n').map(l => l.trim()).filter(Boolean);
+  if (lines.length === 0) return;
+
+  el.innerHTML = lines.map(line => {
+    const match = /^(.+?)\s*-\s*(.+)$/.exec(line);
+    if (match) {
+      return `<div class="schedule-block"><div class="schedule-time">${match[1]}</div><div class="schedule-desc">${match[2]}</div></div>`;
+    }
+    return `<div class="schedule-block"><div class="schedule-desc">${line}</div></div>`;
+  }).join('');
+}
+
 /* ---------- Logistics ---------- */
 function populateLogistics(){
-  document.getElementById('lg_runOfShow').textContent = textOrFallback(record["Run of Show"], 'Nothing added yet.');
+  renderScheduleBlocks('lg_runOfShow', record["Run of Show"]);
   document.getElementById('lg_travel').textContent = textOrFallback(record["Travel Logistics"], 'Nothing added yet.');
   document.getElementById('lg_notes').textContent = textOrFallback(record["Internal Notes"], 'Nothing added yet.');
   document.getElementById('lg_glam').textContent = textOrFallback(record["Glam Team Notes"], 'Nothing added yet.');
