@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Lessons | MKBeauty</title>
+<meta property="og:title" content="Lessons | MKBeauty">
+<meta property="og:description" content="Makeup lessons for everyday glam, a full vanity edit, and bridal self application.">
+<meta property="og:site_name" content="MKBeauty Artistry">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
+    --ink:#191714; --muted:#797672; --border:#CBC5BE;
+    --accent:#D9AEB5; --accent-light:#EFEAE5; --accent-dark:#AC9A8A;
+    --burgundy:#632B37;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  em{font-style:italic;color:var(--burgundy);}
+  .hero em{color:var(--accent-dark);}
+
+  .topbar{background:var(--burgundy);color:var(--cream);text-align:center;padding:9px 16px;
+    font-family:'Jost';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;}
+
+  .hero{background:radial-gradient(ellipse at top, #2a2420 0%, var(--ink) 60%);color:var(--cream);
+    padding:48px 24px 46px;text-align:center;}
+  .brand-mark{font-family:'Cormorant Garamond';font-style:italic;font-size:16px;letter-spacing:0.04em;
+    color:var(--cream);margin-bottom:24px;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:16px;}
+  .hero h1{font-size:38px;font-weight:400;margin:0 0 10px;line-height:1.15;}
+  .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:18px;color:rgba(220,217,212,0.8);
+    max-width:520px;margin:0 auto;line-height:1.5;}
+  .divider{width:60px;height:1px;background:var(--accent-dark);margin:22px auto;}
+
+  .intro{max-width:640px;margin:0 auto;padding:40px 24px 8px;text-align:center;}
+  .intro p{font-family:'Cormorant Garamond';font-style:italic;font-size:20px;line-height:1.6;color:var(--ink);}
+
+  .group-section{max-width:760px;margin:0 auto;padding:36px 20px;}
+  .group-label{font-family:'Cormorant Garamond';font-style:italic;font-size:15px;color:var(--burgundy);
+    display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .group-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  .offer-card{background:var(--warm-white);border:1px solid var(--border);border-radius:14px;
+    padding:26px;margin-bottom:18px;}
+  .offer-card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  .offer-name{font-family:'Cormorant Garamond';font-weight:400;font-style:italic;font-size:27px;
+    margin:0 0 4px;line-height:1.2;color:var(--ink);}
+  .offer-tagline{font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.5;}
+
+  .format-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+    padding:16px 0;border-top:1px solid var(--border);}
+  .format-row:first-of-type{border-top:none;padding-top:0;}
+  .format-name{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--burgundy);margin-bottom:4px;}
+  .format-detail{font-size:13px;color:var(--muted);line-height:1.5;max-width:380px;}
+  .format-price{text-align:right;flex-shrink:0;white-space:nowrap;}
+  .price-tag{display:inline-flex;align-items:baseline;gap:8px;}
+  .price-tag .amount{font-family:'Cormorant Garamond';font-size:26px;font-weight:500;color:var(--ink);
+    padding-bottom:4px;border-bottom:1px solid var(--accent-dark);}
+  .offer-card.featured .price-tag .amount{border-bottom-color:var(--burgundy);}
+  .price-tag .unit{font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+
+  .tier-note{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);
+    font-size:12px;color:var(--accent-dark);font-style:italic;}
+
+  .booking-note{max-width:760px;margin:0 auto;padding:0 20px 44px;}
+  .booking-note .card{background:var(--accent-light);border-left:3px solid var(--accent-dark);
+    border-radius:0 10px 10px 0;padding:20px 22px;}
+  .booking-note .card-title{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:8px;}
+  .booking-note .card p{font-size:14px;line-height:1.6;color:var(--ink);margin:0;}
+
+  .contact-block{max-width:760px;margin:0 auto;padding:0 20px 56px;text-align:center;}
+  .contact-block p{font-family:'Cormorant Garamond';font-style:italic;font-size:19px;margin-bottom:18px;}
+  .contact-link{display:inline-block;font-size:13px;letter-spacing:0.08em;color:var(--burgundy);
+    text-decoration:none;border-bottom:1px solid var(--burgundy);padding-bottom:2px;}
+
+  footer{background:var(--ink);color:var(--cream);text-align:center;padding:36px 24px;}
+  footer .brand{font-family:'Cormorant Garamond';font-style:italic;font-size:22px;margin-bottom:6px;}
+  footer .owner{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(220,217,212,0.7);margin-bottom:10px;}
+  footer .contact{font-size:13px;color:var(--accent-dark);}
+
+  @media(max-width:520px){
+    .format-row{flex-direction:column;gap:6px;}
+    .format-price{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">MKBeauty Artistry</div>
+
+<div class="hero">
+  <div class="eyebrow">Makeup Lessons</div>
+  <h1>Learn Your <em>Look</em></h1>
+  <div class="divider"></div>
+  <div class="sub">Personalized, hands on lessons for everyday glam, a full vanity edit, or bridal self application.</div>
+</div>
+
+<div class="intro">
+  <p>Whether you're refreshing what's in your bag, refining your everyday routine, or preparing to do your own makeup for your wedding day, every lesson is one on one time built around your face, your products, and your life.</p>
+</div>
+
+<div class="group-section">
+  <div class="group-label">The Vanity Edit</div>
+  <div class="offer-card featured">
+    <div class="offer-name">The Vanity Edit</div>
+    <div class="offer-tagline">A full review of what's in your bag now, what to keep, what to toss, and what your skin and the season are calling for. Includes a complete lesson and a personalized product list.</div>
+
+    <div class="format-row">
+      <div>
+        <div class="format-name">Solo</div>
+        <div class="format-detail">One on one, 3 hours. Full product audit plus hands on lesson.</div>
+      </div>
+      <div class="format-price">
+        <span class="price-tag"><span class="amount">$500</span><span class="unit">per session</span></span>
+      </div>
+    </div>
+
+    <div class="format-row">
+      <div>
+        <div class="format-name">Group, up to 4</div>
+        <div class="format-detail">Bring your favorite people and do the full edit together, 3 hours.</div>
+      </div>
+      <div class="format-price">
+        <span class="price-tag"><span class="amount">$200</span><span class="unit">per person</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="group-section">
+  <div class="group-label">The Everyday Glam Method</div>
+  <div class="offer-card">
+    <div class="offer-name">The Everyday Glam Method</div>
+    <div class="offer-tagline">Walk through technique and application for a polished, elevated everyday look, plus easy ways to change it up with the same base routine.</div>
+
+    <div class="format-row">
+      <div>
+        <div class="format-name">Solo</div>
+        <div class="format-detail">Hands on, 2 hours. I demonstrate, you practice alongside me.</div>
+      </div>
+      <div class="format-price">
+        <span class="price-tag"><span class="amount">$350</span><span class="unit">per session</span></span>
+      </div>
+    </div>
+
+    <div class="format-row">
+      <div>
+        <div class="format-name">Group Masterclass, up to 4</div>
+        <div class="format-detail">A full look demonstrated start to finish. Follow along on your own face if you'd like, no pressure either way.</div>
+      </div>
+      <div class="format-price">
+        <span class="price-tag"><span class="amount">$150</span><span class="unit">per person</span></span>
+      </div>
+    </div>
+
+    <div class="tier-note">Groups of more than 4 are welcome at $125 per person.</div>
+  </div>
+</div>
+
+<div class="group-section">
+  <div class="group-label">Bridal Lesson</div>
+  <div class="offer-card featured">
+    <div class="offer-name">Bridal Lesson</div>
+    <div class="offer-tagline">For the bride doing her own makeup on her wedding day. Bridal technique and products are different from everyday routines, and this lesson is focused on a natural to soft glam look built to last.</div>
+
+    <div class="format-row">
+      <div>
+        <div class="format-name">In Person</div>
+        <div class="format-detail">2 to 2.5 hours, full technique walkthrough and hands on practice.</div>
+      </div>
+      <div class="format-price">
+        <span class="price-tag"><span class="amount">$450</span><span class="unit">per session</span></span>
+      </div>
+    </div>
+
+    <div class="format-row">
+      <div>
+        <div class="format-name">Virtual</div>
+        <div class="format-detail">A condensed, application focused crash course to get you wedding day ready.</div>
+      </div>
+      <div class="format-price">
+        <span class="price-tag"><span class="amount">$150</span><span class="unit">per session</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="booking-note">
+  <div class="card">
+    <div class="card-title">A note on booking</div>
+    <p>Every lesson is tailored to you, your skin, and your goals. Group sessions are a wonderful way to learn alongside friends while keeping the experience intimate. Reach out and we'll find the right lesson and time for you.</p>
+  </div>
+</div>
+
+<div class="contact-block">
+  <p>Ready to book, or have a question first?</p>
+  <a class="contact-link" href="tel:7708561008">770.856.1008</a>
+</div>
+
+<footer>
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="owner">Morgan Kelly Baird</div>
+  <div class="contact">morgan@mkbeautyeducator.com · 770.856.1008</div>
+</footer>
+
+</body>
+</html>
