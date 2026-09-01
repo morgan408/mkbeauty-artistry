@@ -396,6 +396,20 @@
   <div class="card" id="teamRoster">Loading...</div>
 </div>
 
+<div style="max-width:760px;margin:0 auto;padding:0 20px 24px;">
+  <div onclick="var p=document.getElementById('paymentStatusPanel'); var b=document.getElementById('paymentStatusBtn'); var open = p.style.display==='block'; p.style.display = open ? 'none' : 'block'; b.textContent = open ? 'View Payment Status' : 'Hide Payment Status';"
+    id="paymentStatusBtn"
+    style="display:block;width:100%;text-align:center;font-family:'Jost';font-size:13px;letter-spacing:0.08em;
+    text-transform:uppercase;background:var(--burgundy);color:var(--cream);border:none;border-radius:24px;
+    padding:16px;min-height:52px;cursor:pointer;">View Payment Status</div>
+  <div id="paymentStatusPanel" style="display:none;text-align:left;margin-top:12px;background:var(--warm-white);
+    border:1px solid var(--border);border-radius:10px;padding:18px 20px;font-size:14px;line-height:1.8;color:var(--muted);">
+    <div style="display:flex;justify-content:space-between;"><span>Booking Fee</span><span>$100 · Paid at Preview</span></div>
+    <div style="display:flex;justify-content:space-between;"><span>Payment, Aug 16</span><span>$375 · Paid</span></div>
+    <div style="display:flex;justify-content:space-between;color:var(--ink);font-weight:400;"><span>Remaining Balance</span><span>$500 · Due Sept 16</span></div>
+  </div>
+</div>
+
 <div class="footer">
   <div class="brand">MKBeauty Artistry</div>
   <div class="sub">Morgan Kelly Baird</div>
@@ -406,7 +420,7 @@
    CONFIG — the only two things that change per bride when you duplicate
    this file. Everything else pulls live from the sheet automatically.
    ===================================================================== */
-const EVENT_ID = "EVT-004"; // e.g. "EVT-006", must match Bookings Pipeline exactly
+const EVENT_ID = "EVT-004"; // must match Bookings Pipeline exactly
 const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
 
 let record = {};        // the fetched, merged row (Bookings Pipeline + Experience Data)
@@ -521,7 +535,7 @@ const profileFields = [
   {id:'eyeColor', label:'Eye Color'},
   {id:'hairColor', label:'Hair Color'},
   {id:'freckles', label:'Freckles / Texture Notes'},
-  {id:'allergies', label:'Allergies / Sensitivities'}
+  {id:'allergies', label:'Allergies / Sensitivities (You or Anyone in Your Bridal Party)'}
 ];
 function initProfile(){
   const grid = document.getElementById('profileGrid');
@@ -529,7 +543,9 @@ function initProfile(){
   profileFields.forEach(f=>{
     const wrap = document.createElement('div');
     const val = savedProfile[f.id] || '';
-    wrap.innerHTML = `<label class="field-label">${f.label}</label><input type="text" id="pf_${f.id}" value="${String(val).replace(/"/g,'&quot;')}">`;
+    const placeholder = f.id === 'allergies' ? ' placeholder="Any known allergies or sensitivities, hers or a bridesmaid\'s, we should plan around"' : '';
+    if (f.id === 'allergies') { wrap.style.gridColumn = '1/-1'; }
+    wrap.innerHTML = `<label class="field-label">${f.label}</label><input type="text" id="pf_${f.id}" value="${String(val).replace(/"/g,'&quot;')}"${placeholder}>`;
     grid.appendChild(wrap);
   });
   profileFields.forEach(f=>{
