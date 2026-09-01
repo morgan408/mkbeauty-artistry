@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Wendy Ransom Vanity Edit Lesson | MKBeauty</title>
+<meta property="og:title" content="Wendy Ransom Vanity Edit Lesson | MKBeauty">
+<meta property="og:description" content="Your Vanity Edit lesson details, all in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF; --ink:#191714;
+    --muted:#797672; --border:#CBC5BE; --accent-dark:#AC9A8A; --accent:#D9AEB5;
+    --accent-light:#EFEAE5; --burgundy:#632B37;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  em{font-style:italic;color:var(--burgundy);}
+
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(220,217,212,0.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
+    min-height:36px;display:flex;align-items:center;}
+  .navbar a:active{background:var(--accent-light);color:var(--burgundy);border-color:var(--accent-dark);}
+  .save-indicator{position:fixed;top:14px;right:16px;z-index:60;font-family:'Jost';font-size:11px;
+    letter-spacing:0.1em;text-transform:uppercase;color:var(--burgundy);background:var(--accent-light);
+    padding:6px 12px;border-radius:12px;opacity:0;transition:opacity 0.4s ease;pointer-events:none;}
+  .save-indicator.show{opacity:1;}
+
+  .hero{background:radial-gradient(ellipse at top, #2a2420 0%, var(--ink) 60%);color:var(--cream);
+    padding:48px 24px 40px;text-align:center;}
+  .eyebrow{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  .hero-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:34px;margin:0;}
+  .divider-pink{width:60px;height:1px;background:var(--accent);margin:20px auto;}
+  .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:6px;}
+  .hero-meta .pill{border:1px solid rgba(217,174,181,0.5);border-radius:14px;color:var(--cream);
+    font-family:'Jost';font-size:12px;letter-spacing:0.04em;padding:9px 14px;}
+  .hero-sub{font-size:13px;color:var(--accent-dark);margin-top:16px;line-height:1.6;max-width:420px;margin-left:auto;margin-right:auto;}
+
+  .section{padding:40px 20px;max-width:760px;margin:0 auto;scroll-margin-top:64px;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-title{font-size:26px;font-weight:400;margin:0 0 4px;}
+  .section-hint{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:22px;line-height:1.5;}
+
+  .card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px;}
+  textarea, input[type=text]{width:100%;font-family:'Jost';font-weight:300;font-size:15px;color:var(--ink);
+    background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px;line-height:1.5;}
+  textarea{min-height:90px;resize:vertical;}
+  textarea:focus, input[type=text]:focus{outline:none;border-color:var(--accent-dark);background:var(--warm-white);}
+  label.field-label{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .vision-box{background:var(--parchment);border:1px solid var(--accent-dark);border-radius:10px;padding:22px;}
+  .vision-box textarea{background:transparent;border:none;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:20px;line-height:1.5;color:var(--ink);min-height:90px;padding:0;}
+  .vision-box textarea:focus{outline:none;}
+  .vision-box textarea::placeholder{color:#a89e8f;}
+
+  .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;}
+  @media(max-width:560px){.profile-grid{grid-template-columns:1fr;}}
+
+  .chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .chip{font-family:'Jost';font-size:13px;padding:9px 16px;border-radius:18px;border:1px solid var(--border);
+    background:var(--warm-white);color:var(--ink);min-height:38px;display:flex;align-items:center;cursor:pointer;user-select:none;}
+  .chip.active{background:var(--ink);border-color:var(--ink);color:var(--cream);}
+  .chip-add-row{display:flex;gap:8px;margin-bottom:16px;}
+  .chip-add-row input{flex:1;font-size:13px;padding:9px 12px;min-height:38px;}
+  .chip-add-row button{font-family:'Jost';font-size:12px;letter-spacing:0.05em;text-transform:uppercase;
+    background:var(--ink);color:var(--cream);border:none;border-radius:8px;padding:0 16px;min-height:38px;}
+
+  .look-sub{margin-bottom:30px;}
+  .look-sub:last-child{margin-bottom:0;}
+  .look-sub-title{font-size:18px;font-family:'Cormorant Garamond';font-weight:500;margin-bottom:10px;}
+
+  .la-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.la-columns{grid-template-columns:1fr;}}
+  .la-col{border:1px solid var(--border);border-radius:10px;padding:16px;background:var(--warm-white);}
+  .la-col.avoid{background:var(--parchment);}
+  .la-col-title{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;color:var(--burgundy);}
+  .la-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;}
+  .la-item .dash{color:var(--burgundy);}
+  .la-item .remove{margin-left:auto;color:var(--muted);font-size:16px;cursor:pointer;padding:4px 8px;}
+  .la-add{display:flex;gap:8px;margin-top:10px;}
+  .la-add input{flex:1;font-size:13px;padding:9px 12px;min-height:38px;}
+  .la-add button{min-height:38px;padding:0 14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:16px;}
+
+  .prod-row{display:grid;grid-template-columns:1fr 1.2fr 1.6fr auto;gap:8px;margin-bottom:8px;align-items:center;}
+  @media(max-width:640px){.prod-row{grid-template-columns:1fr;}}
+  .prod-row input{font-size:14px;padding:10px 12px;min-height:40px;}
+  .prod-row .remove-row{color:var(--muted);font-size:18px;cursor:pointer;padding:6px 10px;justify-self:end;}
+  .prod-head{display:grid;grid-template-columns:1fr 1.2fr 1.6fr auto;gap:8px;font-size:10px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding:0 2px;}
+  @media(max-width:640px){.prod-head{display:none;}}
+  .add-row-btn{font-family:'Jost';font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
+    background:transparent;border:1px dashed var(--burgundy);color:var(--burgundy);border-radius:8px;
+    padding:10px 16px;margin-top:6px;min-height:42px;width:100%;cursor:pointer;}
+
+  .payment-block{background:var(--parchment);border:1px solid var(--burgundy);border-radius:12px;padding:28px 24px;text-align:center;margin-bottom:16px;}
+  .payment-eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:8px;}
+  .payment-title{font-family:'Cormorant Garamond';font-size:22px;margin-bottom:6px;}
+  .payment-amount{font-family:'Cormorant Garamond';font-size:30px;color:var(--burgundy);margin-bottom:20px;}
+  .payment-btn{display:block;width:100%;max-width:320px;margin:0 auto 10px;text-decoration:none;
+    background:var(--burgundy);color:var(--cream);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:14px;border-radius:24px;}
+  .payment-btn.secondary{background:var(--ink);}
+  .payment-handle{font-size:12px;color:var(--muted);margin:-2px 0 16px;}
+  .zelle-block{margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
+  .zelle-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:4px;}
+  .zelle-value{font-family:'Cormorant Garamond';font-size:20px;}
+  .payment-note{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.5;}
+  .payment-status{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;}
+
+  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:36px 20px 44px;margin-top:20px;}
+  .footer .brand{font-family:'Cormorant Garamond';font-size:22px;font-style:italic;}
+  .footer .sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+  .footer .contact{font-size:11px;color:var(--accent-dark);margin-top:10px;}
+
+  .load-state{text-align:center;padding:60px 20px;color:var(--muted);font-style:italic;font-family:'Cormorant Garamond';font-size:18px;}
+  ::selection{background:var(--accent-light);}
+</style>
+</head>
+<body>
+
+<div class="save-indicator" id="saveIndicator">Saved</div>
+
+<div id="loadState" class="load-state">Loading your lesson details...</div>
+
+<div id="pageContent" style="display:none;">
+
+<nav class="navbar">
+  <a href="#vision">Vision</a>
+  <a href="#profile">Profile</a>
+  <a href="#logistics">Logistics</a>
+  <a href="#plan">Lesson Plan</a>
+  <a href="#products">Products</a>
+  <a href="#lovedavoid">Loved / Avoid</a>
+  <a href="#inspo">Inspo</a>
+  <a href="#payment">Investment</a>
+  <a href="#homework">Homework</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Your Vanity Edit Lesson</div>
+  <h1 class="hero-name" id="heroName">&nbsp;</h1>
+  <div class="divider-pink"></div>
+  <div class="hero-meta">
+    <div class="pill" id="heroDate"></div>
+    <div class="pill" id="heroFormat"></div>
+    <div class="pill" id="heroLocation"></div>
+  </div>
+  <div class="hero-sub">A little before we meet, fill in whatever you'd like below. It saves as you go, and there's nothing here you need to finish in one sitting.</div>
+</div>
+
+<!-- I. VISION -->
+<div class="section" id="vision">
+  <div class="section-label">I</div>
+  <h2 class="section-title">The Vision</h2>
+  <p class="section-hint">What do you want to walk away knowing how to do? Think everyday glam, a special occasion look, a faster routine, or all of the above.</p>
+  <div class="vision-box">
+    <textarea id="visionText" placeholder="I want to feel confident doing my own everyday makeup in under fifteen minutes, and I'd love to learn a simple going-out look for date nights..."></textarea>
+  </div>
+</div>
+
+<!-- II. PROFILE -->
+<div class="section" id="profile">
+  <div class="section-label">II</div>
+  <h2 class="section-title">Your Profile</h2>
+  <p class="section-hint">A few quick facts so we can start the lesson already knowing your skin.</p>
+  <div class="card"><div class="profile-grid" id="profileGrid"></div></div>
+</div>
+
+<!-- III. LOGISTICS -->
+<div class="section" id="logistics">
+  <div class="section-label">III</div>
+  <h2 class="section-title">Lesson Logistics</h2>
+  <p class="section-hint">What to have ready before we begin.</p>
+  <div class="card">
+    <label class="field-label">What to Bring</label>
+    <textarea id="bringText" placeholder="Your current everyday makeup bag, any brushes you already own..."></textarea>
+  </div>
+  <div class="card">
+    <label class="field-label">Anything to Buy Beforehand</label>
+    <textarea id="buyText" placeholder="If there's a product you don't own yet that we'll want on hand, note it here..."></textarea>
+  </div>
+  <div class="card">
+    <label class="field-label">Comfort Level</label>
+    <div class="chip-group" id="comfortChips"></div>
+  </div>
+</div>
+
+<!-- IV. LESSON PLAN -->
+<div class="section" id="plan">
+  <div class="section-label">IV</div>
+  <h2 class="section-title">The Lesson Plan</h2>
+  <p class="section-hint">Tap what you'd like to focus on, and add notes for anything specific.</p>
+  <div id="planSections"></div>
+</div>
+
+<!-- V. PRODUCTS -->
+<div class="section" id="products">
+  <div class="section-label">V</div>
+  <h2 class="section-title">Products Recommended</h2>
+  <p class="section-hint">The exact formula and shade for anything we use, so you can find it again.</p>
+  <div class="card">
+    <div class="prod-head"><span>Area</span><span>Product / Shade</span><span>Notes</span><span></span></div>
+    <div id="productRows"></div>
+    <button class="add-row-btn" onclick="addProductRow()">+ Add Product</button>
+  </div>
+  <div class="card">
+    <label class="field-label">Shop the Look</label>
+    <textarea id="productLinkText" placeholder="Paste links to the products recommended, one per line..." style="min-height:60px;"></textarea>
+  </div>
+</div>
+
+<!-- VI. LOVED & TO AVOID -->
+<div class="section" id="lovedavoid">
+  <div class="section-label">VI</div>
+  <h2 class="section-title">Loved &amp; To Avoid</h2>
+  <p class="section-hint">The non-negotiables in both directions.</p>
+  <div class="la-columns">
+    <div class="la-col">
+      <div class="la-col-title">Loved</div>
+      <div id="lovedList"></div>
+      <div class="la-add"><input type="text" id="lovedInput" placeholder="Add something you love"><button onclick="addListItem('loved')">+</button></div>
+    </div>
+    <div class="la-col avoid">
+      <div class="la-col-title">To Avoid</div>
+      <div id="avoidList"></div>
+      <div class="la-add"><input type="text" id="avoidInput" placeholder="Add something to avoid"><button onclick="addListItem('avoid')">+</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- VII. INSPO -->
+<div class="section" id="inspo">
+  <div class="section-label">VII</div>
+  <h2 class="section-title">Inspo</h2>
+  <p class="section-hint">Paste links to any photos or looks you're drawn to.</p>
+  <div class="card">
+    <label class="field-label">Inspo Links</label>
+    <textarea id="inspoLinkText" placeholder="Paste Pinterest, Instagram, or any other reference links, one per line..."></textarea>
+  </div>
+</div>
+
+<!-- VIII. INVESTMENT & PAYMENT -->
+<div class="section" id="payment">
+  <div class="section-label">VIII</div>
+  <h2 class="section-title">Investment &amp; Payment</h2>
+  <p class="section-hint">Sent with ease, whenever works best for you.</p>
+  <div class="payment-block">
+    <div class="payment-status" id="paymentStatus"></div>
+    <div class="payment-eyebrow">Payment</div>
+    <div class="payment-title">Send payment with ease</div>
+    <div class="payment-amount" id="investmentAmount"></div>
+
+    <a href="https://cash.app/$mbaird80" class="payment-btn" target="_blank" rel="noopener">Pay with Cash App</a>
+    <div class="payment-handle">$mbaird80</div>
+
+    <a href="https://venmo.com/u/morgankellybaird" class="payment-btn secondary" target="_blank" rel="noopener">Pay with Venmo</a>
+    <div class="payment-handle">@morgankellybaird</div>
+
+    <div class="zelle-block">
+      <div class="zelle-label">Or Send via Zelle</div>
+      <div class="zelle-value">770.856.1008</div>
+    </div>
+
+    <div class="payment-note">Please include your name and lesson date in the payment note.</div>
+  </div>
+</div>
+
+<!-- IX. HOMEWORK & FOLLOW-UP -->
+<div class="section" id="homework">
+  <div class="section-label">IX</div>
+  <h2 class="section-title">Homework &amp; Follow-Up</h2>
+  <p class="section-hint">What to practice before we meet again.</p>
+  <div class="card">
+    <label class="field-label">Practice Notes</label>
+    <textarea id="homeworkText" placeholder="Practice the blending technique we covered on cheeks..."></textarea>
+  </div>
+  <div class="card">
+    <label class="field-label">Next Lesson Date (if booked)</label>
+    <input type="text" id="nextLessonDate" placeholder="e.g. Rebooking in 4-6 weeks">
+  </div>
+</div>
+
+<div class="footer">
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="sub">Morgan Kelly Baird</div>
+  <div class="contact">morgan@mkbeautyeducator.com &middot; 770.856.1008</div>
+</div>
+
+</div>
+
+<script>
+/* =========================================================
+   CONFIG — set per client
+   ========================================================= */
+const CLIENT_ID = 'VE-003'; // replace per client, e.g. VE-001
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyPxTvHl4SJezbKir2A8lO2wbyoBFJnWvqF9OVHq1uF3sVmVTfPvx637A1MoxXsFQs1/exec';
+
+/* ---------- Save indicator ---------- */
+let saveTimeout;
+function flashSaved(){
+  const ind = document.getElementById('saveIndicator');
+  ind.classList.add('show');
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(()=>ind.classList.remove('show'), 1200);
+}
+function debounce(fn, ms){
+  let t;
+  return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); };
+}
+
+/* ---------- Remote lesson data (JSON blob) ---------- */
+let lessonData = {};
+const saveLessonData = debounce(async ()=>{
+  try{
+    await fetch(ENDPOINT, {
+      method:'POST',
+      body: JSON.stringify({ id: CLIENT_ID, lessonData: lessonData })
+    });
+    flashSaved();
+  }catch(e){ console.error('Save failed', e); }
+}, 600);
+
+/* ---------- Load everything on page open ---------- */
+async function loadAll(){
+  try{
+    const res = await fetch(`${ENDPOINT}?id=${encodeURIComponent(CLIENT_ID)}`);
+    const record = await res.json();
+    if(record.error){
+      document.getElementById('loadState').textContent = "We couldn't find this lesson. Please check the link or reach out to Morgan.";
+      return;
+    }
+    renderHero(record);
+    lessonData = record.lessonData || {};
+    initVision();
+    initProfile();
+    initLogistics();
+    initComfort();
+    initPlan();
+    initProducts();
+    initProductLinks();
+    initLists();
+    initInspoLinks();
+    initHomework();
+    document.getElementById('loadState').style.display = 'none';
+    document.getElementById('pageContent').style.display = 'block';
+    document.title = (record.clientName ? record.clientName + "'s " : '') + "Vanity Edit Lesson | MKBeauty";
+  }catch(e){
+    document.getElementById('loadState').textContent = "Something went wrong loading this page. Please try again in a moment.";
+    console.error(e);
+  }
+}
+
+function renderHero(record){
+  document.getElementById('heroName').textContent = record.clientName || '';
+  document.getElementById('heroDate').textContent = record.lessonDate || '';
+  document.getElementById('heroFormat').textContent = record.format || '';
+  document.getElementById('heroLocation').textContent = record.location || '';
+  document.getElementById('investmentAmount').textContent = record.investment ? ('$' + record.investment) : '';
+  document.getElementById('paymentStatus').textContent = record.status ? record.status : '';
+}
+
+/* ---------- Vision ---------- */
+function initVision(){
+  const el = document.getElementById('visionText');
+  el.value = lessonData.vision || '';
+  el.addEventListener('input', debounce(e=>{
+    lessonData.vision = e.target.value;
+    saveLessonData();
+  }, 500));
+}
+
+/* ---------- Profile ---------- */
+const profileFields = [
+  {id:'skinType', label:'Skin Type'},
+  {id:'undertone', label:'Undertone'},
+  {id:'skinConcerns', label:'Skin Concerns'},
+  {id:'eyeColor', label:'Eye Color'},
+  {id:'hairColor', label:'Hair Color'},
+  {id:'freckles', label:'Freckles / Texture Notes'},
+  {id:'allergies', label:'Allergies / Sensitivities'},
+  {id:'everydayMakeup', label:'Everyday Makeup Habits'},
+  {id:'goals', label:'Biggest Makeup Frustration'}
+];
+function initProfile(){
+  const grid = document.getElementById('profileGrid');
+  const data = lessonData.profile || {};
+  profileFields.forEach(f=>{
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `<label class="field-label">${f.label}</label><input type="text" id="pf_${f.id}" value="${(data[f.id]||'').replace(/"/g,'&quot;')}">`;
+    grid.appendChild(wrap);
+  });
+  profileFields.forEach(f=>{
+    document.getElementById('pf_'+f.id).addEventListener('input', debounce(saveProfile, 500));
+  });
+}
+function saveProfile(){
+  const data = {};
+  profileFields.forEach(f=> data[f.id] = document.getElementById('pf_'+f.id).value);
+  lessonData.profile = data;
+  saveLessonData();
+}
+
+/* ---------- Logistics ---------- */
+function initLogistics(){
+  const bring = document.getElementById('bringText');
+  bring.value = lessonData.bring || '';
+  bring.addEventListener('input', debounce(e=>{ lessonData.bring = e.target.value; saveLessonData(); }, 500));
+
+  const buy = document.getElementById('buyText');
+  buy.value = lessonData.buy || '';
+  buy.addEventListener('input', debounce(e=>{ lessonData.buy = e.target.value; saveLessonData(); }, 500));
+}
+
+/* ---------- Comfort chips ---------- */
+let comfortState = [];
+function initComfort(){
+  comfortState = lessonData.comfort || [
+    {label:'Just Starting Out', active:false},
+    {label:'Comfortable with Basics', active:false},
+    {label:'Confident, Want to Refine', active:false}
+  ];
+  renderComfortChips();
+}
+function renderComfortChips(){
+  const wrap = document.getElementById('comfortChips');
+  wrap.innerHTML = '';
+  comfortState.forEach((c)=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip' + (c.active ? ' active' : '');
+    chip.textContent = c.label;
+    chip.onclick = ()=>{
+      comfortState.forEach(o=> o.active = false);
+      c.active = true;
+      renderComfortChips();
+      lessonData.comfort = comfortState;
+      saveLessonData();
+    };
+    wrap.appendChild(chip);
+  });
+}
+
+/* ---------- Lesson plan ---------- */
+const planConfig = [
+  {key:'base', title:'Base & Complexion', presets:['Even Coverage','Skin-Like','Full Coverage','Concealer Techniques','Setting & Longevity']},
+  {key:'eyes', title:'Eyes', presets:['Everyday Neutral','Soft Glam','Winged Liner','Lash Application','Blending Basics']},
+  {key:'cheeks', title:'Cheeks', presets:['Bronzer Placement','Blush Placement','Contour Basics','Highlight']},
+  {key:'lips', title:'Lips', presets:['Everyday Nude','Bold Color','Lip Liner Techniques','Long-Wear Formulas']},
+  {key:'brows', title:'Brows', presets:['Shaping Basics','Filling Technique','Product Choice','Grooming']}
+];
+let planState = {};
+function initPlan(){
+  const container = document.getElementById('planSections');
+  planState = lessonData.plan || {};
+  planConfig.forEach(sec=>{
+    if(!planState[sec.key]) planState[sec.key] = {chips:[...sec.presets.map(()=>false)], custom:[], note:''};
+    const st = planState[sec.key];
+    if(!st.custom) st.custom = [];
+
+    const div = document.createElement('div');
+    div.className = 'look-sub';
+    div.innerHTML = `
+      <div class="look-sub-title">${sec.title}</div>
+      <div class="chip-group" id="chips_${sec.key}"></div>
+      <div class="chip-add-row">
+        <input type="text" id="add_${sec.key}" placeholder="Add a focus area">
+        <button onclick="addChip('${sec.key}', document.getElementById('add_${sec.key}').value)">Add</button>
+      </div>
+      <textarea id="note_${sec.key}" placeholder="Notes on ${sec.title.toLowerCase()}...">${st.note||''}</textarea>
+    `;
+    container.appendChild(div);
+    renderPlanChips(sec);
+    document.getElementById('note_'+sec.key).addEventListener('input', debounce(()=>{
+      planState[sec.key].note = document.getElementById('note_'+sec.key).value;
+      lessonData.plan = planState;
+      saveLessonData();
+    }, 500));
+  });
+}
+function renderPlanChips(sec){
+  const wrap = document.getElementById('chips_'+sec.key);
+  wrap.innerHTML = '';
+  const st = planState[sec.key];
+  sec.presets.forEach((label, i)=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip' + (st.chips[i] ? ' active' : '');
+    chip.textContent = label;
+    chip.onclick = ()=>{
+      st.chips[i] = !st.chips[i];
+      renderPlanChips(sec);
+      lessonData.plan = planState;
+      saveLessonData();
+    };
+    wrap.appendChild(chip);
+  });
+  st.custom.forEach((label, i)=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip active';
+    chip.textContent = label + ' ✕';
+    chip.onclick = ()=>{
+      st.custom.splice(i,1);
+      renderPlanChips(sec);
+      lessonData.plan = planState;
+      saveLessonData();
+    };
+    wrap.appendChild(chip);
+  });
+}
+function addChip(key, value){
+  value = (value||'').trim();
+  if(!value) return;
+  const sec = planConfig.find(s=>s.key===key);
+  planState[key].custom.push(value);
+  renderPlanChips(sec);
+  lessonData.plan = planState;
+  saveLessonData();
+  document.getElementById('add_'+key).value='';
+}
+
+/* ---------- Products ---------- */
+let productState = [];
+function initProducts(){
+  productState = lessonData.products || [];
+  if(productState.length === 0){ productState.push({area:'',product:'',notes:''}); }
+  renderProducts();
+}
+function renderProducts(){
+  const wrap = document.getElementById('productRows');
+  wrap.innerHTML = '';
+  productState.forEach((row, i)=>{
+    const div = document.createElement('div');
+    div.className = 'prod-row';
+    div.innerHTML = `
+      <input type="text" placeholder="e.g. Base" value="${row.area.replace(/"/g,'&quot;')}" oninput="updateProduct(${i},'area',this.value)">
+      <input type="text" placeholder="Shade / formula" value="${row.product.replace(/"/g,'&quot;')}" oninput="updateProduct(${i},'product',this.value)">
+      <input type="text" placeholder="Notes" value="${row.notes.replace(/"/g,'&quot;')}" oninput="updateProduct(${i},'notes',this.value)">
+      <span class="remove-row" onclick="removeProductRow(${i})">✕</span>
+    `;
+    wrap.appendChild(div);
+  });
+}
+const saveProducts = debounce(()=>{ lessonData.products = productState; saveLessonData(); }, 500);
+function updateProduct(i, field, value){
+  productState[i][field] = value;
+  saveProducts();
+}
+function addProductRow(){
+  productState.push({area:'',product:'',notes:''});
+  renderProducts();
+  lessonData.products = productState;
+  saveLessonData();
+}
+function removeProductRow(i){
+  productState.splice(i,1);
+  renderProducts();
+  lessonData.products = productState;
+  saveLessonData();
+}
+
+/* ---------- Product links ---------- */
+function initProductLinks(){
+  const el = document.getElementById('productLinkText');
+  el.value = lessonData.productLinks || '';
+  el.addEventListener('input', debounce(e=>{
+    lessonData.productLinks = e.target.value;
+    saveLessonData();
+  }, 500));
+}
+
+/* ---------- Inspo links ---------- */
+function initInspoLinks(){
+  const el = document.getElementById('inspoLinkText');
+  el.value = lessonData.inspoLinks || '';
+  el.addEventListener('input', debounce(e=>{
+    lessonData.inspoLinks = e.target.value;
+    saveLessonData();
+  }, 500));
+}
+
+/* ---------- Loved / Avoid ---------- */
+let listState = {loved:[], avoid:[]};
+function initLists(){
+  listState = lessonData.lovedAvoid || {loved:[], avoid:[]};
+  renderList('loved');
+  renderList('avoid');
+}
+function renderList(type){
+  const wrap = document.getElementById(type+'List');
+  wrap.innerHTML = '';
+  listState[type].forEach((item, i)=>{
+    const row = document.createElement('div');
+    row.className = 'la-item';
+    row.innerHTML = `<span class="dash">—</span><span>${item}</span><span class="remove" onclick="removeListItem('${type}', ${i})">✕</span>`;
+    wrap.appendChild(row);
+  });
+}
+function addListItem(type){
+  const input = document.getElementById(type+'Input');
+  const val = input.value.trim();
+  if(!val) return;
+  listState[type].push(val);
+  input.value='';
+  renderList(type);
+  lessonData.lovedAvoid = listState;
+  saveLessonData();
+}
+function removeListItem(type, i){
+  listState[type].splice(i,1);
+  renderList(type);
+  lessonData.lovedAvoid = listState;
+  saveLessonData();
+}
+
+/* ---------- Homework ---------- */
+function initHomework(){
+  const hw = document.getElementById('homeworkText');
+  hw.value = lessonData.homework || '';
+  hw.addEventListener('input', debounce(e=>{ lessonData.homework = e.target.value; saveLessonData(); }, 500));
+
+  const next = document.getElementById('nextLessonDate');
+  next.value = lessonData.nextLesson || '';
+  next.addEventListener('input', debounce(e=>{ lessonData.nextLesson = e.target.value; saveLessonData(); }, 500));
+}
+
+/* ---------- Init ---------- */
+loadAll();
+</script>
+</body>
+</html>
