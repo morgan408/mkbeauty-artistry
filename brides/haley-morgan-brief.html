@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<title>Haley Morgan Artist Brief 09.12.26 | MKBeauty</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
+    --ink:#191714; --muted:#797672; --border:#CBC5BE;
+    --accent-dark:#AC9A8A; --accent-light:#EFEAE5; --accent:#D9AEB5;
+    --burgundy:#632B37; --stone:#AC9A8A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  em{font-style:italic;color:var(--burgundy);}
+
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(220,217,212,0.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
+    min-height:36px;display:flex;align-items:center;}
+
+  .hero{background:radial-gradient(ellipse at top, #332C27 0%, #241F1B 60%);color:var(--cream);
+    padding:44px 24px 36px;text-align:center;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+  .hero h1{font-size:34px;font-weight:400;margin:0 0 6px;line-height:1.15;color:var(--cream);}
+  .hero h1 em{color:var(--accent);}
+  .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:16px;color:rgba(220,217,212,0.7);margin-bottom:16px;}
+  .divider{width:50px;height:1px;background:var(--accent-dark);margin:16px auto;}
+  .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:12px;letter-spacing:0.05em;color:rgba(220,217,212,0.85);margin-bottom:22px;}
+  .hero-meta span{border:1px solid rgba(172,154,138,0.4);border-radius:14px;padding:8px 14px;}
+  .experience-link{display:inline-block;background:var(--burgundy);color:var(--cream);text-decoration:none;
+    font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;border-radius:24px;font-weight:500;}
+
+  .section{padding:36px 20px;max-width:760px;margin:0 auto;scroll-margin-top:64px;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-title{font-size:24px;font-weight:400;margin:0 0 16px;}
+
+  .card{background:var(--warm-white);border:1px solid var(--border);border-left:3px solid var(--burgundy);border-radius:10px;padding:20px;margin-bottom:14px;}
+  .card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  .row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--border);}
+  .row:last-child{border-bottom:none;}
+  .row .label{color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;flex:0 0 auto;}
+  .row .value{text-align:right;}
+
+  .roster-pill{display:inline-block;background:var(--parchment);border:1px solid var(--burgundy);border-radius:20px;
+    padding:10px 18px;font-size:14px;margin:4px 8px 4px 0;color:var(--ink);}
+  .roster-pill .role{display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+
+  .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:20px;text-align:center;
+    color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:16px;line-height:1.6;}
+
+  .schedule-block{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .schedule-block:last-child{border-bottom:none;}
+  .schedule-time{flex:0 0 auto;min-width:78px;font-family:'Cormorant Garamond';font-size:16px;color:var(--burgundy);font-weight:500;}
+  .schedule-desc{font-size:14px;color:var(--ink);padding-top:1px;}
+
+  .photo-grid{display:flex;flex-wrap:wrap;gap:3%;margin-top:12px;}
+  .photo-tile{width:31%;aspect-ratio:3/4;margin-bottom:10px;border-radius:8px;overflow:hidden;border:1px solid var(--border);}
+  .photo-tile img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:32px 20px 40px;margin-top:10px;}
+  .footer .brand{font-family:'Cormorant Garamond';font-size:20px;font-style:italic;color:var(--cream);}
+  .footer .sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,228,223,0.55);margin-top:6px;}
+  .footer .internal{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-top:12px;}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#overview">Overview</a>
+  <a href="#vision">Vision Recap</a>
+  <a href="#logistics">Logistics</a>
+  <a href="#details">Note</a>
+  <a href="#team">Team &amp; Pay</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Artist Brief &middot; Internal Use Only</div>
+  <h1 id="heroName"><em>Haley</em> Morgan</h1>
+  <div class="sub">Wedding Day</div>
+  <div class="divider"></div>
+  <div class="hero-meta">
+    <span id="heroDate">Saturday, September 12, 2026</span>
+    <span id="heroCallTime"></span>
+    <span id="heroVenue"></span>
+  </div>
+  <a href="#" id="experienceLinkButton" target="_blank" rel="noopener" class="experience-link">View Her Experience Page</a>
+</div>
+
+<div style="padding:22px 20px 4px;text-align:center;max-width:760px;margin:0 auto;">
+  <div id="topRoster"></div>
+</div>
+
+<!-- ===================== OVERVIEW ===================== -->
+<div class="section" id="overview">
+  <div class="section-label">I</div>
+  <h2 class="section-title">Event <em>Overview</em></h2>
+  <div class="card">
+    <div class="row"><span class="label">Party Size</span><span class="value" id="ov_partySize">—</span></div>
+    <div class="row"><span class="label">Day-Of Contact</span><span class="value" id="ov_dayOfContact">—</span></div>
+    <div class="row"><span class="label">Getting-Ready Address</span><span class="value" id="ov_gettingReady">—</span></div>
+    <div class="row"><span class="label">Ceremony Time</span><span class="value" id="ov_ceremonyTime">—</span></div>
+    <div class="row"><span class="label">Ready By</span><span class="value" id="ov_readyByTime">—</span></div>
+  </div>
+  <div class="card featured" style="text-align:center;" id="ov_contractCard">
+    <div class="tier-tag" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;">Contract</div>
+    <a href="#" id="ov_contractLink" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;background:var(--burgundy);
+      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+      padding:13px 26px;border-radius:24px;">View Signed Contract</a>
+  </div>
+  <div class="card featured">
+    <div class="row" style="border:none;"><span class="label">Wedding Feel / Notes</span></div>
+    <div id="ov_weddingFeel" style="font-size:14px;line-height:1.6;">—</div>
+  </div>
+</div>
+
+<!-- ===================== VISION RECAP ===================== -->
+<div class="section" id="vision">
+  <div class="section-label">II</div>
+  <h2 class="section-title">Bride's <em>Vision</em> Recap</h2>
+  <div id="visionRecap"><div class="placeholder-note">She hasn't submitted her Vision yet.</div></div>
+</div>
+
+<!-- ===================== LOGISTICS ===================== -->
+<div class="section" id="logistics">
+  <div class="section-label">III</div>
+  <h2 class="section-title">Run of Show &amp; <em>Logistics</em></h2>
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Run of Show</span></div>
+    <div id="lg_runOfShow"><div class="placeholder-note" style="padding:16px;">Nothing added yet.</div></div>
+  </div>
+
+  <!-- ===================== ARTIST INSPO PHOTOS =====================
+    BUILD-TIME ONLY, right after Run of Show: per-bride reference photos
+    grouped by artist name, filled in by Claude from whatever Morgan shares
+    in that bride's chat. Not synced from the sheet. Use .photo-grid /
+    .photo-tile, one look-sub block per artist. Leave this whole comment
+    block and skip straight to the next card if no photos were shared.
+  ======================================================================= -->
+
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Travel &amp; Logistics</span></div>
+    <div id="lg_travel" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+  </div>
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Notes from Morgan</span></div>
+    <div id="lg_notes" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+  </div>
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Glam Team Notes</span></div>
+    <div id="lg_glam" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+  </div>
+</div>
+
+<!-- ===================== A NOTE FROM MORGAN =====================
+  BUILD-TIME SECTION: a personal, handwritten-feeling note from Morgan to
+  the team for this specific bride, not a synced sheet field. Filled in by
+  Claude per bride based on whatever Morgan shares in that bride's chat.
+  Replace the placeholder-note below with her real note when building for a
+  real bride. Use .photo-grid / .photo-tile for any embedded images.
+======================================================================= -->
+<div class="section" id="details">
+  <div class="section-label">IV</div>
+  <h2 class="section-title">A Note from <em>Morgan</em></h2>
+  <div class="placeholder-note">Nothing yet for this bride. A little something from Morgan, just for this event, goes here once she's shared it.</div>
+</div>
+
+<!-- ===================== TEAM & PAY ===================== -->
+<div class="section" id="team">
+  <div class="section-label">V</div>
+  <h2 class="section-title">The <em>Team</em></h2>
+
+  <div class="look-sub" style="margin-bottom:28px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Roster</div>
+    <div id="teamRoster"><div class="placeholder-note">No artist assignments yet.</div></div>
+  </div>
+
+  <div class="look-sub">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Artist Pay</div>
+    <div id="artistPayoutsWrap"><div class="placeholder-note">Pay hasn't been entered yet.</div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="sub">Morgan Kelly Baird</div>
+  <div class="internal">Artist Brief &middot; Not Shared With Bride</div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIG — set these per bride when building this file.
+   ===================================================================== */
+const EVENT_ID = "EVT-003";         // must match Bookings Pipeline exactly
+const EXPERIENCE_URL = "https://mkbeauty-artistry.vercel.app/brides/haley-morgan"; // her live Experience page
+const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
+const TEAM_PASSWORD = "MKB2026"; // sent automatically, no prompt, this page is never shared with the bride
+
+let record = {};
+let visionData = {};
+
+async function fetchRecord(){
+  const url = API_URL + "?id=" + encodeURIComponent(EVENT_ID) + "&pw=" + encodeURIComponent(TEAM_PASSWORD);
+  const res = await fetch(url);
+  return await res.json();
+}
+
+function textOrDash(val){ return (val === undefined || val === null || val === '') ? '—' : val; }
+// Ceremony Time and Ready By Time should read as plain text (e.g. "4:30 PM").
+// If the sheet cell is formatted as a Time value instead of Plain Text, Sheets
+// stores it as a serial date (epoch 1899-12-30) and the backend hands back a
+// full ISO timestamp like "1899-12-30T09:30:00.000Z", which is meaningless
+// to show as-is. This catches that case and reformats it to a clean time;
+// the real fix is setting those two sheet columns to Plain Text format so
+// they never round-trip through a Date object in the first place.
+function formatTimeValue(raw){
+  if (!raw) return raw;
+  const isoTimeMatch = /^1899-12-3[01]T(\d{2}):(\d{2}):\d{2}/.exec(raw);
+  if (!isoTimeMatch) return raw; // already plain text, leave untouched
+  let h = parseInt(isoTimeMatch[1], 10);
+  const m = isoTimeMatch[2];
+  const ampm = h >= 12 ? 'pm' : 'am';
+  h = h % 12; if (h === 0) h = 12;
+  return h + ':' + m + ampm;
+}
+function textOrFallback(val, fallback){ return (val === undefined || val === null || val === '') ? fallback : val; }
+
+/* ---------- Hero + Overview ---------- */
+function populateHeroAndOverview(){
+  const name = record["Bride / Client Name"] || "";
+  document.getElementById('heroName').innerHTML = name ? `<em>${name.split(' ')[0]}</em> ${name.split(' ').slice(1).join(' ')}` : '<em>Haley</em> Morgan';
+  document.title = (name ? name + ' ' : '') + document.title.replace(/^\{Bride Name\}\s*/, '');
+
+  if (record["Event Date"]) {
+    const d = new Date(record["Event Date"]);
+    if (!isNaN(d)) {
+      document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    }
+  }
+  const venueBits = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
+  if (venueBits) document.getElementById('heroVenue').textContent = venueBits;
+
+  const callTime = formatTimeValue(record["Call Time"]);
+  const callTimeEl = document.getElementById('heroCallTime');
+  if (callTime) { callTimeEl.textContent = 'Call Time ' + callTime; } else { callTimeEl.style.display = 'none'; }
+
+  const expBtn = document.getElementById('experienceLinkButton');
+  if (EXPERIENCE_URL && EXPERIENCE_URL !== "SET_EXPERIENCE_URL_HERE") {
+    expBtn.href = EXPERIENCE_URL;
+  } else {
+    expBtn.style.display = 'none';
+  }
+
+  document.getElementById('ov_partySize').textContent = textOrDash(record["Party Size"]);
+  const contractLink = record["Contract Link"];
+  const contractCard = document.getElementById('ov_contractCard');
+  if (contractLink) {
+    document.getElementById('ov_contractLink').href = contractLink;
+  } else {
+    contractCard.style.display = 'none';
+  }
+  document.getElementById('ov_dayOfContact').textContent = textOrDash(
+    [record["Day-Of Contact"], record["Day-Of Contact Phone"]].filter(Boolean).join(', ')
+  );
+  document.getElementById('ov_gettingReady').textContent = textOrDash(record["Getting-Ready Address"]);
+  document.getElementById('ov_ceremonyTime').textContent = textOrDash(formatTimeValue(record["Ceremony Time"]));
+  document.getElementById('ov_readyByTime').textContent = textOrDash(formatTimeValue(record["Ready By Time"]));
+  document.getElementById('ov_weddingFeel').textContent = textOrFallback(record["Wedding Feel / Notes"], 'Nothing added yet.');
+}
+
+/* ---------- Vision recap (from her Vision (JSON) answers) ---------- */
+function populateVisionRecap(){
+  const wrap = document.getElementById('visionRecap');
+  if (!visionData || Object.keys(visionData).length === 0) return; // leave placeholder
+
+  const bits = [];
+  if (visionData.q_vision) bits.push(`<div class="card featured"><div class="row" style="border:none;"><span class="label">In Her Words</span></div><div style="font-family:'Cormorant Garamond';font-style:italic;font-size:17px;">${visionData.q_vision}</div></div>`);
+
+  if (visionData.profile) {
+    const p = visionData.profile;
+    const rows = [
+      ['Skin Type', p.skinType], ['Skin Concerns', p.skinConcerns], ['Eye Color', p.eyeColor],
+      ['Hair Color', p.hairColor], ['Freckles / Texture', p.freckles], ['Allergies', p.allergies]
+    ].filter(r => r[1]);
+    if (rows.length) {
+      bits.push('<div class="card">' + rows.map(r => `<div class="row"><span class="label">${r[0]}</span><span class="value">${r[1]}</span></div>`).join('') + '</div>');
+    }
+  }
+
+  if (visionData.q_bigDay) bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Big Day Considerations</span></div><div style="font-size:14px;line-height:1.6;">${visionData.q_bigDay}</div></div>`);
+  if (visionData.q_hairDetails) bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Hair Details</span></div><div style="font-size:14px;line-height:1.6;">${visionData.q_hairDetails}</div></div>`);
+  if (visionData.q_veilAccessories) bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Veil / Accessories</span></div><div style="font-size:14px;line-height:1.6;">${visionData.q_veilAccessories}</div></div>`);
+
+  if (visionData.lovedAvoid) {
+    const la = visionData.lovedAvoid;
+    if ((la.loved && la.loved.length) || (la.avoid && la.avoid.length)) {
+      bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Loved</span></div><div style="font-size:14px;">${(la.loved||[]).join(', ') || '—'}</div>
+        <div class="row" style="border:none;margin-top:10px;"><span class="label">To Avoid</span></div><div style="font-size:14px;">${(la.avoid||[]).join(', ') || '—'}</div></div>`);
+    }
+  }
+
+  if (bits.length) wrap.innerHTML = bits.join('');
+}
+
+/* ---------- Team roster with real names and roles ---------- */
+function renderTeamRoster(){
+  const roster = record["Public Roster"] || [];
+
+  const bottomWrap = document.getElementById('teamRoster');
+  if (roster.length > 0) {
+    bottomWrap.innerHTML = roster.map(a =>
+      `<span class="roster-pill">${a.name}<span class="role">${a.role}</span></span>`
+    ).join('');
+  }
+
+  // Compact version right under the hero, names only, no roles or pay
+  const topWrap = document.getElementById('topRoster');
+  if (roster.length > 0) {
+    topWrap.innerHTML = `<div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:8px;">Your Team</div>`
+      + roster.map(a => `<span class="roster-pill" style="padding:7px 14px;">${a.name}</span>`).join('');
+  }
+}
+
+// Artist Pay itemized detail (service, qty, rate, subtotal) pulls straight
+// from the Artist Payouts tab on the Accounting Hub sheet, grouped by
+// artist with a computed total per artist. Rows arrive pre-filtered to
+// this event by the backend (getArtistPayoutsForEvent in ExperinceSync.gs).
+function renderArtistPayouts(){
+  const wrap = document.getElementById('artistPayoutsWrap');
+  const rows = record["Artist Payouts"] || [];
+  if (rows.length === 0) return; // leave placeholder
+
+  const byArtist = {};
+  rows.forEach(r => {
+    const name = r.artist || 'Unassigned';
+    if (!byArtist[name]) byArtist[name] = [];
+    byArtist[name].push(r);
+  });
+
+  wrap.innerHTML = Object.keys(byArtist).map(name => {
+    const items = byArtist[name];
+    const total = items.reduce((sum, i) => sum + (parseFloat(i.subtotal) || 0), 0);
+    const itemRows = items.map(i => {
+      const qty = Number(i.qty) || 1;
+      const rate = Number(i.rate) || 0;
+      const label = qty > 1 ? `${i.service} (${qty} &times; $${rate.toFixed(2)})` : i.service;
+      return `<div class="row"><span class="label" style="text-transform:none;font-size:13px;">${label}</span><span class="value">$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`;
+    }).join('');
+    return `<div class="card featured">
+      <div style="font-family:'Cormorant Garamond';font-size:20px;margin-bottom:8px;">${name}</div>
+      ${itemRows}
+      <div style="font-family:'Cormorant Garamond';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);">$${total.toFixed(2)}</div>
+    </div>`;
+  }).join('');
+}
+
+// Run of Show renders as a real timeline, not one paragraph. In the sheet,
+// type one line per item as "TIME - what happens", e.g.:
+//   9:00 AM - Hair & makeup begins
+//   1:00 PM - Ceremony
+// Each line becomes its own block with the time as a bold label. Lines
+// without a recognizable "TIME - description" pattern just show as-is.
+function renderScheduleBlocks(elId, raw){
+  const el = document.getElementById(elId);
+  if (!raw) return; // leave placeholder
+  const lines = String(raw).split('\n').map(l => l.trim()).filter(Boolean);
+  if (lines.length === 0) return;
+
+  el.innerHTML = lines.map(line => {
+    const match = /^(.+?)\s*-\s*(.+)$/.exec(line);
+    if (match) {
+      return `<div class="schedule-block"><div class="schedule-time">${match[1]}</div><div class="schedule-desc">${match[2]}</div></div>`;
+    }
+    return `<div class="schedule-block"><div class="schedule-desc">${line}</div></div>`;
+  }).join('');
+}
+
+/* ---------- Logistics ---------- */
+function populateLogistics(){
+  renderScheduleBlocks('lg_runOfShow', record["Run of Show"]);
+  document.getElementById('lg_travel').textContent = textOrFallback(record["Travel Logistics"], 'Nothing added yet.');
+  document.getElementById('lg_notes').textContent = textOrFallback(record["Internal Notes"], 'Nothing added yet.');
+  document.getElementById('lg_glam').textContent = textOrFallback(record["Glam Team Notes"], 'Nothing added yet.');
+}
+
+/* ---------- Init ---------- */
+(async function(){
+  try{
+    record = await fetchRecord();
+    if (record.error) {
+      console.error('Could not load this bride\'s record. Check that EVENT_ID matches Bookings Pipeline exactly.');
+      record = {};
+    }
+  }catch(e){
+    console.error('Fetch failed', e);
+    record = {};
+  }
+  try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
+
+  populateHeroAndOverview();
+  populateVisionRecap();
+  renderTeamRoster();
+  renderArtistPayouts();
+  populateLogistics();
+})();
+</script>
+</body>
+</html>
