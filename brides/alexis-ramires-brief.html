@@ -55,6 +55,15 @@
     padding:10px 18px;font-size:14px;margin:4px 8px 4px 0;color:var(--ink);}
   .roster-pill .role{display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
 
+  .pay-pill{display:inline-flex;align-items:center;gap:6px;background:var(--parchment);border:1px solid var(--burgundy);
+    border-radius:20px;padding:10px 18px;font-size:14px;margin:4px 8px 4px 0;color:var(--ink);cursor:pointer;
+    min-height:38px;font-family:'Jost';}
+  .pay-pill.open{background:var(--burgundy);color:var(--cream);}
+  .pay-pill .chev{font-size:11px;transition:transform 0.2s;}
+  .pay-pill.open .chev{transform:rotate(180deg);}
+  .pay-reveal{display:none;margin-top:10px;}
+  .pay-reveal.show{display:block;}
+
   .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:20px;text-align:center;
     color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:16px;line-height:1.6;}
 
@@ -320,6 +329,8 @@ function renderTeamRoster(){
 // from the Artist Payouts tab on the Accounting Hub sheet, grouped by
 // artist with a computed total per artist. Rows arrive pre-filtered to
 // this event by the backend (getArtistPayoutsForEvent in ExperinceSync.gs).
+// Pay is tap-to-reveal per artist: no figures are visible until their pill
+// is tapped, and only one artist's pay is open at a time.
 function renderArtistPayouts(){
   const wrap = document.getElementById('artistPayoutsWrap');
   const rows = record["Artist Payouts"] || [];
@@ -332,7 +343,12 @@ function renderArtistPayouts(){
     byArtist[name].push(r);
   });
 
-  wrap.innerHTML = Object.keys(byArtist).map(name => {
+  const names = Object.keys(byArtist);
+  const pills = names.map((name, idx) =>
+    `<span class="pay-pill" id="payPill${idx}" onclick="togglePayReveal(${idx})">${name}<span class="chev">&#9662;</span></span>`
+  ).join('');
+
+  const reveals = names.map((name, idx) => {
     const items = byArtist[name];
     const total = items.reduce((sum, i) => sum + (parseFloat(i.subtotal) || 0), 0);
     const itemRows = items.map(i => {
@@ -341,12 +357,30 @@ function renderArtistPayouts(){
       const label = qty > 1 ? `${i.service} (${qty} &times; $${rate.toFixed(2)})` : i.service;
       return `<div class="row"><span class="label" style="text-transform:none;font-size:13px;">${label}</span><span class="value">$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`;
     }).join('');
-    return `<div class="card featured">
-      <div style="font-family:'Cormorant Garamond';font-size:20px;margin-bottom:8px;">${name}</div>
-      ${itemRows}
-      <div style="font-family:'Cormorant Garamond';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);">$${total.toFixed(2)}</div>
+    return `<div class="pay-reveal" id="payReveal${idx}">
+      <div class="card featured">
+        ${itemRows}
+        <div style="font-family:'Cormorant Garamond';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);">$${total.toFixed(2)}</div>
+      </div>
     </div>`;
   }).join('');
+
+  wrap.innerHTML = `<div>${pills}</div>${reveals}`;
+}
+
+let openPayIdx = null;
+function togglePayReveal(idx){
+  if (openPayIdx !== null) {
+    document.getElementById('payPill' + openPayIdx).classList.remove('open');
+    document.getElementById('payReveal' + openPayIdx).classList.remove('show');
+  }
+  if (openPayIdx === idx) {
+    openPayIdx = null;
+    return;
+  }
+  document.getElementById('payPill' + idx).classList.add('open');
+  document.getElementById('payReveal' + idx).classList.add('show');
+  openPayIdx = idx;
 }
 
 // Run of Show renders as a real timeline, not one paragraph. In the sheet,
