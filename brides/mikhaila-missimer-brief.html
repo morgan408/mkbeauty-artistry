@@ -134,18 +134,58 @@
 <div class="section" id="logistics">
   <div class="section-label">III</div>
   <h2 class="section-title">Run of Show &amp; <em>Logistics</em></h2>
-  <div class="card">
-    <div class="row" style="border:none;"><span class="label">Run of Show</span></div>
-    <div id="lg_runOfShow"><div class="placeholder-note" style="padding:16px;">Nothing added yet.</div></div>
+
+  <!-- ===================== MEET YOUR TEAM / MINI TIMELINES =====================
+    BUILD-TIME ONLY: one card per artist with their own run of show,
+    written out by hand rather than pulled from the sheet. Not synced.
+  ============================================================================ -->
+  <div class="look-sub" style="margin-bottom:20px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Jenifer &middot; Hair</div>
+    <div class="card">
+      <div class="schedule-block"><div class="schedule-time">10:00 AM</div><div class="schedule-desc">Mikhaila (Bride), 45 min</div></div>
+      <div class="schedule-block"><div class="schedule-time">10:45 AM</div><div class="schedule-desc">Emily</div></div>
+      <div class="schedule-block"><div class="schedule-time">11:25 AM</div><div class="schedule-desc">Alyssa</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:05 PM</div><div class="schedule-desc">Jessica</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:45 PM</div><div class="schedule-desc">Amanda</div></div>
+      <div class="schedule-block"><div class="schedule-time">2:00 PM</div><div class="schedule-desc">Bride touch-ups &amp; veil placement</div></div>
+      <div class="schedule-block"><div class="schedule-time">2:15 PM</div><div class="schedule-desc">Stepmother, hair (simultaneous with Morgan)</div></div>
+    </div>
   </div>
 
-  <!-- ===================== ARTIST INSPO PHOTOS =====================
-    BUILD-TIME ONLY, right after Run of Show: per-bride reference photos
-    grouped by artist name, filled in by Claude from whatever Morgan shares
-    in that bride's chat. Not synced from the sheet. Use .photo-grid /
-    .photo-tile, one look-sub block per artist. Leave this whole comment
-    block and skip straight to the next card if no photos were shared.
-  ======================================================================= -->
+  <div class="look-sub" style="margin-bottom:20px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Emily &middot; Hair</div>
+    <div class="card">
+      <div class="schedule-block"><div class="schedule-time">10:00 AM</div><div class="schedule-desc">Shelley (MOB)</div></div>
+      <div class="schedule-block"><div class="schedule-time">10:40 AM</div><div class="schedule-desc">Jackie</div></div>
+      <div class="schedule-block"><div class="schedule-time">11:20 AM</div><div class="schedule-desc">Alex</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:00 PM</div><div class="schedule-desc">Elizabeth</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:40 PM</div><div class="schedule-desc">Alicia</div></div>
+      <div class="schedule-block"><div class="schedule-time">1:20 PM</div><div class="schedule-desc">Abby, 25 min</div></div>
+      <div class="schedule-block"><div class="schedule-time">2:00 PM</div><div class="schedule-desc">Group touch-ups</div></div>
+    </div>
+  </div>
+
+  <div class="look-sub" style="margin-bottom:20px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">Morgan &middot; Makeup</div>
+    <div class="card">
+      <div class="schedule-block"><div class="schedule-time">10:00 AM</div><div class="schedule-desc">Shelley (MOB)</div></div>
+      <div class="schedule-block"><div class="schedule-time">10:45 AM</div><div class="schedule-desc">Mikhaila (Bride), 60 min, done 11:45</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:05 PM</div><div class="schedule-desc">Alyssa, 45 min</div></div>
+      <div class="schedule-block"><div class="schedule-time">2:00 PM</div><div class="schedule-desc">Bride touch-ups</div></div>
+      <div class="schedule-block"><div class="schedule-time">2:15 PM</div><div class="schedule-desc">Stepmother, makeup (simultaneous with Jenifer), done by 3:00 for 3:25 photography</div></div>
+    </div>
+  </div>
+
+  <div class="look-sub" style="margin-bottom:28px;">
+    <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;">MaKayla &middot; Makeup</div>
+    <div class="card">
+      <div class="schedule-block"><div class="schedule-time">11:20 AM</div><div class="schedule-desc">Jackie</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:00 PM</div><div class="schedule-desc">Emily, 45 min</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:45 PM</div><div class="schedule-desc">Alex, 45 min</div></div>
+      <div class="schedule-block"><div class="schedule-time">1:50 PM</div><div class="schedule-desc">Abby, light makeup</div></div>
+      <div class="schedule-block"><div class="schedule-time">2:00 PM</div><div class="schedule-desc">Group touch-ups</div></div>
+    </div>
+  </div>
 
   <div class="card">
     <div class="row" style="border:none;"><span class="label">Travel &amp; Logistics</span></div>
@@ -413,7 +453,6 @@ function renderScheduleBlocks(elId, raw){
 
 /* ---------- Logistics ---------- */
 function populateLogistics(){
-  renderScheduleBlocks('lg_runOfShow', record["Run of Show"]);
   document.getElementById('lg_travel').textContent = textOrFallback(record["Travel Logistics"], 'Nothing added yet.');
   document.getElementById('lg_notes').textContent = textOrFallback(record["Internal Notes"], 'Nothing added yet.');
   document.getElementById('lg_glam').textContent = textOrFallback(record["Glam Team Notes"], 'Nothing added yet.');
