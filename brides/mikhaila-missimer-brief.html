@@ -337,6 +337,9 @@ function renderTeamRoster(){
 // from the Artist Payouts tab on the Accounting Hub sheet, grouped by
 // artist with a computed total per artist. Rows arrive pre-filtered to
 // this event by the backend (getArtistPayoutsForEvent in ExperinceSync.gs).
+// Pay stays hidden behind a tap-to-reveal pill per artist. Tapping a name
+// reveals only that artist's detail; tapping a different name closes the
+// previous reveal. No pay figures render anywhere else on the page.
 function renderArtistPayouts(){
   const wrap = document.getElementById('artistPayoutsWrap');
   const rows = record["Artist Payouts"] || [];
@@ -349,7 +352,13 @@ function renderArtistPayouts(){
     byArtist[name].push(r);
   });
 
-  wrap.innerHTML = Object.keys(byArtist).map(name => {
+  const names = Object.keys(byArtist);
+
+  const pills = names.map((name, idx) =>
+    `<span class="roster-pill" style="padding:7px 14px;cursor:pointer;" onclick="togglePayReveal(${idx})" id="payPill-${idx}">${name}</span>`
+  ).join('');
+
+  const panels = names.map((name, idx) => {
     const items = byArtist[name];
     const total = items.reduce((sum, i) => sum + (parseFloat(i.subtotal) || 0), 0);
     const itemRows = items.map(i => {
@@ -358,12 +367,27 @@ function renderArtistPayouts(){
       const label = qty > 1 ? `${i.service} (${qty} &times; $${rate.toFixed(2)})` : i.service;
       return `<div class="row"><span class="label" style="text-transform:none;font-size:13px;">${label}</span><span class="value">$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`;
     }).join('');
-    return `<div class="card featured">
+    return `<div class="card featured" id="payPanel-${idx}" style="display:none;margin-top:10px;">
       <div style="font-family:'Cormorant Garamond';font-size:20px;margin-bottom:8px;">${name}</div>
       ${itemRows}
       <div style="font-family:'Cormorant Garamond';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);">$${total.toFixed(2)}</div>
     </div>`;
   }).join('');
+
+  wrap.innerHTML = `<div>${pills}</div>${panels}`;
+  window.__payPanelCount = names.length;
+}
+
+function togglePayReveal(idx){
+  const count = window.__payPanelCount || 0;
+  for (let i = 0; i < count; i++) {
+    const panel = document.getElementById('payPanel-' + i);
+    if (i === idx) {
+      panel.style.display = (panel.style.display === 'none') ? 'block' : 'none';
+    } else {
+      panel.style.display = 'none';
+    }
+  }
 }
 
 // Run of Show renders as a real timeline, not one paragraph. In the sheet,
