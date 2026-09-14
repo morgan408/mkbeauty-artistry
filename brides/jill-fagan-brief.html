@@ -177,10 +177,6 @@
     <div id="lg_travel" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
   </div>
   <div class="card">
-    <div class="row" style="border:none;"><span class="label">Notes from Morgan</span></div>
-    <div id="lg_notes" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
-  </div>
-  <div class="card">
     <div class="row" style="border:none;"><span class="label">Glam Team Notes</span></div>
     <div id="lg_glam" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
   </div>
@@ -436,7 +432,6 @@ function renderScheduleBlocks(elId, raw){
 function populateLogistics(){
   renderScheduleBlocks('lg_runOfShow', record["Run of Show"]);
   document.getElementById('lg_travel').textContent = textOrFallback(record["Travel Logistics"], 'Nothing added yet.');
-  document.getElementById('lg_notes').textContent = textOrFallback(record["Internal Notes"], 'Nothing added yet.');
   document.getElementById('lg_glam').textContent = textOrFallback(record["Glam Team Notes"], 'Nothing added yet.');
 }
 
