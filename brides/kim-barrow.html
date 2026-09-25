@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<title>Kim Barrow Reunion Glam | MKBeauty</title>
+<meta property="og:title" content="Kim Barrow Reunion Glam | MKBeauty">
+<meta property="og:description" content="Your details and your vision, all in one place.">
+<meta property="og:site_name" content="MKBeauty Artistry">
+
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
+    --ink:#191714; --muted:#797672; --border:#CBC5BE;
+    --accent:#D9AEB5; --accent-light:#EFEAE5; --accent-dark:#AC9A8A;
+    --burgundy:#632B37; --rose:#D9AEB5; --blush-light:#EFE9E3; --stone:#AC9A8A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  em{font-style:italic;color:var(--burgundy);}
+  .hero em{color:var(--accent);}
+
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(250,247,242,0.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
+    min-height:36px;display:flex;align-items:center;}
+  .navbar a:active{background:var(--accent-light);color:var(--accent-dark);border-color:var(--accent-dark);}
+
+  .hero{background:radial-gradient(ellipse at top, #2a2420 0%, var(--ink) 60%);color:var(--cream);
+    padding:52px 24px 44px;text-align:center;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+  .hero h1{font-size:40px;font-weight:400;margin:0 0 6px;line-height:1.15;}
+  .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:18px;color:rgba(250,247,242,0.75);margin-bottom:18px;}
+  .divider-gold{width:60px;height:1px;background:var(--accent);margin:20px auto;}
+  .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:12px;letter-spacing:0.05em;color:rgba(250,247,242,0.8);}
+  .hero-meta span{border:1px solid rgba(217,174,181,0.35);border-radius:14px;padding:8px 14px;}
+
+  .section{padding:44px 20px;max-width:760px;margin:0 auto;scroll-margin-top:64px;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-title{font-size:28px;font-weight:400;margin:0 0 6px;}
+  .section-hint{font-size:14px;color:var(--muted);font-style:italic;margin-bottom:24px;line-height:1.55;}
+
+  .card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px;}
+  .card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  textarea, input[type=text], select{width:100%;font-family:'Jost';font-weight:300;font-size:15px;color:var(--ink);
+    background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px;line-height:1.5;}
+  textarea{min-height:90px;resize:vertical;}
+  textarea:focus, input[type=text]:focus, select:focus{outline:none;border-color:var(--accent-dark);background:var(--warm-white);}
+  label.field-label{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .vision-box{background:var(--parchment);border:1px solid var(--burgundy);border-radius:10px;padding:22px;}
+  .vision-box textarea{background:transparent;border:none;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:19px;line-height:1.55;color:var(--burgundy);min-height:100px;padding:0;}
+  .vision-box textarea:focus{outline:none;}
+  .vision-box textarea::placeholder{color:#a89e8f;}
+
+  .profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;}
+  @media(max-width:560px){.profile-grid{grid-template-columns:1fr;}}
+
+  .chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  .chip{font-family:'Jost';font-size:13px;padding:9px 16px;border-radius:18px;border:1px solid var(--accent-dark);
+    background:var(--warm-white);color:var(--ink);min-height:38px;display:flex;align-items:center;cursor:pointer;user-select:none;}
+  .chip.active{background:var(--accent-dark);border-color:var(--accent-dark);color:var(--cream);}
+
+  .slider-wrap{margin:6px 0 22px;}
+  .slider-labels{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .slider-labels span:first-child{text-align:left;}
+  .slider-labels span:last-child{text-align:right;}
+  .slider-labels .mid{font-family:'Cormorant Garamond';font-style:italic;text-transform:none;letter-spacing:0;color:var(--burgundy);text-align:center;}
+  input[type=range]{-webkit-appearance:none;width:100%;height:2px;background:var(--border);border-radius:2px;margin:14px 0;}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+    background:var(--ink);border:3px solid var(--accent);cursor:pointer;margin-top:-10px;}
+
+  .look-sub{margin-bottom:28px;}
+  .look-sub:last-child{margin-bottom:0;}
+  .look-sub-title{font-size:18px;font-family:'Cormorant Garamond';font-weight:500;margin-bottom:10px;}
+
+  .la-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.la-columns{grid-template-columns:1fr;}}
+  .la-col{border:1px solid var(--border);border-radius:10px;padding:16px;background:var(--warm-white);}
+  .la-col.avoid{background:var(--blush-light);}
+  .la-col-title{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;color:var(--burgundy);}
+  .la-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;}
+  .la-item .dash{color:var(--accent-dark);}
+  .la-item .remove{margin-left:auto;color:var(--muted);font-size:16px;cursor:pointer;padding:4px 8px;}
+  .la-add{display:flex;gap:8px;margin-top:10px;}
+  .la-add input{flex:1;font-size:13px;padding:9px 12px;min-height:38px;}
+  .la-add button{min-height:38px;padding:0 14px;border:none;border-radius:8px;background:var(--ink);color:var(--cream);font-size:16px;}
+
+  .photo-grid{display:flex;flex-wrap:wrap;gap:3%;}
+  .photo-tile{width:48.5%;aspect-ratio:3/4;margin-bottom:14px;border:1px solid var(--border);border-radius:10px;
+    overflow:hidden;background:var(--warm-white);position:relative;display:flex;flex-direction:column;}
+  .photo-img-wrap{flex:1;display:flex;align-items:center;justify-content:center;background:var(--parchment);position:relative;overflow:hidden;}
+  .photo-img-wrap img{width:100%;height:100%;object-fit:cover;}
+  .photo-placeholder{font-size:12px;color:var(--muted);letter-spacing:0.05em;text-align:center;padding:12px;}
+  .photo-placeholder .plus{font-size:26px;display:block;margin-bottom:4px;color:var(--accent-dark);}
+  .photo-remove{position:absolute;top:6px;right:6px;background:rgba(26,23,20,0.65);color:#fff;width:26px;height:26px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;z-index:2;}
+  .add-tile{width:100%;min-height:56px;border:1px dashed var(--accent-dark);border-radius:10px;background:transparent;
+    color:var(--accent-dark);font-family:'Jost';font-size:12px;letter-spacing:0.08em;text-transform:uppercase;margin-top:4px;}
+  input[type=file]{display:none;}
+
+  .btn-primary{width:100%;font-family:'Jost';font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    background:var(--burgundy);color:var(--cream);border:none;border-radius:24px;padding:16px;min-height:52px;cursor:pointer;}
+  .btn-secondary{width:100%;font-family:'Jost';font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    background:transparent;color:var(--burgundy);border:1px solid var(--burgundy);border-radius:24px;
+    padding:15px;min-height:50px;cursor:pointer;margin-top:10px;}
+
+  .service-card{background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:14px;}
+  .service-card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  .tier-tag{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;}
+  .service-name{font-family:'Cormorant Garamond';font-size:26px;font-weight:400;margin:0 0 6px;}
+  .service-desc{font-size:13px;color:var(--muted);margin-bottom:10px;}
+  .booking-note{background:var(--accent-light);border-left:3px solid var(--accent-dark);border-radius:0 8px 8px 0;padding:16px 18px;font-size:13px;line-height:1.6;}
+
+  .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:22px;text-align:center;
+    color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:17px;line-height:1.6;}
+
+  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:40px 20px 48px;margin-top:10px;}
+  .footer .brand{font-family:'Cormorant Garamond';font-size:22px;font-style:italic;color:var(--cream);}
+  .footer .sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,228,223,0.55);margin-top:8px;}
+
+  .confirm-screen{display:none;text-align:center;padding:60px 24px;}
+  .confirm-screen.show{display:block;}
+  .confirm-screen h2{font-size:30px;}
+  ::selection{background:var(--accent-light);}
+  .schedule-block{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .schedule-block:last-child{border-bottom:none;}
+  .schedule-time{flex:0 0 auto;min-width:78px;font-family:'Cormorant Garamond';font-size:16px;color:var(--burgundy);font-weight:500;}
+  .schedule-desc{font-size:14px;color:var(--ink);padding-top:1px;}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#quote">Your Quote</a>
+  <a href="#details">Details</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#note">A Note From Morgan</a>
+  <a href="#vision">Your Vision</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Prepared Exclusively For</div>
+  <h1 id="heroName"><em>Kim</em> Barrow</h1>
+  <div class="sub">High School Reunion Glam</div>
+  <div class="divider-gold"></div>
+  <div class="hero-meta">
+    <span id="heroDate">{Event Date}</span>
+    <span id="heroVenue">Ooltewah, TN</span>
+  </div>
+  <a href="#vision" style="display:inline-block;margin-top:26px;background:var(--burgundy);color:var(--cream);
+    text-decoration:none;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:14px 30px;
+    border-radius:24px;">Share Your Vision</a>
+</div>
+
+<!-- ===================== YOUR QUOTE ===================== -->
+<div class="section" id="quote">
+  <div class="section-label">I</div>
+  <h2 class="section-title">Your Quote</h2>
+  <p class="section-hint">Everything you need in one place.</p>
+
+  <div class="service-card featured" id="quoteLinkCard">
+    <div class="tier-tag">Your Full Quote</div>
+    <div class="service-name">View Your <em>Quote</em></div>
+    <div class="service-desc" id="quoteLinkDesc">Loading your quote details...</div>
+    <a href="#" id="quoteLinkButton" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:var(--burgundy);
+      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+      padding:14px 30px;border-radius:24px;">Open Full Quote</a>
+  </div>
+
+  <div class="booking-note">
+    Your full pricing and total live on your quote page above. This page stays focused on your details and your look.
+  </div>
+</div>
+
+<!-- ===================== DETAILS ON FILE ===================== -->
+<div class="section" id="details">
+  <div class="section-label">II</div>
+  <h2 class="section-title">Details on File</h2>
+  <p class="section-hint">Everything we need to reach you.</p>
+
+  <div class="card">
+    <div class="profile-grid">
+      <div><label class="field-label">Your Phone</label><input type="text" id="q_bridePhone"></div>
+      <div><label class="field-label">Your Email</label><input type="text" id="q_brideEmail"></div>
+      <div style="grid-column:1/-1;"><label class="field-label">Getting-Ready Address</label><input type="text" id="q_gettingReady" placeholder="Where the glam will happen, if different from the venue"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY-OF TIMELINE (static, hardcoded per Kim's request) ===================== -->
+<div class="section" id="timeline">
+  <div class="section-label">III</div>
+  <h2 class="section-title">Day-Of Timeline</h2>
+  <p class="section-hint">A general look at how the day will flow.</p>
+  <div class="card">
+    <div class="schedule-block"><div class="schedule-time">3:30 PM</div><div class="schedule-desc">Morgan arrives</div></div>
+    <div class="schedule-block"><div class="schedule-time">4:30 PM</div><div class="schedule-desc">Makeup complete</div></div>
+  </div>
+</div>
+
+<!-- ===================== A NOTE FROM MORGAN ===================== -->
+<div class="section" id="note">
+  <div class="section-label">IV</div>
+  <h2 class="section-title">A Note From <em>Morgan</em></h2>
+  <div class="card featured">
+    <div style="font-family:'Cormorant Garamond';font-style:italic;font-size:19px;line-height:1.6;color:var(--burgundy);">
+      I am so excited to get to glam you for your high school reunion! This is going to be such a fun one, and I cannot wait to help you walk in feeling confident and radiant.
+    </div>
+  </div>
+</div>
+
+<!-- ===================== YOUR VISION ===================== -->
+<div class="section" id="vision">
+  <div class="section-label">V</div>
+  <h2 class="section-title">Your Vision</h2>
+  <p class="section-hint">Tell us how you want to look. Take your time, you can always come back and finish this later.</p>
+
+  <div id="visionForm">
+
+    <div class="look-sub">
+      <div class="look-sub-title">In Your Own Words</div>
+      <div class="vision-box">
+        <textarea id="q_vision" placeholder="Describe the look you're picturing for your reunion. Glowy and bronzed? Soft and romantic? Bold and glam? Paint the whole picture..."></textarea>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Your Profile</div>
+      <div class="card">
+        <div class="profile-grid" id="profileGrid"></div>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Makeup Finish</div>
+      <div class="slider-wrap">
+        <div class="slider-labels"><span>Matte</span><span class="mid" id="finishMidLabel">In Between</span><span>Dewy / Glowy</span></div>
+        <input type="range" min="0" max="100" value="50" id="finishSlider">
+        <p class="section-hint" style="margin:10px 0 0;font-size:12.5px;">Slide toward Matte for a soft-focus, shine-free finish, or toward Dewy for a lit-from-within glow. There's no wrong answer, this just helps Morgan picture the look before the day.</p>
+      </div>
+    </div>
+
+    <div id="lookSections"></div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Love &amp; To Avoid</div>
+      <div class="la-columns">
+        <div class="la-col">
+          <div class="la-col-title">The Vision</div>
+          <div id="lovedList"></div>
+          <div class="la-add"><input type="text" id="lovedInput" placeholder="Add something you love"><button onclick="addListItem('loved')">+</button></div>
+        </div>
+        <div class="la-col avoid">
+          <div class="la-col-title">To Avoid</div>
+          <div id="avoidList"></div>
+          <div class="la-add"><input type="text" id="avoidInput" placeholder="Add something to avoid"><button onclick="addListItem('avoid')">+</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Day Considerations</div>
+      <div class="card">
+        <textarea id="q_bigDay" placeholder="Indoors or outside? Expecting heat, a lot of dancing, photos? Anything about your skin that tends to shift through a long event?"></textarea>
+      </div>
+    </div>
+
+    <div class="look-sub">
+      <div class="look-sub-title">Inspo Photos</div>
+      <p class="section-hint" style="margin-bottom:14px;">Tap the tiles below to build your inspo board. When you're happy with what you've added, tap the button underneath to save them for us, you can always come back and add more later.</p>
+      <div class="photo-grid" id="photoGrid"></div>
+      <button class="add-tile" onclick="addPhotoTile()">+ Add Photo Tile</button>
+      <input type="file" id="photoFileInput" accept="image/*">
+    </div>
+
+    <div style="margin-top:30px;">
+      <button class="btn-secondary" onclick="sharePhotos(this)">Save My Inspo Photos</button>
+      <button class="btn-primary" style="margin-top:10px;" onclick="submitVision()">Submit My Vision</button>
+    </div>
+  </div>
+
+  <div class="confirm-screen" id="confirmScreen">
+    <div class="eyebrow" style="color:var(--accent-dark);">Received, With Love</div>
+    <h2 class="serif">Thank you<span id="confirmName"></span></h2>
+    <p style="color:var(--muted);font-size:15px;line-height:1.6;">Your vision is in our hands now. We cannot wait to glam you for your reunion!</p>
+    <button class="btn-secondary" style="max-width:240px;margin:20px auto 0;" onclick="reopenVisionForm()">Edit My Answers</button>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="sub">Morgan Kelly Baird</div>
+</div>
+
+<script>
+const EVENT_ID = "EVT-038";
+const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
+
+let record = {};
+let visionData = {};
+let pendingChanges = {};
+
+function debounce(fn, ms){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); }; }
+
+async function fetchRecord(){
+  const url = API_URL + "?id=" + encodeURIComponent(EVENT_ID);
+  const res = await fetch(url);
+  return await res.json();
+}
+
+function queueFieldSave(fieldName, value){
+  pendingChanges[fieldName] = value;
+  flushPendingSaves();
+}
+const flushPendingSaves = debounce(async () => {
+  if (Object.keys(pendingChanges).length === 0) return;
+  const payload = Object.assign({ "Event ID": EVENT_ID }, pendingChanges);
+  pendingChanges = {};
+  try{
+    await fetch(API_URL, { method: 'POST', body: JSON.stringify(payload) });
+  }catch(e){ console.error('Save failed', e); }
+}, 700);
+
+const saveVisionBundle = debounce(() => {
+  queueFieldSave("Vision (JSON)", JSON.stringify(visionData));
+}, 700);
+
+/* ---------- Basics + profile fields (direct sheet columns) ---------- */
+const directFieldMap = {
+  q_bridePhone: "Phone",
+  q_brideEmail: "Email",
+  q_gettingReady: "Getting-Ready Address"
+};
+function initBasics(){
+  Object.keys(directFieldMap).forEach(id=>{
+    const el = document.getElementById(id);
+    const header = directFieldMap[id];
+    if (record[header]) el.value = record[header];
+    el.addEventListener('input', debounce(()=>{
+      queueFieldSave(header, el.value);
+    }, 500));
+  });
+  const bundledIds = ['q_bigDay','q_vision'];
+  bundledIds.forEach(id=>{
+    const el = document.getElementById(id);
+    if (visionData[id]) el.value = visionData[id];
+    el.addEventListener('input', debounce(()=>{
+      visionData[id] = el.value;
+      saveVisionBundle();
+    }, 500));
+  });
+}
+
+const profileFields = [
+  {id:'skinType', label:'Skin Type'},
+  {id:'skinConcerns', label:'Skin Concerns'},
+  {id:'eyeColor', label:'Eye Color'},
+  {id:'hairColor', label:'Hair Color'},
+  {id:'freckles', label:'Freckles / Texture Notes'},
+  {id:'allergies', label:'Allergies / Sensitivities'}
+];
+function initProfile(){
+  const grid = document.getElementById('profileGrid');
+  const savedProfile = visionData.profile || {};
+  profileFields.forEach(f=>{
+    const wrap = document.createElement('div');
+    const val = savedProfile[f.id] || '';
+    wrap.innerHTML = `<label class="field-label">${f.label}</label><input type="text" id="pf_${f.id}" value="${String(val).replace(/"/g,'&quot;')}">`;
+    grid.appendChild(wrap);
+  });
+  profileFields.forEach(f=>{
+    document.getElementById('pf_'+f.id).addEventListener('input', debounce(()=>{
+      if (!visionData.profile) visionData.profile = {};
+      visionData.profile[f.id] = document.getElementById('pf_'+f.id).value;
+      saveVisionBundle();
+    }, 400));
+  });
+}
+
+/* ---------- Look sections (chips) ---------- */
+const lookConfig = [
+  {key:'base', title:'Base & Complexion', presets:['Dewy','Satin','Soft Matte','Full Coverage','Medium Coverage','Skin-Like']},
+  {key:'eyes', title:'Eyes', presets:['Soft Glam','Smokey','Warm Neutral','No Eye Makeup','Shimmer','Matte','Soft Wing']},
+  {key:'cheeks', title:'Cheeks', presets:['Warm Bronze','Pink Flush','Sculpted','Sun-Kissed','No Blush']},
+  {key:'lips', title:'Lips', presets:['Nude','Pink','Glossy Nude','Berry','Brown','Classic Red','Matte']},
+  {key:'brows', title:'Brows', presets:['Natural','Defined','Soft Powder','Full & Groomed']}
+];
+let lookState = {};
+function initLook(){
+  const container = document.getElementById('lookSections');
+  lookState = visionData.look || {};
+  lookConfig.forEach(sec=>{
+    if(!lookState[sec.key]) lookState[sec.key] = {chips:sec.presets.map(()=>false)};
+    const div = document.createElement('div');
+    div.className = 'look-sub';
+    div.innerHTML = `<div class="look-sub-title">${sec.title}</div><div class="chip-group" id="chips_${sec.key}"></div>`;
+    container.appendChild(div);
+    renderLookChips(sec);
+  });
+  const finishVal = visionData.finish != null ? visionData.finish : 50;
+  document.getElementById('finishSlider').value = finishVal;
+  updateFinishLabel(finishVal);
+  document.getElementById('finishSlider').addEventListener('input', (e)=>{
+    updateFinishLabel(e.target.value);
+    visionData.finish = e.target.value;
+    saveVisionBundle();
+  });
+}
+function updateFinishLabel(val){
+  const label = document.getElementById('finishMidLabel');
+  if(val < 33) label.textContent = 'Matte';
+  else if(val > 66) label.textContent = 'Dewy / Glowy';
+  else label.textContent = 'In Between';
+}
+function renderLookChips(sec){
+  const wrap = document.getElementById('chips_'+sec.key);
+  wrap.innerHTML = '';
+  const st = lookState[sec.key];
+  sec.presets.forEach((label, i)=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip' + (st.chips[i] ? ' active' : '');
+    chip.textContent = label;
+    chip.onclick = ()=>{
+      st.chips[i] = !st.chips[i];
+      renderLookChips(sec);
+      visionData.look = lookState;
+      saveVisionBundle();
+    };
+    wrap.appendChild(chip);
+  });
+}
+
+/* ---------- Loved / Avoid ---------- */
+let listState = {loved:[], avoid:[]};
+function initLists(){
+  listState = visionData.lovedAvoid || {loved:[], avoid:[]};
+  renderList('loved'); renderList('avoid');
+}
+function renderList(type){
+  const wrap = document.getElementById(type+'List');
+  wrap.innerHTML = '';
+  listState[type].forEach((item, i)=>{
+    const row = document.createElement('div');
+    row.className = 'la-item';
+    row.innerHTML = `<span class="dash">—</span><span>${item}</span><span class="remove" onclick="removeListItem('${type}', ${i})">✕</span>`;
+    wrap.appendChild(row);
+  });
+}
+function addListItem(type){
+  const input = document.getElementById(type+'Input');
+  const val = input.value.trim();
+  if(!val) return;
+  listState[type].push(val); input.value='';
+  renderList(type);
+  visionData.lovedAvoid = listState;
+  saveVisionBundle();
+}
+function removeListItem(type, i){
+  listState[type].splice(i,1);
+  renderList(type);
+  visionData.lovedAvoid = listState;
+  saveVisionBundle();
+}
+
+/* ---------- Photos (device-local only, never synced to the sheet) ---------- */
+function saveDraft(key, value){ try{ localStorage.setItem(key, JSON.stringify(value)); }catch(e){} }
+function loadDraft(key, fallback){ try{ const raw = localStorage.getItem(key); return raw!==null ? JSON.parse(raw) : fallback; }catch(e){ return fallback; } }
+let photoState = [];
+let activeTileIndex = null;
+function initPhotos(){
+  photoState = loadDraft('bp_photos_'+EVENT_ID, []);
+  if(photoState.length === 0){ photoState = [{},{}]; }
+  renderPhotos();
+  document.getElementById('photoFileInput').addEventListener('change', handlePhotoFile);
+}
+function renderPhotos(){
+  const grid = document.getElementById('photoGrid');
+  grid.innerHTML = '';
+  photoState.forEach((tile, i)=>{
+    const div = document.createElement('div');
+    div.className = 'photo-tile';
+    div.innerHTML = tile.dataUrl
+      ? `<div class="photo-img-wrap" onclick="triggerUpload(${i})"><img src="${tile.dataUrl}"><span class="photo-remove" onclick="event.stopPropagation();removePhoto(${i})">✕</span></div>`
+      : `<div class="photo-img-wrap" onclick="triggerUpload(${i})"><div class="photo-placeholder"><span class="plus">+</span>Tap to add</div></div>`;
+    grid.appendChild(div);
+  });
+}
+function triggerUpload(i){ activeTileIndex = i; document.getElementById('photoFileInput').click(); }
+function addPhotoTile(){ photoState.push({}); renderPhotos(); saveDraft('bp_photos_'+EVENT_ID, photoState); }
+function removePhoto(i){ photoState[i] = {}; renderPhotos(); saveDraft('bp_photos_'+EVENT_ID, photoState); }
+function handlePhotoFile(e){
+  const file = e.target.files[0];
+  if(!file || activeTileIndex === null) return;
+  compressImage(file, (dataUrl)=>{
+    photoState[activeTileIndex].dataUrl = dataUrl;
+    renderPhotos();
+    saveDraft('bp_photos_'+EVENT_ID, photoState);
+  });
+  e.target.value = '';
+}
+function compressImage(file, callback){
+  const reader = new FileReader();
+  reader.onload = function(evt){
+    const img = new Image();
+    img.onload = function(){
+      const maxDim = 1000;
+      let w = img.width, h = img.height;
+      if(w > h && w > maxDim){ h = h*(maxDim/w); w = maxDim; }
+      else if(h > maxDim){ w = w*(maxDim/h); h = maxDim; }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      callback(canvas.toDataURL('image/jpeg', 0.78));
+    };
+    img.src = evt.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function blobToBase64(blob){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+async function sharePhotos(btnEl){
+  const toUpload = photoState.map((tile, i) => ({tile, i})).filter(t => t.tile.dataUrl && !t.tile.uploaded);
+  if (toUpload.length === 0) { alert('Add at least one new photo first.'); return; }
+
+  const originalLabel = btnEl.textContent;
+  btnEl.textContent = 'Saving...';
+  btnEl.disabled = true;
+
+  try {
+    for (const {tile, i} of toUpload) {
+      const res = await fetch(tile.dataUrl);
+      const blob = await res.blob();
+      const base64 = await blobToBase64(blob);
+      const result = await fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          action: 'uploadPhoto',
+          'Event ID': EVENT_ID,
+          fileName: 'inspo-' + Date.now() + '-' + i + '.jpg',
+          mimeType: 'image/jpeg',
+          data: base64
+        })
+      }).then(r => r.json()).catch(() => null);
+      if (result && result.success) {
+        photoState[i].uploaded = true;
+      }
+    }
+    saveDraft('bp_photos_'+EVENT_ID, photoState);
+    btnEl.textContent = 'Saved!';
+    setTimeout(() => { btnEl.textContent = originalLabel; btnEl.disabled = false; }, 1800);
+  } catch (e) {
+    console.error('Photo upload failed', e);
+    alert("Something went wrong saving your photos. Please try again in a moment.");
+    btnEl.textContent = originalLabel;
+    btnEl.disabled = false;
+  }
+}
+
+/* ---------- Submit vision ---------- */
+function submitVision(){
+  document.getElementById('visionForm').style.display = 'none';
+  document.getElementById('confirmScreen').classList.add('show');
+  const name = document.getElementById('heroName').textContent.trim();
+  document.getElementById('confirmName').textContent = name ? ', ' + name.split(' ')[0] : '';
+}
+function reopenVisionForm(){
+  document.getElementById('confirmScreen').classList.remove('show');
+  document.getElementById('visionForm').style.display = 'block';
+}
+
+/* ---------- Populate hero, details, quote link from fetched record ---------- */
+function populatePublicContent(){
+  const name = record["Bride / Client Name"] || "";
+  if (name) {
+    document.getElementById('heroName').innerHTML = `<em>${name.split(' ')[0]}</em> ${name.split(' ').slice(1).join(' ')}`;
+  }
+
+  if (record["Event Date"]) {
+    const d = new Date(record["Event Date"]);
+    if (!isNaN(d)) {
+      document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    }
+  }
+  const venueBits = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
+  if (venueBits) document.getElementById('heroVenue').textContent = venueBits;
+
+  const quoteLink = record["Quote Link"];
+  const quoteBtn = document.getElementById('quoteLinkButton');
+  const quoteDesc = document.getElementById('quoteLinkDesc');
+  if (quoteLink) {
+    quoteBtn.href = quoteLink;
+    quoteDesc.textContent = "Your full pricing and total are all on your quote page.";
+  } else {
+    quoteBtn.style.display = 'none';
+    quoteDesc.textContent = "Your quote link hasn't been added yet, check back soon.";
+  }
+}
+
+/* ---------- Init ---------- */
+(async function(){
+  try{
+    record = await fetchRecord();
+    if (record.error) {
+      console.error('Could not load this record. Check that EVENT_ID matches Bookings Pipeline exactly.');
+      record = {};
+    }
+  }catch(e){
+    console.error('Fetch failed', e);
+    record = {};
+  }
+  try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
+
+  populatePublicContent();
+  initBasics();
+  initProfile();
+  initLook();
+  initLists();
+  initPhotos();
+})();
+</script>
+</body>
+</html>
