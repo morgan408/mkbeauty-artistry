@@ -186,7 +186,11 @@
 <div class="section" id="details">
   <div class="section-label">IV</div>
   <h2 class="section-title">A Note from <em>Morgan</em></h2>
-  <div class="placeholder-note">Nothing yet for this bride. A little something from Morgan, just for this event, goes here once she's shared it.</div>
+  <div class="card featured">
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;line-height:1.6;color:var(--ink);">
+      Thank y'all for being here! Be sure to ask lots of questions as you are performing services, and use the Experience page for guidance. If you ever find yourself filling quiet space with conversation, remember to redirect to the bridal party. Ask lots of questions and keep them talking.
+    </div>
+  </div>
 </div>
 
 <!-- ===================== TEAM & PAY ===================== -->
@@ -199,48 +203,41 @@
     <div id="teamRoster"><div class="placeholder-note">No artist assignments yet.</div></div>
   </div>
 
-  <!-- ===================== MEET YOUR TEAM (STANDARD, EVERY BRIDE) =====================
-    Build this section every time, for every artist/stylist assigned to the
-    event (Morgan included, by name, unless she says otherwise for that
-    bride). One .team-card per person:
-      - .team-initials circle: that person's first-two-letters monogram
-        (e.g. "JE" for Jenifer, "HE" for Heather). Never leave it as a
-        photo placeholder; initials are the standing default. If Morgan
-        later shares a real photo for someone, swap the circle's content
-        for an <img> in that person's card only.
-      - Role line: name + station ("Jenifer · Hair"), then a roster line
-        naming who's on their queue (by first name / role tag like
-        "MOB", "MOG", "MOH").
-      - Mini timeline: a .schedule-block list of that person's OWN times
-        only, pulled from the Run of Show once it's built for this bride,
-        pattern "TIME - description" per line, no artist name on the line
-        itself (redundant, they're already labeled by the card).
-      - Optional .team-flag line for anything worth calling out for that
-        person specifically (a hard stop, a heavier/longer service, back-
-        to-back pacing with zero buffer).
-    Order cards by station role, not alphabetically: makeup lead(s) first,
-    then assist/content, then hair stylist(s).
-    After the cards, one .notes block summarizing: final complete time,
-    ready-by time, and anything about pacing worth flagging (e.g. "back-
-    to-back, no buffer" or a hard stop that's tight). Delete this whole
-    comment block once real cards are in for the actual bride.
-  ======================================================================= -->
   <div class="look-sub" style="margin-top:8px;margin-bottom:28px;">
     <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:14px;">Meet Your Team</div>
 
     <div class="team-card">
       <div class="team-card-inner">
-        <div class="team-initials">XX</div>
+        <div class="team-initials">MK</div>
         <div style="flex:1;">
-          <div class="team-name">{Artist Name} <span class="role">&middot; {Station}</span></div>
-          <div class="team-roster-line">{Who's on their queue}</div>
-          <div class="schedule-block"><div class="schedule-time">{Time}</div><div class="schedule-desc">{Service begins}</div></div>
+          <div class="team-name">MaKayla <span class="role">&middot; Makeup</span></div>
+          <div class="team-roster-line">Kearstyn</div>
+          <div class="schedule-block"><div class="schedule-time">9:15 AM</div><div class="schedule-desc">Kearstyn's makeup begins</div></div>
+          <div class="schedule-block"><div class="schedule-time">10:15 AM</div><div class="schedule-desc">Kearstyn's makeup complete, pack up</div></div>
+          <div class="schedule-block"><div class="schedule-time">10:30 AM</div><div class="schedule-desc">Departs, 45-minute drive to next venue</div></div>
+          <div class="team-flag">Hard stop: must be on the road by 10:30 AM to arrive at her next venue by 11:15 AM.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-card-inner">
+        <div class="team-initials">MA</div>
+        <div style="flex:1;">
+          <div class="team-name">Madison <span class="role">&middot; Hair</span></div>
+          <div class="team-roster-line">Bride 2, Kearstyn, Guest</div>
+          <div class="schedule-block"><div class="schedule-time">9:15 AM</div><div class="schedule-desc">Bride 2's hair begins</div></div>
+          <div class="schedule-block"><div class="schedule-time">10:15 AM</div><div class="schedule-desc">Kearstyn's hair begins</div></div>
+          <div class="schedule-block"><div class="schedule-time">11:15 AM</div><div class="schedule-desc">Guest hair begins</div></div>
+          <div class="schedule-block"><div class="schedule-time">12:15 PM</div><div class="schedule-desc">All hair complete</div></div>
+          <div class="schedule-block"><div class="schedule-time">12:30 PM</div><div class="schedule-desc">Content capture</div></div>
+          <div class="team-flag">Back-to-back, three services with no buffer between them.</div>
         </div>
       </div>
     </div>
 
     <div class="notes" style="background:var(--accent-light);border-left:3px solid var(--accent-dark);border-radius:0 8px 8px 0;padding:14px 18px;font-size:12px;line-height:1.6;color:var(--muted);margin-top:4px;">
-      Fully complete at {time}, ready by {time}. {Pacing note if relevant.}
+      Fully complete at 12:15 PM, ready by 1:00 PM. Bride must be fully done with hair and makeup ahead of her private vows, 15-minute cushion built in before content capture.
     </div>
   </div>
 
