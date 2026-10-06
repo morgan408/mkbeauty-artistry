@@ -254,7 +254,18 @@
   <h2 class="section-title">Day-Of Timeline</h2>
   <p class="section-hint">A general look at how your morning will flow. Times may shift slightly as the day comes together.</p>
   <div class="card">
-    <div id="q_runOfShow"><div class="placeholder-note">Your timeline isn't ready yet, check back soon.</div></div>
+    <div id="q_runOfShow">
+      <div class="schedule-block"><div class="schedule-time">8:45 AM</div><div class="schedule-desc">Call time, team arrival & setup</div></div>
+      <div class="schedule-block"><div class="schedule-time">9:15 AM</div><div class="schedule-desc">Bride 2's hair begins, Madison</div></div>
+      <div class="schedule-block"><div class="schedule-time">9:15 AM</div><div class="schedule-desc">Kearstyn's makeup begins, MaKayla</div></div>
+      <div class="schedule-block"><div class="schedule-time">10:15 AM</div><div class="schedule-desc">Bride 2's hair complete; Kearstyn's makeup complete</div></div>
+      <div class="schedule-block"><div class="schedule-time">10:15 AM</div><div class="schedule-desc">Kearstyn's hair begins, Madison</div></div>
+      <div class="schedule-block"><div class="schedule-time">10:30 AM</div><div class="schedule-desc">MaKayla departs for her next venue</div></div>
+      <div class="schedule-block"><div class="schedule-time">11:15 AM</div><div class="schedule-desc">Guest hair begins, Madison</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:15 PM</div><div class="schedule-desc">All hair & makeup complete</div></div>
+      <div class="schedule-block"><div class="schedule-time">12:30 PM</div><div class="schedule-desc">Content capture, Madison</div></div>
+      <div class="schedule-block"><div class="schedule-time">1:00 PM</div><div class="schedule-desc">Ready, buffer ahead of private vows</div></div>
+    </div>
   </div>
 </div>
 
@@ -506,7 +517,7 @@ function renderTeamRoster(){
     return;
   }
   wrap.innerHTML = roster.map(a =>
-    `<span class="roster-pill">${a.name}<span class="role">${a.role}</span></span>`
+    `<span class="roster-pill">${a.name}</span>`
   ).join('');
 }
 
