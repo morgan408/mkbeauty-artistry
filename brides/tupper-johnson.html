@@ -5,20 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- =====================================================================
-  BUILD-TIME: set these three lines for every bride before delivering this
-  file. Link previews (iMessage, WhatsApp, Facebook, etc.) read these static
-  tags directly and never run the page's JavaScript, so leaving the
-  placeholder text in here means her name never shows up correctly when she
-  shares the link. This is not optional, set it alongside EVENT_ID every time.
-  ===================================================================== -->
 <title>Tupper Johnson Wedding Experience 10.24.26 | MKBeauty</title>
-<meta property="og:title" content="Tupper Johnson Wedding Experience | MKBeauty">
-<meta property="og:description" content="Tupper Johnson's wedding day experience, Saturday, October 24, 2026 at The Gardens in the Gorge.">
+<meta property="og:title" content="Tupper Johnson Wedding Experience 10.24.26 | MKBeauty">
+<meta property="og:description" content="Your vision, your details, and your day, all in one place.">
 <meta property="og:site_name" content="MKBeauty Artistry">
-<!-- ===================================================================== -->
-
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -36,13 +26,12 @@
   em{font-style:italic;color:var(--burgundy);}
   .hero em{color:var(--accent);}
 
-  .navbar{position:sticky;top:0;z-index:50;background:rgba(250,247,242,0.94);backdrop-filter:blur(8px);
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(220,217,212,0.94);backdrop-filter:blur(8px);
     border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
     text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
     min-height:36px;display:flex;align-items:center;}
   .navbar a:active{background:var(--accent-light);color:var(--accent-dark);border-color:var(--accent-dark);}
-  .navbar a.locked{margin-left:auto;color:var(--accent-dark);border-color:var(--accent-dark);}
 
   .hero{background:radial-gradient(ellipse at top, #2a2420 0%, var(--ink) 60%);color:var(--cream);
     padding:52px 24px 44px;text-align:center;}
@@ -125,23 +114,14 @@
     background:transparent;color:var(--burgundy);border:1px solid var(--burgundy);border-radius:24px;
     padding:15px;min-height:50px;cursor:pointer;margin-top:10px;}
 
-  /* Quote card styles */
   .service-card{background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:14px;}
   .service-card.featured{background:var(--parchment);border-color:var(--burgundy);}
   .tier-tag{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;}
   .service-name{font-family:'Cormorant Garamond';font-size:26px;font-weight:400;margin:0 0 6px;}
   .service-desc{font-size:13px;color:var(--muted);margin-bottom:10px;}
-  .service-price{font-family:'Cormorant Garamond';font-size:28px;text-align:right;}
-  .total-block{background:#000000;color:var(--cream);border-radius:12px;padding:28px 22px;text-align:center;margin:20px 0;}
-  .total-block .label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(220,217,212,0.6);margin-bottom:8px;}
-  .total-block .amount{font-family:'Cormorant Garamond';font-size:42px;}
   .booking-note{background:var(--accent-light);border-left:3px solid var(--accent-dark);border-radius:0 8px 8px 0;padding:16px 18px;font-size:13px;line-height:1.6;}
 
-  /* Brief styles */
   .brief-essence{font-family:'Cormorant Garamond';font-style:italic;font-size:19px;line-height:1.6;color:var(--burgundy);}
-  .brief-table{width:100%;border-collapse:collapse;}
-  .brief-table td{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;vertical-align:top;}
-  .brief-table td:first-child{width:38%;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
   .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:22px;text-align:center;
     color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:17px;line-height:1.6;}
 
@@ -157,16 +137,21 @@
   .confirm-screen.show{display:block;}
   .confirm-screen h2{font-size:30px;}
   ::selection{background:var(--accent-light);}
+  .schedule-block{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .schedule-block:last-child{border-bottom:none;}
+  .schedule-time{flex:0 0 auto;min-width:78px;font-family:'Cormorant Garamond';font-size:16px;color:var(--burgundy);font-weight:500;}
+  .schedule-desc{font-size:14px;color:var(--ink);padding-top:1px;}
 </style>
 </head>
 <body>
 
 <nav class="navbar">
-  <a href="#quote">Your Quote</a>
   <a href="#details">Details</a>
+  <a href="#timeline">Timeline</a>
   <a href="#vision">Your Vision</a>
   <a href="#brief">Your Brief</a>
   <a href="#team">Your Team</a>
+  <a href="#payments">Payments</a>
 </nav>
 
 <div class="hero">
@@ -176,49 +161,17 @@
   <div class="divider-gold"></div>
   <div class="hero-meta">
     <span id="heroDate">Saturday, October 24, 2026</span>
-    <span id="heroVenue">The Gardens in the Gorge</span>
+    <span id="heroVenue">Gardens in the Gorge, Chattanooga, TN</span>
   </div>
-  <a href="#vision" style="display:inline-block;margin-top:26px;background:var(--burgundy);color:var(--cream);
+  <a href="#timeline" style="display:inline-block;margin-top:26px;background:var(--burgundy);color:var(--cream);
     text-decoration:none;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:14px 30px;
-    border-radius:24px;">Begin Your Vision</a>
+    border-radius:24px;">See Your Timeline</a>
 </div>
 
-<!-- ===================== YOUR QUOTE =====================
-  AUTHORITATIVE PRICING (verify against current project memory before using):
-  Chiffon:   Bride MU $175 | Bride Hair $100 | Guest MU $125 | Guest Hair $85
-  Soie:      Bride MU $225 | Bride Hair $125 | Guest MU $175 | Guest Hair $100
-  Cachemire: Bride MU $300+ | Bride Hair $150+ | Guest MU $200+ | Guest Hair $125+
-  Travel: $0.75/mi, 20mi gifted radius. Booking fee: $150 flat.
-  Touch-up (Cachemire only, optional add-on): $200+, always itemized separately.
-======================================================= -->
-<div class="section" id="quote">
-  <div class="section-label">I</div>
-  <h2 class="section-title">Your Quote</h2>
-  <p class="section-hint">Thoughtfully curated for your day, where every detail is meant to feel like you.</p>
-
-  <div class="service-card featured" id="quoteLinkCard">
-    <div class="tier-tag">Your Full Quote</div>
-    <div class="service-name">View Your <em>Quote</em></div>
-    <div class="service-desc" id="quoteLinkDesc">Loading your quote details...</div>
-    <a href="#" id="quoteLinkButton" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;background:var(--burgundy);
-      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-      padding:14px 30px;border-radius:24px;">Open Full Quote</a>
-  </div>
-
-  <div class="booking-note">
-    Your full pricing breakdown, payment schedule, and total live on your quote page above. This page stays focused on your vision, your details, and your day.
-  </div>
-</div>
-
-<!-- ===================== DETAILS ON FILE =====================
-  PRE-FILL with value="..." from Morgan when building this bride's page: Bride Phone, Bride Email, Contract Link href,
-  and Getting-Ready Address if Morgan already has it (sometimes differs from the venue).
-  LEAVE BLANK: Day-Of Contact and Day-Of Contact Phone, and Getting-Ready Address if not yet known, the bride fills these in herself.
-======================================================= -->
 <div class="section" id="details">
-  <div class="section-label">II</div>
+  <div class="section-label">I</div>
   <h2 class="section-title">Details on File</h2>
-  <p class="section-hint">Everything we need to reach you, and where your signed agreement lives.</p>
+  <p class="section-hint">Everything we need to reach you on the day.</p>
 
   <div class="card">
     <div class="profile-grid">
@@ -229,17 +182,17 @@
       <div><label class="field-label">Day-Of Contact Phone</label><input type="text" id="q_dayOfPhone"></div>
     </div>
   </div>
+</div>
 
-  <div class="card featured" style="text-align:center;">
-    <div class="tier-tag">On File</div>
-    <div class="service-name">Signed Contract</div>
-    <a href="{Contract Link}" target="_blank" rel="noopener" style="display:inline-block;margin-top:12px;background:var(--burgundy);
-      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-      padding:14px 30px;border-radius:24px;">View Signed Contract</a>
+<div class="section" id="timeline">
+  <div class="section-label">II</div>
+  <h2 class="section-title">Day-Of Timeline</h2>
+  <p class="section-hint">A look at how your morning will flow. Times may shift slightly as the day comes together.</p>
+  <div class="card">
+    <div id="q_runOfShow"><div class="placeholder-note">Your timeline isn't ready yet, check back soon.</div></div>
   </div>
 </div>
 
-<!-- ===================== YOUR VISION ===================== -->
 <div class="section" id="vision">
   <div class="section-label">III</div>
   <h2 class="section-title">Your Vision</h2>
@@ -355,45 +308,47 @@
   <div class="confirm-screen" id="confirmScreen">
     <div class="eyebrow" style="color:var(--accent-dark);">Received, With Love</div>
     <h2 class="serif">Thank you<span id="confirmName"></span></h2>
-    <p style="color:var(--muted);font-size:15px;line-height:1.6;">Your vision is in our hands now. We'll be in touch before your preview, and this page will hold your Brief once it's ready.</p>
+    <p style="color:var(--muted);font-size:15px;line-height:1.6;">Your vision is in our hands now. This page will hold your Brief once it's ready.</p>
     <button class="btn-secondary" style="max-width:240px;margin:20px auto 0;" onclick="reopenVisionForm()">Edit My Answers</button>
   </div>
 </div>
 
-<!-- ===================== YOUR BRIEF ===================== -->
 <div class="section" id="brief">
   <div class="section-label">IV</div>
   <h2 class="section-title">Your Bridal Beauty Brief</h2>
   <p class="section-hint">The plan, refined and reflected back to you.</p>
-
   <div class="placeholder-note">
     Being thoughtfully prepared with love. Once we've reviewed your Vision, your full Brief will appear right here, your palette, your look, your loved and to-avoid, all reflected back to you.
   </div>
-
-  <!-- STRUCTURE REFERENCE FOR BUILDING THE REAL BRIEF (not visible to any bride):
-  <div class="card featured"><div class="brief-essence">{Essence paragraph}</div></div>
-  <div class="look-sub"><div class="look-sub-title">Bridal Profile</div><div class="card">
-    <table class="brief-table">
-      <tr><td>Overall Vision</td><td>{answer}</td></tr>
-      <tr><td>Hair Style</td><td>{answer}</td></tr>
-      <tr><td>Skin Type</td><td>{answer}</td></tr>
-      <tr><td>Desired Finish</td><td>{answer}</td></tr>
-      <tr><td>Allergies</td><td>{answer}</td></tr>
-    </table>
-  </div></div>
-  <div class="look-sub"><div class="look-sub-title">Love &amp; To Avoid</div><div class="la-columns">
-    <div class="la-col"><div class="la-col-title">The Vision</div><div class="la-item"><span class="dash">—</span><span>{item}</span></div></div>
-    <div class="la-col avoid"><div class="la-col-title">To Avoid</div><div class="la-item"><span class="dash">—</span><span>{item}</span></div></div>
-  </div></div>
-  -->
 </div>
 
-<!-- ===================== YOUR TEAM ===================== -->
 <div class="section" id="team">
   <div class="section-label">V</div>
   <h2 class="section-title">Your Team</h2>
   <p class="section-hint">The artists bringing your vision to life on the day.</p>
   <div class="card" id="teamRoster">Loading...</div>
+</div>
+
+<div class="section" id="payments">
+  <div class="section-label">VI</div>
+  <h2 class="section-title">Invoice &amp; Payment Status</h2>
+  <p class="section-hint">A running look at your wedding day investment.</p>
+
+  <div class="card">
+    <div class="schedule-block"><div class="schedule-time" style="min-width:0;flex:1;">Wedding day total</div><div class="schedule-time" style="min-width:0;">$1,895.00</div></div>
+    <div class="schedule-block"><div class="schedule-desc" style="flex:1;"><strong style="font-weight:500;">Paid</strong> &middot; Booking fee<br><span style="color:var(--muted);font-size:12px;">Received August 20, 2026 via Venmo</span></div><div class="schedule-time" style="min-width:0;">$150.00</div></div>
+    <div class="schedule-block"><div class="schedule-desc" style="flex:1;"><strong style="font-weight:500;">Paid</strong> &middot; First payment<br><span style="color:var(--muted);font-size:12px;">Received August 28, 2026 via Venmo</span></div><div class="schedule-time" style="min-width:0;">$872.50</div></div>
+    <div class="schedule-block"><div class="schedule-desc" style="flex:1;"><strong style="font-weight:500;color:var(--burgundy);">Due</strong> &middot; Final balance<br><span style="color:var(--muted);font-size:12px;">Wednesday, October 14, 2026, by 5:00 PM</span></div><div class="schedule-time" style="min-width:0;">$872.50</div></div>
+  </div>
+
+  <div class="card featured" style="text-align:center;">
+    <div class="tier-tag">Remaining Balance</div>
+    <div class="service-name" style="font-size:36px;margin:0;">$872.50</div>
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 18px;">Your preview on August 26 was paid separately and is not part of this total.</p>
+    <a href="https://venmo.com/u/MorganKellyBaird" target="_blank" rel="noopener" style="display:block;max-width:320px;margin:0 auto 10px;text-decoration:none;background:var(--ink);color:var(--cream);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:14px;border-radius:24px;">Pay with Venmo</a>
+    <a href="https://cash.app/$mbaird80" target="_blank" rel="noopener" style="display:block;max-width:320px;margin:0 auto 10px;text-decoration:none;background:var(--burgundy);color:var(--cream);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:14px;border-radius:24px;">Pay with Cash App</a>
+    <p style="font-size:12px;color:var(--muted);margin:10px 0 0;">Or Zelle to 770.856.1008. Please include your name and wedding date in the payment note.</p>
+  </div>
 </div>
 
 <div class="footer">
@@ -403,15 +358,45 @@
 
 <script>
 /* =====================================================================
-   CONFIG — the only two things that change per bride when you duplicate
-   this file. Everything else pulls live from the sheet automatically.
+   CONFIG
+   EVENT_ID: set to her real Bookings Pipeline ID (EVT-XXX) so her Vision
+   answers and details save to the sheet. Until it is set, the page still
+   renders fully from EMBEDDED below, but saving is switched off.
+   EMBEDDED: values baked into this page. These always win over the sheet,
+   so the timeline and team never depend on a sheet cell.
    ===================================================================== */
-const EVENT_ID = "EVT-030"; // e.g. "EVT-006", must match Bookings Pipeline exactly
+const EVENT_ID = "SET_EVENT_ID_HERE";
 const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
 
-let record = {};        // the fetched, merged row (Bookings Pipeline + Experience Data)
-let visionData = {};    // everything that lives inside the single "Vision (JSON)" cell
-let teamUnlocked = false;
+const EMBEDDED = {
+  "Bride / Client Name": "Tupper Johnson",
+  "Event Date": "2026-10-24T12:00:00",
+  "Venue": "Gardens in the Gorge",
+  "City / Address": "Chattanooga, TN",
+  "Ready By Time": "2:30 PM",
+  "Run of Show": [
+    "9:30 AM - Team arrives and sets up",
+    "10:00 AM - Makeup: Guest 1 and Guest 2",
+    "10:00 AM - Hair: Guest 4 and Guest 5",
+    "11:00 AM - Makeup: Bride and Guest 3",
+    "11:00 AM - Hair: Guest 6 and Guest 7",
+    "12:00 PM - Makeup: Guest 4 and Guest 5",
+    "12:00 PM - Hair: Bride and Guest 3",
+    "1:00 PM - Makeup: Guest 6 and Guest 7",
+    "1:00 PM - Hair: Guest 1 and Guest 2",
+    "2:00 PM - Content gathering and final touches",
+    "2:30 PM - Ready for photos"
+  ].join("\n"),
+  "Public Roster": [
+    {name: "Morgan", role: "Lead Makeup Artist"},
+    {name: "MaKayla", role: "Makeup Artist"},
+    {name: "Heather", role: "Lead Hair Stylist"},
+    {name: "Emily", role: "Hair Stylist"}
+  ]
+};
+
+let record = {};
+let visionData = {};
 let pendingChanges = {};
 
 function debounce(fn, ms){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); }; }
@@ -422,8 +407,6 @@ async function fetchRecord(pw){
   return await res.json();
 }
 
-// Queues a field to be written back to the sheet. Multiple fields changed in
-// quick succession get batched into a single POST after a short pause.
 function queueFieldSave(fieldName, value){
   if (EVENT_ID === "SET_EVENT_ID_HERE") {
     console.warn('EVENT_ID was never set for this page, refusing to save:', fieldName);
@@ -441,16 +424,10 @@ const flushPendingSaves = debounce(async () => {
   }catch(e){ console.error('Save failed', e); }
 }, 700);
 
-// Vision (JSON) is one cell holding everything from the Vision section.
-// Any change to any piece of it re-saves the whole bundle.
 const saveVisionBundle = debounce(() => {
   queueFieldSave("Vision (JSON)", JSON.stringify(visionData));
 }, 700);
 
-/* ---------- Your Team (public, no password) ---------- */
-// Rendered straight from the "Public Roster" array the backend already
-// resolved (real name + real title from Artist Roster). No service counts,
-// no pay, ever, on this page.
 function renderTeamRoster(){
   const wrap = document.getElementById('teamRoster');
   const roster = record["Public Roster"] || [];
@@ -463,8 +440,6 @@ function renderTeamRoster(){
   ).join('');
 }
 
-/* ---------- Basics + profile fields (direct sheet columns) ---------- */
-// These map straight to real Bookings Pipeline / Experience Data column headers.
 const directFieldMap = {
   q_bridePhone: "Phone",
   q_brideEmail: "Email",
@@ -474,18 +449,11 @@ const directFieldMap = {
   q_dayOfContact: "Day-Of Contact",
   q_dayOfPhone: "Day-Of Contact Phone"
 };
-// Ceremony Time and Ready By Time should read as plain text (e.g. "4:30 PM").
-// If the sheet cell is formatted as a Time value instead of Plain Text, Sheets
-// stores it as a serial date (epoch 1899-12-30) and the backend hands back a
-// full ISO timestamp like "1899-12-30T09:30:00.000Z", which is meaningless
-// to show as-is. This catches that case and reformats it to a clean time;
-// the real fix is setting those two sheet columns to Plain Text format so
-// they never round-trip through a Date object in the first place.
 const timeFieldIds = ['q_ceremonyTime', 'q_readyByTime'];
 function formatTimeValue(raw){
   if (!raw) return raw;
   const isoTimeMatch = /^1899-12-3[01]T(\d{2}):(\d{2}):\d{2}/.exec(raw);
-  if (!isoTimeMatch) return raw; // already plain text, leave untouched
+  if (!isoTimeMatch) return raw;
   let h = parseInt(isoTimeMatch[1], 10);
   const m = isoTimeMatch[2];
   const ampm = h >= 12 ? 'pm' : 'am';
@@ -503,7 +471,6 @@ function initBasics(){
       queueFieldSave(header, el.value);
     }, 500));
   });
-  // These live inside the Vision (JSON) bundle, not their own columns
   const bundledIds = ['q_additionalEvents','q_hairDetails','q_veilAccessories','q_extensions','q_jewelry','q_everyday','q_bigDay','q_vision'];
   bundledIds.forEach(id=>{
     const el = document.getElementById(id);
@@ -541,7 +508,6 @@ function initProfile(){
   });
 }
 
-/* ---------- Look sections (chips) ---------- */
 const lookConfig = [
   {key:'hair', title:'Hair', service:'hair', presets:['Half-Up','Down, Curled','Low Updo','High Updo','Braided Detail','Soft Waves','Sleek','Voluminous','Textured / Undone','Unsure']},
   {key:'base', title:'Base & Complexion', service:'makeup', presets:['Dewy','Satin','Soft Matte','Full Coverage','Medium Coverage','Skin-Like']},
@@ -575,13 +541,12 @@ function initLook(){
     visionData.finish = e.target.value;
     saveVisionBundle();
   });
-  const savedService = visionData.servicesBooked || '';
-  if(savedService) document.getElementById('q_servicesBooked').value = savedService;
+  const savedService = visionData.servicesBooked || 'both';
+  document.getElementById('q_servicesBooked').value = savedService;
   document.getElementById('q_servicesBooked').addEventListener('change', updateServiceVisibility);
-  applyServiceVisibility(); // just show/hide sections on load, no save
+  applyServiceVisibility();
 }
 function updateServiceVisibility(){
-  // Fires only on real user interaction (change event), safe to save here
   const val = document.getElementById('q_servicesBooked').value;
   visionData.servicesBooked = val;
   saveVisionBundle();
@@ -620,7 +585,6 @@ function renderLookChips(sec){
   });
 }
 
-/* ---------- Loved / Avoid ---------- */
 let listState = {loved:[], avoid:[]};
 function initLists(){
   listState = visionData.lovedAvoid || {loved:[], avoid:[]};
@@ -632,7 +596,7 @@ function renderList(type){
   listState[type].forEach((item, i)=>{
     const row = document.createElement('div');
     row.className = 'la-item';
-    row.innerHTML = `<span class="dash">—</span><span>${item}</span><span class="remove" onclick="removeListItem('${type}', ${i})">✕</span>`;
+    row.innerHTML = `<span class="dash">-</span><span>${item}</span><span class="remove" onclick="removeListItem('${type}', ${i})">✕</span>`;
     wrap.appendChild(row);
   });
 }
@@ -652,9 +616,6 @@ function removeListItem(type, i){
   saveVisionBundle();
 }
 
-/* ---------- Photos (device-local only, never synced to the sheet) ---------- */
-// Photos stay on-device and are shared to Morgan via the native share sheet
-// button below, the same as before. They are not part of Vision (JSON).
 function saveDraft(key, value){ try{ localStorage.setItem(key, JSON.stringify(value)); }catch(e){} }
 function loadDraft(key, fallback){ try{ const raw = localStorage.getItem(key); return raw!==null ? JSON.parse(raw) : fallback; }catch(e){ return fallback; } }
 let photoState = [];
@@ -717,6 +678,7 @@ function blobToBase64(blob){
   });
 }
 async function sharePhotos(btnEl){
+  if (EVENT_ID === "SET_EVENT_ID_HERE") { alert('Photo saving is not switched on for this page yet.'); return; }
   const toUpload = photoState.map((tile, i) => ({tile, i})).filter(t => t.tile.dataUrl && !t.tile.uploaded);
   if (toUpload.length === 0) { alert('Add at least one new photo first.'); return; }
 
@@ -754,7 +716,6 @@ async function sharePhotos(btnEl){
   }
 }
 
-/* ---------- Submit vision ---------- */
 function submitVision(){
   document.getElementById('visionForm').style.display = 'none';
   document.getElementById('confirmScreen').classList.add('show');
@@ -766,16 +727,9 @@ function reopenVisionForm(){
   document.getElementById('visionForm').style.display = 'block';
 }
 
-/* ---------- Populate hero, details, quote link, brief from fetched record ---------- */
 function populatePublicContent(){
   const name = record["Bride / Client Name"] || "";
   document.getElementById('heroName').innerHTML = name ? `<em>${name.split(' ')[0]}</em> ${name.split(' ').slice(1).join(' ')}` : '<em>Your</em> Name';
-  // Fallback only, the real title should already be set as static text at
-  // build time (see the CONFIG block in <head>) since link previews never
-  // run this script. This just catches the case where it was missed.
-  if (name && document.title.indexOf('{Bride Name}') !== -1) {
-    document.title = name + " Wedding Experience | MKBeauty";
-  }
 
   if (record["Event Date"]) {
     const d = new Date(record["Event Date"]);
@@ -786,21 +740,6 @@ function populatePublicContent(){
   const venueBits = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
   if (venueBits) document.getElementById('heroVenue').textContent = venueBits;
 
-  const quoteLink = record["Quote Link"];
-  const quoteBtn = document.getElementById('quoteLinkButton');
-  const quoteDesc = document.getElementById('quoteLinkDesc');
-  if (quoteLink) {
-    quoteBtn.href = quoteLink;
-    quoteDesc.textContent = "Your full pricing, payment schedule, and total are all on your quote page.";
-  } else {
-    quoteBtn.style.display = 'none';
-    quoteDesc.textContent = "Your quote link hasn't been added yet, check back soon.";
-  }
-
-  const contractLink = record["Contract Link"] || record["contract_link"];
-  const contractBtn = document.querySelector('a[href="{Contract Link}"]');
-  if (contractBtn && contractLink) contractBtn.href = contractLink;
-
   const briefEssence = record["Brief Essence"];
   if (briefEssence) {
     document.querySelector('#brief .placeholder-note').outerHTML =
@@ -808,27 +747,53 @@ function populatePublicContent(){
   }
 }
 
-/* ---------- Init ---------- */
-(async function(){
-  try{
-    record = await fetchRecord();
-    if (record.error) {
-      console.error('Could not load this bride\'s record. Check that EVENT_ID matches Bookings Pipeline exactly.');
-      record = {};
-    }
-  }catch(e){
-    console.error('Fetch failed', e);
-    record = {};
-  }
-  try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
+function renderScheduleBlocks(elId, raw){
+  const el = document.getElementById(elId);
+  if (!raw) return;
+  const lines = String(raw).split('\n').map(l => l.trim()).filter(Boolean);
+  if (lines.length === 0) return;
 
+  el.innerHTML = lines.map(line => {
+    const match = /^(.+?)\s+-\s+(.+)$/.exec(line);
+    if (match) {
+      return `<div class="schedule-block"><div class="schedule-time">${match[1]}</div><div class="schedule-desc">${match[2]}</div></div>`;
+    }
+    return `<div class="schedule-block"><div class="schedule-desc">${line}</div></div>`;
+  }).join('');
+}
+
+function renderAll(){
+  try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
   populatePublicContent();
+  renderScheduleBlocks('q_runOfShow', record["Run of Show"]);
   renderTeamRoster();
+}
+(async function(){
+  // Render embedded content first so nothing depends on the network.
+  record = Object.assign({}, EMBEDDED);
+  renderAll();
   initBasics();
   initProfile();
   initLook();
   initLists();
   initPhotos();
+
+  // Then, if an Event ID is set, bring in her saved answers from the sheet.
+  if (EVENT_ID !== "SET_EVENT_ID_HERE") {
+    try{
+      const fetched = await fetchRecord();
+      if (fetched && !fetched.error) {
+        record = Object.assign({}, fetched, EMBEDDED);
+        renderAll();
+        initBasics();
+        document.getElementById('profileGrid').innerHTML = '';
+        initProfile();
+        document.getElementById('lookSections').innerHTML = '';
+        initLook();
+        initLists();
+      }
+    }catch(e){ console.error('Fetch failed', e); }
+  }
 })();
 </script>
 </body>
