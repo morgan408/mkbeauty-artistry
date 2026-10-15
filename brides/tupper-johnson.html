@@ -151,6 +151,7 @@
   <a href="#vision">Your Vision</a>
   <a href="#brief">Your Brief</a>
   <a href="#team">Your Team</a>
+  <a href="#payments">Payments</a>
 </nav>
 
 <div class="hero">
@@ -328,6 +329,29 @@
   <div class="card" id="teamRoster">Loading...</div>
 </div>
 
+<div class="section" id="payments">
+  <div class="section-label">VI</div>
+  <h2 class="section-title">Invoice &amp; Payment Status</h2>
+  <p class="section-hint">A running look at your wedding day investment.</p>
+
+  <div class="card">
+    <div class="schedule-block"><div class="schedule-time" style="min-width:0;flex:1;">Wedding day total</div><div class="schedule-time" style="min-width:0;">$2,020.00</div></div>
+    <div class="schedule-block"><div class="schedule-desc" style="flex:1;"><strong style="font-weight:500;">Paid</strong> &middot; Booking fee<br><span style="color:var(--muted);font-size:12px;">Received August 20, 2026 via Venmo</span></div><div class="schedule-time" style="min-width:0;">$150.00</div></div>
+    <div class="schedule-block"><div class="schedule-desc" style="flex:1;"><strong style="font-weight:500;">Paid</strong> &middot; First payment<br><span style="color:var(--muted);font-size:12px;">Received August 28, 2026 via Venmo</span></div><div class="schedule-time" style="min-width:0;">$872.50</div></div>
+    <div class="schedule-block"><div class="schedule-desc" style="flex:1;"><strong style="font-weight:500;color:var(--burgundy);">Due</strong> &middot; Added service, Mother of the Bride makeup<br><span style="color:var(--muted);font-size:12px;">Added October 15, 2026</span></div><div class="schedule-time" style="min-width:0;">$125.00</div></div>
+    <div class="schedule-block"><div class="schedule-desc" style="flex:1;"><strong style="font-weight:500;color:var(--burgundy);">Due</strong> &middot; Final balance<br><span style="color:var(--muted);font-size:12px;">Wednesday, October 14, 2026, by 5:00 PM</span></div><div class="schedule-time" style="min-width:0;">$872.50</div></div>
+  </div>
+
+  <div class="card featured" style="text-align:center;">
+    <div class="tier-tag">Remaining Balance</div>
+    <div class="service-name" style="font-size:36px;margin:0;">$997.50</div>
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 18px;">Your preview on August 26 was paid separately and is not part of this total.</p>
+    <a href="https://venmo.com/u/MorganKellyBaird" target="_blank" rel="noopener" style="display:block;max-width:320px;margin:0 auto 10px;text-decoration:none;background:var(--ink);color:var(--cream);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:14px;border-radius:24px;">Pay with Venmo</a>
+    <a href="https://cash.app/$mbaird80" target="_blank" rel="noopener" style="display:block;max-width:320px;margin:0 auto 10px;text-decoration:none;background:var(--burgundy);color:var(--cream);font-size:13px;letter-spacing:0.06em;text-transform:uppercase;padding:14px;border-radius:24px;">Pay with Cash App</a>
+    <p style="font-size:12px;color:var(--muted);margin:10px 0 0;">Or Zelle to 770.856.1008. Please include your name and wedding date in the payment note.</p>
+  </div>
+</div>
+
 <div class="footer">
   <div class="brand">MKBeauty Artistry</div>
   <div class="sub">Morgan Kelly Baird</div>
@@ -352,16 +376,17 @@ const EMBEDDED = {
   "City / Address": "Chattanooga, TN",
   "Ready By Time": "2:30 PM",
   "Run of Show": [
-    "9:30 AM - Team arrives and sets up",
-    "10:00 AM - Makeup: Guest 1 and Guest 2",
-    "10:00 AM - Hair: Guest 4 and Guest 5",
-    "11:00 AM - Makeup: Bride and Guest 3",
-    "11:00 AM - Hair: Guest 6 and Guest 7",
-    "12:00 PM - Makeup: Guest 4 and Guest 5",
-    "12:00 PM - Hair: Bride and Guest 3",
-    "1:00 PM - Makeup: Guest 6 and Guest 7",
-    "1:00 PM - Hair: Guest 1 and Guest 2",
-    "2:00 PM - Content gathering and final touches",
+    "9:00 AM - Team arrives and sets up",
+    "9:30 AM - Makeup: Guest 1 and Guest 2",
+    "9:30 AM - Hair: Guest 4 and Guest 5",
+    "10:15 AM - Makeup: Bride and Guest 3",
+    "10:30 AM - Hair: Guest 6 and Guest 7",
+    "11:00 AM - Makeup: Mother of the Bride and Guest 5",
+    "11:30 AM - Hair: Bride and Guest 3",
+    "11:45 AM - Makeup: Guest 4 and Guest 7",
+    "12:30 PM - Makeup: Guest 6",
+    "12:30 PM - Hair: Guest 1 and Guest 2",
+    "1:30 PM - Content gathering and final touches",
     "2:30 PM - Ready for photos"
   ].join("\n"),
   "Public Roster": [
@@ -739,27 +764,38 @@ function renderScheduleBlocks(elId, raw){
   }).join('');
 }
 
-(async function(){
-  try{
-    if (EVENT_ID !== "SET_EVENT_ID_HERE") {
-      record = await fetchRecord();
-      if (record.error) { console.error('Could not load this bride\'s record.'); record = {}; }
-    }
-  }catch(e){
-    console.error('Fetch failed', e);
-    record = {};
-  }
-  record = Object.assign({}, record, EMBEDDED);
+function renderAll(){
   try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
-
   populatePublicContent();
   renderScheduleBlocks('q_runOfShow', record["Run of Show"]);
   renderTeamRoster();
+}
+(async function(){
+  // Render embedded content first so nothing depends on the network.
+  record = Object.assign({}, EMBEDDED);
+  renderAll();
   initBasics();
   initProfile();
   initLook();
   initLists();
   initPhotos();
+
+  // Then, if an Event ID is set, bring in her saved answers from the sheet.
+  if (EVENT_ID !== "SET_EVENT_ID_HERE") {
+    try{
+      const fetched = await fetchRecord();
+      if (fetched && !fetched.error) {
+        record = Object.assign({}, fetched, EMBEDDED);
+        renderAll();
+        initBasics();
+        document.getElementById('profileGrid').innerHTML = '';
+        initProfile();
+        document.getElementById('lookSections').innerHTML = '';
+        initLook();
+        initLists();
+      }
+    }catch(e){ console.error('Fetch failed', e); }
+  }
 })();
 </script>
 </body>
