@@ -159,6 +159,7 @@
 
 <nav class="navbar">
   <a href="#quote">Your Quote</a>
+  <a href="#payments">Payments</a>
   <a href="#details">Details</a>
   <a href="#timeline">Timeline</a>
   <a href="#vision">Your Vision</a>
@@ -197,6 +198,26 @@
 
   <div class="booking-note">
     Your full pricing breakdown, payment schedule, and total live on your quote page above. This page stays focused on your vision, your details, and your day.
+  </div>
+</div>
+
+<!-- ===================== PAYMENTS RECEIVED (hardcoded for this bride) ===================== -->
+<div class="section" id="payments" style="padding-top:10px;">
+  <div class="section-label">I.5</div>
+  <h2 class="section-title">Your Payments</h2>
+  <p class="section-hint">Here is what we have received so far. If anything looks off, just let us know.</p>
+  <button class="btn-primary" id="payToggle" onclick="togglePayments()">View Payment Status</button>
+  <div id="payPanel" style="display:none;margin-top:14px;">
+    <div class="card">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;"><span>Booking fee, via Zelle</span><span class="serif" style="font-size:20px;">$150</span></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;"><span>Via Venmo from Sara</span><span class="serif" style="font-size:20px;">$210</span></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;"><span>Via Venmo from Sara</span><span class="serif" style="font-size:20px;">$315</span></div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:10px 0;font-size:14px;"><span>Bridal, via Zelle</span><span class="serif" style="font-size:20px;">$325</span></div>
+    </div>
+    <div class="total-block" style="margin:14px 0;">
+      <div class="label">Total Paid So Far</div>
+      <div class="amount">$1,000 <span style="font-size:20px;color:rgba(220,217,212,0.6);">of $1,130</span></div>
+    </div>
   </div>
 </div>
 
@@ -401,6 +422,14 @@ let record = {};        // the fetched, merged row (Bookings Pipeline + Experien
 let visionData = {};    // everything that lives inside the single "Vision (JSON)" cell
 let teamUnlocked = false;
 let pendingChanges = {};
+
+function togglePayments(){
+  const panel = document.getElementById('payPanel');
+  const btn = document.getElementById('payToggle');
+  const open = panel.style.display === 'none';
+  panel.style.display = open ? 'block' : 'none';
+  btn.textContent = open ? 'Hide Payment Status' : 'View Payment Status';
+}
 
 function debounce(fn, ms){ let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); }; }
 
