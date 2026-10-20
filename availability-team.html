@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MKB Team">
+<meta name="robots" content="noindex, nofollow">
+<title>Team Availability | MKBeauty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
+    --ink:#191714; --muted:#797672; --border:#CBC5BE;
+    --accent-dark:#AC9A8A; --accent-light:#EFEAE5; --burgundy:#632B37;
+    --avail-bg:#D3E2CC; --avail-ink:#35522F; --avail-line:#93B08A;
+    --off-bg:#7A7672; --off-ink:#F2EFEB;
+    --booked-bg:#F1DCE0; --booked-ink:#632B37; --booked-line:#632B37;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+  em{font-style:italic;}
+  .hero{background:radial-gradient(ellipse at top,#2a2420 0%,var(--ink) 60%);color:var(--cream);text-align:center;padding:40px 20px 30px;}
+  .eyebrow{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:12px;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;margin:0;}
+  .hero h1 em{color:var(--accent-dark);}
+  .divider{width:50px;height:1px;background:var(--accent-dark);margin:16px auto 12px;}
+  .hero p{margin:0;font-size:13px;color:rgba(220,217,212,0.75);}
+
+  .wrap{max-width:760px;margin:0 auto;padding:22px 16px 40px;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);display:flex;align-items:center;gap:12px;margin:30px 0 12px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  .month-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .month-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--warm-white);font-size:20px;color:var(--ink);cursor:pointer;}
+  .month-nav button:disabled{opacity:0.3;cursor:default;}
+  .month-title{font-family:'Cormorant Garamond',serif;font-size:26px;}
+  .weekdays,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;}
+  .weekdays div{text-align:center;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-bottom:4px;}
+  .day{aspect-ratio:1/1.1;border-radius:9px;border:1px solid var(--border);background:var(--warm-white);display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:3px;cursor:pointer;user-select:none;}
+  .day.empty{visibility:hidden;}
+  .day.past{opacity:0.4;}
+  .day.selected{outline:2px solid var(--ink);outline-offset:1px;}
+  .day .n{font-size:15px;line-height:1;}
+  .badges{display:flex;gap:3px;}
+  .b{font-size:10px;line-height:1;padding:3px 5px;border-radius:8px;font-weight:500;}
+  .b-av{background:var(--avail-bg);color:var(--avail-ink);}
+  .b-bk{background:var(--booked-bg);color:var(--booked-ink);border:1px solid var(--booked-line);}
+  .key{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);margin-top:10px;align-items:center;}
+
+  .panel{margin-top:18px;background:var(--parchment);border:1px solid var(--burgundy);border-radius:12px;padding:18px;}
+  .panel-date{font-family:'Cormorant Garamond',serif;font-size:24px;}
+  .summary{font-size:12px;color:var(--muted);margin:4px 0 14px;letter-spacing:0.03em;}
+  .group-title{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin:16px 0 8px;}
+  .row{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px;}
+  .row.av{background:var(--avail-bg);border-color:var(--avail-line);}
+  .row.off{background:var(--off-bg);border-color:var(--off-bg);color:var(--off-ink);}
+  .row.bk{background:var(--booked-bg);border:1.5px solid var(--booked-line);color:var(--booked-ink);}
+  .row-top{display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .row-name{font-family:'Cormorant Garamond',serif;font-size:19px;}
+  .row-note{font-size:13px;font-style:italic;margin-top:4px;line-height:1.45;}
+  .row-sub{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;margin-top:4px;opacity:0.8;}
+  .btn{font-family:'Jost';font-size:11px;letter-spacing:0.06em;text-transform:uppercase;border-radius:16px;padding:9px 12px;cursor:pointer;white-space:nowrap;
+    border:1px solid var(--burgundy);background:transparent;color:var(--burgundy);}
+  .row.off .btn{border-color:var(--off-ink);color:var(--off-ink);}
+  .btn.solid{background:var(--burgundy);color:var(--cream);}
+  .book-form{display:flex;gap:6px;margin-top:10px;}
+  .book-form input{flex:1;min-width:0;font-family:'Jost';font-size:16px;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:var(--cream);color:var(--ink);}
+
+  .link-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .link-row:last-child{border-bottom:none;}
+  .card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:6px 16px;}
+
+  .login{max-width:360px;margin:30px auto;background:var(--parchment);border:1px solid var(--burgundy);border-radius:12px;padding:22px;text-align:center;}
+  .login input{width:100%;font-family:'Jost';font-size:16px;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--cream);margin:12px 0;}
+  .err{color:var(--burgundy);font-size:13px;min-height:18px;}
+  .message{text-align:center;padding:40px 20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--muted);}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--cream);font-size:13px;padding:10px 18px;border-radius:20px;
+    opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:9;}
+  .toast.show{opacity:1;}
+  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:28px 20px 34px;}
+  .footer .brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;}
+  .footer .internal{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">MKBeauty Artistry &middot; For Morgan</div>
+  <h1><em>Team</em> Availability</h1>
+  <div class="divider"></div>
+  <p>Tap a date to see who's free.</p>
+</div>
+
+<div class="wrap" id="app"><div class="message">Loading...</div></div>
+<div class="toast" id="toast"></div>
+
+<div class="footer">
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="internal">Team Availability &middot; Not for Client Distribution</div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIG
+   ===================================================================== */
+const API_URL = "https://script.google.com/macros/s/AKfycbxWpmfN1OQy2hr9k31XFQZPLacv0NeL6jUGpTbdcJ-2RkyzSrJ-uiB2g7pIcZWrbzGQKQ/exec";              // same URL as artist.html
+const ARTIST_PAGE_URL = "https://mkbeauty-artistry.vercel.app/artist"; // where artist page links point
+const MONTHS_AHEAD = 12;
+
+const DEMO = API_URL.indexOf('PASTE_') === 0;
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const KEY_STORE = 'mkb_team_key';
+
+let data = { artists:[], entries:{}, booked:{} };
+let teamKey = '';
+let viewYear, viewMonth, selected = null, bookingFor = null;
+const today = new Date(); today.setHours(0,0,0,0);
+const firstMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+const lastMonth = new Date(today.getFullYear(), today.getMonth() + MONTHS_AHEAD - 1, 1);
+
+function keyOf(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+function fromKey(k){ const p = k.split('-').map(Number); return new Date(p[0], p[1]-1, p[2]); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1800); }
+function getStored(){ try { return localStorage.getItem(KEY_STORE) || ''; } catch(e){ return ''; } }
+function setStored(v){ try { v ? localStorage.setItem(KEY_STORE, v) : localStorage.removeItem(KEY_STORE); } catch(e){} }
+
+/* ---------- Login + load ---------- */
+async function start(){
+  if (DEMO) { data = demoData(); return begin(); }
+  teamKey = getStored();
+  if (!teamKey) return showLogin('');
+  const ok = await fetchData();
+  if (ok) begin();
+}
+function showLogin(err){
+  document.getElementById('app').innerHTML = `<div class="login">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:22px;">Team password</div>
+    <input type="password" id="pw" autocomplete="current-password">
+    <div class="err">${esc(err)}</div>
+    <button class="btn solid" id="pwBtn" style="width:100%;padding:13px;">Open</button>
+    <div style="font-size:12px;color:var(--muted);margin-top:10px;">Asked once per device.</div></div>`;
+  const go = async ()=>{ teamKey = document.getElementById('pw').value.trim(); if (!teamKey) return; if (await fetchData()) { setStored(teamKey); begin(); } };
+  document.getElementById('pwBtn').onclick = go;
+  document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+}
+async function fetchData(){
+  try{
+    const res = await fetch(API_URL + '?team=' + encodeURIComponent(teamKey));
+    const d = await res.json();
+    if (d.error) { setStored(''); showLogin(/password/i.test(d.error) ? 'That password didn\'t work.' : d.error); return false; }
+    data = d; return true;
+  }catch(e){
+    document.getElementById('app').innerHTML = '<div class="message">Couldn\'t load. Check your connection and refresh.</div>';
+    return false;
+  }
+}
+function begin(){
+  if (!viewYear) {
+    viewYear = firstMonth.getFullYear(); viewMonth = firstMonth.getMonth();
+    if (DEMO) { viewMonth += 1; if (viewMonth > 11) { viewMonth = 0; viewYear++; } }
+  }
+  renderShell(); renderMonth(); renderLinks();
+}
+
+/* ---------- Status helpers ---------- */
+function statusOf(code, k){
+  const bk = (data.booked[code] || {})[k];
+  if (bk) return { kind:'bk', label: bk.label, source: bk.source };
+  const en = (data.entries[code] || {})[k] || {};
+  if (en.status === 'Available') return { kind:'av', note: en.note };
+  if (en.status === 'Unavailable') return { kind:'off', note: en.note };
+  return { kind:'none', note: en.note };
+}
+
+/* ---------- Render ---------- */
+function renderShell(){
+  document.getElementById('app').innerHTML = `
+    <div class="month-nav">
+      <button id="prevBtn" aria-label="Previous month">&#8249;</button>
+      <div class="month-title" id="monthTitle"></div>
+      <button id="nextBtn" aria-label="Next month">&#8250;</button>
+    </div>
+    <div class="weekdays"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+    <div class="grid" id="grid"></div>
+    <div class="key"><span class="b b-av">3</span> artists available <span class="b b-bk">2</span> booked with MKB</div>
+    <div id="panel"></div>
+    <div class="section-label">Artist Pages</div>
+    <div class="card" id="links"></div>
+    <div style="text-align:center;margin-top:20px;"><button class="btn" id="refreshBtn">Refresh</button>
+    ${DEMO ? '' : '<button class="btn" id="logoutBtn" style="margin-left:8px;">Forget password on this device</button>'}</div>`;
+  document.getElementById('prevBtn').onclick = ()=> shiftMonth(-1);
+  document.getElementById('nextBtn').onclick = ()=> shiftMonth(1);
+  document.getElementById('refreshBtn').onclick = async ()=> { if (DEMO || await fetchData()) { renderMonth(); renderLinks(); toast('Up to date'); } };
+  const lo = document.getElementById('logoutBtn');
+  if (lo) lo.onclick = ()=> { setStored(''); location.reload(); };
+}
+function shiftMonth(n){
+  const d = new Date(viewYear, viewMonth + n, 1);
+  if (d < firstMonth || d > lastMonth) return;
+  viewYear = d.getFullYear(); viewMonth = d.getMonth(); selected = null; bookingFor = null;
+  renderMonth();
+}
+function renderMonth(){
+  document.getElementById('monthTitle').textContent = MONTH_NAMES[viewMonth] + ' ' + viewYear;
+  const cur = new Date(viewYear, viewMonth, 1);
+  document.getElementById('prevBtn').disabled = cur <= firstMonth;
+  document.getElementById('nextBtn').disabled = cur >= lastMonth;
+  const days = new Date(viewYear, viewMonth + 1, 0).getDate();
+  let html = '';
+  for (let i = 0; i < cur.getDay(); i++) html += '<div class="day empty"></div>';
+  for (let d = 1; d <= days; d++){
+    const date = new Date(viewYear, viewMonth, d), k = keyOf(date);
+    let av = 0, bk = 0;
+    data.artists.forEach(a => { const s = statusOf(a.code, k).kind; if (s === 'av') av++; if (s === 'bk') bk++; });
+    let cls = 'day' + (date < today ? ' past' : '') + (k === selected ? ' selected' : '');
+    html += `<div class="${cls}" data-k="${k}" role="button"><span class="n">${d}</span><span class="badges">
+      ${av ? `<span class="b b-av">${av}</span>` : ''}${bk ? `<span class="b b-bk">${bk}</span>` : ''}</span></div>`;
+  }
+  const grid = document.getElementById('grid');
+  grid.innerHTML = html;
+  grid.querySelectorAll('.day[data-k]').forEach(el => el.onclick = ()=> {
+    const k = el.getAttribute('data-k');
+    selected = selected === k ? null : k; bookingFor = null;
+    renderMonth();
+    if (selected) setTimeout(()=> document.getElementById('panel').scrollIntoView({behavior:'smooth', block:'start'}), 30);
+  });
+  renderPanel();
+}
+function renderPanel(){
+  const panel = document.getElementById('panel');
+  if (!selected) { panel.innerHTML = ''; return; }
+  const d = fromKey(selected);
+  const groups = { bk:[], av:[], off:[], none:[] };
+  data.artists.forEach(a => groups[statusOf(a.code, selected).kind].push(a));
+  const title = DAY_NAMES[d.getDay()] + ', ' + MONTH_NAMES[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  const section = (key, name) => groups[key].length ? `<div class="group-title">${name} &middot; ${groups[key].length}</div>` + groups[key].map(a => rowHtml(a, key)).join('') : '';
+  panel.innerHTML = `<div class="panel"><div class="panel-date">${esc(title)}</div>
+    <div class="summary">${groups.av.length} available &middot; ${groups.bk.length} booked &middot; ${groups.off.length} unavailable &middot; ${groups.none.length} not marked</div>
+    ${section('av','Available')}${section('bk','Booked with MKB')}${section('off','Unavailable')}${section('none','Not Marked')}</div>`;
+  panel.querySelectorAll('[data-act]').forEach(b => b.onclick = ()=> handleAct(b.getAttribute('data-act'), b.getAttribute('data-code')));
+}
+function rowHtml(a, kind){
+  const s = statusOf(a.code, selected);
+  let action = '', sub = '', note = s.note ? `<div class="row-note">${esc(s.note)}</div>` : '';
+  if (kind === 'bk') {
+    note = `<div class="row-note">${esc(s.label)}</div>`;
+    if (s.source === 'pipeline') sub = '<div class="row-sub">From Bookings Pipeline</div>';
+    else action = `<button class="btn" data-act="unbook" data-code="${esc(a.code)}">Remove</button>`;
+  } else {
+    action = `<button class="btn" data-act="book" data-code="${esc(a.code)}">Book</button>`;
+  }
+  const form = (bookingFor === a.code) ? `<div class="book-form"><input id="bookLabel" placeholder="Bride name or event">
+    <button class="btn solid" data-act="confirm" data-code="${esc(a.code)}">Save</button></div>` : '';
+  return `<div class="row ${kind}"><div class="row-top"><div class="row-name">${esc(a.name)}</div>${action}</div>${note}${sub}${form}</div>`;
+}
+async function handleAct(act, code){
+  if (act === 'book') { bookingFor = bookingFor === code ? null : code; renderPanel(); const i = document.getElementById('bookLabel'); if (i) i.focus(); return; }
+  if (act === 'confirm') {
+    const label = (document.getElementById('bookLabel').value || '').trim() || 'Booked';
+    await saveBooking(code, true, label);
+  }
+  if (act === 'unbook') await saveBooking(code, false, '');
+}
+async function saveBooking(code, booked, label){
+  const k = selected;
+  try{
+    if (!DEMO) {
+      const res = await fetch(API_URL, { method:'POST', body: JSON.stringify({ action:'teamSetBooked', team: teamKey, code, date: k, booked, label }) });
+      const d = await res.json();
+      if (d.error) throw new Error(d.error);
+    }
+    data.booked[code] = data.booked[code] || {};
+    data.entries[code] = data.entries[code] || {};
+    if (booked) { data.booked[code][k] = { label, source:'manual' }; delete data.entries[code][k]; }
+    else delete data.booked[code][k];
+    bookingFor = null;
+    renderMonth();
+    toast(booked ? 'Booked' : 'Booking removed');
+  }catch(e){
+    toast('Not saved. Try again.');
+  }
+}
+
+/* ---------- Artist links ---------- */
+function renderLinks(){
+  const wrap = document.getElementById('links');
+  if (!data.artists.length) { wrap.innerHTML = '<div style="padding:12px 0;font-size:13px;color:var(--muted);">No artists yet. Add names on the Availability Artists tab.</div>'; return; }
+  wrap.innerHTML = data.artists.map(a => { const url = ARTIST_PAGE_URL + '?a=' + encodeURIComponent(a.code); return `<div class="link-row">
+    <div><div style="font-family:'Cormorant Garamond',serif;font-size:18px;">${esc(a.name)}</div>
+    <div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-top:2px;">${esc(a.tier || '')}${a.tier ? ' &middot; ' : ''}<span style="color:${a.w9 ? 'var(--avail-ink)' : 'var(--burgundy)'};">W-9 ${a.w9 ? 'received' : 'waiting'}</span></div></div>
+    <div style="display:flex;gap:6px;"><a class="btn" href="${esc(url)}" target="_blank" rel="noopener" style="text-decoration:none;">Open</a>
+    <button class="btn" data-link="${esc(url)}">Copy link</button></div></div>`; }).join('');
+  wrap.querySelectorAll('[data-link]').forEach(b => b.onclick = async ()=> {
+    const url = b.getAttribute('data-link');
+    try { await navigator.clipboard.writeText(url); toast('Link copied'); }
+    catch(e) { window.prompt('Copy this link:', url); }
+  });
+}
+
+/* ---------- Preview data (only used while API_URL is not set) ---------- */
+function demoData(){
+  const m = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+  const k = d => keyOf(new Date(m.getFullYear(), m.getMonth(), d));
+  const tiers = ['Soie','Soie','Chiffon','Chiffon','Soie','Cachemire','Chiffon','Soie'];
+  const artists = ['Jenifer','Heather','Mari','Patty','Emily','Justine','Anastasia','Maria'].map((n,i)=>({ code:'demo'+i, name:n, tier:tiers[i], w9: i % 3 !== 0 }));
+  const entries = {}, booked = {};
+  artists.forEach((a,i) => { entries[a.code] = {}; booked[a.code] = {}; });
+  [[0,7,'av',''],[1,7,'av','Can do hair only'],[2,7,'off','Out of town'],[4,7,'av',''],[5,7,'off',''],
+   [0,14,'av',''],[1,14,'av',''],[3,14,'av','Free after 11am'],[6,14,'off',''],
+   [2,21,'av',''],[4,21,'off',''],[1,28,'av',''],[5,28,'av','']].forEach(([i,d,s,n]) => {
+    entries[artists[i].code][k(d)] = { status: s === 'av' ? 'Available' : 'Unavailable', note: n };
+  });
+  booked[artists[3].code][k(7)] = { label:'Brielle Whitney', source:'pipeline' };
+  booked[artists[6].code][k(7)] = { label:'Brielle Whitney', source:'pipeline' };
+  booked[artists[0].code][k(21)] = { label:'Claire Alcock', source:'manual' };
+  return { artists, entries, booked };
+}
+
+start();
+</script>
+</body>
+</html>
