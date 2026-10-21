@@ -5,118 +5,132 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="MKB Team">
-<meta name="theme-color" content="#4A1A24">
 <meta name="robots" content="noindex, nofollow">
 <title>Team Availability | MKBeauty</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+  /* Brand palette, matched to mkbeauty-artistry.vercel.app (Option A: Cream) */
   :root{
-    --paper:#F6EEEC; --paper-2:#FBF6F5; --ink:#191714; --stone:#857A76; --hair:#E3D5D2;
-    --burgundy:#4A1A24; --pink:#D9AEB5; --blush:#EFD8DC; --sage:#DCE6D4; --sage-ink:#3E5A36; --off:#E6DEDC;
+    --cream:#E8E4DF; --parchment:#DDD9D4; --warm-white:#EDEBE8; --ink:#1A1714; --text-2:#4A4541;
+    --border:#CCC8C3; --tan:#B09A88; --tan-dark:#6B5446; --burgundy:#6B2737; --pink:#D9AEB5;
+    --sage:#DCE3D3; --sage-line:#B7C4AB;
+    --cal-head:var(--ink);
     --serif:'Cormorant Garamond',serif; --sans:'Jost',sans-serif;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--paper);}
-  body{font-family:var(--sans);font-weight:300;color:var(--ink);font-size:15px;line-height:1.6;-webkit-tap-highlight-color:transparent;}
-  a{color:inherit;} button{font-family:var(--sans);}
-  :focus-visible{outline:2px solid var(--burgundy);outline-offset:3px;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:var(--sans);font-weight:300;color:var(--ink);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;}
+  a{color:inherit;} button{font-family:var(--sans);} em{font-style:italic;}
+  :focus-visible{outline:2px solid var(--tan-dark);outline-offset:3px;}
 
-  .hero{background:var(--burgundy);color:var(--paper);padding:56px 24px 36px;}
-  .hero-inner,.wrap{max-width:680px;margin:0 auto;}
-  .brand{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--pink);margin-bottom:48px;}
-  .hero h1{font-family:var(--serif);font-weight:300;font-size:58px;line-height:0.95;margin:0;}
-  .hero h1 span{display:block;font-style:italic;color:var(--pink);}
-  .hero p{margin:22px 0 0;padding-top:14px;border-top:1px solid rgba(217,174,181,0.45);font-size:14px;color:rgba(246,238,236,0.85);}
+  .eyebrow{font-size:11.5px;letter-spacing:0.24em;text-transform:uppercase;color:var(--burgundy);margin:0 0 12px;font-weight:400;}
+  .divider{width:48px;height:1px;background:var(--tan);margin:18px 0 20px;}
+  h1,h2{font-family:var(--serif);font-weight:400;line-height:1.15;margin:0;}
+  h1 em,h2 em{color:var(--burgundy);}
 
+  .hero{background:var(--parchment);padding:52px 24px 36px;}
+  .inner,.wrap{max-width:680px;margin:0 auto;}
+  .hero h1{font-size:46px;}
+  .hero p{margin:0;color:var(--text-2);}
   .wrap{padding:40px 24px 8px;}
-  h2{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.05;margin:0 0 6px;}
-  .lede{color:var(--stone);margin:0 0 22px;}
-  .link{background:none;border:none;padding:0;cursor:pointer;font-size:14px;color:var(--burgundy);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:32px;white-space:nowrap;}
-  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--burgundy);color:var(--paper);border:none;border-radius:10px;padding:0 20px;min-height:44px;font-size:14px;cursor:pointer;}
+  h2{font-size:32px;}
+  .lede{color:var(--text-2);margin:0 0 20px;}
+
+  .pill{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 20px;border-radius:999px;cursor:pointer;white-space:nowrap;
+    font-family:var(--sans);font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;text-decoration:none;
+    background:transparent;border:1px solid var(--ink);color:var(--ink);transition:background .2s,color .2s;}
+  .pill:hover{background:var(--ink);color:var(--cream);}
+  .pill.solid{background:var(--ink);color:var(--cream);}
+  .pill.small{min-height:34px;padding:0 14px;font-size:10.5px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
 
   /* Calendar */
-  .cal{border:1px solid var(--burgundy);border-radius:14px;overflow:hidden;background:var(--paper-2);}
-  .month-nav{display:flex;align-items:center;justify-content:space-between;background:var(--burgundy);color:var(--paper);padding:4px 6px;}
+  .frame{position:relative;background:var(--warm-white);border:1px solid var(--border);padding:16px 12px 14px;}
+  .frame::after{content:"";position:absolute;width:18px;height:18px;border:1px solid var(--tan);bottom:-1px;right:-1px;border-left:none;border-top:none;}
+  .month-nav{display:flex;align-items:center;justify-content:space-between;background:var(--cal-head);color:var(--cream);margin:-16px -12px 10px;padding:8px 10px;}
   .month-title{font-family:var(--serif);font-size:24px;}
-  .month-nav button{background:none;border:none;font-family:var(--serif);font-size:30px;line-height:1;color:var(--pink);width:44px;height:44px;cursor:pointer;}
-  .month-nav button:disabled{color:rgba(217,174,181,0.3);cursor:default;}
-  .weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;padding:4px 8px 0;}
-  .weekdays div{text-align:center;font-size:12px;color:var(--stone);padding:8px 0 7px;}
-  .grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;padding:2px 8px 10px;}
-  .day{position:relative;aspect-ratio:1/1.1;background:#fff;border:1px solid var(--hair);border-radius:9px;cursor:pointer;user-select:none;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+  .arrow{width:38px;height:38px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;opacity:0.85;}
+  .arrow:disabled{opacity:0.25;cursor:default;}
+  .weekdays,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;}
+  .weekdays div{text-align:center;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-2);padding:2px 0 6px;font-weight:400;}
+  .day{position:relative;aspect-ratio:1/1.1;border-radius:10px;border:1px solid var(--border);background:#F6F4F1;cursor:pointer;user-select:none;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--ink);}
   .day .c{font-size:15px;line-height:1;}
   .day.blank{visibility:hidden;}
-  .day.past{background:transparent;border-color:#EDE3E1;color:#C9BBB8;}
-  .day.selected{box-shadow:0 0 0 2px var(--ink);}
-  .counts{display:flex;gap:3px;min-height:15px;}
-  .n{font-size:10px;line-height:1;padding:3px 4px;min-width:15px;text-align:center;font-weight:400;border-radius:4px;}
-  .n-av{background:var(--sage);color:var(--sage-ink);}
-  .n-bk{background:var(--blush);color:var(--burgundy);box-shadow:inset 0 0 0 1px var(--burgundy);}
-  .key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font-size:13px;color:var(--stone);align-items:center;}
+  .day.past{background:transparent;border-color:transparent;color:var(--text-2);opacity:0.55;}
+  .day.selected{box-shadow:0 0 0 2px var(--warm-white),0 0 0 3px var(--ink);}
+  .counts{display:flex;gap:3px;min-height:16px;}
+  .n{font-size:10px;line-height:1;padding:3px 5px;min-width:16px;text-align:center;font-weight:500;border-radius:999px;}
+  .n-av{background:var(--sage);color:var(--ink);border:1px solid var(--sage-line);}
+  .n-bk{background:var(--burgundy);color:var(--cream);border:1px solid var(--burgundy);}
+  .key{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:12.5px;color:var(--text-2);align-items:center;}
   .key span{display:inline-flex;align-items:center;gap:7px;}
 
   /* Day roster */
-  .panel{margin-top:30px;padding-top:22px;border-top:1px solid var(--ink);}
-  .panel-date{font-family:var(--serif);font-size:28px;line-height:1.1;}
-  .summary{font-size:14px;color:var(--stone);margin:4px 0 6px;}
-  .group{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--burgundy);margin:22px 0 4px;}
-  .person{display:grid;grid-template-columns:12px 1fr auto;gap:14px;align-items:start;padding:13px 0;border-top:1px solid var(--hair);}
-  .person:last-child{border-bottom:1px solid var(--hair);}
-  .mark{width:12px;height:12px;margin-top:9px;border-radius:3px;}
-  .mark.av{background:var(--sage);} .mark.off{background:var(--off);} .mark.none{box-shadow:inset 0 0 0 1px #C9BBB8;}
-  .mark.bk{background:var(--blush);box-shadow:inset 0 0 0 1px var(--burgundy);}
-  .p-name{font-family:var(--serif);font-size:22px;line-height:1.2;}
-  .p-note{font-size:14px;color:var(--stone);}
+  .card{background:var(--warm-white);border:1px solid var(--border);padding:22px 20px;margin-top:18px;}
+  .panel-date{font-family:var(--serif);font-size:26px;line-height:1.15;}
+  .summary{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px;}
+  .summary span{font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid var(--border);font-weight:400;}
+  .group{margin:22px 0 2px;}
+  .person{display:grid;grid-template-columns:12px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);}
+  .person:last-child{border-bottom:none;}
+  .mark{width:12px;height:12px;border-radius:4px;border:1px solid transparent;}
+  .mark.av{background:var(--sage);border-color:var(--sage-line);} .mark.off{background:var(--parchment);border-color:var(--border);}
+  .mark.none{border-color:var(--text-2);} .mark.bk{background:var(--burgundy);}
+  .p-name{font-family:var(--serif);font-size:21px;line-height:1.2;}
+  .p-note{font-size:13.5px;color:var(--text-2);}
   .p-note.bk{color:var(--burgundy);}
-  .book-form{grid-column:2/-1;display:flex;gap:10px;align-items:center;margin-top:4px;}
-  .book-form input{flex:1;min-width:0;font-family:var(--sans);font-weight:300;font-size:16px;background:transparent;border:none;border-bottom:1px solid #CDBDB9;padding:8px 0;color:var(--ink);}
-  .book-form input:focus{outline:none;border-bottom-color:var(--burgundy);}
+  .book-form{grid-column:2/-1;display:flex;gap:8px;align-items:center;margin-top:2px;}
+  .book-form input{flex:1;min-width:0;font-family:var(--sans);font-weight:300;font-size:16px;background:#F6F4F1;border:1px solid var(--border);padding:9px 12px;color:var(--ink);}
+  .book-form input:focus{outline:none;border-color:var(--tan-dark);background:#fff;}
 
   /* Artist pages */
-  .artists{margin-top:4px;}
-  .artist{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--hair);}
-  .artist:last-child{border-bottom:1px solid var(--hair);}
-  .a-name{font-family:var(--serif);font-size:22px;line-height:1.2;}
-  .a-sub{font-size:13px;color:var(--stone);}
-  .a-sub .need{color:var(--burgundy);} .a-sub .ok{color:var(--sage-ink);}
-  .a-actions{display:flex;gap:18px;}
+  .artist{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);}
+  .artist:last-child{border-bottom:none;}
+  .a-name{font-family:var(--serif);font-size:21px;line-height:1.2;}
+  .a-sub{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+  .chip{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--border);font-weight:400;color:var(--ink);}
+  .chip.tier{font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:0;text-transform:none;padding:1px 10px;}
+  .chip.ok{background:var(--sage);border-color:var(--sage-line);}
+  .chip.need{background:#F0DEDF;border-color:var(--burgundy);color:var(--burgundy);}
+  .a-actions{display:flex;gap:6px;flex-shrink:0;}
 
-  .login{max-width:360px;margin:20px auto 0;}
-  .login label{display:block;font-size:13px;color:var(--stone);}
-  .login input{width:100%;font-family:var(--sans);font-size:16px;background:transparent;border:none;border-bottom:1px solid var(--ink);padding:10px 0;margin:2px 0 16px;}
-  .login input:focus{outline:none;border-bottom-color:var(--burgundy);}
-  .err{color:var(--burgundy);font-size:14px;min-height:22px;}
-  .message{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--stone);padding:40px 0;}
-  .foot-actions{display:flex;gap:24px;flex-wrap:wrap;margin:36px 0 10px;}
-  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:14px;padding:10px 18px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:9;}
+  .login{max-width:380px;margin:0 auto;}
+  label.field{display:block;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-2);margin-bottom:4px;font-weight:400;}
+  .login input{width:100%;font-family:var(--sans);font-size:16px;background:#F6F4F1;border:1px solid var(--border);padding:11px 12px;margin-bottom:6px;}
+  .login input:focus{outline:none;border-color:var(--tan-dark);background:#fff;}
+  .err{color:var(--burgundy);font-size:14px;min-height:24px;}
+  .message{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--text-2);padding:30px 0;text-align:center;}
+  .foot-actions{margin:30px 0 0;}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--cream);font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;
+    padding:11px 20px;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:9;}
   .toast.show{opacity:1;}
-  .footer{background:var(--ink);color:var(--paper);padding:36px 24px 44px;margin-top:56px;}
-  .footer-inner{max-width:680px;margin:0 auto;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
-  .footer .b{font-family:var(--serif);font-style:italic;font-size:21px;}
-  .footer .s{font-size:12px;color:rgba(246,238,236,0.5);}
-  @media(max-width:480px){.hero h1{font-size:50px;} .a-actions{gap:14px;}}
+  footer{background:var(--ink);color:var(--cream);padding:48px 24px 40px;text-align:center;margin-top:56px;}
+  .footer-brand{font-family:var(--serif);font-size:24px;}
+  .footer-tagline{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--tan);margin:2px 0 14px;}
+  .footer-name{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,228,223,.8);}
+  @media(max-width:480px){.hero h1{font-size:40px;} .a-actions .pill{padding:0 11px;}}
   @media (prefers-reduced-motion: reduce){*{transition:none!important;}}
-  /* Type weights: match the fonts loaded on every MKBeauty page (Cormorant 300/400/500, italic 400/500; Jost 300/400/500) */
-  .brand,.hero h1 .last,.hero h1 span,.hero-meta .tier,.footer .b,.group,.month-title,.panel-date,.ev-name,.doc-name,.p-name,.a-name,.row .amt,.booked-note .v,.quiet,.message{font-weight:400;}
 </style>
 </head>
 <body>
 
-<header class="hero"><div class="hero-inner">
-  <div class="brand">MKBeauty Artistry</div>
-  <h1>Team<span>availability</span></h1>
+<header class="hero"><div class="inner">
+  <p class="eyebrow">MKBeauty Artistry</p>
+  <h1>Team <em>availability</em></h1>
+  <div class="divider"></div>
   <p>Tap a date to see who's free, who's booked, and who hasn't answered yet.</p>
 </div></header>
 
 <main class="wrap" id="app"><div class="message">Loading...</div></main>
 <div class="toast" id="toast" role="status"></div>
 
-<div class="footer"><div class="footer-inner">
-  <div class="b">MKBeauty Artistry</div>
-  <div class="s">For Morgan. Not for client distribution.</div>
-</div></div>
+<footer>
+  <div class="footer-brand">MKBeauty Artistry</div>
+  <div class="footer-tagline">Team availability</div>
+  <div class="footer-name">For Morgan. Not for client distribution.</div>
+</footer>
 
 <script>
 /* =====================================================================
@@ -153,10 +167,11 @@ async function start(){
   if (await fetchData()) begin();
 }
 function showLogin(err){
-  document.getElementById('app').innerHTML = `<div class="login">
-    <h2>Welcome back</h2><p class="lede">Enter your team password. This device will remember it.</p>
-    <label for="pw">Team password</label><input type="password" id="pw" autocomplete="current-password">
-    <div class="err">${esc(err)}</div><button class="btn" id="pwBtn">Open team view</button></div>`;
+  document.getElementById('app').innerHTML = `<div class="login card">
+    <p class="eyebrow">Welcome back</p><h2>Team <em>password</em></h2><div class="divider"></div>
+    <p class="lede">This device will remember it after the first time.</p>
+    <label class="field" for="pw">Password</label><input type="password" id="pw" autocomplete="current-password">
+    <div class="err">${esc(err)}</div><button class="pill solid" id="pwBtn">Open team view</button></div>`;
   const go = async ()=>{ teamKey = document.getElementById('pw').value.trim(); if (!teamKey) return; if (await fetchData()) { setStored(teamKey); begin(); } };
   document.getElementById('pwBtn').onclick = go;
   document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
@@ -192,25 +207,27 @@ function statusOf(code, k){
 /* ---------- Render ---------- */
 function renderShell(){
   document.getElementById('app').innerHTML = `
-    <div class="cal">
+    <div class="frame">
       <div class="month-nav">
-        <button id="prevBtn" aria-label="Previous month">&lsaquo;</button>
+        <button class="arrow" id="prevBtn" aria-label="Previous month">&#8249;</button>
         <div class="month-title" id="monthTitle"></div>
-        <button id="nextBtn" aria-label="Next month">&rsaquo;</button>
+        <button class="arrow" id="nextBtn" aria-label="Next month">&#8250;</button>
       </div>
       <div class="weekdays"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
       <div class="grid" id="grid"></div>
     </div>
-    <div class="key"><span><span class="n n-av">3</span>artists available</span><span><span class="n n-bk">2</span>booked with MKB</span></div>
+    <div class="key"><span><span class="n n-av">3</span>Artists available</span><span><span class="n n-bk">2</span>Booked with MKB</span></div>
     <div id="panel"></div>
 
     <section style="margin-top:56px;">
-      <h2>Artist pages</h2>
-      <p class="lede">Each artist's private link. Open it to see what she sees, or copy it to text her.</p>
-      <div class="artists" id="links"></div>
+      <p class="eyebrow">Private links</p>
+      <h2>Artist <em>pages</em></h2>
+      <div class="divider"></div>
+      <p class="lede">Open a page to see what she sees, or copy the link to text her.</p>
+      <div class="card" id="links" style="padding:4px 20px;margin-top:0;"></div>
     </section>
-    <div class="foot-actions"><button class="link" id="refreshBtn">Refresh</button>
-      ${DEMO ? '' : '<button class="link" id="logoutBtn">Forget password on this device</button>'}</div>`;
+    <div class="foot-actions pill-row"><button class="pill small" id="refreshBtn">Refresh</button>
+      ${DEMO ? '' : '<button class="pill small" id="logoutBtn">Forget password on this device</button>'}</div>`;
   document.getElementById('prevBtn').onclick = ()=> shiftMonth(-1);
   document.getElementById('nextBtn').onclick = ()=> shiftMonth(1);
   document.getElementById('refreshBtn').onclick = async ()=> { if (DEMO || await fetchData()) { renderMonth(); renderLinks(); toast('Up to date'); } };
@@ -239,12 +256,10 @@ function renderMonth(){
     html += `<div class="${cls}" data-k="${k}" role="button" tabindex="0" aria-label="${esc(MONTHS[viewMonth]+' '+d+', '+av+' available, '+bk+' booked')}"><span class="c">${d}</span>
       <span class="counts">${av ? `<span class="n n-av">${av}</span>` : ''}${bk ? `<span class="n n-bk">${bk}</span>` : ''}</span></div>`;
   }
-  for (let i = cur.getDay() + days; i % 7 !== 0; i++) html += '<div class="day blank"></div>';
   const grid = document.getElementById('grid');
   grid.innerHTML = html;
   grid.querySelectorAll('.day[data-k]').forEach(el => {
-    const pick = ()=> { const k = el.getAttribute('data-k'); selected = selected === k ? null : k; bookingFor = null; renderMonth();
-      if (selected) setTimeout(()=> document.getElementById('panel').scrollIntoView({behavior:'smooth', block:'start'}), 30); };
+    const pick = ()=> { const k = el.getAttribute('data-k'); selected = selected === k ? null : k; bookingFor = null; renderMonth(); };
     el.onclick = pick;
     el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } };
   });
@@ -256,27 +271,26 @@ function renderPanel(){
   const d = fromKey(selected);
   const groups = { av:[], bk:[], off:[], none:[] };
   data.artists.forEach(a => groups[statusOf(a.code, selected).kind].push(a));
-  const section = (key, name) => groups[key].length ? `<div class="group">${name}</div>` + groups[key].map(a => personHtml(a, key)).join('') : '';
-  const parts = [groups.av.length + ' available', groups.bk.length + ' booked', groups.off.length + ' unavailable', groups.none.length + ' not marked'];
-  panel.innerHTML = `<div class="panel">
+  const section = (key, name) => groups[key].length ? `<p class="eyebrow group">${name}</p>` + groups[key].map(a => personHtml(a, key)).join('') : '';
+  panel.innerHTML = `<div class="card">
     <div class="panel-date">${esc(DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate())}</div>
-    <div class="summary">${esc(parts.join(', '))}</div>
+    <div class="summary"><span>${groups.av.length} available</span><span>${groups.bk.length} booked</span><span>${groups.off.length} unavailable</span><span>${groups.none.length} not marked</span></div>
     ${section('av','Available')}${section('bk','Booked with MKB')}${section('off','Unavailable')}${section('none','Not marked yet')}</div>`;
   panel.querySelectorAll('[data-act]').forEach(b => b.onclick = ()=> handleAct(b.getAttribute('data-act'), b.getAttribute('data-code')));
   const input = document.getElementById('bookLabel');
-  if (input) { input.focus(); input.addEventListener('keydown', e => { if (e.key === 'Enter') handleAct('confirm', bookingFor); }); }
+  if (input) { input.focus({ preventScroll:true }); input.addEventListener('keydown', e => { if (e.key === 'Enter') handleAct('confirm', bookingFor); }); }
 }
 function personHtml(a, kind){
   const s = statusOf(a.code, selected);
   let note = s.note ? `<div class="p-note">${esc(s.note)}</div>` : '', action = '';
   if (kind === 'bk') {
     note = `<div class="p-note bk">${esc(s.label)}${s.source === 'pipeline' ? ', from Bookings Pipeline' : ''}</div>`;
-    if (s.source !== 'pipeline') action = `<button class="link" data-act="unbook" data-code="${esc(a.code)}">Remove</button>`;
+    if (s.source !== 'pipeline') action = `<button class="pill small" data-act="unbook" data-code="${esc(a.code)}">Remove</button>`;
   } else {
-    action = `<button class="link" data-act="book" data-code="${esc(a.code)}">${bookingFor === a.code ? 'Cancel' : 'Book'}</button>`;
+    action = `<button class="pill small" data-act="book" data-code="${esc(a.code)}">${bookingFor === a.code ? 'Cancel' : 'Book'}</button>`;
   }
   const form = (bookingFor === a.code) ? `<div class="book-form"><input id="bookLabel" placeholder="Bride's name">
-    <button class="btn" data-act="confirm" data-code="${esc(a.code)}">Save</button></div>` : '';
+    <button class="pill small solid" data-act="confirm" data-code="${esc(a.code)}">Save</button></div>` : '';
   return `<div class="person"><span class="mark ${kind}"></span><div><div class="p-name">${esc(a.name)}</div>${note}</div><div>${action}</div>${form}</div>`;
 }
 async function handleAct(act, code){
@@ -307,8 +321,8 @@ function renderLinks(){
   if (!data.artists.length) { wrap.innerHTML = '<div class="message">No artists yet. Add them on the Artist Roster tab, then run setupArtistHub.</div>'; return; }
   wrap.innerHTML = data.artists.map(a => { const url = ARTIST_PAGE_URL + '?a=' + encodeURIComponent(a.code); return `<div class="artist">
     <div><div class="a-name">${esc(a.name)}</div>
-    <div class="a-sub">${a.tier ? esc(a.tier) + ', ' : ''}<span class="${a.w9 ? 'ok' : 'need'}">W-9 ${a.w9 ? 'received' : 'needed'}</span></div></div>
-    <div class="a-actions"><a class="link" href="${esc(url)}" target="_blank" rel="noopener">Open</a><button class="link" data-link="${esc(url)}">Copy link</button></div></div>`; }).join('');
+    <div class="a-sub">${a.tier ? `<span class="chip tier">${esc(a.tier)}</span>` : ''}<span class="chip ${a.w9 ? 'ok' : 'need'}">W-9 ${a.w9 ? 'received' : 'needed'}</span></div></div>
+    <div class="a-actions"><a class="pill small" href="${esc(url)}" target="_blank" rel="noopener">Open</a><button class="pill small" data-link="${esc(url)}">Copy</button></div></div>`; }).join('');
   wrap.querySelectorAll('[data-link]').forEach(b => b.onclick = async ()=> {
     const url = b.getAttribute('data-link');
     try { await navigator.clipboard.writeText(url); toast('Link copied'); }
