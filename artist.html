@@ -5,162 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="MKB Artist">
+<meta name="theme-color" content="#4A1A24">
 <meta name="robots" content="noindex, nofollow">
 <title>Artist Page | MKBeauty</title>
 <meta property="og:title" content="Your Artist Page | MKBeauty">
 <meta property="og:description" content="Your bookings, availability, pay, and documents in one place.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
-    --ink:#191714; --muted:#797672; --border:#CBC5BE;
-    --accent-dark:#AC9A8A; --accent-light:#EFEAE5; --burgundy:#632B37;
-    --avail-bg:#D3E2CC; --avail-ink:#35522F; --avail-line:#93B08A;
-    --off-bg:#7A7672; --off-ink:#F2EFEB;
-    --booked-bg:#F1DCE0; --booked-ink:#632B37; --booked-line:#632B37;
+    --paper:#F6EEEC; --paper-2:#FBF6F5; --ink:#191714; --stone:#857A76; --hair:#E3D5D2;
+    --burgundy:#4A1A24; --wine:#4E2029; --pink:#D9AEB5; --blush:#EFD8DC;
+    --sage:#DCE6D4; --sage-ink:#3E5A36;
+    --serif:'Cormorant Garamond',serif; --sans:'Jost',sans-serif;
   }
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
-  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);-webkit-tap-highlight-color:transparent;}
-  em{font-style:italic;color:var(--burgundy);}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--paper);}
+  body{font-family:var(--sans);font-weight:300;color:var(--ink);font-size:15px;line-height:1.6;-webkit-tap-highlight-color:transparent;}
   a{color:inherit;}
+  button{font-family:var(--sans);}
+  :focus-visible{outline:2px solid var(--burgundy);outline-offset:3px;}
 
-  .navbar{position:sticky;top:0;z-index:50;background:rgba(220,217,212,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
-    padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:10px 14px;
-    border-radius:20px;border:1px solid var(--border);white-space:nowrap;min-height:36px;display:flex;align-items:center;}
+  /* Hero: the one bold moment */
+  .hero{background:var(--burgundy);color:var(--paper);padding:56px 24px 40px;}
+  .hero-inner{max-width:560px;margin:0 auto;}
+  .brand{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--pink);margin-bottom:56px;}
+  .hero h1{font-family:var(--serif);font-weight:300;font-size:64px;line-height:0.95;margin:0;letter-spacing:-0.01em;}
+  .hero h1 .last{display:block;font-style:italic;color:var(--pink);}
+  .hero-meta{margin-top:28px;padding-top:16px;border-top:1px solid rgba(217,174,181,0.45);display:flex;flex-wrap:wrap;gap:6px 22px;font-size:14px;color:rgba(246,238,236,0.85);}
+  .hero-meta .tier{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--paper);line-height:1.2;}
 
-  .hero{background:radial-gradient(ellipse at top,#2a2420 0%,var(--ink) 60%);color:var(--cream);text-align:center;padding:44px 20px 34px;}
-  .eyebrow{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:12px;}
-  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:38px;margin:0;line-height:1.15;}
-  .hero h1 em{color:var(--accent-dark);}
-  .divider{width:50px;height:1px;background:var(--accent-dark);margin:16px auto;}
-  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
-  .hero-tags span{border:1px solid rgba(172,154,138,0.5);border-radius:14px;padding:7px 13px;font-size:12px;letter-spacing:0.05em;color:rgba(220,217,212,0.9);}
-  .hero-tags .tier{border-color:var(--accent-dark);color:var(--cream);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:0;padding:5px 14px;}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(246,238,236,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair);}
+  .nav-inner{max-width:560px;margin:0 auto;display:flex;gap:22px;overflow-x:auto;padding:0 24px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .nav-inner::-webkit-scrollbar{display:none;}
+  .nav a{flex:0 0 auto;text-decoration:none;font-size:14px;color:var(--stone);padding:15px 0 13px;border-bottom:2px solid transparent;}
+  .nav a.on{color:var(--ink);border-bottom-color:var(--burgundy);}
 
-  .section{padding:36px 16px;max-width:620px;margin:0 auto;scroll-margin-top:64px;}
-  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);display:flex;align-items:center;gap:12px;margin-bottom:6px;}
-  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-  .section-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;margin:0 0 6px;}
-  .section-hint{font-size:13px;color:var(--muted);font-style:italic;margin:0 0 18px;line-height:1.5;}
+  .section{max-width:560px;margin:0 auto;padding:52px 24px 8px;scroll-margin-top:52px;}
+  .section h2{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.05;margin:0 0 6px;}
+  .lede{color:var(--stone);margin:0 0 26px;max-width:42ch;}
+  .quiet{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--stone);padding:6px 0 10px;}
 
-  .card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:12px;}
-  .card.featured{background:var(--parchment);border-color:var(--burgundy);}
-  .empty{border:1px dashed var(--accent-dark);border-radius:10px;padding:20px;text-align:center;color:var(--accent-dark);
-    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.5;}
+  .link{background:none;border:none;padding:0;cursor:pointer;font-size:14px;color:var(--burgundy);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;min-height:32px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--burgundy);color:var(--paper);border:none;border-radius:10px;
+    padding:0 22px;min-height:46px;font-size:14px;letter-spacing:0.02em;text-decoration:none;cursor:pointer;}
+  .btn:disabled{opacity:0.55;cursor:default;}
+  .actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin-top:16px;}
 
-  /* Upcoming */
-  .ev-date{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:4px;}
-  .ev-name{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:4px;}
-  .ev-line{font-size:13px;color:var(--muted);line-height:1.55;}
-  .ev-line b{font-weight:500;color:var(--ink);}
-  .ev-services{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
-  .ev-services span{font-size:11px;letter-spacing:0.05em;padding:5px 10px;border-radius:12px;background:var(--booked-bg);color:var(--booked-ink);border:1px solid var(--booked-line);}
+  /* Upcoming: appointment-book rows */
+  .ev{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--hair);}
+  .ev:last-child{border-bottom:1px solid var(--hair);}
+  .ev-day{font-family:var(--serif);font-weight:300;font-size:46px;line-height:0.9;color:var(--burgundy);}
+  .ev-mon{font-size:13px;color:var(--stone);margin-top:6px;}
+  .ev-name{font-family:var(--serif);font-size:25px;line-height:1.15;}
+  .ev-line{color:var(--stone);font-size:14px;}
+  .ev-line b{font-weight:400;color:var(--ink);}
+  .ev-svc{font-size:14px;margin-top:6px;}
 
-  /* Buttons */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:'Jost';font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-    text-decoration:none;border-radius:22px;padding:12px 20px;min-height:44px;cursor:pointer;border:1px solid var(--burgundy);background:var(--burgundy);color:var(--cream);}
-  .btn.ghost{background:transparent;color:var(--burgundy);}
-  .btn.small{font-size:11px;padding:8px 14px;min-height:36px;border-radius:18px;}
-  .btn:disabled{opacity:0.5;cursor:default;}
-  .btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
-
-  /* Calendar */
-  .legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:16px;}
-  .legend span{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 10px;border-radius:12px;border:1px solid transparent;}
-  .lg-av{background:var(--avail-bg);color:var(--avail-ink);border-color:var(--avail-line)!important;}
-  .lg-off{background:var(--off-bg);color:var(--off-ink);}
-  .lg-bk{background:var(--booked-bg);color:var(--booked-ink);border-color:var(--booked-line)!important;}
-  .lg-none{background:var(--warm-white);color:var(--muted);border-color:var(--border)!important;}
-  .month-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-  .month-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--warm-white);font-size:20px;color:var(--ink);cursor:pointer;}
-  .month-nav button:disabled{opacity:0.3;cursor:default;}
-  .month-title{font-family:'Cormorant Garamond',serif;font-size:26px;}
-  .weekdays,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;}
-  .weekdays div{text-align:center;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-bottom:4px;}
-  .day{position:relative;aspect-ratio:1/1.05;border-radius:9px;border:1px solid var(--border);background:var(--warm-white);display:flex;flex-direction:column;
-    align-items:center;justify-content:center;cursor:pointer;user-select:none;padding:2px;}
-  .day .n{font-size:16px;line-height:1;}
-  .day .t{font-size:9px;letter-spacing:0.04em;text-transform:uppercase;margin-top:3px;line-height:1;white-space:nowrap;overflow:hidden;max-width:100%;}
+  /* Calendar: a bordered wall-calendar grid with filled squares */
+  .cal{border:1px solid var(--burgundy);border-radius:14px;overflow:hidden;background:var(--paper-2);}
+  .month-nav{display:flex;align-items:center;justify-content:space-between;background:var(--burgundy);color:var(--paper);padding:4px 6px;}
+  .month-title{font-family:var(--serif);font-size:24px;}
+  .month-nav button{background:none;border:none;font-family:var(--serif);font-size:30px;line-height:1;color:var(--pink);width:44px;height:44px;cursor:pointer;}
+  .month-nav button:disabled{color:rgba(217,174,181,0.3);cursor:default;}
+  .weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;padding:4px 8px 0;}
+  .weekdays div{text-align:center;font-size:12px;color:var(--stone);padding:8px 0 7px;}
+  .grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;padding:2px 8px 10px;}
+  .day{position:relative;aspect-ratio:1/1.05;background:#fff;border:1px solid var(--hair);border-radius:9px;cursor:pointer;user-select:none;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;transition:background .15s;}
+  .day .c{font-size:15px;line-height:1;}
+  .day .t{font-size:9px;line-height:1;margin-top:4px;letter-spacing:0.02em;}
   .day.blank{visibility:hidden;}
-  .day.past{opacity:0.35;cursor:default;}
-  .day.av{background:var(--avail-bg);border-color:var(--avail-line);color:var(--avail-ink);}
-  .day.off{background:var(--off-bg);border-color:var(--off-bg);color:var(--off-ink);}
-  .day.bk{background:var(--booked-bg);border:1.5px solid var(--booked-line);color:var(--booked-ink);}
-  .day.today .n{text-decoration:underline;text-underline-offset:3px;}
-  .day.selected{outline:2px solid var(--ink);outline-offset:1px;}
-  .day .dot{position:absolute;top:5px;right:5px;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:0.7;}
-  .day:not(.av):not(.off):not(.bk) .dot{background:var(--burgundy);}
-  .panel{margin-top:16px;background:var(--parchment);border:1px solid var(--burgundy);border-radius:12px;padding:18px;}
-  .panel-date{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:12px;}
-  .choice{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
-  .choice button{min-height:50px;border-radius:24px;font-family:'Jost';font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;
-    border:1px solid var(--border);background:var(--warm-white);color:var(--ink);}
-  .choice button.on-av{background:var(--avail-bg);border-color:var(--avail-ink);color:var(--avail-ink);font-weight:500;}
-  .choice button.on-off{background:var(--off-bg);border-color:var(--off-bg);color:var(--off-ink);font-weight:500;}
-  .booked-box{background:var(--booked-bg);border:1.5px solid var(--booked-line);border-radius:10px;padding:16px;color:var(--booked-ink);}
-  .booked-box .k{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px;}
-  .booked-box .v{font-family:'Cormorant Garamond',serif;font-size:22px;}
-  .link-btn{background:none;border:none;color:var(--burgundy);font-family:'Jost';font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:10px 0 0;cursor:pointer;}
+  .day.past{cursor:default;color:#C9BBB8;background:transparent;border-color:#EDE3E1;}
+  .day.av{background:var(--sage);border-color:#B9CCAE;color:var(--sage-ink);}
+  .day.off{background:#E6DEDC;border-color:#E6DEDC;color:#9C8F8C;}
+  .day.off .c{text-decoration:line-through;}
+  .day.bk{background:var(--blush);border:1.5px solid var(--burgundy);color:var(--burgundy);}
+  .day.bk .c{font-weight:500;}
+  .day.today .c{font-weight:500;border-bottom:1.5px solid currentColor;padding-bottom:1px;}
+  .day.selected{box-shadow:0 0 0 2px var(--ink);}
+  .day .dot{position:absolute;top:5px;right:5px;width:5px;height:5px;border-radius:50%;background:var(--burgundy);}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;font-size:13px;color:var(--stone);}
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .legend i{display:inline-block;width:14px;height:14px;border-radius:4px;}
+  .lg-av{background:var(--sage);box-shadow:inset 0 0 0 1px #B9CCAE;} .lg-off{background:#E6DEDC;}
+  .lg-bk{background:var(--blush);box-shadow:inset 0 0 0 1px var(--burgundy);}
+  .lg-note{width:5px!important;height:5px!important;border-radius:50%;background:var(--burgundy);}
 
-  /* Fields */
-  label.field{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
-  input[type=text],input[type=email],input[type=tel],textarea{width:100%;font-family:'Jost';font-weight:300;font-size:16px;color:var(--ink);
-    background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:11px 12px;line-height:1.45;}
-  textarea{min-height:74px;resize:vertical;}
-  input:focus,textarea:focus{outline:none;border-color:var(--accent-dark);background:var(--warm-white);}
-  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .info-grid .full{grid-column:1/-1;}
-  @media(max-width:520px){.info-grid{grid-template-columns:1fr;}}
+  .panel{margin-top:22px;padding:22px 0 4px;border-top:1px solid var(--ink);}
+  .panel-date{font-family:var(--serif);font-size:26px;margin-bottom:16px;}
+  .seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);border-radius:10px;overflow:hidden;margin-bottom:18px;}
+  .seg button{min-height:48px;border:none;background:transparent;font-size:14px;color:var(--ink);cursor:pointer;}
+  .seg button+button{border-left:1px solid var(--ink);}
+  .seg button.on-av{background:var(--sage);color:var(--sage-ink);font-weight:400;}
+  .seg button.on-off{background:var(--ink);color:var(--paper);}
+  .booked-note{background:var(--blush);border:1.5px solid var(--burgundy);border-radius:10px;padding:16px 18px;}
+  .booked-note .k{font-size:13px;color:var(--burgundy);}
+  .booked-note .v{font-family:var(--serif);font-size:24px;color:var(--burgundy);}
+
+  label.field{display:block;font-size:13px;color:var(--stone);margin-bottom:2px;}
+  input[type=text],input[type=email],input[type=tel],textarea{width:100%;font-family:var(--sans);font-weight:300;font-size:16px;color:var(--ink);
+    background:transparent;border:none;border-bottom:1px solid #CDBDB9;border-radius:0;padding:8px 0 9px;line-height:1.45;}
+  textarea{min-height:64px;resize:vertical;}
+  input:focus,textarea:focus{outline:none;border-bottom-color:var(--burgundy);}
+  ::placeholder{color:#BCADA9;}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px;}
+  .fields .full{grid-column:1/-1;}
+  @media(max-width:480px){.fields{grid-template-columns:1fr;} .hero h1{font-size:54px;}}
 
   /* Pay */
-  .pay-total{text-align:center;background:var(--ink);color:var(--cream);border-radius:12px;padding:24px 18px;margin-bottom:12px;}
-  .pay-total .k{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(220,217,212,0.6);margin-bottom:6px;}
-  .pay-total .v{font-family:'Cormorant Garamond',serif;font-size:42px;}
-  .pay-row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px;}
-  .pay-row:last-child{border-bottom:none;}
-  .pay-row .sub{font-size:12px;color:var(--muted);margin-top:2px;}
-  .pay-row .amt{font-family:'Cormorant Garamond',serif;font-size:19px;white-space:nowrap;}
+  .pay-total{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:6px 0 18px;}
+  .pay-total .v{font-family:var(--serif);font-weight:300;font-size:58px;line-height:1;color:var(--burgundy);}
+  .pay-total .k{color:var(--stone);font-size:14px;}
+  .row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:14px 0;border-top:1px solid var(--hair);}
+  .rows .row:last-child{border-bottom:1px solid var(--hair);}
+  .row .sub{font-size:13px;color:var(--stone);}
+  .row .amt{font-family:var(--serif);font-size:21px;white-space:nowrap;}
 
   /* Documents */
-  .doc-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);}
-  .doc-row:last-child{border-bottom:none;}
-  .doc-name{font-family:'Cormorant Garamond',serif;font-size:20px;}
-  .doc-sub{font-size:12px;color:var(--muted);margin-top:2px;}
-  .pill{display:inline-block;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border-radius:12px;}
-  .pill.ok{background:var(--avail-bg);color:var(--avail-ink);border:1px solid var(--avail-line);}
-  .pill.wait{background:var(--booked-bg);color:var(--booked-ink);border:1px solid var(--booked-line);}
+  .doc-name{font-family:var(--serif);font-size:22px;line-height:1.2;}
+  .doc-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right;}
+  .w9-ok{font-size:13px;color:var(--sage-ink);} .w9-need{font-size:13px;color:var(--burgundy);}
   input[type=file]{display:none;}
+  .note-line{font-size:13px;color:var(--stone);margin-top:10px;}
 
-  .status{position:sticky;bottom:0;z-index:40;padding:11px 16px calc(11px + env(safe-area-inset-bottom));background:rgba(220,217,212,0.95);backdrop-filter:blur(6px);
-    border-top:1px solid var(--border);font-size:13px;text-align:center;color:var(--muted);}
+  .status{position:sticky;bottom:0;z-index:40;text-align:center;font-size:13px;color:var(--stone);padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(246,238,236,0.96);border-top:1px solid var(--hair);margin-top:56px;}
   .status.err{color:var(--burgundy);}
-  .status button{margin-left:8px;background:var(--burgundy);color:var(--cream);border:none;border-radius:16px;padding:7px 14px;font-family:'Jost';font-size:12px;
-    letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;}
-  .message{text-align:center;padding:60px 20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--muted);line-height:1.5;}
-  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:30px 20px 36px;}
-  .footer .brand{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;}
-  .footer .sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,228,223,0.55);margin-top:6px;}
-  .footer .internal{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-top:10px;}
+  .status .link{margin-left:10px;}
+  .message{max-width:560px;margin:0 auto;padding:80px 24px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--stone);}
+  .footer{background:var(--ink);color:var(--paper);padding:36px 24px 44px;}
+  .footer-inner{max-width:560px;margin:0 auto;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .footer .b{font-family:var(--serif);font-style:italic;font-size:21px;}
+  .footer .s{font-size:12px;color:rgba(246,238,236,0.5);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+  /* Type weights: match the fonts loaded on every MKBeauty page (Cormorant 300/400/500, italic 400/500; Jost 300/400/500) */
+  .brand,.hero h1 .last,.hero h1 span,.hero-meta .tier,.footer .b,.group,.month-title,.panel-date,.ev-name,.doc-name,.p-name,.a-name,.row .amt,.booked-note .v,.quiet,.message{font-weight:400;}
 </style>
 </head>
 <body>
 
 <div id="root"><div class="message">Loading your page...</div></div>
 
-<div class="footer">
-  <div class="brand">MKBeauty Artistry</div>
-  <div class="sub">Morgan Kelly Baird</div>
-  <div class="internal">Artist Page &middot; Internal Use Only</div>
-</div>
+<div class="footer"><div class="footer-inner">
+  <div class="b">MKBeauty Artistry</div>
+  <div class="s">Private to you. Please don't share this link.</div>
+</div></div>
 
 <script>
 /* =====================================================================
    CONFIG
-   API_URL: the ArtistHub Web App URL. While it still says PASTE_..., the
-   page runs in preview mode with sample data so nothing is saved.
+   API_URL: the ArtistHub Web App URL. If it says PASTE_..., the page runs
+   in preview mode with sample data and nothing is saved.
    ===================================================================== */
 const API_URL = "https://script.google.com/macros/s/AKfycbxWpmfN1OQy2hr9k31XFQZPLacv0NeL6jUGpTbdcJ-2RkyzSrJ-uiB2g7pIcZWrbzGQKQ/exec";
 const STYLE_GUIDE_URL = "https://drive.google.com/file/d/1XXL5DYYefCEpOf1uuApap0TwMCpH32BD/view";
@@ -171,7 +167,7 @@ const CODE = new URLSearchParams(location.search).get('a') || (DEMO ? 'demo' : '
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-let D = null;                 // everything from the backend
+let D = null;
 let viewYear, viewMonth, selected = null, payOpen = false;
 const today = new Date(); today.setHours(0,0,0,0);
 const todayKey = keyOf(today);
@@ -181,8 +177,8 @@ const lastMonth = new Date(today.getFullYear(), today.getMonth() + MONTHS_AHEAD 
 function keyOf(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function fromKey(k){ const p = k.split('-').map(Number); return new Date(p[0], p[1]-1, p[2]); }
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-function money(n){ return '$' + (Number(n)||0).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}); }
-function niceDate(k, withYear){ const d = fromKey(k); return DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate() + (withYear ? ', ' + d.getFullYear() : ''); }
+function money(n){ const v = Number(n)||0; return '$' + v.toLocaleString('en-US', {minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits:2}); }
+function niceDate(k){ const d = fromKey(k); return DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate(); }
 function shortDate(k){ const d = fromKey(k); return MONTHS[d.getMonth()].slice(0,3) + ' ' + d.getDate(); }
 function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t = setTimeout(()=>fn(...a), ms); }; }
 async function post(payload){
@@ -205,7 +201,7 @@ async function load(){
       if (D.error) { root.innerHTML = '<div class="message">This link isn\'t working. Ask Morgan for a fresh one.</div>'; return; }
     }
   }catch(e){
-    root.innerHTML = '<div class="message">Couldn\'t load your page. Check your connection and refresh.</div>'; return;
+    root.innerHTML = '<div class="message">Your page didn\'t load. Check your connection and refresh.</div>'; return;
   }
   D.entries = D.entries || {}; D.booked = D.booked || {}; D.info = D.info || {};
   document.title = D.name + "'s Artist Page | MKBeauty";
@@ -215,105 +211,117 @@ async function load(){
 
 /* ---------- Page ---------- */
 function render(){
-  const legal = (D.legalName || D.name || '').split(' ');
-  const first = D.name || legal[0];
-  const rest = legal.length > 1 ? legal.slice(1).join(' ') : '';
-  const tags = [];
-  if (D.tier) tags.push(`<span class="tier">${esc(D.tier)}</span>`);
-  (String(D.services || D.role || '').split(/[,/]+/)).map(s => s.trim()).filter(Boolean).forEach(s => tags.push(`<span>${esc(s)}</span>`));
-  if (D.homeBase) tags.push(`<span>${esc(D.homeBase)}</span>`);
+  const parts = (D.legalName || D.name || '').trim().split(/\s+/);
+  const first = D.name || parts[0] || '';
+  const last = parts.length > 1 ? parts.slice(1).join(' ') : '';
+  const services = String(D.services || D.role || '').split(/[,/]+/).map(s => s.trim()).filter(Boolean);
+  const meta = [];
+  if (D.tier) meta.push(`<span class="tier">${esc(D.tier)}</span>`);
+  if (services.length) meta.push(`<span>${esc(services.join(' and '))}</span>`);
+  if (D.homeBase) meta.push(`<span>${esc(D.homeBase)}</span>`);
 
   document.getElementById('root').innerHTML = `
-  <div class="hero">
-    <div class="eyebrow">MKBeauty Artistry &middot; Artist Page</div>
-    <h1><em>${esc(first)}</em> ${esc(rest)}</h1>
-    <div class="divider"></div>
-    <div class="hero-tags">${tags.join('')}</div>
-  </div>
-  <nav class="navbar">
-    <a href="#upcoming">Upcoming</a><a href="#availability">Availability</a><a href="#pay">Pay</a>
-    <a href="#portfolio">Portfolio</a><a href="#documents">Documents</a><a href="#info">My Info</a>
-  </nav>
+  <header class="hero"><div class="hero-inner">
+    <div class="brand">MKBeauty Artistry</div>
+    <h1>${esc(first)}${last ? `<span class="last">${esc(last)}</span>` : ''}</h1>
+    ${meta.length ? `<div class="hero-meta">${meta.join('')}</div>` : ''}
+  </div></header>
 
-  <div class="section" id="upcoming">
-    <div class="section-label">I</div>
-    <h2 class="section-title">Upcoming <em>Bookings</em></h2>
-    <p class="section-hint">Your MKBeauty events over the next six weeks.</p>
-    <div id="upcomingList"></div>
-  </div>
+  <nav class="nav" aria-label="Sections"><div class="nav-inner">
+    <a href="#availability">Availability</a><a href="#upcoming">Upcoming</a><a href="#pay">Pay</a>
+    <a href="#portfolio">Portfolio</a><a href="#documents">Documents</a><a href="#details">Your details</a>
+  </div></nav>
 
-  <div class="section" id="availability">
-    <div class="section-label">II</div>
-    <h2 class="section-title">My <em>Availability</em></h2>
-    <p class="section-hint">Tap a date to mark it, and add a note if you need to. Everything saves on its own.</p>
-    <div class="legend"><span class="lg-av">Available</span><span class="lg-off">Unavailable</span><span class="lg-bk">Booked with MKB</span><span class="lg-none">Not marked</span></div>
-    <div class="month-nav">
-      <button id="prevBtn" aria-label="Previous month">&#8249;</button>
-      <div class="month-title" id="monthTitle"></div>
-      <button id="nextBtn" aria-label="Next month">&#8250;</button>
+  <section class="section" id="availability">
+    <h2>Availability</h2>
+    <p class="lede">Tap a date to mark it. Add a note if you need to. Changes save on their own.</p>
+    <div class="cal">
+      <div class="month-nav">
+        <button id="prevBtn" aria-label="Previous month">&lsaquo;</button>
+        <div class="month-title" id="monthTitle"></div>
+        <button id="nextBtn" aria-label="Next month">&rsaquo;</button>
+      </div>
+      <div class="weekdays"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
+      <div class="grid" id="grid"></div>
     </div>
-    <div class="weekdays"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div>
-    <div class="grid" id="grid"></div>
+    <div class="legend">
+      <span><i class="lg-av"></i>Available</span><span><i class="lg-off"></i>Unavailable</span>
+      <span><i class="lg-bk"></i>Booked with MKB</span><span><i class="lg-note"></i>Has a note</span>
+    </div>
     <div id="panel"></div>
-  </div>
+  </section>
 
-  <div class="section" id="pay">
-    <div class="section-label">III</div>
-    <h2 class="section-title">My <em>Pay</em></h2>
-    <p class="section-hint">Everything marked paid to you in ${esc(D.pay ? D.pay.year : today.getFullYear())}.</p>
+  <section class="section" id="upcoming">
+    <h2>Upcoming</h2>
+    <p class="lede">Your MKBeauty weddings over the next six weeks.</p>
+    <div id="upcomingList"></div>
+  </section>
+
+  <section class="section" id="pay">
+    <h2>Pay</h2>
+    <p class="lede">Payouts marked paid to you this year.</p>
     <div id="payWrap"></div>
-  </div>
+  </section>
 
-  <div class="section" id="portfolio">
-    <div class="section-label">IV</div>
-    <h2 class="section-title">My <em>Portfolio</em></h2>
-    <p class="section-hint">Add your best recent work. Photos go straight into your MKBeauty portfolio.</p>
-    <div class="card featured" id="portfolioCard"></div>
-  </div>
+  <section class="section" id="portfolio">
+    <h2>Portfolio</h2>
+    <p class="lede">Add your best recent work. Photos go straight into your MKBeauty portfolio, which we share with brides when they choose their team.</p>
+    <div id="portfolioWrap"></div>
+  </section>
 
-  <div class="section" id="documents">
-    <div class="section-label">V</div>
-    <h2 class="section-title"><em>Documents</em></h2>
-    <div class="card" id="docsCard"></div>
-  </div>
+  <section class="section" id="documents">
+    <h2>Documents</h2>
+    <div class="rows" id="docsWrap"></div>
+  </section>
 
-  <div class="section" id="info">
-    <div class="section-label">VI</div>
-    <h2 class="section-title">My <em>Info</em></h2>
-    <p class="section-hint">Keep this current so we can always reach you. Changes save as you type.</p>
-    <div class="card"><div class="info-grid" id="infoGrid"></div></div>
-  </div>
+  <section class="section" id="details">
+    <h2>Your details</h2>
+    <p class="lede">Keep these current so we can always reach you. Changes save as you type.</p>
+    <div class="fields" id="infoGrid"></div>
+  </section>
 
-  <div class="status" id="status">${DEMO ? 'Preview mode, nothing is saved' : 'All changes saved'}</div>`;
+  <div class="status" id="status">${DEMO ? 'Preview mode. Nothing is saved.' : 'All changes saved'}</div>`;
 
   renderUpcoming();
   document.getElementById('prevBtn').onclick = ()=> shiftMonth(-1);
   document.getElementById('nextBtn').onclick = ()=> shiftMonth(1);
-  renderMonth();
-  renderPay();
-  renderPortfolio();
-  renderDocs();
-  renderInfo();
+  renderMonth(); renderPay(); renderPortfolio(); renderDocs(); renderInfo();
+  watchNav();
 }
 
-/* ---------- I. Upcoming ---------- */
+function watchNav(){
+  const links = Array.from(document.querySelectorAll('.nav a'));
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  if (links[0]) links[0].classList.add('on');
+  if (!('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { links.forEach(l => l.classList.remove('on')); const a = map.get(e.target.id); if (a) { a.classList.add('on'); a.scrollIntoView({block:'nearest', inline:'nearest'}); } } });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  document.querySelectorAll('.section').forEach(s => io.observe(s));
+}
+
+/* ---------- Upcoming ---------- */
 function renderUpcoming(){
   const wrap = document.getElementById('upcomingList');
   const list = D.upcoming || [];
-  if (!list.length) { wrap.innerHTML = '<div class="empty">Nothing on the books in the next six weeks.</div>'; return; }
-  wrap.innerHTML = list.map(ev => `
-    <div class="card featured">
-      <div class="ev-date">${esc(niceDate(ev.date, true))}</div>
-      <div class="ev-name">${esc(ev.client)}</div>
-      ${ev.venue ? `<div class="ev-line">${esc(ev.venue)}</div>` : ''}
-      ${ev.callTime ? `<div class="ev-line">Call time <b>${esc(ev.callTime)}</b>${ev.ceremonyTime ? ` &middot; Ceremony ${esc(ev.ceremonyTime)}` : ''}</div>` : ''}
-      ${ev.gettingReady ? `<div class="ev-line">Getting ready at ${esc(ev.gettingReady)}</div>` : ''}
-      ${ev.services && ev.services.length ? `<div class="ev-services">${ev.services.map(s => `<span>${esc(s)}</span>`).join('')}</div>` : ''}
-      ${ev.briefUrl ? `<div class="btn-row"><a class="btn" href="${esc(ev.briefUrl)}" target="_blank" rel="noopener">Open Artist Brief</a></div>` : ''}
-    </div>`).join('');
+  if (!list.length) { wrap.innerHTML = '<div class="quiet">Nothing on the books in the next six weeks.</div>'; return; }
+  wrap.innerHTML = list.map(ev => {
+    const d = fromKey(ev.date);
+    const times = [ev.callTime ? `Call <b>${esc(ev.callTime)}</b>` : '', ev.ceremonyTime ? `ceremony ${esc(ev.ceremonyTime)}` : ''].filter(Boolean).join(', ');
+    return `<div class="ev">
+      <div><div class="ev-day">${d.getDate()}</div><div class="ev-mon">${MONTHS[d.getMonth()].slice(0,3)}, ${DAYS[d.getDay()].slice(0,3)}</div></div>
+      <div>
+        <div class="ev-name">${esc(ev.client)}</div>
+        ${ev.venue ? `<div class="ev-line">${esc(ev.venue)}</div>` : ''}
+        ${times ? `<div class="ev-line">${times}</div>` : ''}
+        ${ev.gettingReady ? `<div class="ev-line">Getting ready at ${esc(ev.gettingReady)}</div>` : ''}
+        ${ev.services && ev.services.length ? `<div class="ev-svc">${esc(ev.services.join(', '))}</div>` : ''}
+        ${ev.briefUrl ? `<div class="actions"><a class="link" href="${esc(ev.briefUrl)}" target="_blank" rel="noopener">Open artist brief</a></div>` : ''}
+      </div></div>`;
+  }).join('');
 }
 
-/* ---------- II. Availability ---------- */
+/* ---------- Availability ---------- */
 function shiftMonth(n){
   const d = new Date(viewYear, viewMonth + n, 1);
   if (d < firstMonth || d > lastMonth) return;
@@ -331,45 +339,48 @@ function renderMonth(){
   for (let d = 1; d <= days; d++){
     const date = new Date(viewYear, viewMonth, d), k = keyOf(date);
     const bk = D.booked[k], en = D.entries[k] || {};
-    let cls = 'day', tag = '';
-    if (bk) { cls += ' bk'; tag = 'Booked'; }
-    else if (en.status === 'Available') { cls += ' av'; tag = 'Avail'; }
-    else if (en.status === 'Unavailable') { cls += ' off'; tag = 'Off'; }
+    let cls = 'day', label = '';
+    if (bk) { cls += ' bk'; label = 'booked'; }
+    else if (en.status === 'Available') { cls += ' av'; label = 'available'; }
+    else if (en.status === 'Unavailable') { cls += ' off'; label = 'unavailable'; }
     if (date < today) cls += ' past';
     if (k === todayKey) cls += ' today';
     if (k === selected) cls += ' selected';
     const dot = (!bk && en.note) ? '<span class="dot"></span>' : '';
-    html += `<div class="${cls}" data-k="${k}" role="button" aria-label="${esc(MONTHS[viewMonth]+' '+d+(tag?', '+tag:''))}">${dot}<span class="n">${d}</span><span class="t">${tag}</span></div>`;
+    html += `<div class="${cls}" data-k="${k}" role="button" tabindex="${date < today ? -1 : 0}" aria-label="${esc(MONTHS[viewMonth]+' '+d+(label?', '+label:''))}"><span class="c">${d}</span>${bk ? '<span class="t">Booked</span>' : ''}${dot}</div>`;
   }
+  const filled = cur.getDay() + days;
+  for (let i = filled; i % 7 !== 0; i++) html += '<div class="day blank"></div>';
   const grid = document.getElementById('grid');
   grid.innerHTML = html;
   grid.querySelectorAll('.day[data-k]').forEach(el => {
     if (el.classList.contains('past')) return;
-    el.onclick = ()=> { const k = el.getAttribute('data-k'); selected = selected === k ? null : k; renderMonth();
+    const pick = ()=> { const k = el.getAttribute('data-k'); selected = selected === k ? null : k; renderMonth();
       if (selected) setTimeout(()=> document.getElementById('panel').scrollIntoView({behavior:'smooth', block:'nearest'}), 30); };
+    el.onclick = pick;
+    el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } };
   });
   renderPanel();
 }
 function renderPanel(){
   const panel = document.getElementById('panel');
   if (!selected) { panel.innerHTML = ''; return; }
-  const title = niceDate(selected);
   const bk = D.booked[selected];
   if (bk) {
-    panel.innerHTML = `<div class="panel"><div class="panel-date">${esc(title)}</div>
-      <div class="booked-box"><div class="k">Booked with MKBeauty</div><div class="v">${esc(bk.label || 'Booked')}</div></div>
-      <p class="section-hint" style="margin:10px 0 0;">Morgan manages booked dates. If something looks off, message her.</p></div>`;
+    panel.innerHTML = `<div class="panel"><div class="panel-date">${esc(niceDate(selected))}</div>
+      <div class="booked-note"><div class="k">Booked with MKBeauty</div><div class="v">${esc(bk.label || 'Booked')}</div></div>
+      <p class="note-line">Morgan manages booked dates. If something looks off, message her.</p></div>`;
     return;
   }
   const en = D.entries[selected] || { status:'', note:'' };
-  panel.innerHTML = `<div class="panel"><div class="panel-date">${esc(title)}</div>
-    <div class="choice">
-      <button id="btnAv" class="${en.status==='Available'?'on-av':''}">Available</button>
-      <button id="btnOff" class="${en.status==='Unavailable'?'on-off':''}">Unavailable</button>
+  panel.innerHTML = `<div class="panel"><div class="panel-date">${esc(niceDate(selected))}</div>
+    <div class="seg" role="group" aria-label="Mark this day">
+      <button id="btnAv" class="${en.status==='Available'?'on-av':''}" aria-pressed="${en.status==='Available'}">Available</button>
+      <button id="btnOff" class="${en.status==='Unavailable'?'on-off':''}" aria-pressed="${en.status==='Unavailable'}">Unavailable</button>
     </div>
-    <label class="field" for="noteBox">Note for this day (optional)</label>
-    <textarea id="noteBox" maxlength="300" placeholder="Free until 2pm, can travel up to 2 hours...">${esc(en.note || '')}</textarea>
-    ${(en.status || en.note) ? '<button class="link-btn" id="clearBtn">Clear this day</button>' : ''}</div>`;
+    <label class="field" for="noteBox">Note for this day</label>
+    <textarea id="noteBox" maxlength="300" placeholder="Free until 2pm, can travel up to 2 hours">${esc(en.note || '')}</textarea>
+    ${(en.status || en.note) ? '<div class="actions"><button class="link" id="clearBtn">Clear this day</button></div>' : ''}</div>`;
   document.getElementById('btnAv').onclick = ()=> setDay({ status: en.status === 'Available' ? '' : 'Available' });
   document.getElementById('btnOff').onclick = ()=> setDay({ status: en.status === 'Unavailable' ? '' : 'Unavailable' });
   const note = document.getElementById('noteBox');
@@ -386,36 +397,33 @@ function setDay(change, quiet){
   queue('day:' + k, { action:'artistSave', date:k, status: en.status, note: en.note });
   if (quiet) {
     const cell = document.querySelector('.day[data-k="' + k + '"]');
-    if (cell) { const has = cell.querySelector('.dot'); if (en.note && !has) cell.insertAdjacentHTML('afterbegin','<span class="dot"></span>'); if (!en.note && has) has.remove(); }
+    if (cell) { const has = cell.querySelector('.dot'); if (en.note && !has) cell.insertAdjacentHTML('beforeend','<span class="dot"></span>'); if (!en.note && has) has.remove(); }
   } else renderMonth();
 }
 
-/* ---------- III. Pay (hidden until tapped) ---------- */
+/* ---------- Pay (hidden until tapped) ---------- */
 function renderPay(){
   const wrap = document.getElementById('payWrap');
   const pay = D.pay || { total:0, items:[] };
-  if (!payOpen) { wrap.innerHTML = `<button class="btn ghost" id="payToggle">Show my pay</button>`; document.getElementById('payToggle').onclick = ()=> { payOpen = true; renderPay(); }; return; }
+  if (!payOpen) { wrap.innerHTML = `<button class="link" id="payToggle">Show my pay</button>`; document.getElementById('payToggle').onclick = ()=> { payOpen = true; renderPay(); }; return; }
   wrap.innerHTML = `
-    <div class="pay-total"><div class="k">Paid to you in ${esc(pay.year)}</div><div class="v">${money(pay.total)}</div></div>
-    ${pay.items.length ? `<div class="card">${pay.items.map(i => `
-      <div class="pay-row"><div><div>${esc(i.client)} &middot; ${esc(i.service)}${i.qty > 1 ? ' × ' + i.qty : ''}</div>
-      <div class="sub">Event ${esc(shortDate(i.date))}${i.paidOn ? ' &middot; Paid ' + esc(shortDate(i.paidOn)) : ''}</div></div>
-      <div class="amt">${money(i.subtotal)}</div></div>`).join('')}</div>` : '<div class="empty">No payouts marked paid yet this year.</div>'}
-    <button class="btn ghost small" id="payToggle">Hide my pay</button>`;
+    <div class="pay-total"><div class="v">${money(pay.total)}</div><div class="k">paid to you in ${esc(pay.year)}</div></div>
+    ${pay.items.length ? `<div class="rows">${pay.items.map(i => `
+      <div class="row"><div><div>${esc(i.client)}</div>
+      <div class="sub">${esc(i.service)}${i.qty > 1 ? ' × ' + i.qty : ''}, ${esc(shortDate(i.date))}${i.paidOn ? ', paid ' + esc(shortDate(i.paidOn)) : ''}</div></div>
+      <div class="amt">${money(i.subtotal)}</div></div>`).join('')}</div>` : '<div class="quiet">No payouts marked paid yet this year.</div>'}
+    <div class="actions"><button class="link" id="payToggle">Hide my pay</button></div>`;
   document.getElementById('payToggle').onclick = ()=> { payOpen = false; renderPay(); };
 }
 
-/* ---------- IV. Portfolio ---------- */
+/* ---------- Portfolio ---------- */
 function renderPortfolio(){
-  const card = document.getElementById('portfolioCard');
-  card.innerHTML = `
-    <div class="doc-name">Your MKBeauty portfolio</div>
-    <div class="doc-sub">Anything you add here can be shared with brides when they're choosing their team.</div>
-    <div class="btn-row">
-      <button class="btn" id="addPhotos">Add Photos</button>
-      ${D.portfolioUrl ? `<a class="btn ghost" href="${esc(D.portfolioUrl)}" target="_blank" rel="noopener">View Portfolio</a>` : ''}
+  document.getElementById('portfolioWrap').innerHTML = `
+    <div class="actions" style="margin-top:0;">
+      <button class="btn" id="addPhotos">Add photos</button>
+      ${D.portfolioUrl ? `<a class="link" href="${esc(D.portfolioUrl)}" target="_blank" rel="noopener">View my portfolio</a>` : ''}
     </div>
-    <div class="doc-sub" id="photoStatus" style="margin-top:10px;"></div>
+    <div class="note-line" id="photoStatus" aria-live="polite"></div>
     <input type="file" id="photoInput" accept="image/*" multiple>`;
   const input = document.getElementById('photoInput');
   document.getElementById('addPhotos').onclick = ()=> input.click();
@@ -428,49 +436,34 @@ async function uploadPhotos(files, input){
   let done = 0, failed = 0;
   for (const f of files){
     st.textContent = `Uploading ${done + failed + 1} of ${files.length}...`;
-    try{
-      const dataUrl = await compress(f, 2400, 0.9);
-      await post({ action:'uploadPortfolio', mimeType:'image/jpeg', data: dataUrl.split(',')[1] });
-      done++;
-    }catch(e){ failed++; }
+    try{ const dataUrl = await compress(f, 2400, 0.9); await post({ action:'uploadPortfolio', mimeType:'image/jpeg', data: dataUrl.split(',')[1] }); done++; }
+    catch(e){ failed++; }
   }
-  st.textContent = failed ? `${done} added, ${failed} didn't upload. Try those again.` : `${done} photo${done === 1 ? '' : 's'} added to your portfolio.`;
+  st.textContent = failed ? `${done} added. ${failed} didn't upload, so try those again.` : `${done} photo${done === 1 ? '' : 's'} added to your portfolio.`;
   btn.disabled = false; input.value = '';
 }
 function compress(file, maxDim, quality){
   return new Promise((resolve, reject) => {
-    const r = new FileReader();
-    r.onerror = reject;
-    r.onload = e => {
-      const img = new Image();
-      img.onerror = reject;
-      img.onload = () => {
-        let w = img.width, h = img.height;
-        const s = Math.min(1, maxDim / Math.max(w, h)); w = Math.round(w * s); h = Math.round(h * s);
-        const c = document.createElement('canvas'); c.width = w; c.height = h;
-        c.getContext('2d').drawImage(img, 0, 0, w, h);
-        resolve(c.toDataURL('image/jpeg', quality));
-      };
-      img.src = e.target.result;
-    };
+    const r = new FileReader(); r.onerror = reject;
+    r.onload = e => { const img = new Image(); img.onerror = reject;
+      img.onload = () => { let w = img.width, h = img.height; const s = Math.min(1, maxDim / Math.max(w, h)); w = Math.round(w*s); h = Math.round(h*s);
+        const c = document.createElement('canvas'); c.width = w; c.height = h; c.getContext('2d').drawImage(img, 0, 0, w, h); resolve(c.toDataURL('image/jpeg', quality)); };
+      img.src = e.target.result; };
     r.readAsDataURL(file);
   });
 }
 
-/* ---------- V. Documents ---------- */
+/* ---------- Documents ---------- */
 function renderDocs(){
   const w9 = D.w9 || {};
-  document.getElementById('docsCard').innerHTML = `
-    <div class="doc-row"><div><div class="doc-name">Contractor Agreement</div><div class="doc-sub">Your signed agreement with MKBeauty</div></div>
-      ${D.contractUrl ? `<a class="btn ghost small" href="${esc(D.contractUrl)}" target="_blank" rel="noopener">View</a>` : '<span class="doc-sub">Coming soon</span>'}</div>
-    <div class="doc-row"><div><div class="doc-name">W-9</div>
-      <div class="doc-sub" id="w9Sub">${w9.received ? 'Received' + (w9.date ? ' ' + esc(shortDate(w9.date)) : '') + '. Upload again only if your info changed.' : 'Needed for your year-end 1099.'}</div></div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
-        <span class="pill ${w9.received ? 'ok' : 'wait'}" id="w9Pill">${w9.received ? 'Received' : 'Waiting'}</span>
-        <button class="btn ghost small" id="w9Btn">Upload</button>
-      </div></div>
-    <div class="doc-row"><div><div class="doc-name">MKBeauty Style Guide</div><div class="doc-sub">How we work, look, and show up on wedding days</div></div>
-      <a class="btn ghost small" href="${esc(STYLE_GUIDE_URL)}" target="_blank" rel="noopener">Open</a></div>
+  document.getElementById('docsWrap').innerHTML = `
+    <div class="row"><div><div class="doc-name">Contractor agreement</div><div class="sub">Your signed agreement with MKBeauty</div></div>
+      <div class="doc-right">${D.contractUrl ? `<a class="link" href="${esc(D.contractUrl)}" target="_blank" rel="noopener">View</a>` : '<span class="sub">Coming soon</span>'}</div></div>
+    <div class="row"><div><div class="doc-name">W-9</div><div class="sub" id="w9Sub">${w9.received ? 'Upload again only if your info changes.' : 'Needed for your year-end 1099.'}</div></div>
+      <div class="doc-right"><span class="${w9.received ? 'w9-ok' : 'w9-need'}">${w9.received ? 'Received' + (w9.date ? ' ' + esc(shortDate(w9.date)) : '') : 'Needed'}</span>
+      <button class="link" id="w9Btn">Upload</button></div></div>
+    <div class="row"><div><div class="doc-name">Style guide</div><div class="sub">How we work, look, and show up on wedding days</div></div>
+      <div class="doc-right"><a class="link" href="${esc(STYLE_GUIDE_URL)}" target="_blank" rel="noopener">Open</a></div></div>
     <input type="file" id="w9Input" accept="application/pdf,image/*">`;
   const input = document.getElementById('w9Input');
   document.getElementById('w9Btn').onclick = ()=> input.click();
@@ -488,23 +481,20 @@ async function uploadW9(input){
     const res = await post({ action:'uploadW9', mimeType: isImg ? 'image/jpeg' : 'application/pdf', data: dataUrl.split(',')[1] });
     D.w9 = { received:true, date: res.date || todayKey };
     renderDocs();
-  }catch(e){
-    sub.textContent = "That didn't upload. Try again in a moment.";
-    btn.disabled = false; btn.textContent = 'Upload';
-  }
+  }catch(e){ sub.textContent = "That didn't upload. Try again in a moment."; btn.disabled = false; btn.textContent = 'Upload'; }
   input.value = '';
 }
 function readAsDataUrl(file){ return new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); }); }
 
-/* ---------- VI. My Info ---------- */
+/* ---------- Your details ---------- */
 const INFO = [
   { key:'phone', label:'Phone', type:'tel' },
   { key:'email', label:'Email', type:'email' },
-  { key:'homeBase', label:'Home Base (City)', type:'text', ph:'Chattanooga, TN' },
-  { key:'travel', label:'How Far You\'ll Travel', type:'text', ph:'Up to 2 hours' },
-  { key:'address', label:'Mailing Address', type:'text', full:true },
+  { key:'homeBase', label:'Home base', type:'text', ph:'Chattanooga, TN' },
+  { key:'travel', label:'How far you\'ll travel', type:'text', ph:'Up to 2 hours' },
+  { key:'address', label:'Mailing address', type:'text', full:true },
   { key:'instagram', label:'Instagram', type:'text', ph:'@yourhandle' },
-  { key:'emergency', label:'Emergency Contact', type:'text', ph:'Name, relationship, phone' }
+  { key:'emergency', label:'Emergency contact', type:'text', ph:'Name, relationship, phone' }
 ];
 function renderInfo(){
   document.getElementById('infoGrid').innerHTML = INFO.map(f => `
@@ -538,32 +528,31 @@ function bar(mode){
   const el = document.getElementById('status'); if (!el) return;
   el.classList.toggle('err', mode === 'error');
   if (mode === 'saving') el.textContent = 'Saving...';
-  else if (mode === 'saved') el.textContent = DEMO ? 'Preview mode, nothing is saved' : 'All changes saved';
-  else { el.innerHTML = 'Not saved yet. <button id="retryBtn">Try again</button>'; document.getElementById('retryBtn').onclick = flush; }
+  else if (mode === 'saved') el.textContent = DEMO ? 'Preview mode. Nothing is saved.' : 'All changes saved';
+  else { el.innerHTML = 'Not saved yet.<button class="link" id="retryBtn">Try again</button>'; document.getElementById('retryBtn').onclick = flush; }
 }
 window.addEventListener('beforeunload', e => { if (Object.keys(pending).length) { e.preventDefault(); e.returnValue = ''; } });
 
-/* ---------- Preview data (only used while API_URL is not set) ---------- */
+/* ---------- Preview data (only used in preview mode) ---------- */
 function demoData(){
   const add = n => keyOf(new Date(today.getFullYear(), today.getMonth(), today.getDate() + n));
   const m = new Date(today.getFullYear(), today.getMonth() + 1, 1);
   const k = d => keyOf(new Date(m.getFullYear(), m.getMonth(), d));
   const e1 = add(11), e2 = add(32);
   return {
-    name:'Jenifer', legalName:'Jenifer Sample', role:'Hair Stylist', tier:'Soie', services:'Hair, Makeup', homeBase:'Knoxville, TN',
+    name:'Jenifer', legalName:'Jenifer Tholken', role:'Hair Stylist', tier:'Soie', services:'Hair, Makeup', homeBase:'Knoxville, TN',
     info:{ phone:'(865) 555-0142', email:'jenifer@example.com', homeBase:'Knoxville, TN', address:'', instagram:'@jenifer.hair', emergency:'', travel:'Up to 2 hours' },
-    portfolioUrl:'https://drive.google.com/', contractUrl:'https://drive.google.com/',
-    w9:{ received:false, date:'' },
+    portfolioUrl:'https://drive.google.com/', contractUrl:'https://drive.google.com/', w9:{ received:false, date:'' },
     upcoming:[
-      { date:e1, client:'Brielle Whitney', venue:'The Glass Barn, Knoxville', callTime:'9:00 AM', ceremonyTime:'4:00 PM', gettingReady:'5636 Magazine Rd, Knoxville', services:['Bride Hair','Guest Hair × 3'], briefUrl:'#' },
-      { date:e2, client:'Claire Alcock', venue:'Cherokee Country Club, Knoxville', callTime:'11:00 AM', ceremonyTime:'', gettingReady:'', services:['Guest Hair × 2'], briefUrl:'' }
+      { date:e1, client:'Brielle Whitney', venue:'The Glass Barn, Knoxville', callTime:'9:00 AM', ceremonyTime:'4:00 PM', gettingReady:'5636 Magazine Rd, Knoxville', services:['Bride hair','Guest hair × 3'], briefUrl:'#' },
+      { date:e2, client:'Claire Alcock', venue:'Cherokee Country Club, Knoxville', callTime:'11:00 AM', ceremonyTime:'', gettingReady:'', services:['Guest hair × 2'], briefUrl:'' }
     ],
     pay:{ year:String(today.getFullYear()), total:735, items:[
-      { date:'2026-10-03', client:'Ashlee Douglas', service:'Guest Hair', qty:4, subtotal:300, paidOn:'2026-10-04' },
-      { date:'2026-09-19', client:'Chloe Benton', service:'Bride Hair', qty:1, subtotal:125, paidOn:'2026-09-20' },
-      { date:'2026-09-19', client:'Chloe Benton', service:'Guest Hair', qty:4, subtotal:310, paidOn:'2026-09-20' } ] },
-    entries:{ [k(3)]:{status:'Available',note:''}, [k(6)]:{status:'Available',note:'Free until 3pm'}, [k(8)]:{status:'Unavailable',note:''},
-      [k(15)]:{status:'Unavailable',note:'Family trip'}, [k(28)]:{status:'Available',note:''} },
+      { date:'2026-10-03', client:'Ashlee Douglas', service:'Guest hair', qty:4, subtotal:300, paidOn:'2026-10-04' },
+      { date:'2026-09-19', client:'Chloe Benton', service:'Bride hair', qty:1, subtotal:125, paidOn:'2026-09-20' },
+      { date:'2026-09-19', client:'Chloe Benton', service:'Guest hair', qty:4, subtotal:310, paidOn:'2026-09-20' } ] },
+    entries:{ [add(3)]:{status:'Available',note:''}, [add(5)]:{status:'Unavailable',note:''}, [add(6)]:{status:'Available',note:'Free until 3pm'},
+      [k(8)]:{status:'Unavailable',note:''}, [k(15)]:{status:'Unavailable',note:'Family trip'}, [k(28)]:{status:'Available',note:''} },
     booked:{ [e1]:{label:'Brielle Whitney',source:'pipeline'}, [e2]:{label:'Claire Alcock',source:'pipeline'} }
   };
 }
