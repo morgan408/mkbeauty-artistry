@@ -15,7 +15,7 @@
     --cream:#E8E4DF; --parchment:#DDD9D4; --warm-white:#EDEBE8; --ink:#1A1714; --text-2:#4A4541;
     --border:#CCC8C3; --tan:#B09A88; --tan-dark:#6B5446; --burgundy:#6B2737; --pink:#D9AEB5;
     --sage:#DCE3D3; --sage-line:#B7C4AB;
-    --cal-head:var(--ink);
+    --cal-head:var(--burgundy);
     --serif:'Cormorant Garamond',serif; --sans:'Jost',sans-serif;
   }
   *{box-sizing:border-box;}
@@ -90,7 +90,7 @@
   .artist:last-child{border-bottom:none;}
   .a-name{font-family:var(--serif);font-size:21px;line-height:1.2;}
   .a-sub{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-  .chip{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--border);font-weight:400;color:var(--ink);}
+  .chip{white-space:nowrap;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--border);font-weight:400;color:var(--ink);}
   .chip.tier{font-family:var(--serif);font-style:italic;font-size:13px;letter-spacing:0;text-transform:none;padding:1px 10px;}
   .chip.ok{background:var(--sage);border-color:var(--sage-line);}
   .chip.need{background:#F0DEDF;border-color:var(--burgundy);color:var(--burgundy);}
@@ -321,7 +321,7 @@ function renderLinks(){
   if (!data.artists.length) { wrap.innerHTML = '<div class="message">No artists yet. Add them on the Artist Roster tab, then run setupArtistHub.</div>'; return; }
   wrap.innerHTML = data.artists.map(a => { const url = ARTIST_PAGE_URL + '?a=' + encodeURIComponent(a.code); return `<div class="artist">
     <div><div class="a-name">${esc(a.name)}</div>
-    <div class="a-sub">${a.tier ? `<span class="chip tier">${esc(a.tier)}</span>` : ''}<span class="chip ${a.w9 ? 'ok' : 'need'}">W-9 ${a.w9 ? 'received' : 'needed'}</span></div></div>
+    <div class="a-sub">${a.tier ? `<span class="chip tier">${esc(a.tier)}</span>` : ''}<span class="chip ${a.w9 ? 'ok' : 'need'}">W-9 ${a.w9 ? 'received' : 'needed'}</span><span class="chip ${a.contract ? 'ok' : 'need'}">Agreement ${a.contract ? 'on file' : 'pending'}</span></div></div>
     <div class="a-actions"><a class="pill small" href="${esc(url)}" target="_blank" rel="noopener">Open</a><button class="pill small" data-link="${esc(url)}">Copy</button></div></div>`; }).join('');
   wrap.querySelectorAll('[data-link]').forEach(b => b.onclick = async ()=> {
     const url = b.getAttribute('data-link');
@@ -335,7 +335,7 @@ function demoData(){
   const m = new Date(today.getFullYear(), today.getMonth() + 1, 1);
   const k = d => keyOf(new Date(m.getFullYear(), m.getMonth(), d));
   const tiers = ['Soie','Soie','Chiffon','Chiffon','Soie','Cachemire','Chiffon','Soie'];
-  const artists = ['Jenifer','Heather','Mari','Patty','Emily','Justine','Anastasia','Maria'].map((n,i)=>({ code:'demo'+i, name:n, tier:tiers[i], w9: i % 3 !== 0 }));
+  const artists = ['Jenifer','Heather','Mari','Patty','Emily','Justine','Anastasia','Maria'].map((n,i)=>({ code:'demo'+i, name:n, tier:tiers[i], w9: i % 3 !== 0, contract: i !== 4 }));
   const entries = {}, booked = {};
   artists.forEach(a => { entries[a.code] = {}; booked[a.code] = {}; });
   [[0,7,'av',''],[1,7,'av','Can do hair only'],[2,7,'off','Out of town'],[4,7,'av',''],[5,7,'off',''],
