@@ -25,7 +25,7 @@
     --hero-accent:var(--burgundy); --hero-line:var(--tan); --eyebrow:var(--burgundy);
     --primary:var(--ink); --on-primary:var(--cream);
     --bk-bg:var(--burgundy); --bk-ink:var(--cream); --bk-line:var(--burgundy);
-    --frame:var(--tan); --cal-head:var(--ink); --cal-head-ink:var(--cream);
+    --frame:var(--tan); --cal-head:var(--burgundy); --cal-head-ink:var(--cream);
   }
   /* Option B: Burgundy header, blush booked days. */
   [data-theme="burgundy"]{
@@ -157,7 +157,7 @@
   .row .sub{font-size:13px;color:var(--text-2);}
   .row .amt{font-family:var(--serif);font-size:20px;white-space:nowrap;}
   .doc-name{font-family:var(--serif);font-size:21px;line-height:1.2;}
-  .status-pill{display:inline-block;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;font-weight:400;margin-bottom:6px;}
+  .status-pill{display:inline-block;white-space:nowrap;font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;font-weight:400;margin-bottom:6px;}
   .status-pill.ok{background:var(--sage);color:var(--ink);border:1px solid var(--sage-line);}
   .status-pill.need{background:#F0DEDF;color:var(--burgundy);border:1px solid var(--burgundy);}
   .doc-right{display:flex;flex-direction:column;align-items:flex-end;}
@@ -509,15 +509,16 @@ function compress(file, maxDim, quality){
 /* ---------- Documents ---------- */
 function renderDocs(){
   const w9 = D.w9 || {};
-  document.getElementById('docsWrap').innerHTML = `
-    <div class="row"><div><div class="doc-name">Contractor agreement</div><div class="sub">Your signed agreement with MKBeauty</div></div>
-      <div class="doc-right">${D.contractUrl ? `<a class="pill small" href="${esc(D.contractUrl)}" target="_blank" rel="noopener">View</a>` : '<span class="sub">Coming soon</span>'}</div></div>
+  document.getElementById('docsWrap').innerHTML = `<input type="file" id="w9Input" accept="application/pdf,image/*">
+    <div class="row"><div><div class="doc-name">Contractor agreement</div><div class="sub">${D.contractUrl ? 'Your signed agreement with MKBeauty' : 'Morgan will add your signed agreement here.'}</div></div>
+      <div class="doc-right"><span class="status-pill ${D.contractUrl ? 'ok' : 'need'}">${D.contractUrl ? 'On file' : 'Pending'}</span>
+      ${D.contractUrl ? `<a class="pill small" href="${esc(D.contractUrl)}" target="_blank" rel="noopener">View</a>` : ''}</div></div>
     <div class="row"><div><div class="doc-name">W-9</div><div class="sub" id="w9Sub">${w9.received ? 'Upload again only if your info changes.' : 'Needed for your year-end 1099.'}</div></div>
       <div class="doc-right"><span class="status-pill ${w9.received ? 'ok' : 'need'}">${w9.received ? 'Received' + (w9.date ? ' ' + esc(shortDate(w9.date)) : '') : 'Needed'}</span>
       <button class="pill small" id="w9Btn">Upload</button></div></div>
     <div class="row"><div><div class="doc-name">Style guide</div><div class="sub">How we work, look, and show up on wedding days</div></div>
       <div class="doc-right"><a class="pill small" href="${esc(STYLE_GUIDE_URL)}" target="_blank" rel="noopener">Open</a></div></div>
-    <input type="file" id="w9Input" accept="application/pdf,image/*">`;
+`;
   const input = document.getElementById('w9Input');
   document.getElementById('w9Btn').onclick = ()=> input.click();
   input.onchange = ()=> uploadW9(input);
