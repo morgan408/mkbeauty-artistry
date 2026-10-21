@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fall Into the Holidays | The Vanity Edit | MKBeauty</title>
+<meta property="og:title" content="Fall Into the Holidays | The Vanity Edit">
+<meta property="og:description" content="A private two hour virtual makeup lesson. Your fall face, and how to take it into your holiday party look.">
+<meta property="og:site_name" content="MKBeauty Artistry">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
+    --ink:#191714; --muted:#797672; --border:#CBC5BE;
+    --accent:#D9AEB5; --accent-light:#EFEAE5; --accent-dark:#AC9A8A;
+    --burgundy:#632B37;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;}
+  em{font-style:italic;color:var(--burgundy);}
+
+  /* Hero */
+  .hero{background:radial-gradient(ellipse at top,#2a2420 0%,var(--ink) 60%);color:var(--cream);
+    padding:60px 24px 52px;text-align:center;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+  .hero h1{font-size:44px;line-height:1.1;margin:0 0 12px;}
+  .hero h1 em{color:var(--accent);}
+  .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:19px;line-height:1.5;
+    color:rgba(220,217,212,0.8);max-width:420px;margin:0 auto;}
+  .divider{width:60px;height:1px;background:var(--accent);margin:24px auto;}
+  .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:12px;letter-spacing:0.05em;
+    color:rgba(220,217,212,0.85);margin-bottom:28px;}
+  .hero-meta span{border:1px solid rgba(172,154,138,0.45);border-radius:14px;padding:8px 14px;}
+  .cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:var(--burgundy);
+    color:var(--cream);text-decoration:none;font-family:'Jost';font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;padding:14px 32px;border-radius:24px;border:none;cursor:pointer;}
+
+  /* Sections */
+  .section{padding:44px 20px;max-width:640px;margin:0 auto;scroll-margin-top:20px;}
+  .tagline{font-family:'Cormorant Garamond';font-style:italic;font-size:26px;text-align:center;line-height:1.4;
+    color:var(--ink);margin:0;}
+  .tagline em{display:block;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-title{font-size:30px;margin:0 0 8px;}
+  .section-hint{font-size:14px;color:var(--muted);line-height:1.6;margin:0 0 24px;}
+
+  /* Hour cards */
+  .hour-card{background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:14px;}
+  .hour-card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  .hour-tag{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;}
+  .hour-name{font-family:'Cormorant Garamond';font-size:26px;margin-bottom:8px;}
+  .hour-desc{font-size:14px;color:var(--muted);line-height:1.6;}
+
+  /* Included list */
+  .included{background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:6px 22px;}
+  .inc-row{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--border);}
+  .inc-row:last-child{border-bottom:none;}
+  .inc-mark{flex:0 0 auto;font-family:'Cormorant Garamond';font-style:italic;font-size:20px;color:var(--burgundy);
+    width:26px;line-height:1.2;}
+  .inc-title{font-size:15px;font-weight:400;margin-bottom:2px;}
+  .inc-sub{font-size:13px;color:var(--muted);line-height:1.5;}
+
+  /* Investment */
+  .investment{background:var(--ink);color:var(--cream);border-radius:12px;padding:32px 24px;text-align:center;}
+  .investment .label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(220,217,212,0.6);margin-bottom:8px;}
+  .investment .amount{font-family:'Cormorant Garamond';font-size:52px;line-height:1;}
+  .investment .note{font-size:13px;color:rgba(220,217,212,0.65);margin-top:12px;line-height:1.6;}
+
+  /* Steps */
+  .step{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);}
+  .step:last-child{border-bottom:none;}
+  .step-num{flex:0 0 auto;width:34px;height:34px;border-radius:50%;border:1px solid var(--burgundy);
+    display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond';font-style:italic;
+    font-size:17px;color:var(--burgundy);}
+  .step-title{font-family:'Cormorant Garamond';font-size:20px;margin-bottom:2px;}
+  .step-desc{font-size:13px;color:var(--muted);line-height:1.55;}
+
+  /* Form */
+  .form-card{background:var(--parchment);border:1px solid var(--burgundy);border-radius:12px;padding:24px 20px;}
+  .field{margin-bottom:18px;}
+  label.field-label{display:block;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+  label.field-label .opt{text-transform:none;letter-spacing:0;font-style:italic;}
+  input[type=text],input[type=email],input[type=tel],textarea{width:100%;font-family:'Jost';font-weight:300;
+    font-size:16px;color:var(--ink);background:var(--cream);border:1px solid var(--border);border-radius:8px;
+    padding:12px 14px;line-height:1.5;min-height:46px;}
+  textarea{min-height:92px;resize:vertical;}
+  input:focus,textarea:focus{outline:none;border-color:var(--accent-dark);background:var(--warm-white);}
+  .choice-group{display:flex;flex-direction:column;gap:8px;}
+  .choice{display:flex;align-items:center;gap:12px;background:var(--warm-white);border:1px solid var(--border);
+    border-radius:10px;padding:12px 14px;min-height:48px;cursor:pointer;font-size:15px;}
+  .choice input{accent-color:var(--burgundy);width:18px;height:18px;margin:0;flex:0 0 auto;}
+  .choice:has(input:checked){border-color:var(--burgundy);background:var(--accent-light);}
+  .choice .choice-sub{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
+  #lookNotesWrap{display:none;margin-top:10px;}
+  .submit{width:100%;margin-top:6px;}
+  .submit:disabled{opacity:0.6;}
+  .form-error{display:none;font-size:13px;color:var(--burgundy);margin-top:12px;text-align:center;line-height:1.5;}
+  .confirm{display:none;text-align:center;padding:12px 4px;}
+  .confirm .eyebrow{color:var(--accent-dark);}
+  .confirm h3{font-size:30px;margin:0 0 10px;}
+  .confirm p{font-size:14px;color:var(--muted);line-height:1.65;margin:0;}
+
+  .note-card{background:var(--accent-light);border-left:3px solid var(--accent-dark);border-radius:0 8px 8px 0;
+    padding:16px 18px;font-size:13px;line-height:1.6;margin-top:18px;}
+  .note-card .note-title{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:6px;}
+
+  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:38px 20px 46px;margin-top:20px;}
+  .footer .brand{font-family:'Cormorant Garamond';font-size:22px;font-style:italic;}
+  .footer .signature{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(220,217,212,0.55);margin-top:8px;}
+  .footer .contact{font-size:11px;color:var(--accent-dark);margin-top:10px;}
+  .footer .contact a{color:var(--accent-dark);text-decoration:none;}
+  .investment .was{color:rgba(220,217,212,0.85);}
+  .split{display:flex;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(220,217,212,0.15);}
+  .split>div{flex:1;}
+  .split-amt{font-family:'Cormorant Garamond';font-size:28px;}
+  .split-lbl{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(220,217,212,0.6);margin-top:4px;}
+  .msg-btn{display:flex;width:100%;max-width:340px;margin:0 auto 12px;}
+  .msg-btn.secondary{background:var(--ink);}
+  .msg-note{font-size:13px;color:var(--muted);line-height:1.55;margin:6px 0 0;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">The Vanity Edit · Virtual</div>
+  <h1>Fall Into the <em>Holidays</em></h1>
+  <div class="sub">A private two hour lesson. Your fall face, and how to take it into your holiday party look.</div>
+  <div class="divider"></div>
+  <div class="hero-meta">
+    <span>Virtual · 2.5 Hours Together</span>
+    <span>Lessons through December 19</span>
+  </div>
+  <a href="#request" class="cta" id="heroCta">Request Your Spot</a>
+</div>
+
+<div class="section" style="padding-bottom:20px;">
+  <p class="tagline">Times are flexible.<em>The number is not.</em></p>
+</div>
+
+<!-- THE LESSON -->
+<div class="section">
+  <div class="section-label">I</div>
+  <h2 class="section-title">One face, <em>two ways</em></h2>
+  <p class="section-hint">You learn your everyday look for the season, then turn that same face up for the party. Most people can do one or the other. You'll leave knowing the steps in between.</p>
+
+  <div class="hour-card">
+    <div class="hour-tag">Hour One</div>
+    <div class="hour-name">The <em>Fall</em> Face</div>
+    <div class="hour-desc">Skin prep, base, a warm cheek, a soft defined eye, and an everyday lip. The look you'll wear all season.</div>
+  </div>
+  <div class="hour-card featured">
+    <div class="hour-tag">Hour Two</div>
+    <div class="hour-name">The <em>Holiday</em> Turn</div>
+    <div class="hour-desc">Using what's already on your face: deepen the eye, add shimmer or a liner moment, bring the lip up, and set it all for a long night.</div>
+  </div>
+  <p class="section-hint" style="margin:14px 0 0;font-size:13px;">Prefer something specific? A look of your choice is always an option.</p>
+</div>
+
+<!-- INCLUDED -->
+<div class="section">
+  <div class="section-label">II</div>
+  <h2 class="section-title">What's <em>included</em></h2>
+  <div class="included">
+    <div class="inc-row">
+      <div class="inc-mark">i.</div>
+      <div><div class="inc-title">Complimentary 30 minute consultation</div>
+        <div class="inc-sub">We look at your skin, your kit, and your holiday calendar before we ever start.</div></div>
+    </div>
+    <div class="inc-row">
+      <div class="inc-mark">ii.</div>
+      <div><div class="inc-title">Two hour private lesson, live on video</div>
+        <div class="inc-sub">You do the work on your own face while we walk you through every step.</div></div>
+    </div>
+    <div class="inc-row">
+      <div class="inc-mark">iii.</div>
+      <div><div class="inc-title">Your full product suggestion list</div>
+        <div class="inc-sub">What to use for your fall face, plus the few additions that take it into evening.</div></div>
+    </div>
+    <div class="inc-row">
+      <div class="inc-mark">iv.</div>
+      <div><div class="inc-title">Your tips and tricks outline</div>
+        <div class="inc-sub">A day to night guide to follow on your own before every party this season.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTMENT -->
+<div class="section">
+  <div class="investment">
+    <div class="label">Your Investment</div>
+    <div class="amount">$150</div>
+    <div class="note">Two and a half hours together, plus your product list and outline.<br><em class="was">Usually $200.</em> Offered for lessons taught through Saturday, December 19.</div>
+    <div class="split">
+      <div><div class="split-amt">$50</div><div class="split-lbl">Holds your spot</div></div>
+      <div><div class="split-amt">$100</div><div class="split-lbl">Due at your consultation</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="section-label">III</div>
+  <h2 class="section-title">How it <em>works</em></h2>
+  <div>
+    <div class="step"><div class="step-num">1</div><div>
+      <div class="step-title">Message us</div>
+      <div class="step-desc">Send a quick note to request your spot. Spots are limited.</div></div></div>
+    <div class="step"><div class="step-num">2</div><div>
+      <div class="step-title">We confirm</div>
+      <div class="step-desc">If a spot is yours, we'll send your lesson page and payment details.</div></div></div>
+    <div class="step"><div class="step-num">3</div><div>
+      <div class="step-title">Hold your spot</div>
+      <div class="step-desc">A $50 deposit holds it.</div></div></div>
+    <div class="step"><div class="step-num">4</div><div>
+      <div class="step-title">Your consultation</div>
+      <div class="step-desc">Thirty minutes together to plan your look and set your lesson date. The remaining $100 is due here.</div></div></div>
+    <div class="step"><div class="step-num">5</div><div>
+      <div class="step-title">Your lesson</div>
+      <div class="step-desc">Your product list arrives ahead of time so you're ready to go.</div></div></div>
+    <div class="step"><div class="step-num">6</div><div>
+      <div class="step-title">Your outline</div>
+      <div class="step-desc">Your day to night guide lands on your lesson page afterward, yours to keep.</div></div></div>
+  </div>
+</div>
+
+<!-- REQUEST -->
+<div class="section" id="request">
+  <div class="section-label">IV</div>
+  <h2 class="section-title" id="reqTitle">Request your <em>spot</em></h2>
+  <p class="section-hint" id="reqHint">Send us a message and we'll take it from there.</p>
+
+  <div class="form-card" style="text-align:center;">
+    <a class="cta msg-btn" id="dmBtn" href="#" target="_blank" rel="noopener">Message on Instagram</a>
+    <a class="cta msg-btn secondary" id="textBtn" href="#">Send a Text</a>
+    <p class="msg-note" id="msgNote">Your text opens with a note already started. Just add your name and send.</p>
+  </div>
+
+  <div class="note-card">
+    <div class="note-title">A note on timing and deposits</div>
+    Lesson times are set together during your consultation. Deposits are non-refundable and can be moved once with 48 hours notice, to any date through December 19. Questions first? Text us anytime at 770.856.1008.
+  </div>
+</div>
+
+<div class="footer">
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="signature">Morgan Kelly Baird</div>
+  <div class="contact"><a href="mailto:morgan@mkbeautyeducator.com">morgan@mkbeautyeducator.com</a> · 770.856.1008</div>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIG
+   SPOTS_OPEN: true while you're accepting requests. Flip to false once
+   you've hit your number. Buttons and wording switch to a waitlist on
+   their own, and no count is ever shown.
+   ===================================================================== */
+const SPOTS_OPEN = true;
+const INSTAGRAM_HANDLE = "mkbeauty5_mua";
+const PHONE = "+17708561008";
+
+const textBody = SPOTS_OPEN
+  ? "Hi Morgan, I'd love to request a spot for the Fall Into the Holidays Vanity Edit. My name is "
+  : "Hi Morgan, I'd love to join the waitlist for the Fall Into the Holidays Vanity Edit. My name is ";
+
+document.getElementById('dmBtn').href = "https://ig.me/m/" + INSTAGRAM_HANDLE;
+document.getElementById('textBtn').href = "sms:" + PHONE + "?&body=" + encodeURIComponent(textBody);
+
+if (!SPOTS_OPEN) {
+  document.getElementById('heroCta').textContent = 'Join the Waitlist';
+  document.getElementById('reqTitle').innerHTML = 'Join the <em>waitlist</em>';
+  document.getElementById('reqHint').textContent = "This season's spots are spoken for. Send us a message and you'll be first to hear if one opens.";
+}
+</script>
+</body>
+</html>
