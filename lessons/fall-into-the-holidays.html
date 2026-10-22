@@ -210,36 +210,36 @@
   <h2 class="section-title">How it <em>works</em></h2>
   <div>
     <div class="step"><div class="step-num">1</div><div>
-      <div class="step-title">Message us</div>
-      <div class="step-desc">Send a quick note to request your spot. Spots are limited.</div></div></div>
+      <div class="step-title">Book your consultation</div>
+      <div class="step-desc">Pick a thirty minute time that works for you. Spots are limited.</div></div></div>
     <div class="step"><div class="step-num">2</div><div>
-      <div class="step-title">We confirm</div>
-      <div class="step-desc">If a spot is yours, we'll send your lesson page and payment details.</div></div></div>
-    <div class="step"><div class="step-num">3</div><div>
       <div class="step-title">Hold your spot</div>
-      <div class="step-desc">A $50 deposit holds it.</div></div></div>
-    <div class="step"><div class="step-num">4</div><div>
+      <div class="step-desc">A $50 deposit reserves your spot and goes toward your $150 investment.</div></div></div>
+    <div class="step"><div class="step-num">3</div><div>
       <div class="step-title">Your consultation</div>
-      <div class="step-desc">Thirty minutes together to plan your look and set your lesson date. The remaining $100 is due here.</div></div></div>
-    <div class="step"><div class="step-num">5</div><div>
+      <div class="step-desc">We plan your look and set your lesson date. The remaining $100 is due here.</div></div></div>
+    <div class="step"><div class="step-num">4</div><div>
       <div class="step-title">Your lesson</div>
       <div class="step-desc">Your product list arrives ahead of time so you're ready to go.</div></div></div>
-    <div class="step"><div class="step-num">6</div><div>
+    <div class="step"><div class="step-num">5</div><div>
       <div class="step-title">Your outline</div>
-      <div class="step-desc">Your day to night guide lands on your lesson page afterward, yours to keep.</div></div></div>
+      <div class="step-desc">Your day to night guide arrives afterward, yours to keep.</div></div></div>
   </div>
 </div>
 
-<!-- REQUEST -->
+<!-- BOOK -->
 <div class="section" id="request">
   <div class="section-label">IV</div>
-  <h2 class="section-title" id="reqTitle">Request your <em>spot</em></h2>
-  <p class="section-hint" id="reqHint">Send us a message and we'll take it from there.</p>
+  <h2 class="section-title" id="reqTitle">Reserve your <em>spot</em></h2>
+  <p class="section-hint" id="reqHint">Choose a consultation time that works for you. Evening and weekend times are available.</p>
 
   <div class="form-card" style="text-align:center;">
-    <a class="cta msg-btn" id="dmBtn" href="#" target="_blank" rel="noopener">Message on Instagram</a>
-    <a class="cta msg-btn secondary" id="textBtn" href="#">Send a Text</a>
-    <p class="msg-note" id="msgNote">Your text opens with a note already started. Just add your name and send.</p>
+    <a class="cta msg-btn" id="bookBtn" href="#" target="_blank" rel="noopener">Book Your Consultation</a>
+    <p class="msg-note" id="msgNote">Questions first? <a id="textLink" href="#" style="color:var(--burgundy);">Send a text</a> or <a id="dmLink" href="#" target="_blank" rel="noopener" style="color:var(--burgundy);">message on Instagram</a>.</p>
+    <div id="waitlistBtns" style="display:none;">
+      <a class="cta msg-btn" id="dmBtn" href="#" target="_blank" rel="noopener">Message on Instagram</a>
+      <a class="cta msg-btn secondary" id="textBtn" href="#">Send a Text</a>
+    </div>
   </div>
 
   <div class="note-card">
@@ -257,25 +257,36 @@
 <script>
 /* =====================================================================
    CONFIG
-   SPOTS_OPEN: true while you're accepting requests. Flip to false once
-   you've hit your number. Buttons and wording switch to a waitlist on
-   their own, and no count is ever shown.
+   SPOTS_OPEN: true while you're taking bookings. Once you hit your
+   number, turn off the Google booking page AND flip this to false. The
+   booking button hides and the page switches to a waitlist that sends
+   people to message you. No count is ever shown.
    ===================================================================== */
 const SPOTS_OPEN = true;
+const BOOKING_URL = "https://calendar.app.google/dRX7vNYncecgn4Ny5";
 const INSTAGRAM_HANDLE = "mkbeauty5_mua";
 const PHONE = "+17708561008";
 
-const textBody = SPOTS_OPEN
-  ? "Hi Morgan, I'd love to request a spot for the Fall Into the Holidays Vanity Edit. My name is "
-  : "Hi Morgan, I'd love to join the waitlist for the Fall Into the Holidays Vanity Edit. My name is ";
+const questionText = "Hi Morgan, I have a question about the Fall Into the Holidays Vanity Edit. ";
+const waitlistText = "Hi Morgan, I'd love to join the waitlist for the Fall Into the Holidays Vanity Edit. My name is ";
+const sms = body => "sms:" + PHONE + "?&body=" + encodeURIComponent(body);
+const dm = "https://ig.me/m/" + INSTAGRAM_HANDLE;
 
-document.getElementById('dmBtn').href = "https://ig.me/m/" + INSTAGRAM_HANDLE;
-document.getElementById('textBtn').href = "sms:" + PHONE + "?&body=" + encodeURIComponent(textBody);
+document.getElementById('bookBtn').href = BOOKING_URL;
+document.getElementById('textLink').href = sms(questionText);
+document.getElementById('dmLink').href = dm;
+document.getElementById('dmBtn').href = dm;
+document.getElementById('textBtn').href = sms(waitlistText);
 
-if (!SPOTS_OPEN) {
+if (SPOTS_OPEN) {
+  document.getElementById('heroCta').textContent = 'Book Your Consultation';
+} else {
   document.getElementById('heroCta').textContent = 'Join the Waitlist';
   document.getElementById('reqTitle').innerHTML = 'Join the <em>waitlist</em>';
   document.getElementById('reqHint').textContent = "This season's spots are spoken for. Send us a message and you'll be first to hear if one opens.";
+  document.getElementById('bookBtn').style.display = 'none';
+  document.getElementById('msgNote').style.display = 'none';
+  document.getElementById('waitlistBtns').style.display = 'block';
 }
 </script>
 </body>
