@@ -57,7 +57,7 @@
   h2 em{color:var(--burgundy);}
 
   .hero{background:var(--hero-bg);color:var(--hero-ink);padding:52px 24px 38px;}
-  .inner{max-width:600px;margin:0 auto;}
+  .inner{max-width:552px;margin:0 auto;}
   .hero .eyebrow{color:var(--hero-accent);}
   .hero h1{font-size:46px;}
   .hero h1 em{color:var(--hero-accent);}
@@ -174,6 +174,8 @@
   .footer-tagline{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--tan);margin:2px 0 14px;}
   .footer-name{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,228,223,.8);}
   @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+  /* Wider screens: a little more room so the whole menu fits on one line, with shorter calendar tiles */
+  @media(min-width:800px){.inner{max-width:720px;} .nav-inner,.section{max-width:768px;} .day{aspect-ratio:auto;height:64px;}}
 </style>
 </head>
 <body>
@@ -345,8 +347,9 @@ function watchNav(){
   const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
   const setOn = a => {
     links.forEach(l => l.classList.toggle('on', l === a));
-    const left = a.offsetLeft - 24, right = a.offsetLeft + a.offsetWidth - bar.clientWidth + 24;
-    if (bar.scrollLeft > left) bar.scrollLeft = left; else if (bar.scrollLeft < right) bar.scrollLeft = right;
+    const br = bar.getBoundingClientRect(), ar = a.getBoundingClientRect(), pad = 24;
+    if (ar.left < br.left + pad) bar.scrollLeft -= (br.left + pad - ar.left);
+    else if (ar.right > br.right - pad) bar.scrollLeft += (ar.right - (br.right - pad));
   };
   setOn(links[0]);
   if (!('IntersectionObserver' in window)) return;
