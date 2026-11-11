@@ -452,6 +452,17 @@
 const EVENT_ID = "EVT-046"; // Kenzie Frazier, 11/14/26
 const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
 
+// Build-time fallback, used only until the Run of Show cell for EVT-046 is
+// filled in on Experience Data. The sheet always wins once it has a value.
+const RUN_OF_SHOW_FALLBACK = [
+  "11:00 AM - Call time, hair arrives and sets up",
+  "11:30 AM - Bridal Hair begins",
+  "12:30 PM - Bridal Makeup begins with skin prep",
+  "1:45 PM - Content gathering",
+  "2:30 PM - Ready by, dressed and ready",
+  "3:30 PM - Ceremony at Rock City"
+].join("\n");
+
 let record = {};
 let visionData = {};
 let teamUnlocked = false;
@@ -861,7 +872,7 @@ function renderScheduleBlocks(elId, raw){
   try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
 
   populatePublicContent();
-  renderScheduleBlocks('q_runOfShow', record["Run of Show"]);
+  renderScheduleBlocks('q_runOfShow', record["Run of Show"] || RUN_OF_SHOW_FALLBACK);
   renderTeamRoster();
   initBasics();
   initProfile();
