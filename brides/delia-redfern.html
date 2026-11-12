@@ -6,7 +6,7 @@
 <!-- BUILD-TIME: set per bride. Link previews read these and never run the page's script. -->
 <title>Delia Redfern Bridal Suite 10.22.27 | MKBeauty</title>
 <meta property="og:title" content="Delia Redfern Bridal Suite | MKBeauty">
-<meta property="og:description" content="Your vision, your bridal party, and your wedding morning, all in one place.">
+<meta property="og:description" content="Your vision, your guests, and your wedding morning, all in one place.">
 <meta property="og:site_name" content="MKBeauty Artistry">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -249,6 +249,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 
 .avatar img{width:100%;height:100%;object-fit:cover;}
 .btn[disabled]{opacity:.6;}
+
+.prep-list{margin:0 0 6px;padding-left:18px;font-size:15px;line-height:1.6;}
+.prep-list li{margin-bottom:6px;}
+.prep-list b{font-weight:600;}
+.prep-note{font-size:14px;font-style:italic;color:var(--muted);line-height:1.55;margin:6px 0 4px;}
+.prep-card .sub:last-of-type{border-bottom:1px solid var(--border);}
 </style>
 </head>
 <body class="theme-wine">
@@ -274,7 +280,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
       <p id="nextText">Everything for your wedding morning lives here, and it fills in as we get closer to your day.</p>
       <button class="btn" id="nextBtn">Get Started</button>
       <div class="progress" id="progressBar" style="margin-top:20px;"><span></span><span></span><span></span><span></span><span></span></div>
-      <div class="progress-cap"><span>Booked</span><span>Vision</span><span>Party</span><span>Timeline</span><span>Day Of</span></div>
+      <div class="progress-cap"><span>Booked</span><span>Vision</span><span>Guests</span><span>Timeline</span><span>Day Of</span></div>
     </div>
 
     <!-- I. DETAILS ON FILE -->
@@ -374,48 +380,70 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
       </div>
     </div>
 
-    <!-- III. BRIDAL PARTY -->
+    <!-- III. GUESTS -->
     <div class="room" data-room="party">
-      <div class="room-head"><div class="room-num">iii</div><div class="room-title"><h2>Your Bridal <em>Party</em></h2><div class="hint">Everyone getting ready with you</div></div><span class="pill soon" id="pill-party">Loading</span><div class="chev"></div></div>
+      <div class="room-head"><div class="room-num">iii</div><div class="room-title"><h2>Your <em>Guests</em></h2><div class="hint">Everyone getting ready with you</div></div><span class="pill soon" id="pill-party">Loading</span><div class="chev"></div></div>
       <div class="room-body">
-        <p class="room-intro">Add everyone getting ready with you, then send each one her own link. She adds a selfie and a few details, and her artist will have everything before the morning.</p>
+        <p class="room-intro">Add everyone getting ready with you, whether that is your bridesmaids, your mom, or a few close guests. Send each one her own link. She adds a selfie and a few details, and her artist will have everything before the morning.</p>
         <div class="party-summary"><div><b id="partyCount">0 of 0</b> details received</div><button class="btn ghost small" id="copyAllBtn">Copy All Links</button></div>
-        <div id="partyList"><div class="soon-note">Loading your bridal party...</div></div>
+        <div id="partyList"><div class="soon-note">Loading your guests...</div></div>
         <div id="addForm" class="card" style="display:none;margin-top:10px;">
           <label class="label" style="margin-top:0;">Her Name</label><input type="text" id="newName" placeholder="First and last name">
           <div class="grid2">
-            <div><label class="label">Role</label><select id="newRole"><option>Bridesmaid</option><option>Maid of Honor</option><option>Matron of Honor</option><option>Mother of the Bride</option><option>Mother of the Groom</option><option>Flower Girl</option><option>Family</option><option>Friend</option></select></div>
+            <div><label class="label">Role</label><select id="newRole"><option>Guest</option><option>Bridesmaid</option><option>Maid of Honor</option><option>Matron of Honor</option><option>Mother of the Bride</option><option>Mother of the Groom</option><option>Flower Girl</option><option>Family</option><option>Friend</option></select></div>
             <div><label class="label">Services</label><select id="newSvc"><option>Hair &amp; Makeup</option><option>Makeup</option><option>Hair</option></select></div>
           </div>
-          <button class="btn block" style="margin-top:16px;" id="addSave">Add to My Party</button>
+          <button class="btn block" style="margin-top:16px;" id="addSave">Add Guest</button>
           <button class="btn ghost block" style="margin-top:8px;" onclick="toggleAdd(false)">Cancel</button>
         </div>
         <button class="add-person" id="addBtn" onclick="toggleAdd(true)">+ Add Someone</button>
-        <p class="fine" style="text-align:left;">Each person's link is private. She sees only her own page, never your Suite or your investment.</p>
+        <p class="fine" style="text-align:left;">Each guest's link is private. She sees only her own page, never your Suite or your investment.</p>
         <div id="linkFallback" class="card" style="display:none;margin-top:10px;">
           <label class="label" style="margin-top:0;">Copy this link</label><textarea id="linkFallbackText" style="min-height:60px;font-size:14px;"></textarea>
         </div>
       </div>
     </div>
 
-    <!-- IV. DAY-OF TIMELINE -->
-    <div class="room" data-room="day">
-      <div class="room-head"><div class="room-num">iv</div><div class="room-title"><h2>Day-Of <em>Timeline</em></h2><div class="hint">How your morning will flow</div></div><span class="pill soon" id="pill-day">Coming Soon</span><div class="chev"></div></div>
+    <!-- IV. SKIN & HAIR PREP -->
+    <div class="room" data-room="prep">
+      <div class="room-head"><div class="room-num">iv</div><div class="room-title"><h2>Skin &amp; Hair <em>Prep</em></h2><div class="hint">How to arrive ready for your best application</div></div><span class="pill done">Guide</span><div class="chev"></div></div>
       <div class="room-body">
-        <div id="runOfShow"><div class="soon-note">Your timeline is built once your bridal party is final, usually about six weeks before your wedding. It will appear right here.</div></div>
+        <p class="room-intro">A few simple steps make a beautiful difference in how your look wears and photographs. Your guests have their own version of this on their pages.</p>
+        <div class="sub open"><div class="sub-head"><div class="t">Skin Prep, Day Of</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>Arrive with clean, freshly washed skin</li><li>Apply a light moisturizer only</li><li>Avoid heavy creams, facial oils, or SPF the morning of your application</li></ul><p class="prep-note">Your skin will be professionally prepped during your appointment.</p></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">Skincare &amp; Treatments</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>Avoid starting any new skincare routine within 4 to 6 weeks of your wedding</li><li>Let us know about any retinol or prescription skincare</li><li>Let us know about any chemical peels, microneedling, or laser treatments</li><li>Let us know about any injectables or dermatology services</li></ul><p class="prep-note">If dermaplaning is planned (highly recommended), complete it before your preview, not after.</p></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">Your Preview</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>Wear white or light-colored clothing</li><li>Prepare your skin as it will be on the wedding day</li><li>Complete spray tans and brow shaping before your preview</li></ul><p class="prep-note">Inspiration photos are welcome. Every look is customized to your features and environment.</p></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">Hair Prep</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li><b>If we are styling your hair:</b> come with clean, dry hair and no product</li><li><b>If we are doing your makeup only:</b> hair should be dry and mostly styled, unless we have talked through something different</li></ul></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">Wedding Morning</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>Be on time and ready for your scheduled application</li><li>Delays or unpreparedness may shorten application time</li></ul><p class="prep-note">A calm, unrushed experience is intentional.</p></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">Your Getting-Ready Space</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>A clean, indoor space</li><li>A table or counter surface</li><li>Access to natural light, a window is best</li><li>A chair for makeup clients. Please let us know if this cannot be accommodated.</li></ul></div></div>
+        <p class="prep-note" style="margin-top:18px;">Makeup artistry is collaborative and tailored to you. Results may vary based on skin type, lighting, weather, and environment.</p>
+        <a class="btn ghost small" href="https://www.canva.com/design/DAG-zklhd5M/tYJAwmZT8RqbIDkOdNDLAg/view" target="_blank" rel="noopener" style="margin-top:10px;">View the Full Prep Guide</a>
+      </div>
+    </div>
+
+    <!-- V. DAY-OF TIMELINE -->
+    <div class="room" data-room="day">
+      <div class="room-head"><div class="room-num">v</div><div class="room-title"><h2>Day-Of <em>Timeline</em></h2><div class="hint">How your morning will flow</div></div><span class="pill soon" id="pill-day">Coming Soon</span><div class="chev"></div></div>
+      <div class="room-body">
+        <div id="runOfShow"><div class="soon-note">Your timeline is built once your guest list is final, usually about six weeks before your wedding. It will appear right here.</div></div>
         <p class="fine" id="rosNote" style="display:none;">Times may shift slightly as the day comes together.</p>
       </div>
     </div>
 
-    <!-- V. TEAM -->
+    <!-- VI. TEAM -->
     <div class="room" data-room="team">
-      <div class="room-head"><div class="room-num">v</div><div class="room-title"><h2>Your <em>Team</em></h2><div class="hint">The artists on your morning</div></div><span class="pill soon" id="pill-team">Coming Soon</span><div class="chev"></div></div>
+      <div class="room-head"><div class="room-num">vi</div><div class="room-title"><h2>Your <em>Team</em></h2><div class="hint">The artists on your morning</div></div><span class="pill soon" id="pill-team">Coming Soon</span><div class="chev"></div></div>
       <div class="room-body"><div id="teamRoster"><div class="soon-note">Your team is confirmed once your party size is final. You'll meet everyone here.</div></div></div>
     </div>
 
-    <!-- VI. INVESTMENT -->
+    <!-- VII. INVESTMENT -->
     <div class="room" data-room="pay">
-      <div class="room-head"><div class="room-num">vi</div><div class="room-title"><h2>Investment &amp; <em>Payments</em></h2><div class="hint">Quote, payment schedule, and status</div></div><span class="pill soon" id="pill-pay"></span><div class="chev"></div></div>
+      <div class="room-head"><div class="room-num">vii</div><div class="room-title"><h2>Investment &amp; <em>Payments</em></h2><div class="hint">Quote, payment schedule, and status</div></div><span class="pill soon" id="pill-pay"></span><div class="chev"></div></div>
       <div class="room-body">
         <div class="doc-links" style="margin-top:16px;" id="docLinks"></div>
         <div id="ledger"></div>
@@ -698,7 +726,7 @@ function guestLink(g){ return location.origin + GUEST_PAGE + '?g=' + encodeURICo
 function statusText(s){ return s === 'Complete' ? 'Selfie and details received' : s === 'Started' ? 'Started, not finished' : 'Link not opened yet'; }
 function renderParty(){
   const list = document.getElementById('partyList');
-  if (!party.length) { list.innerHTML = '<div class="soon-note">No one added yet. Tap "Add Someone" to start with your first girl.</div>'; }
+  if (!party.length) { list.innerHTML = '<div class="soon-note">No one added yet. Tap "Add Someone" to add your first guest.</div>'; }
   else list.innerHTML = party.map((g, i) => `
     <div class="person">
       <div class="avatar ${g.selfie ? 'has' : ''}">${g.selfie ? `<img src="${g.selfie}" alt="">` : esc(initials(g.name))}</div>
@@ -729,9 +757,9 @@ async function copyLink(i){
 document.getElementById('copyAllBtn').addEventListener('click', async () => {
   const pending = party.filter(g => g.status !== 'Complete');
   const list = pending.length ? pending : party;
-  const msg = 'Hi ladies! Each of you has your own link to share your details and a selfie for our wedding morning with MKBeauty Artistry:\n\n' +
+  const msg = 'Hi! Each of you has your own link to share your details and a selfie for our wedding morning with MKBeauty Artistry:\n\n' +
     list.map(g => g.name.split(' ')[0] + ': ' + guestLink(g)).join('\n');
-  if (await copyText(msg)) toast('All links copied, ready to paste in your group chat');
+  if (await copyText(msg)) toast('All links copied, ready to paste');
 });
 function toggleAdd(show){
   document.getElementById('addForm').style.display = show ? '' : 'none';
@@ -744,7 +772,7 @@ document.getElementById('addSave').addEventListener('click', async () => {
   const btn = document.getElementById('addSave'); btn.disabled = true; btn.textContent = 'Adding...';
   const role = document.getElementById('newRole').value, services = document.getElementById('newSvc').value;
   const r = await apiPost({ action: 'addGuest', "Event ID": EVENT_ID, k: SUITE_KEY, name, role, services });
-  btn.disabled = false; btn.textContent = 'Add to My Party';
+  btn.disabled = false; btn.textContent = 'Add Guest';
   if (r && r.success) {
     party.push({ guestId: r.guestId, guestKey: r.guestKey, name, role, services, status: 'Invited', selfie: null });
     document.getElementById('newName').value = '';
@@ -822,10 +850,10 @@ function refreshStatus(){
     title = 'Share your <em>vision</em>'; text = 'Tell us how you want to look and feel on your wedding day. Take your time, it saves as you go.'; btn = 'Start My Vision';
     nextAction = () => openRoom('vision', true);
   } else if (!partyDone) {
-    title = 'Add your <em>bridal party</em>';
-    text = party.length ? (waiting === 1 ? 'One of your girls still needs to share her details.' : waiting + ' of your girls still need to share their details.') + ' Send each one her own link so she can add her selfie and inspo.'
+    title = 'Add your <em>guests</em>';
+    text = party.length ? (waiting === 1 ? 'One of your guests still needs to share her details.' : waiting + ' of your guests still need to share their details.') + ' Send each one her own link so she can add her selfie and inspo.'
                         : 'Add everyone getting ready with you, then send each one her own link to share a selfie and her details.';
-    btn = 'Go to Bridal Party'; nextAction = () => openRoom('party', true);
+    btn = 'Go to My Guests'; nextAction = () => openRoom('party', true);
   } else if (due.length) {
     title = 'Your next <em>payment</em>'; text = due[0].label + ', ' + money(due[0].amount) + ', ' + due[0].sub.replace(/^By/, 'due by') + '.'; btn = 'View Payments';
     nextAction = () => openRoom('pay', true);
