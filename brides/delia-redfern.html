@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridal Party | MKBeauty</title>
+<meta property="og:title" content="Your Bridal Party Details | MKBeauty">
+<meta property="og:description" content="Add your selfie and a few details so your artist can plan your look before the morning.">
+<meta property="og:site_name" content="MKBeauty Artistry">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400..600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0C0A; --cream:#F3F1EE; --warm-white:#FAF9F7; --parchment:#FDFCFB; --field:#F6F4F1;
+  --muted:#3F3B37; --border:#E2DDD7; --burgundy:#632B37; --tan:#AC9A8A;
+  --pink:#D9AEB5; --accent-light:#F6F0EE; --tan-text:#6A5847; --hero-cream:#E8E5E1; --rose:#A55A68;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+body{font-family:'Inter Tight',sans-serif;font-weight:450;color:var(--ink);-webkit-tap-highlight-color:transparent;}
+h1,h2,h3{font-family:'Instrument Serif',serif;font-weight:400;}
+em{font-style:italic;font-weight:400;color:var(--burgundy);}
+.view{display:none;} .view.show{display:block;}
+
+/* Prototype banner */
+.proto{background:var(--burgundy);color:var(--cream);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  text-align:center;padding:10px 14px;line-height:1.6;}
+.proto a{color:var(--pink);}
+
+/* Hero */
+.hero{background:var(--parchment);border-bottom:1px solid var(--border);color:var(--ink);padding:46px 22px 40px;text-align:center;}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
+.hero h1{font-size:40px;margin:0 0 4px;line-height:1.15;}
+.hero h1 em{color:var(--rose);}
+.hero .sub{font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;color:var(--muted);}
+.divider{width:60px;height:1px;background:var(--rose);margin:18px auto;}
+.hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:13px;letter-spacing:0.05em;color:var(--ink);}
+.hero-meta span{border:1px solid var(--border);background:var(--warm-white);border-radius:14px;padding:8px 14px;}
+.countdown{margin-top:22px;font-family:'Instrument Serif',serif;font-size:16px;font-style:italic;color:var(--muted);}
+.countdown b{font-family:'Instrument Serif',serif;font-style:normal;font-weight:400;font-size:32px;color:var(--burgundy);display:block;}
+
+.wrap{max-width:760px;margin:0 auto;padding:0 16px;}
+
+/* Next step */
+.next{margin:22px auto 26px;position:relative;background:var(--parchment);border:1px solid var(--burgundy);border-radius:14px;padding:20px 20px 18px;}
+.next .lbl{font-size:10.5px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px;}
+.next .ttl{font-family:'Instrument Serif',serif;font-size:25px;font-weight:400;margin-bottom:4px;}
+.next p{font-size:14px;color:var(--muted);margin:0 0 14px;line-height:1.55;}
+.progress{display:flex;gap:6px;margin-top:6px;}
+.progress span{flex:1;height:3px;border-radius:2px;background:var(--border);}
+.progress span.done{background:var(--burgundy);}
+.progress-cap{display:flex;justify-content:space-between;font-size:10.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:'Inter Tight',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--burgundy);color:var(--cream);border:none;border-radius:24px;padding:13px 26px;min-height:46px;cursor:pointer;text-decoration:none;}
+.btn.ink{background:var(--ink);}
+.btn.ghost{background:transparent;color:var(--burgundy);border:1px solid var(--burgundy);}
+.btn.small{font-size:11px;padding:9px 16px;min-height:38px;}
+.btn.block{width:100%;}
+
+/* Rooms (accordion) */
+.room{background:var(--warm-white);border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;}
+.room.open{border-color:var(--tan);}
+.room-head{display:flex;align-items:center;gap:14px;padding:18px 18px;cursor:pointer;user-select:none;min-height:72px;}
+.room-num{font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--tan-text);width:18px;flex:0 0 auto;}
+.room-title{flex:1;}
+.room-title h2{font-size:23px;margin:0;line-height:1.2;}
+.room-title .hint{font-size:13px;color:var(--muted);margin-top:2px;}
+.pill{flex:0 0 auto;font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:6px 10px;border-radius:12px;white-space:nowrap;}
+.pill.turn{background:var(--burgundy);color:var(--cream);}
+.pill.progress-p{background:var(--accent-light);color:var(--burgundy);border:1px solid var(--pink);}
+.pill.done{background:transparent;color:var(--tan-text);border:1px solid var(--tan);}
+.pill.soon{background:transparent;color:var(--muted);border:1px dashed var(--border);}
+.chev{flex:0 0 auto;width:10px;height:10px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);transition:transform .25s;margin-left:2px;margin-top:-4px;}
+.room.open > .room-head .chev{transform:rotate(-135deg);margin-top:4px;}
+.room-body{display:none;padding:4px 18px 22px;border-top:1px solid var(--border);}
+.room.open .room-body{display:block;}
+@media(max-width:420px){.room-title h2{font-size:21px;} .room-title .hint{display:none;}}
+
+/* Sub-collapsibles inside rooms */
+.sub{border-bottom:1px solid var(--border);}
+.sub:last-child{border-bottom:none;}
+.sub-head{display:flex;align-items:center;gap:10px;padding:16px 0;cursor:pointer;min-height:52px;}
+.sub-head .t{flex:1;font-family:'Instrument Serif',serif;font-size:21px;font-weight:400;}
+.sub-head .s{font-size:11px;color:var(--muted);}
+.sub-body{display:none;padding:0 0 18px;}
+.sub.open .sub-body{display:block;}
+.sub.open > .sub-head .chev{transform:rotate(-135deg);margin-top:4px;}
+
+/* Content bits */
+.label{display:block;font-size:11px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px;}
+.value{font-size:16px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;}
+@media(max-width:520px){.grid2{grid-template-columns:1fr;}}
+input[type=text],textarea,select{width:100%;font-family:'Inter Tight',sans-serif;font-weight:450;font-size:16px;color:var(--ink);background:var(--field);
+  border:1px solid #D6D0C9;border-radius:8px;padding:12px 14px;}
+textarea{min-height:84px;resize:vertical;line-height:1.5;}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--tan);background:var(--parchment);}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{font-size:14px;padding:9px 15px;border-radius:18px;border:1px solid var(--tan);background:var(--parchment);cursor:pointer;min-height:38px;display:flex;align-items:center;}
+.chip.on{background:var(--tan-text);border-color:var(--tan-text);color:#fff;}
+.quote-line{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:19px;line-height:1.55;color:var(--burgundy);
+  background:var(--parchment);border:1px solid var(--burgundy);border-radius:10px;padding:18px;}
+.soon-note{border:1px dashed var(--tan);border-radius:10px;padding:20px;text-align:center;color:var(--tan-text);
+  font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;line-height:1.55;margin-top:16px;}
+
+/* Bridal party cards */
+.party-summary{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:16px 0 14px;font-size:13px;color:var(--muted);}
+.party-summary b{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink);font-weight:400;}
+.person{display:flex;gap:14px;align-items:center;background:var(--parchment);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;}
+.avatar{flex:0 0 auto;width:56px;height:56px;border-radius:50%;background:var(--cream);border:1px solid var(--tan);display:flex;align-items:center;justify-content:center;
+  font-family:'Instrument Serif',serif;font-size:19px;color:var(--burgundy);overflow:hidden;}
+.avatar.has{border:2px solid var(--burgundy);}
+.avatar img{width:100%;height:100%;object-fit:cover;}
+.person .info{flex:1;min-width:0;}
+.person .nm{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;line-height:1.2;}
+.person .rl{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.person .st{font-size:12px;margin-top:6px;}
+.st.ok{color:var(--tan-text);} .st.wait{color:var(--burgundy);}
+.person .act{flex:0 0 auto;display:flex;flex-direction:column;gap:6px;}
+.add-person{width:100%;min-height:52px;border:1px dashed var(--tan);border-radius:12px;background:transparent;color:var(--tan-text);
+  font-family:'Inter Tight',sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;margin-top:4px;}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--cream);
+  font-size:13px;padding:12px 20px;border-radius:24px;opacity:0;transition:all .25s;pointer-events:none;z-index:99;max-width:90vw;text-align:center;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* Timeline + team */
+.sched{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--border);}
+.sched:last-child{border-bottom:none;}
+.sched .tm{min-width:74px;font-family:'Instrument Serif',serif;font-size:19px;color:var(--burgundy);font-weight:400;}
+.sched .ds{font-size:14px;padding-top:2px;}
+.team{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.team .tp{background:var(--parchment);border:1px solid var(--burgundy);border-radius:20px;padding:10px 18px;font-size:14px;}
+.team .tp span{display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+
+/* Payments */
+.ledger-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.ledger-row:last-child{border-bottom:none;}
+.ledger-row .d{flex:1;font-size:14px;line-height:1.45;}
+.ledger-row .d small{display:block;color:var(--muted);font-size:13px;}
+.ledger-row .a{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;}
+.tag{font-weight:500;} .tag.paid{color:var(--tan-text);} .tag.due{color:var(--burgundy);}
+.balance{background:var(--parchment);border:1px solid var(--burgundy);color:var(--ink);border-radius:12px;padding:24px 20px;text-align:center;margin:18px 0 14px;}
+.balance .l{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);}
+.balance .n{font-family:'Instrument Serif',serif;font-size:42px;margin:4px 0;}
+.balance .s{font-size:13px;color:var(--muted);}
+.doc-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.doc-links a{display:block;text-align:center;border:1px solid var(--border);border-radius:10px;padding:14px 8px;background:var(--parchment);
+  text-decoration:none;color:var(--ink);font-family:'Instrument Serif',serif;font-size:18px;}
+.doc-links a small{display:block;font-family:'Inter Tight',sans-serif;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.pay-btns{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.pay-btns .btn{width:100%;max-width:320px;}
+.fine{font-size:13px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.55;}
+
+/* Guest view */
+.selfie-zone{display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px 0 4px;}
+.selfie{width:130px;height:130px;border-radius:50%;border:1px dashed var(--tan);background:var(--parchment);display:flex;align-items:center;justify-content:center;
+  overflow:hidden;cursor:pointer;color:var(--tan-text);font-size:12px;letter-spacing:0.06em;text-align:center;line-height:1.4;}
+.selfie img{width:100%;height:100%;object-fit:cover;}
+.selfie.has{border:2px solid var(--burgundy);}
+.photo-grid{display:flex;flex-wrap:wrap;gap:3%;}
+.tile{width:48.5%;aspect-ratio:3/4;margin-bottom:12px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--parchment);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:12px;text-align:center;}
+.tile img{width:100%;height:100%;object-fit:cover;}
+.tile .plus{display:block;font-size:24px;color:var(--tan);}
+input[type=file]{display:none;}
+.section-pad{padding:28px 0 6px;}
+.section-lbl{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+.section-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
+.section-ttl{font-size:27px;margin:0 0 4px;}
+.section-hint{font-size:14px;color:var(--muted);font-style:italic;line-height:1.55;margin:0 0 16px;}
+.card{background:var(--warm-white);border:1px solid var(--border);border-radius:12px;padding:18px;}
+
+.footer{background:var(--parchment);border-top:1px solid var(--border);color:var(--ink);text-align:center;padding:38px 20px 46px;margin-top:30px;}
+.footer .b{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--burgundy);}
+.footer .s{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+.footer .c{font-size:13px;color:var(--tan-text);margin-top:10px;}
+
+/* ===== Themes + May Day style hero ===== */
+body{background:var(--cream);}
+body.theme-wine{--h-bg:#632B37;--h-word:#57222E;--h-s1:rgba(255,255,255,.10);--h-s2:rgba(0,0,0,.35);--h-text:#F7EFEC;--h-muted:rgba(247,239,236,.8);--h-accent:#EBC3CB;--bar-bg:#57222E;--bar-text:#EBC3CB;--h-btn:#F7EFEC;--h-btn-text:#632B37;--f-bg:#632B37;--f-text:#F7EFEC;--f-accent:#EBC3CB;}
+body.theme-stone{--h-bg:#DDD3C9;--h-word:#CFC2B5;--h-s1:rgba(255,255,255,.9);--h-s2:rgba(90,66,52,.35);--h-text:#140E0C;--h-muted:#3F3632;--h-accent:#632B37;--bar-bg:#CFC2B5;--bar-text:#632B37;--h-btn:#632B37;--h-btn-text:#F7EFEC;--f-bg:#DDD3C9;--f-text:#632B37;--f-accent:#3F3632;}
+body.theme-espresso{--h-bg:#2B1D18;--h-word:#3A2822;--h-s1:rgba(255,255,255,.06);--h-s2:rgba(0,0,0,.45);--h-text:#F4ECE7;--h-muted:rgba(244,236,231,.8);--h-accent:#E2B5BE;--bar-bg:#3A2822;--bar-text:#E2B5BE;--h-btn:#632B37;--h-btn-text:#F7EFEC;--f-bg:#2B1D18;--f-text:#F4ECE7;--f-accent:#E2B5BE;}
+:root{--cream:#F4F0EC;--warm-white:#FFFFFF;--parchment:#FFFFFF;--border:#E3D9D2;}
+.proto{display:flex;flex-direction:column;gap:8px;align-items:center;}
+.proto-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;}
+.proto-row a,.proto-row button{font-family:'Inter Tight',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:7px 12px;text-decoration:none;cursor:pointer;}
+.proto-row button[data-wm="suite."]{text-transform:none;}
+.proto-row button.on{background:#F7EFEC;color:var(--burgundy);border-color:#F7EFEC;}
+.topbar{background:var(--bar-bg);color:var(--bar-text);text-align:center;padding:14px 16px 6px;font-family:'Instrument Serif',serif;font-style:italic;font-size:23px;}
+.mhero{background:var(--h-bg);color:var(--h-text);border-radius:0 0 48px 48px;overflow:hidden;padding:18px 18px 38px;}
+.mhero-inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start;}
+.wordmark{align-self:center;margin-left:-6px;writing-mode:vertical-rl;transform:rotate(180deg);height:310px;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none;}
+.wm{font-family:'Instrument Serif',serif;font-size:124px;line-height:1;color:var(--h-word);text-shadow:1px 1px 1px var(--h-s1),-1px -1px 1px var(--h-s2);white-space:nowrap;}
+.meyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;line-height:1.6;color:var(--h-accent);}
+.mhero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(46px,13vw,64px);line-height:1;margin:12px 0;color:var(--h-text);}
+.mhero h1 em{color:var(--h-accent);}
+.mdate{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;margin:0;}
+.msub{font-size:14px;line-height:1.6;margin:10px 0 18px;color:var(--h-muted);}
+.mbtn{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;background:var(--h-btn);color:var(--h-btn-text);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;}
+.next{margin:22px auto 22px;border-radius:24px;border-color:var(--border);background:#fff;}
+.room{border-radius:24px;background:#fff;}
+.room.open{border-color:var(--border);}
+.person{border-radius:20px;background:var(--cream);}
+.balance{background:var(--burgundy);color:#F7EFEC;border:none;border-radius:22px;}
+.balance .l{color:#EBC3CB;} .balance .s{color:rgba(247,239,236,.85);}
+.card{border-radius:24px;background:#fff;}
+.tile{border-radius:16px;}
+input[type=text],textarea,select{border-radius:14px;background:#FBF8F6;}
+.doc-links a{border-radius:18px;background:var(--cream);}
+.mfoot{background:var(--f-bg);color:var(--f-text);text-align:center;border-radius:48px 48px 0 0;padding:32px 18px 40px;margin-top:40px;}
+.mfoot .b{font-family:'Instrument Serif',serif;font-style:italic;font-size:25px;}
+.mfoot .s{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-top:6px;color:var(--f-accent);}
+.mfoot .c{font-size:13px;margin-top:8px;color:var(--f-text);}
+@media(min-width:700px){.wordmark{height:340px}.wm{font-size:150px}}
+
+.room-intro{font-size:15px;color:var(--muted);line-height:1.6;margin:16px 0 4px;}
+.contract-card{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--cream);border-radius:20px;padding:16px 18px;margin-top:20px;}
+.mini-lbl{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);}
+.contract-ttl{font-family:'Instrument Serif',serif;font-size:24px;line-height:1.15;}
+.vision-box{background:var(--cream);border:1px solid var(--burgundy);border-radius:18px;padding:16px;}
+.vision-box textarea{background:transparent;border:none;font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--burgundy);min-height:110px;padding:0;}
+.vision-box textarea:focus{background:transparent;}
+.slider-labels{display:grid;grid-template-columns:1fr auto 1fr;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.slider-labels span:last-child{text-align:right;}
+.slider-labels .mid{font-family:'Instrument Serif',serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:16px;color:var(--burgundy);}
+input[type=range]{-webkit-appearance:none;width:100%;height:2px;background:var(--border);margin:18px 0 12px;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--burgundy);border:3px solid #EBC3CB;}
+.tiny{font-size:13px;color:var(--muted);line-height:1.55;margin:4px 0 8px;}
+.look-group{margin-top:18px;}
+.look-group .lg-t{font-family:'Instrument Serif',serif;font-size:19px;margin-bottom:8px;}
+.la-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:560px){.la-columns{grid-template-columns:1fr;}}
+.la-col{border:1px solid var(--border);border-radius:18px;padding:14px;background:#fff;}
+.la-col.avoid{background:#FBF3F3;}
+.la-col-title{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:10px;}
+.la-item{display:flex;align-items:center;gap:8px;font-size:15px;margin-bottom:6px;}
+.la-item .x{margin-left:auto;color:var(--muted);cursor:pointer;padding:4px 8px;}
+.la-add{display:flex;gap:8px;margin-top:8px;}
+.la-add input{flex:1;}
+.la-add button{min-width:46px;min-height:46px;border:none;border-radius:14px;background:var(--burgundy);color:#fff;font-size:18px;cursor:pointer;}
+.sub-head .s.ok{color:var(--tan-text);font-weight:500;}
+.tile{position:relative;}
+.tile .rm{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(20,14,12,.65);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;}
+
+.lock-note{background:#F6F0EE;border:1px solid #EBC3CB;border-radius:18px;padding:14px 16px;font-size:14px;color:#632B37;margin-top:12px;}
+input:disabled,select:disabled,textarea:disabled{opacity:.7;}
+.btn[disabled]{opacity:.6;}
+</style>
+</head>
+<body class="theme-wine">
+<div class="view show">
+  <div class="topbar">MKBeauty Artistry</div>
+  <header class="mhero">
+    <div class="mhero-inner">
+      <div class="wordmark"><span class="wm">MKBA</span></div>
+      <div>
+        <div class="meyebrow" id="gEyebrow">Bridal Party<br>Prepared For</div>
+        <h1 id="gName">Welcome</h1>
+        <p class="mdate" id="gDate"></p>
+        <p class="msub" id="gSub"></p>
+        <a class="mbtn" href="#" id="gBtn">Add Your Details</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap" id="gMain" style="display:none;">
+    <div class="section-pad">
+      <p class="section-hint" style="font-size:15px;" id="gIntro"></p>
+      <div class="lock-note" id="lockNote" style="display:none;">Your details are final now. If anything changes, text us at 770.856.1008.</div>
+    </div>
+
+    <div class="section-pad">
+      <div class="section-lbl">One</div>
+      <h2 class="section-ttl">A <em>Selfie</em></h2>
+      <p class="section-hint">A clear, makeup-free photo in natural light, hair down. This is how your artist meets you before the morning.</p>
+      <div class="card selfie-zone">
+        <div class="selfie" id="selfie">Tap to add<br>your selfie</div>
+        <button class="btn ghost small" id="selfieRemove" style="display:none;">Remove</button>
+        <input type="file" id="selfieIn" accept="image/*">
+      </div>
+    </div>
+
+    <div class="section-pad">
+      <div class="section-lbl">Two</div>
+      <h2 class="section-ttl">About <em>You</em></h2>
+      <div class="card">
+        <div class="grid2">
+          <div><label class="label" style="margin-top:0;">Skin Type</label><select data-p="skinType"><option value="">Select...</option><option>Dry</option><option>Normal</option><option>Combination</option><option>Oily</option><option>Sensitive</option></select></div>
+          <div><label class="label" style="margin-top:0;">Allergies or Sensitivities</label><input type="text" data-p="allergies" placeholder="Leave blank if none"></div>
+          <div><label class="label">Hair Length</label><select data-p="hairLength"><option value="">Select...</option><option>Short</option><option>Shoulder</option><option>Mid-back</option><option>Long</option></select></div>
+          <div><label class="label">Hair Thickness</label><select data-p="hairThickness"><option value="">Select...</option><option>Fine</option><option>Medium</option><option>Thick</option></select></div>
+          <div><label class="label">Natural Texture</label><select data-p="hairTexture"><option value="">Select...</option><option>Straight</option><option>Wavy</option><option>Curly</option><option>Coily</option></select></div>
+          <div><label class="label">Clip-In Extensions</label><select data-p="extensions"><option value="">Select...</option><option>Yes, bringing my own</option><option>No</option></select></div>
+          <div><label class="label">Lashes</label><select data-p="lashes"><option value="">Select...</option><option>Yes please</option><option>No thank you</option></select></div>
+          <div><label class="label">Your Phone</label><input type="text" id="gPhone" placeholder="For day-of timing only"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-pad">
+      <div class="section-lbl">Three</div>
+      <h2 class="section-ttl">Your <em>Look</em></h2>
+      <p class="section-hint">Tap what feels like you. Your artist will tailor it to the bride's overall look.</p>
+      <div class="card">
+        <div id="mkWrap"><span class="label" style="margin-top:0;">Makeup</span><div class="chips" id="chipsMakeup"></div></div>
+        <div id="hrWrap"><span class="label">Hair</span><div class="chips" id="chipsHair"></div></div>
+        <span class="label">Anything else we should know</span>
+        <textarea id="gNotes" placeholder="Dress neckline, glasses or contacts, how you usually wear your makeup..."></textarea>
+      </div>
+    </div>
+
+    <div class="section-pad">
+      <div class="section-lbl">Four</div>
+      <h2 class="section-ttl">Your <em>Inspo</em></h2>
+      <p class="section-hint">Up to four photos of looks you love. Optional, and always helpful. Each one saves as soon as you add it.</p>
+      <div class="photo-grid" id="inspoGrid"></div>
+      <input type="file" id="inspoIn" accept="image/*">
+    </div>
+
+    <div style="margin:22px 0 10px;"><button class="btn block" id="saveBtn">Save My Details</button></div>
+    <p class="fine" id="cutoffNote"></p>
+  </div>
+
+  <div class="wrap" id="gError" style="display:none;">
+    <div class="soon-note" style="margin-top:30px;">This link isn't working. Please ask the bride to send it again, or text us at 770.856.1008.</div>
+  </div>
+
+  <footer class="mfoot"><div class="b">MKBeauty Artistry</div><div class="s">Morgan Kelly Baird</div><div class="c">770.856.1008</div></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
+const CUTOFF_DAYS = 14; // keep in step with GUEST_EDIT_CUTOFF_DAYS in the backend
+const params = new URLSearchParams(location.search);
+const GID = params.get('g') || '', GK = params.get('k') || '';
+let completed = false, guest = null, profile = {}, look = {makeup:[], hair:[]}, inspo = [null,null,null,null], activeSlot = 0, locked = false;
+const MAKEUP = ['Soft Glam','Natural','Bronzed','Smokey','Dewy','Matte'];
+const HAIR = ['Down, Curled','Half-Up','Low Updo','High Updo','Sleek','Soft Waves','Braided Detail'];
+
+function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t = setTimeout(()=>fn(...a), ms); }; }
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+let tt; function toast(m){ const t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(()=>t.classList.remove('show'), 2600); }
+async function apiGet(p){ const qs = Object.entries(p).map(([k,v]) => k + '=' + encodeURIComponent(v)).join('&'); return (await fetch(API_URL + '?' + qs)).json(); }
+async function apiPost(p){ const r = await fetch(API_URL, {method:'POST', body: JSON.stringify(p)}); return r.json().catch(()=>({})); }
+
+function fitWordmark(){
+  document.querySelectorAll('.wordmark').forEach(w => {
+    const span = w.querySelector('.wm'); const max = w.clientHeight - 12;
+    let size = window.innerWidth >= 700 ? 150 : 124; span.style.fontSize = size + 'px';
+    while (span.getBoundingClientRect().height > max && size > 48) { size -= 4; span.style.fontSize = size + 'px'; }
+  });
+}
+window.addEventListener('load', fitWordmark); if (document.fonts) document.fonts.ready.then(fitWordmark);
+
+function compressImage(file, maxDim, cb){
+  const reader = new FileReader();
+  reader.onload = ev => { const img = new Image(); img.onload = () => {
+    let w = img.width, h = img.height;
+    if (w > h && w > maxDim) { h = h * maxDim / w; w = maxDim; } else if (h > maxDim) { w = w * maxDim / h; h = maxDim; }
+    const c = document.createElement('canvas'); c.width = w; c.height = h; c.getContext('2d').drawImage(img, 0, 0, w, h);
+    cb(c.toDataURL('image/jpeg', 0.82)); }; img.src = ev.target.result; };
+  reader.readAsDataURL(file);
+}
+
+/* ---------- Save details ---------- */
+async function save(status){
+  if (locked) return;
+  const r = await apiPost({ action:'saveGuest', guestId: GID, gk: GK, phone: document.getElementById('gPhone').value,
+    profile, look, notes: document.getElementById('gNotes').value, status });
+  if (r && r.error === 'locked') { lockPage(); toast(r.message); return false; }
+  return !!(r && r.success);
+}
+const autoSave = debounce(() => save(completed ? 'Complete' : 'Started'), 900);
+
+/* ---------- Selfie ---------- */
+function renderSelfie(url){
+  const s = document.getElementById('selfie');
+  if (url === 'saving') { s.innerHTML = 'Saving...'; return; }
+  s.innerHTML = url ? `<img src="${url}" alt="">` : 'Tap to add<br>your selfie';
+  s.classList.toggle('has', !!url);
+  document.getElementById('selfieRemove').style.display = url && !locked ? '' : 'none';
+}
+document.getElementById('selfie').addEventListener('click', () => { if (!locked) document.getElementById('selfieIn').click(); });
+document.getElementById('selfieIn').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return;
+  compressImage(f, 900, async url => {
+    renderSelfie('saving');
+    const r = await apiPost({ action:'uploadGuestPhoto', guestId: GID, gk: GK, kind:'selfie', data: url.split(',')[1], mimeType:'image/jpeg' });
+    if (r && r.success) { guest.selfie = url; toast('Selfie saved'); } else toast(r && r.message ? r.message : 'That photo did not save. Please try again.');
+    renderSelfie(guest.selfie);
+  });
+  e.target.value = '';
+});
+document.getElementById('selfieRemove').addEventListener('click', async () => {
+  const r = await apiPost({ action:'removeGuestPhoto', guestId: GID, gk: GK, kind:'selfie' });
+  if (r && r.success) { guest.selfie = null; renderSelfie(null); }
+});
+
+/* ---------- Inspo ---------- */
+function renderInspo(){
+  document.getElementById('inspoGrid').innerHTML = inspo.map((u, i) => `<div class="tile" onclick="pickTile(${i})">${
+    u === 'saving' ? '<div>Saving...</div>' :
+    u ? `<img src="${u}" alt="">${locked ? '' : `<span class="rm" onclick="event.stopPropagation();removeTile(${i})">✕</span>`}` :
+    '<div><span class="plus">+</span>Tap to add</div>'}</div>`).join('');
+}
+function pickTile(i){ if (locked || inspo[i] === 'saving') return; activeSlot = i; document.getElementById('inspoIn').click(); }
+document.getElementById('inspoIn').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return; const slot = activeSlot;
+  compressImage(f, 1000, async url => {
+    inspo[slot] = 'saving'; renderInspo();
+    const r = await apiPost({ action:'uploadGuestPhoto', guestId: GID, gk: GK, kind:'inspo', slot, data: url.split(',')[1], mimeType:'image/jpeg' });
+    inspo[slot] = (r && r.success) ? url : null; renderInspo();
+    toast(r && r.success ? 'Photo saved' : 'That photo did not save. Please try again.');
+  });
+  e.target.value = '';
+});
+async function removeTile(i){
+  const prev = inspo[i]; inspo[i] = null; renderInspo();
+  const r = await apiPost({ action:'removeGuestPhoto', guestId: GID, gk: GK, kind:'inspo', slot: i });
+  if (!(r && r.success)) { inspo[i] = prev; renderInspo(); }
+}
+
+/* ---------- Chips + fields ---------- */
+function renderChips(id, list, key){
+  const wrap = document.getElementById(id);
+  wrap.innerHTML = list.map(c => `<span class="chip${look[key].includes(c) ? ' on' : ''}">${esc(c)}</span>`).join('');
+  wrap.querySelectorAll('.chip').forEach(el => el.addEventListener('click', () => {
+    if (locked) return;
+    const v = el.textContent; const arr = look[key];
+    const i = arr.indexOf(v); i === -1 ? arr.push(v) : arr.splice(i, 1);
+    el.classList.toggle('on'); autoSave();
+  }));
+}
+function lockPage(){
+  locked = true;
+  document.getElementById('lockNote').style.display = '';
+  document.querySelectorAll('#gMain input, #gMain select, #gMain textarea').forEach(el => el.disabled = true);
+  document.getElementById('saveBtn').style.display = 'none';
+  renderSelfie(guest && guest.selfie); renderInspo();
+}
+
+/* ---------- Init ---------- */
+(async function(){
+  try { guest = GID && GK ? await apiGet({ guest: GID, gk: GK }) : { error: 'missing' }; } catch(e) { guest = { error: 'load' }; }
+  if (!guest || guest.error) {
+    document.getElementById('gError').style.display = '';
+    document.getElementById('gBtn').style.display = 'none';
+    document.getElementById('gEyebrow').innerHTML = 'Bridal Party';
+    return;
+  }
+  const ev = guest.event || {};
+  const brideFirst = String(ev["Bride / Client Name"] || 'The bride').split(' ')[0];
+  const parts = String(guest.name || '').split(' ');
+  document.title = guest.name + " | " + brideFirst + "'s Bridal Party | MKBeauty";
+  document.getElementById('gEyebrow').innerHTML = esc(brideFirst) + "'s Bridal Party<br>Prepared For";
+  document.getElementById('gName').innerHTML = esc(parts[0]) + (parts.length > 1 ? '<br><em>' + esc(parts.slice(1).join(' ')) + '</em>' : '');
+  const d = ev["Event Date"] ? new Date(ev["Event Date"]) : null;
+  if (d && !isNaN(d)) {
+    document.getElementById('gDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    const cutoff = new Date(d.getTime() - CUTOFF_DAYS * 86400000);
+    document.getElementById('cutoffNote').textContent = 'You can come back to this link and update anything until ' + cutoff.toLocaleDateString('en-US', {month:'long', day:'numeric'}) + '.';
+  }
+  const venue = [ev["Venue"], ev["City / Address"]].filter(Boolean).join(', ');
+  document.getElementById('gSub').innerHTML = esc([guest.role, guest.services].filter(Boolean).join(' · ')) + (venue ? '<br>' + esc(venue) : '');
+  document.getElementById('gIntro').textContent = brideFirst + ' has invited you to get ready with her and the MKBeauty team. A few details from you help your artist plan your look before the day, so the morning is all yours to enjoy.';
+  document.getElementById('gMain').style.display = '';
+
+  try { profile = guest.profile ? JSON.parse(guest.profile) : {}; } catch(e) { profile = {}; }
+  try { look = Object.assign({makeup:[], hair:[]}, guest.look ? JSON.parse(guest.look) : {}); } catch(e) { look = {makeup:[], hair:[]}; }
+  document.querySelectorAll('[data-p]').forEach(el => {
+    if (profile[el.dataset.p]) el.value = profile[el.dataset.p];
+    el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', () => { profile[el.dataset.p] = el.value; autoSave(); });
+  });
+  document.getElementById('gPhone').value = guest.phone || '';
+  document.getElementById('gNotes').value = guest.notes || '';
+  ['gPhone','gNotes'].forEach(id => document.getElementById(id).addEventListener('input', autoSave));
+
+  const svc = String(guest.services || '').toLowerCase();
+  if (svc && !svc.includes('makeup')) document.getElementById('mkWrap').style.display = 'none';
+  if (svc && !svc.includes('hair')) { document.getElementById('hrWrap').style.display = 'none'; }
+  renderChips('chipsMakeup', MAKEUP, 'makeup');
+  renderChips('chipsHair', HAIR, 'hair');
+
+  (guest.inspo || []).slice(0, 4).forEach((u, i) => { inspo[i] = u || null; });
+  completed = guest.status === 'Complete';
+  renderSelfie(guest.selfie); renderInspo();
+  if (guest.editsLocked) lockPage();
+  fitWordmark();
+})();
+
+document.getElementById('gBtn').addEventListener('click', e => { e.preventDefault(); document.getElementById('selfie').scrollIntoView({behavior:'smooth', block:'center'}); });
+document.getElementById('saveBtn').addEventListener('click', async () => {
+  const b = document.getElementById('saveBtn'); b.disabled = true; b.textContent = 'Saving...';
+  completed = true;
+  const ok = await save('Complete');
+  b.disabled = false; b.textContent = 'Save My Details';
+  if (ok) toast('Saved. Your artist will see this before the morning.');
+  else if (!locked) toast('That did not save. Please try again.');
+});
+</script>
+</body>
+</html>
