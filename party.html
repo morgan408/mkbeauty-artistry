@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bridal Party | MKBeauty</title>
-<meta property="og:title" content="Your Bridal Party Details | MKBeauty">
+<title>Getting Ready | MKBeauty</title>
+<meta property="og:title" content="Your Getting-Ready Details | MKBeauty">
 <meta property="og:description" content="Add your selfie and a few details so your artist can plan your look before the morning.">
 <meta property="og:site_name" content="MKBeauty Artistry">
 <meta name="robots" content="noindex, nofollow">
@@ -249,6 +249,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 .lock-note{background:#F6F0EE;border:1px solid #EBC3CB;border-radius:18px;padding:14px 16px;font-size:14px;color:#632B37;margin-top:12px;}
 input:disabled,select:disabled,textarea:disabled{opacity:.7;}
 .btn[disabled]{opacity:.6;}
+
+.prep-list{margin:0 0 6px;padding-left:18px;font-size:15px;line-height:1.6;}
+.prep-list li{margin-bottom:6px;}
+.prep-list b{font-weight:600;}
+.prep-note{font-size:14px;font-style:italic;color:var(--muted);line-height:1.55;margin:6px 0 4px;}
+.prep-card .sub:last-of-type{border-bottom:1px solid var(--border);}
 </style>
 </head>
 <body class="theme-wine">
@@ -258,7 +264,7 @@ input:disabled,select:disabled,textarea:disabled{opacity:.7;}
     <div class="mhero-inner">
       <div class="wordmark"><span class="wm">MKBA</span></div>
       <div>
-        <div class="meyebrow" id="gEyebrow">Bridal Party<br>Prepared For</div>
+        <div class="meyebrow" id="gEyebrow">Getting Ready<br>Prepared For</div>
         <h1 id="gName">Welcome</h1>
         <p class="mdate" id="gDate"></p>
         <p class="msub" id="gSub"></p>
@@ -319,6 +325,24 @@ input:disabled,select:disabled,textarea:disabled{opacity:.7;}
       <p class="section-hint">Up to four photos of looks you love. Optional, and always helpful. Each one saves as soon as you add it.</p>
       <div class="photo-grid" id="inspoGrid"></div>
       <input type="file" id="inspoIn" accept="image/*">
+    </div>
+
+    <div class="section-pad">
+      <div class="section-lbl">Five</div>
+      <h2 class="section-ttl">Your <em>Prep</em></h2>
+      <p class="section-hint">A few simple steps so your look wears beautifully all day.</p>
+      <div class="card prep-card">
+        <div class="sub open"><div class="sub-head"><div class="t">Skin Prep, Day Of</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>Arrive with clean, freshly washed skin</li><li>Apply a light moisturizer only</li><li>Avoid heavy creams, facial oils, or SPF the morning of your application</li></ul><p class="prep-note">Your skin will be professionally prepped during your appointment.</p></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">Skincare &amp; Treatments</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>Avoid starting any new skincare routine within 4 to 6 weeks of the wedding</li><li>Retinol or prescription skincare, chemical peels, microneedling, laser treatments, injectables, or dermatology services? Add them to your notes above so your artist knows.</li></ul></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">Hair Prep</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li><b>If we are styling your hair:</b> come with clean, dry hair and no product</li><li><b>If we are doing your makeup only:</b> hair should be dry and mostly styled, unless we have talked through something different</li></ul></div></div>
+        <div class="sub"><div class="sub-head"><div class="t">The Morning Of</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><ul class="prep-list"><li>Be on time and ready for your scheduled application</li><li>Delays or unpreparedness may shorten application time</li></ul><p class="prep-note">A calm, unrushed experience is intentional.</p></div></div>
+        <p class="prep-note" style="margin-top:18px;">Makeup artistry is collaborative and tailored to you. Results may vary based on skin type, lighting, weather, and environment.</p>
+        <a class="btn ghost small" href="https://www.canva.com/design/DAG-zklhd5M/tYJAwmZT8RqbIDkOdNDLAg/view" target="_blank" rel="noopener" style="margin-top:10px;">View the Full Prep Guide</a>
+      </div>
     </div>
 
     <div style="margin:22px 0 10px;"><button class="btn block" id="saveBtn">Save My Details</button></div>
@@ -450,14 +474,14 @@ function lockPage(){
   if (!guest || guest.error) {
     document.getElementById('gError').style.display = '';
     document.getElementById('gBtn').style.display = 'none';
-    document.getElementById('gEyebrow').innerHTML = 'Bridal Party';
+    document.getElementById('gEyebrow').innerHTML = 'Getting Ready';
     return;
   }
   const ev = guest.event || {};
   const brideFirst = String(ev["Bride / Client Name"] || 'The bride').split(' ')[0];
   const parts = String(guest.name || '').split(' ');
-  document.title = guest.name + " | " + brideFirst + "'s Bridal Party | MKBeauty";
-  document.getElementById('gEyebrow').innerHTML = esc(brideFirst) + "'s Bridal Party<br>Prepared For";
+  document.title = guest.name + " | Getting Ready with " + brideFirst + " | MKBeauty";
+  document.getElementById('gEyebrow').innerHTML = 'Getting Ready with ' + esc(brideFirst) + '<br>Prepared For';
   document.getElementById('gName').innerHTML = esc(parts[0]) + (parts.length > 1 ? '<br><em>' + esc(parts.slice(1).join(' ')) + '</em>' : '');
   const d = ev["Event Date"] ? new Date(ev["Event Date"]) : null;
   if (d && !isNaN(d)) {
@@ -493,6 +517,7 @@ function lockPage(){
   fitWordmark();
 })();
 
+document.querySelectorAll('.sub-head').forEach(h => h.addEventListener('click', () => h.parentElement.classList.toggle('open')));
 document.getElementById('gBtn').addEventListener('click', e => { e.preventDefault(); document.getElementById('selfie').scrollIntoView({behavior:'smooth', block:'center'}); });
 document.getElementById('saveBtn').addEventListener('click', async () => {
   const b = document.getElementById('saveBtn'); b.disabled = true; b.textContent = 'Saving...';
