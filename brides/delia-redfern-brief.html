@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<title>Delia Redfern Artist Brief 10.22.27 | MKBeauty</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
+    --ink:#191714; --muted:#797672; --border:#CBC5BE;
+    --accent-dark:#AC9A8A; --accent-light:#EFEAE5; --accent:#D9AEB5;
+    --burgundy:#632B37; --stone:#AC9A8A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  em{font-style:italic;color:var(--burgundy);}
+
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(220,217,212,0.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
+    min-height:36px;display:flex;align-items:center;}
+
+  .hero{background:radial-gradient(ellipse at top, #332C27 0%, #241F1B 60%);color:var(--cream);
+    padding:44px 24px 36px;text-align:center;}
+  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:14px;}
+  .hero h1{font-size:34px;font-weight:400;margin:0 0 6px;line-height:1.15;color:var(--cream);}
+  .hero h1 em{color:var(--accent-dark);}
+  .hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:16px;color:rgba(220,217,212,0.7);margin-bottom:16px;}
+  .divider{width:50px;height:1px;background:var(--accent-dark);margin:16px auto;}
+  .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:12px;letter-spacing:0.05em;color:rgba(220,217,212,0.85);margin-bottom:22px;}
+  .hero-meta span{border:1px solid rgba(172,154,138,0.4);border-radius:14px;padding:8px 14px;}
+  .experience-link{display:inline-block;background:var(--burgundy);color:var(--cream);text-decoration:none;
+    font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;border-radius:24px;font-weight:500;}
+
+  .section{padding:36px 20px;max-width:760px;margin:0 auto;scroll-margin-top:64px;}
+  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-title{font-size:24px;font-weight:400;margin:0 0 16px;}
+  .mini-label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;}
+
+  .card{background:var(--warm-white);border:1px solid var(--border);border-left:3px solid var(--burgundy);border-radius:10px;padding:20px;margin-bottom:14px;}
+  .card.featured{background:var(--parchment);border-color:var(--burgundy);}
+  .row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--border);}
+  .row:last-child{border-bottom:none;}
+  .row .label{color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;flex:0 0 auto;}
+  .row .value{text-align:right;}
+
+  .roster-pill{display:inline-block;background:var(--parchment);border:1px solid var(--burgundy);border-radius:20px;
+    padding:10px 18px;font-size:14px;margin:4px 8px 4px 0;color:var(--ink);}
+  .roster-pill .role{display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+
+  .chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .pay-pill{font-family:'Jost';font-size:13px;padding:9px 16px;border-radius:18px;border:1px solid var(--accent-dark);
+    background:var(--warm-white);color:var(--ink);min-height:38px;display:inline-flex;align-items:center;cursor:pointer;user-select:none;}
+  .pay-pill.active{background:var(--burgundy);border-color:var(--burgundy);color:var(--cream);}
+  .look-chip{font-size:12px;padding:6px 12px;border-radius:14px;border:1px solid var(--accent-dark);background:var(--parchment);display:inline-block;margin:0 6px 6px 0;}
+
+  .team-card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:22px;margin-bottom:14px;}
+  .team-card-inner{display:flex;gap:16px;align-items:flex-start;}
+  .team-initials{flex:0 0 84px;width:84px;height:84px;border-radius:50%;background:var(--parchment);
+    border:1px solid var(--burgundy);display:flex;align-items:center;justify-content:center;overflow:hidden;
+    font-family:'Cormorant Garamond';font-style:italic;font-size:24px;color:var(--burgundy);}
+  .team-initials img{width:100%;height:100%;object-fit:cover;}
+  .team-name{font-family:'Cormorant Garamond';font-size:20px;}
+  .team-name .role{font-style:italic;color:var(--burgundy);}
+  .team-roster-line{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .team-flag{margin-top:8px;font-size:12px;color:var(--burgundy);font-style:italic;}
+
+  /* Clients (Bridal Party tab, live) */
+  .artist-group{margin-bottom:26px;}
+  .artist-group-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .artist-group-head .nm{font-family:'Cormorant Garamond';font-size:22px;}
+  .artist-group-head .ct{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  .client-card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px;}
+  .client-top{display:flex;gap:16px;align-items:center;margin-bottom:10px;}
+  .client-selfie{flex:0 0 110px;width:110px;height:138px;border-radius:10px;overflow:hidden;background:var(--parchment);
+    border:1px solid var(--burgundy);display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond';font-style:italic;font-size:26px;color:var(--burgundy);cursor:zoom-in;}
+  .client-selfie img{width:100%;height:100%;object-fit:cover;}
+  .client-name{font-family:'Cormorant Garamond';font-size:22px;line-height:1.2;}
+  .client-role{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+  .client-status{font-size:12px;margin-top:8px;}
+  .client-status.ok{color:var(--accent-dark);} .client-status.wait{color:var(--burgundy);}
+  .client-notes{font-size:14px;line-height:1.6;margin-top:6px;}
+
+  .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:20px;text-align:center;
+    color:var(--accent-dark);font-family:'Cormorant Garamond';font-style:italic;font-size:16px;line-height:1.6;}
+
+  .schedule-block{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+  .schedule-block:last-child{border-bottom:none;}
+  .schedule-time{flex:0 0 auto;min-width:78px;font-family:'Cormorant Garamond';font-size:16px;color:var(--burgundy);font-weight:500;}
+  .schedule-desc{font-size:14px;color:var(--ink);padding-top:1px;}
+
+  .photo-grid{display:flex;flex-wrap:wrap;gap:3%;margin-top:12px;}
+  .photo-tile{width:31%;aspect-ratio:3/4;margin-bottom:10px;border-radius:8px;overflow:hidden;border:1px solid var(--border);cursor:zoom-in;}
+  .photo-tile img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  .lightbox{position:fixed;inset:0;background:rgba(25,23,20,0.92);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;}
+  .lightbox.show{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;}
+
+  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:32px 20px 40px;margin-top:10px;}
+  .footer .brand{font-family:'Cormorant Garamond';font-size:20px;font-style:italic;color:var(--cream);}
+  .footer .sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,228,223,0.55);margin-top:6px;}
+  .footer .internal{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-top:12px;}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#overview">Overview</a>
+  <a href="#vision">Vision Recap</a>
+  <a href="#logistics">Logistics</a>
+  <a href="#details">Note</a>
+  <a href="#team">Team</a>
+  <a href="#clients">Clients</a>
+  <a href="#pay">Pay</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Artist Brief &middot; Internal Use Only</div>
+  <h1 id="heroName"><em>Delia</em> Redfern</h1>
+  <div class="sub">Wedding Day</div>
+  <div class="divider"></div>
+  <div class="hero-meta">
+    <span id="heroDate">Friday, October 22, 2027</span>
+    <span id="heroCallTime">Call Time</span>
+    <span id="heroVenue">The Chattanoogan Hotel</span>
+  </div>
+  <a href="#" id="experienceLinkButton" target="_blank" rel="noopener" class="experience-link">View Her Bridal Suite</a>
+</div>
+
+<div style="padding:22px 20px 4px;text-align:center;max-width:760px;margin:0 auto;">
+  <div id="topRoster"></div>
+</div>
+
+<!-- ===================== I. OVERVIEW ===================== -->
+<div class="section" id="overview">
+  <div class="section-label">I</div>
+  <h2 class="section-title">Event <em>Overview</em></h2>
+  <div class="card">
+    <div class="row"><span class="label">Party Size</span><span class="value" id="ov_partySize">Not set</span></div>
+    <div class="row"><span class="label">Day-Of Contact</span><span class="value" id="ov_dayOfContact">Not set</span></div>
+    <div class="row"><span class="label">Getting-Ready Address</span><span class="value" id="ov_gettingReady">Not set</span></div>
+    <div class="row"><span class="label">Ceremony Time</span><span class="value" id="ov_ceremonyTime">Not set</span></div>
+    <div class="row"><span class="label">Ready By</span><span class="value" id="ov_readyByTime">Not set</span></div>
+  </div>
+  <div class="card featured" style="text-align:center;" id="ov_contractCard">
+    <div class="mini-label" style="margin-bottom:6px;">Contract</div>
+    <a href="#" id="ov_contractLink" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;background:var(--burgundy);
+      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+      padding:13px 26px;border-radius:24px;">View Signed Contract</a>
+  </div>
+  <div class="card featured">
+    <div class="row" style="border:none;"><span class="label">Wedding Feel / Notes</span></div>
+    <div id="ov_weddingFeel" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+  </div>
+</div>
+
+<!-- ===================== II. VISION RECAP ===================== -->
+<div class="section" id="vision">
+  <div class="section-label">II</div>
+  <h2 class="section-title">Bride's <em>Vision</em> Recap</h2>
+  <div id="visionRecap"><div class="placeholder-note">She hasn't submitted her Vision yet.</div></div>
+  <div id="brideInspoWrap" style="display:none;">
+    <div class="mini-label" style="margin-top:8px;">Her Inspo</div>
+    <div class="photo-grid" id="brideInspo"></div>
+  </div>
+</div>
+
+<!-- ===================== III. LOGISTICS ===================== -->
+<div class="section" id="logistics">
+  <div class="section-label">III</div>
+  <h2 class="section-title">Run of Show &amp; <em>Logistics</em></h2>
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Run of Show</span></div>
+    <div id="lg_runOfShow"><div class="placeholder-note" style="padding:16px;">Nothing added yet.</div></div>
+  </div>
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Travel &amp; Logistics</span></div>
+    <div id="lg_travel" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+  </div>
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Notes from Morgan</span></div>
+    <div id="lg_notes" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+  </div>
+  <div class="card">
+    <div class="row" style="border:none;"><span class="label">Glam Team Notes</span></div>
+    <div id="lg_glam" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
+  </div>
+</div>
+
+<!-- ===================== IV. A NOTE FROM MORGAN (build-time) ===================== -->
+<div class="section" id="details">
+  <div class="section-label">IV</div>
+  <h2 class="section-title">A Note from <em>Morgan</em></h2>
+  <div class="placeholder-note">Nothing yet for this bride. A little something from Morgan, just for this event, goes here once she's shared it.</div>
+</div>
+
+<!-- ===================== V. TEAM ===================== -->
+<div class="section" id="team">
+  <div class="section-label">V</div>
+  <h2 class="section-title">The <em>Team</em></h2>
+  <div class="mini-label">Meet Your Team</div>
+  <div id="meetTeam"><div class="placeholder-note">No artist assignments yet. Add them in the Artist Assignments column on Bookings Pipeline.</div></div>
+</div>
+
+<!-- ===================== VI. CLIENTS (live from the Bridal Party tab) ===================== -->
+<div class="section" id="clients">
+  <div class="section-label">VI</div>
+  <h2 class="section-title">Your <em>Clients</em></h2>
+  <p style="font-size:13px;color:var(--muted);font-style:italic;margin:-6px 0 18px;line-height:1.6;">Each guest's selfie, details, and inspo, grouped by artist. This fills in on its own as guests complete their pages. Tap any photo to see it larger.</p>
+  <div id="clientsWrap"><div class="placeholder-note">Loading guests...</div></div>
+</div>
+
+<!-- ===================== VII. ARTIST PAY ===================== -->
+<div class="section" id="pay">
+  <div class="section-label">VII</div>
+  <h2 class="section-title">Artist <em>Pay</em></h2>
+  <p style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:14px;">Tap a name to view that artist's pay. Only one shows at a time.</p>
+  <div id="artistPayPills" class="chip-group"></div>
+  <div id="artistPayReveal"></div>
+</div>
+
+<div class="footer">
+  <div class="brand">MKBeauty Artistry</div>
+  <div class="sub">Morgan Kelly Baird</div>
+  <div class="internal">Internal Event Brief &middot; Not for Client Distribution</div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')"><img id="lightboxImg" alt=""></div>
+
+<script>
+/* =====================================================================
+   CONFIG: set these per bride when building this file.
+   ===================================================================== */
+const EVENT_ID = "EVT-047";
+const EXPERIENCE_URL = "https://mkbeauty-artistry.vercel.app/brides/delia-redfern";
+const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
+const TEAM_PASSWORD = "MKB2026"; // sent automatically, no prompt, this page is never shared with the bride
+
+let record = {};
+let visionData = {};
+let party = [];
+
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function blank(v){ return v === undefined || v === null || v === ''; }
+function orNotSet(v){ return blank(v) ? 'Not set' : v; }
+function orFallback(v, f){ return blank(v) ? f : v; }
+function initials(n){ return String(n || '').split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase(); }
+async function apiGet(params){
+  const qs = Object.entries(Object.assign({ id: EVENT_ID, pw: TEAM_PASSWORD }, params)).map(([k,v]) => k + "=" + encodeURIComponent(v)).join("&");
+  return (await fetch(API_URL + "?" + qs)).json();
+}
+function formatTimeValue(raw){
+  if (!raw) return raw;
+  const m = /^1899-12-3[01]T(\d{2}):(\d{2}):\d{2}/.exec(raw);
+  if (!m) return raw;
+  let h = parseInt(m[1], 10); const ap = h >= 12 ? 'pm' : 'am'; h = h % 12; if (h === 0) h = 12;
+  return h + ':' + m[2] + ap;
+}
+function openPhoto(src){ document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').classList.add('show'); }
+document.addEventListener('click', e => { const img = e.target.closest('.photo-tile img, .client-selfie img'); if (img) openPhoto(img.src); });
+function photoGrid(list){ return '<div class="photo-grid">' + list.filter(Boolean).map(u => `<div class="photo-tile"><img src="${u}" alt=""></div>`).join('') + '</div>'; }
+
+/* ---------- Hero + Overview ---------- */
+function populateHeroAndOverview(){
+  const name = record["Bride / Client Name"] || "Delia Redfern";
+  document.getElementById('heroName').innerHTML = `<em>${esc(name.split(' ')[0])}</em> ${esc(name.split(' ').slice(1).join(' '))}`;
+  if (record["Event Date"]) {
+    const d = new Date(record["Event Date"]);
+    if (!isNaN(d)) document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+  }
+  const venue = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
+  if (venue) document.getElementById('heroVenue').textContent = venue;
+  const call = formatTimeValue(record["Call Time"]);
+  const callEl = document.getElementById('heroCallTime');
+  if (call) callEl.textContent = 'Call Time ' + call; else callEl.style.display = 'none';
+  document.getElementById('experienceLinkButton').href = EXPERIENCE_URL;
+
+  document.getElementById('ov_partySize').textContent = orNotSet(record["Party Size"]);
+  if (record["Contract Link"]) document.getElementById('ov_contractLink').href = record["Contract Link"];
+  else document.getElementById('ov_contractCard').style.display = 'none';
+  document.getElementById('ov_dayOfContact').textContent = orNotSet([record["Day-Of Contact"], record["Day-Of Contact Phone"]].filter(Boolean).join(', '));
+  document.getElementById('ov_gettingReady').textContent = orNotSet(record["Getting-Ready Address"]);
+  document.getElementById('ov_ceremonyTime').textContent = orNotSet(formatTimeValue(record["Ceremony Time"]));
+  document.getElementById('ov_readyByTime').textContent = orNotSet(formatTimeValue(record["Ready By Time"]));
+  document.getElementById('ov_weddingFeel').textContent = orFallback(record["Wedding Feel / Notes"], 'Nothing added yet.');
+}
+
+/* ---------- Vision recap ---------- */
+const LOOK_LABELS = {
+  hair:['Half-Up','Down, Curled','Low Updo','High Updo','Braided Detail','Soft Waves','Sleek','Voluminous','Textured / Undone','Unsure'],
+  base:['Dewy','Satin','Soft Matte','Full Coverage','Medium Coverage','Skin-Like'],
+  eyes:['Soft Glam','Smokey','Warm Neutral','No Eye Makeup','Shimmer','Matte','Soft Wing'],
+  cheeks:['Warm Bronze','Pink Flush','Sculpted','Sun-Kissed','No Blush'],
+  lips:['Nude','Pink','Glossy Nude','Berry','Brown','Classic Red','Matte'],
+  brows:['Natural','Defined','Soft Powder','Full & Groomed']
+};
+const LOOK_TITLES = {base:'Base', eyes:'Eyes', cheeks:'Cheeks', lips:'Lips', brows:'Brows', hair:'Hair'};
+function populateVisionRecap(){
+  const wrap = document.getElementById('visionRecap');
+  if (!visionData || !Object.keys(visionData).length) return;
+  const v = visionData, bits = [];
+  if (v.q_vision) bits.push(`<div class="card featured"><div class="row" style="border:none;"><span class="label">In Her Words</span></div><div style="font-family:'Cormorant Garamond';font-style:italic;font-size:17px;">${esc(v.q_vision)}</div></div>`);
+  if (v.profile) {
+    const p = v.profile;
+    const rows = [['Skin Type',p.skinType],['Skin Concerns',p.skinConcerns],['Eye Color',p.eyeColor],['Hair Color',p.hairColor],['Freckles / Texture',p.freckles],['Allergies',p.allergies]].filter(r => r[1]);
+    if (rows.length) bits.push('<div class="card">' + rows.map(r => `<div class="row"><span class="label">${r[0]}</span><span class="value">${esc(r[1])}</span></div>`).join('') + '</div>');
+  }
+  if (v.look) {
+    const lines = Object.keys(LOOK_TITLES).map(k => {
+      const st = v.look[k]; if (!st || !st.chips) return '';
+      const on = LOOK_LABELS[k].filter((_, i) => st.chips[i]);
+      return on.length ? `<div style="margin-bottom:6px;"><span class="label" style="color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-right:8px;">${LOOK_TITLES[k]}</span>${on.map(x => `<span class="look-chip">${esc(x)}</span>`).join('')}</div>` : '';
+    }).join('');
+    const finish = v.finish != null ? (v.finish < 33 ? 'Matte' : v.finish > 66 ? 'Dewy / Glowy' : 'In Between') : '';
+    if (lines || finish) bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Her Look</span>${finish ? `<span class="value">Finish: ${finish}</span>` : ''}</div>${lines}</div>`);
+  }
+  [['Big Day Considerations', v.q_bigDay], ['Hair Details', v.q_hairDetails], ['Veil / Accessories', v.q_veilAccessories], ['Clip-In Extensions', v.q_extensions], ['Jewelry', v.q_jewelry], ['Everyday Habits', v.q_everyday]].forEach(([l, t]) => {
+    if (t) bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">${l}</span></div><div style="font-size:14px;line-height:1.6;">${esc(t)}</div></div>`);
+  });
+  const la = v.lovedAvoid || {};
+  if ((la.loved && la.loved.length) || (la.avoid && la.avoid.length)) {
+    bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Loved</span></div><div style="font-size:14px;">${esc((la.loved||[]).join(', ') || 'None listed')}</div>
+      <div class="row" style="border:none;margin-top:10px;"><span class="label">To Avoid</span></div><div style="font-size:14px;">${esc((la.avoid||[]).join(', ') || 'None listed')}</div></div>`);
+  }
+  if (bits.length) wrap.innerHTML = bits.join('');
+}
+
+/* ---------- Roster + Meet Your Team ---------- */
+function renderTeam(){
+  const roster = record["Public Roster"] || [];
+  if (!roster.length) return;
+  document.getElementById('topRoster').innerHTML = `<div class="mini-label" style="margin-bottom:8px;">Your Team</div>`
+    + roster.map(a => `<span class="roster-pill" style="padding:7px 14px;">${esc(a.name)}</span>`).join('');
+  document.getElementById('meetTeam').innerHTML = roster.map(a => {
+    const queue = party.filter(g => String(g.artist || '').trim() === a.name).map(g => esc(String(g.name).split(' ')[0]) + (g.role ? ' (' + esc(g.role) + ')' : ''));
+    return `<div class="team-card"><div class="team-card-inner">
+      <div class="team-initials">${esc(String(a.name).slice(0, 2).toUpperCase())}</div>
+      <div style="flex:1;">
+        <div class="team-name">${esc(a.name)} <span class="role">&middot; ${esc(a.role)}</span></div>
+        <div class="team-roster-line">${queue.length ? 'On your chair: ' + queue.join(', ') : 'Clients assigned in the Bridal Party tab'}</div>
+      </div></div></div>`;
+  }).join('');
+}
+
+/* ---------- Clients (Bridal Party tab) ---------- */
+function parseJSON(s, fb){ try { return s ? JSON.parse(s) : fb; } catch(e) { return fb; } }
+function clientCard(g){
+  const p = parseJSON(g.profile, {}), look = parseJSON(g.look, {makeup:[], hair:[]});
+  const rows = [['Skin Type',p.skinType],['Allergies',p.allergies],['Hair Length',p.hairLength],['Hair Thickness',p.hairThickness],['Texture',p.hairTexture],['Extensions',p.extensions],['Lashes',p.lashes],['Phone',g.phone]].filter(r => r[1]);
+  const chips = (look.makeup || []).map(x => `<span class="look-chip">${esc(x)}</span>`).join('') + (look.hair || []).map(x => `<span class="look-chip">${esc(x)}</span>`).join('');
+  const inspo = (g.inspo || []).filter(Boolean);
+  const done = g.status === 'Complete';
+  return `<div class="client-card">
+    <div class="client-top">
+      <div class="client-selfie">${g.selfie ? `<img src="${g.selfie}" alt="">` : esc(initials(g.name))}</div>
+      <div style="flex:1;min-width:0;">
+        <div class="client-name">${esc(g.name)}</div>
+        <div class="client-role">${esc(g.role || '')}${g.services ? ' &middot; ' + esc(g.services) : ''}</div>
+        <div class="client-status ${done ? 'ok' : 'wait'}">${done ? 'Details complete' : g.status === 'Started' ? 'Started, not finished' : 'Has not opened her link yet'}</div>
+      </div>
+    </div>
+    ${rows.length ? rows.map(r => `<div class="row"><span class="label">${r[0]}</span><span class="value">${esc(r[1])}</span></div>`).join('') : ''}
+    ${chips ? `<div style="margin-top:10px;">${chips}</div>` : ''}
+    ${g.notes ? `<div class="client-notes"><span class="label" style="color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Notes</span><br>${esc(g.notes)}</div>` : ''}
+    ${inspo.length ? photoGrid(inspo) : ''}
+  </div>`;
+}
+function renderClients(){
+  const wrap = document.getElementById('clientsWrap');
+  if (!party.length) { wrap.innerHTML = '<div class="placeholder-note">No guests added yet. They appear here as soon as the bride adds them in her Suite.</div>'; return; }
+  const groups = {};
+  party.forEach(g => { const a = String(g.artist || '').trim() || 'Not Yet Assigned'; (groups[a] = groups[a] || []).push(g); });
+  const order = Object.keys(groups).sort((a, b) => (a === 'Not Yet Assigned') - (b === 'Not Yet Assigned'));
+  wrap.innerHTML = order.map(a => `<div class="artist-group">
+    <div class="artist-group-head"><div class="nm">${a === 'Not Yet Assigned' ? '<em>Not Yet Assigned</em>' : esc(a)}</div><div class="ct">${groups[a].length} ${groups[a].length === 1 ? 'client' : 'clients'}</div></div>
+    ${groups[a].map(clientCard).join('')}
+  </div>`).join('') + (groups['Not Yet Assigned'] ? '<p style="font-size:12px;color:var(--muted);font-style:italic;">To assign a guest, type the artist\'s name (as it appears in Artist Assignments) in the Artist column of the Bridal Party tab.</p>' : '');
+}
+
+/* ---------- Artist Pay (tap-to-reveal, one at a time) ---------- */
+let payByArtist = {}, openPayArtist = null;
+function renderArtistPayouts(){
+  const pills = document.getElementById('artistPayPills');
+  const rows = record["Artist Payouts"] || [];
+  if (!rows.length) { pills.innerHTML = '<div class="placeholder-note">Pay hasn\'t been entered yet.</div>'; return; }
+  payByArtist = {};
+  rows.forEach(r => { const n = r.artist || 'Unassigned'; (payByArtist[n] = payByArtist[n] || []).push(r); });
+  pills.innerHTML = Object.keys(payByArtist).map(n => `<span class="pay-pill" data-artist="${esc(n)}" onclick="togglePayReveal(this)">${esc(n)}</span>`).join('');
+}
+function togglePayReveal(el){
+  const name = el.getAttribute('data-artist'), pills = document.getElementById('artistPayPills'), reveal = document.getElementById('artistPayReveal');
+  if (openPayArtist === name) { reveal.innerHTML = ''; openPayArtist = null; pills.querySelectorAll('.pay-pill').forEach(p => p.classList.remove('active')); return; }
+  openPayArtist = name;
+  pills.querySelectorAll('.pay-pill').forEach(p => p.classList.toggle('active', p.getAttribute('data-artist') === name));
+  const items = payByArtist[name] || [];
+  const total = items.reduce((s, i) => s + (parseFloat(i.subtotal) || 0), 0);
+  reveal.innerHTML = `<div class="card featured"><div style="font-family:'Cormorant Garamond';font-size:20px;margin-bottom:8px;">${esc(name)}</div>
+    ${items.map(i => { const q = Number(i.qty) || 1, r = Number(i.rate) || 0;
+      return `<div class="row"><span class="label" style="text-transform:none;font-size:13px;">${esc(i.service)}${q > 1 ? ` (${q} &times; $${r.toFixed(2)})` : ''}</span><span class="value">$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`; }).join('')}
+    <div style="font-family:'Cormorant Garamond';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);">$${total.toFixed(2)}</div></div>`;
+}
+
+/* ---------- Logistics ---------- */
+function renderScheduleBlocks(elId, raw){
+  if (!raw) return;
+  const lines = String(raw).split('\n').map(l => l.trim()).filter(Boolean);
+  if (!lines.length) return;
+  document.getElementById(elId).innerHTML = lines.map(line => {
+    const m = /^(.+?)\s*[-\u2014]\s*(.+)$/.exec(line);
+    return m ? `<div class="schedule-block"><div class="schedule-time">${esc(m[1])}</div><div class="schedule-desc">${esc(m[2])}</div></div>` : `<div class="schedule-block"><div class="schedule-desc">${esc(line)}</div></div>`;
+  }).join('');
+}
+function populateLogistics(){
+  renderScheduleBlocks('lg_runOfShow', record["Run of Show"]);
+  document.getElementById('lg_travel').textContent = orFallback(record["Travel Logistics"], 'Nothing added yet.');
+  document.getElementById('lg_notes').textContent = orFallback(record["Internal Notes"], 'Nothing added yet.');
+  document.getElementById('lg_glam').textContent = orFallback(record["Glam Team Notes"], 'Nothing added yet.');
+}
+
+/* ---------- Init ---------- */
+(async function(){
+  try { record = await apiGet({}); if (record.error) { console.error('Check EVENT_ID'); record = {}; } } catch(e) { record = {}; }
+  visionData = parseJSON(record["Vision (JSON)"], {});
+  populateHeroAndOverview();
+  populateVisionRecap();
+  populateLogistics();
+  renderArtistPayouts();
+  try { const r = await apiGet({ party: 1 }); party = (r && r.party) || []; } catch(e) { party = []; }
+  renderTeam();
+  renderClients();
+  try {
+    const r = await apiGet({ brideInspo: 1 });
+    const list = ((r && r.inspo) || []).filter(Boolean);
+    if (list.length) { document.getElementById('brideInspo').outerHTML = photoGrid(list); document.getElementById('brideInspoWrap').style.display = ''; }
+  } catch(e) {}
+})();
+</script>
+</body>
+</html>
