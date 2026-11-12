@@ -425,7 +425,28 @@
    CONFIG — the only two things that change per bride when you duplicate
    this file. Everything else pulls live from the sheet automatically.
    ===================================================================== */
-const EVENT_ID = "EVT-027"; // must match Bookings Pipeline exactly
+const EVENT_ID = "EVT-027";
+// Day-Of Timeline for this bride, embedded in the page. Takes priority over the sheet cell. Clear it to go back to the sheet.
+const EMBEDDED_RUN_OF_SHOW = `7:00 AM - Call time, artists arrive and set up
+7:30 AM - Guest Makeup begins, Hope
+7:30 AM - Guest Makeup begins, Holland
+7:30 AM - Guest Hair begins, Kayla M.
+7:30 AM - Guest Hair begins, Baylee
+8:20 AM - Bridal Makeup begins
+8:30 AM - Guest Makeup begins, Riley
+8:30 AM - Guest Hair begins, Hope
+8:30 AM - Guest Hair begins, Holland
+9:10 AM - Guest Makeup begins, Denise (MOB)
+9:30 AM - Bridal Hair begins
+9:30 AM - Guest Makeup begins, Baylee
+9:30 AM - Guest Hair begins, Allison
+10:30 AM - Guest Makeup begins, Allison
+10:30 AM - Guest Hair begins, Denise (MOB)
+10:30 AM - Guest Hair begins, Shannon
+11:30 AM - Guest Makeup begins, Shannon
+11:30 AM - Guest Hair begins, Riley
+12:30 PM - Guest Makeup begins, Kayla M.
+1:30 PM - Everyone ready`; // must match Bookings Pipeline exactly
 const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
 
 let record = {};        // the fetched, merged row (Bookings Pipeline + Experience Data)
@@ -857,7 +878,7 @@ function renderScheduleBlocks(elId, raw){
   try{ visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; }catch(e){ visionData = {}; }
 
   populatePublicContent();
-  renderScheduleBlocks('q_runOfShow', record["Run of Show"]);
+  renderScheduleBlocks('q_runOfShow', EMBEDDED_RUN_OF_SHOW || record["Run of Show"]);
   renderTeamRoster();
   initBasics();
   initProfile();
