@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bridal Party | MKBeauty</title>
-<meta property="og:title" content="Your Bridal Party Details | MKBeauty">
-<meta property="og:description" content="Add your selfie and a few details so your artist can plan your look before the morning.">
+<!-- BUILD-TIME: set per bride. Link previews read these and never run the page's script. -->
+<title>Delia Redfern Bridal Suite 10.22.27 | MKBeauty</title>
+<meta property="og:title" content="Delia Redfern Bridal Suite | MKBeauty">
+<meta property="og:description" content="Your vision, your bridal party, and your wedding morning, all in one place.">
 <meta property="og:site_name" content="MKBeauty Artistry">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -246,108 +247,254 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 .tile{position:relative;}
 .tile .rm{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(20,14,12,.65);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;}
 
-.lock-note{background:#F6F0EE;border:1px solid #EBC3CB;border-radius:18px;padding:14px 16px;font-size:14px;color:#632B37;margin-top:12px;}
-input:disabled,select:disabled,textarea:disabled{opacity:.7;}
+.avatar img{width:100%;height:100%;object-fit:cover;}
 .btn[disabled]{opacity:.6;}
 </style>
 </head>
 <body class="theme-wine">
-<div class="view show">
+<div class="view show" id="view-suite">
   <div class="topbar">MKBeauty Artistry</div>
   <header class="mhero">
     <div class="mhero-inner">
       <div class="wordmark"><span class="wm">MKBA</span></div>
       <div>
-        <div class="meyebrow" id="gEyebrow">Bridal Party<br>Prepared For</div>
-        <h1 id="gName">Welcome</h1>
-        <p class="mdate" id="gDate"></p>
-        <p class="msub" id="gSub"></p>
-        <a class="mbtn" href="#" id="gBtn">Add Your Details</a>
+        <div class="meyebrow">The Bridal Suite<br>Prepared For</div>
+        <h1 id="heroName">Delia<br><em>Redfern</em></h1>
+        <p class="mdate" id="heroDate">Friday, October 22, 2027</p>
+        <p class="msub"><span id="heroVenue">The Chattanoogan Hotel</span><br><span id="daysLeft"></span></p>
+        <a class="mbtn" href="#" id="heroBtn">Your Next Step</a>
       </div>
     </div>
   </header>
 
-  <div class="wrap" id="gMain" style="display:none;">
-    <div class="section-pad">
-      <p class="section-hint" style="font-size:15px;" id="gIntro"></p>
-      <div class="lock-note" id="lockNote" style="display:none;">Your details are final now. If anything changes, text us at 770.856.1008.</div>
+  <div class="wrap">
+    <div class="next" id="nextCard">
+      <div class="lbl">Your Next Step</div>
+      <div class="ttl" id="nextTitle">Welcome to your <em>Suite</em></div>
+      <p id="nextText">Everything for your wedding morning lives here, and it fills in as we get closer to your day.</p>
+      <button class="btn" id="nextBtn">Get Started</button>
+      <div class="progress" id="progressBar" style="margin-top:20px;"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="progress-cap"><span>Booked</span><span>Vision</span><span>Party</span><span>Timeline</span><span>Day Of</span></div>
     </div>
 
-    <div class="section-pad">
-      <div class="section-lbl">One</div>
-      <h2 class="section-ttl">A <em>Selfie</em></h2>
-      <p class="section-hint">A clear, makeup-free photo in natural light, hair down. This is how your artist meets you before the morning.</p>
-      <div class="card selfie-zone">
-        <div class="selfie" id="selfie">Tap to add<br>your selfie</div>
-        <button class="btn ghost small" id="selfieRemove" style="display:none;">Remove</button>
-        <input type="file" id="selfieIn" accept="image/*">
-      </div>
-    </div>
-
-    <div class="section-pad">
-      <div class="section-lbl">Two</div>
-      <h2 class="section-ttl">About <em>You</em></h2>
-      <div class="card">
-        <div class="grid2">
-          <div><label class="label" style="margin-top:0;">Skin Type</label><select data-p="skinType"><option value="">Select...</option><option>Dry</option><option>Normal</option><option>Combination</option><option>Oily</option><option>Sensitive</option></select></div>
-          <div><label class="label" style="margin-top:0;">Allergies or Sensitivities</label><input type="text" data-p="allergies" placeholder="Leave blank if none"></div>
-          <div><label class="label">Hair Length</label><select data-p="hairLength"><option value="">Select...</option><option>Short</option><option>Shoulder</option><option>Mid-back</option><option>Long</option></select></div>
-          <div><label class="label">Hair Thickness</label><select data-p="hairThickness"><option value="">Select...</option><option>Fine</option><option>Medium</option><option>Thick</option></select></div>
-          <div><label class="label">Natural Texture</label><select data-p="hairTexture"><option value="">Select...</option><option>Straight</option><option>Wavy</option><option>Curly</option><option>Coily</option></select></div>
-          <div><label class="label">Clip-In Extensions</label><select data-p="extensions"><option value="">Select...</option><option>Yes, bringing my own</option><option>No</option></select></div>
-          <div><label class="label">Lashes</label><select data-p="lashes"><option value="">Select...</option><option>Yes please</option><option>No thank you</option></select></div>
-          <div><label class="label">Your Phone</label><input type="text" id="gPhone" placeholder="For day-of timing only"></div>
+    <!-- I. DETAILS ON FILE -->
+    <div class="room" data-room="details">
+      <div class="room-head"><div class="room-num">i</div><div class="room-title"><h2>Details on <em>File</em></h2><div class="hint">How to reach you, and your signed agreement</div></div><span class="pill soon" id="pill-details">Loading</span><div class="chev"></div></div>
+      <div class="room-body">
+        <p class="room-intro">Everything we need to reach you on the day. Anything blank is yours to fill in, and it saves as you type.</p>
+        <div class="grid2" id="detailsGrid">
+          <div><label class="label">Your Phone</label><input type="text" id="q_bridePhone"></div>
+          <div><label class="label">Your Email</label><input type="text" id="q_brideEmail"></div>
+          <div style="grid-column:1/-1;"><label class="label">Getting-Ready Address</label><input type="text" id="q_gettingReady" placeholder="Where the morning-of prep is happening, if different from the venue"></div>
+          <div><label class="label">Day-Of Contact</label><input type="text" id="q_dayOfContact" placeholder="Name, relationship"></div>
+          <div><label class="label">Day-Of Contact Phone</label><input type="text" id="q_dayOfPhone"></div>
+        </div>
+        <div class="contract-card" id="contractCard">
+          <div><div class="mini-lbl">On File</div><div class="contract-ttl">Signed <em>Contract</em></div></div>
+          <a class="btn small" id="contractBtn" href="#" target="_blank" rel="noopener">View</a>
         </div>
       </div>
     </div>
 
-    <div class="section-pad">
-      <div class="section-lbl">Three</div>
-      <h2 class="section-ttl">Your <em>Look</em></h2>
-      <p class="section-hint">Tap what feels like you. Your artist will tailor it to the bride's overall look.</p>
-      <div class="card">
-        <div id="mkWrap"><span class="label" style="margin-top:0;">Makeup</span><div class="chips" id="chipsMakeup"></div></div>
-        <div id="hrWrap"><span class="label">Hair</span><div class="chips" id="chipsHair"></div></div>
-        <span class="label">Anything else we should know</span>
-        <textarea id="gNotes" placeholder="Dress neckline, glasses or contacts, how you usually wear your makeup..."></textarea>
+    <!-- II. VISION -->
+    <div class="room" data-room="vision">
+      <div class="room-head"><div class="room-num">ii</div><div class="room-title"><h2>Your <em>Vision</em></h2><div class="hint">Your look, in your own words</div></div><span class="pill soon" id="pill-vision">Loading</span><div class="chev"></div></div>
+      <div class="room-body">
+        <div id="visionForm">
+        <p class="room-intro">Before we meet, tell us everything. The more we know now, the more time we get to spend perfecting rather than discovering. Take your time, everything saves as you go.</p>
+
+        <div class="sub open"><div class="sub-head"><div class="t">In Your Own Words</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><div class="vision-box"><textarea id="q_vision" placeholder="Describe the feeling you want on your wedding day. Glowy and bronzed? Soft and romantic? Bold and editorial? Paint the whole picture..."></textarea></div></div></div>
+
+        <div class="sub"><div class="sub-head"><div class="t">Services &amp; Day-Of Basics</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><div class="grid2">
+            <div><label class="label">Ceremony Time</label><input type="text" id="q_ceremonyTime"></div>
+            <div><label class="label">Ready By</label><input type="text" id="q_readyByTime"></div>
+            <div><label class="label">Services Booked</label><select id="q_servicesBooked"><option value="">Select...</option><option value="both">Hair &amp; Makeup</option><option value="hair">Hair Only</option><option value="makeup">Makeup Only</option></select></div>
+            <div><label class="label">Additional Events</label><input type="text" id="q_additionalEvents" placeholder="Welcome party, rehearsal, etc."></div>
+          </div></div></div>
+
+        <div class="sub"><div class="sub-head"><div class="t">Bridal Profile</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><div class="grid2" id="profileGrid"></div></div></div>
+
+        <div class="sub" data-service="makeup"><div class="sub-head"><div class="t">Makeup</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body">
+            <label class="label" style="margin-top:0;">Finish</label>
+            <div class="slider-labels"><span>Matte</span><span class="mid" id="finishMid">In Between</span><span>Dewy / Glowy</span></div>
+            <input type="range" min="0" max="100" value="50" id="finishSlider">
+            <p class="tiny">Slide toward Matte for a soft-focus, shine-free finish, or toward Dewy for a lit-from-within glow. There's no wrong answer, this just helps your artist picture the look before you meet.</p>
+            <div id="makeupChips"></div>
+          </div></div>
+
+        <div class="sub" data-service="hair"><div class="sub-head"><div class="t">Hair</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body">
+            <label class="label" style="margin-top:0;">General Style</label>
+            <div class="chips" id="chips_hair"></div>
+            <label class="label">Anything else about the style you're picturing</label>
+            <textarea id="q_hairDetails" placeholder="A few examples: soft curls half up, a sleek low updo, romantic waves down, a braided detail woven in..."></textarea>
+            <label class="label">Veil placement, combs, or accessories you're wearing</label>
+            <textarea id="q_veilAccessories" placeholder="Where the veil attaches, and any combs, pins, or pieces you already have..."></textarea>
+            <label class="label">Clip-in hair extensions</label>
+            <input type="text" id="q_extensions" placeholder="Will you be using clip-ins? Leave blank if this doesn't apply">
+          </div></div>
+
+        <div class="sub"><div class="sub-head"><div class="t">Loved &amp; To Avoid</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><div class="la-columns">
+            <div class="la-col"><div class="la-col-title">Loved</div><div id="lovedList"></div><div class="la-add"><input type="text" id="lovedInput" placeholder="Add something you love"><button onclick="addListItem('loved')">+</button></div></div>
+            <div class="la-col avoid"><div class="la-col-title">To Avoid</div><div id="avoidList"></div><div class="la-add"><input type="text" id="avoidInput" placeholder="Add something to avoid"><button onclick="addListItem('avoid')">+</button></div></div>
+          </div></div></div>
+
+        <div class="sub"><div class="sub-head"><div class="t">Jewelry &amp; Everyday Habits</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body">
+            <label class="label" style="margin-top:0;">What jewelry will you wear (earrings, necklace)</label>
+            <input type="text" id="q_jewelry">
+            <label class="label">Your everyday hair and makeup habits</label>
+            <textarea id="q_everyday" placeholder="Do you wear makeup daily, only for occasions, somewhere in between? Do you usually wear your hair up or down?"></textarea>
+          </div></div>
+
+        <div class="sub"><div class="sub-head"><div class="t">Big Day Considerations</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body"><textarea id="q_bigDay" placeholder="Outdoor ceremony? Expecting heat, tears, a lot of dancing? Anything about your skin that tends to shift through a long day?"></textarea></div></div>
+
+        <div class="sub"><div class="sub-head"><div class="t">Inspo Photos</div><div class="s"></div><div class="chev"></div></div>
+          <div class="sub-body">
+            <p class="tiny" style="margin-top:0;">Tap a tile to add a photo. Each one saves the moment you add it, and they'll be here on any phone you open this page from.</p>
+            <div class="photo-grid" id="brideInspo"></div>
+            <button class="add-person" style="margin-top:0;" onclick="addBrideTile()">+ Add Photo Tile</button>
+            <input type="file" id="brideInspoIn" accept="image/*">
+          </div></div>
+
+        <button class="btn block" style="margin-top:20px;" onclick="submitVision()">Submit My Vision</button>
+        </div>
+        <div id="visionDone" style="display:none;text-align:center;padding:26px 6px 10px;">
+          <div class="mini-lbl">Received, With Love</div>
+          <div class="contract-ttl" style="font-size:30px;margin:6px 0 8px;">Thank you, <em id="thanksName">Delia</em></div>
+          <p class="tiny" style="font-size:15px;">Your vision is in our hands now. We'll be in touch before your preview.</p>
+          <button class="btn ghost small" onclick="reopenVision()">Edit My Answers</button>
+        </div>
       </div>
     </div>
 
-    <div class="section-pad">
-      <div class="section-lbl">Four</div>
-      <h2 class="section-ttl">Your <em>Inspo</em></h2>
-      <p class="section-hint">Up to four photos of looks you love. Optional, and always helpful. Each one saves as soon as you add it.</p>
-      <div class="photo-grid" id="inspoGrid"></div>
-      <input type="file" id="inspoIn" accept="image/*">
+    <!-- III. BRIDAL PARTY -->
+    <div class="room" data-room="party">
+      <div class="room-head"><div class="room-num">iii</div><div class="room-title"><h2>Your Bridal <em>Party</em></h2><div class="hint">Everyone getting ready with you</div></div><span class="pill soon" id="pill-party">Loading</span><div class="chev"></div></div>
+      <div class="room-body">
+        <p class="room-intro">Add everyone getting ready with you, then send each one her own link. She adds a selfie and a few details, and her artist will have everything before the morning.</p>
+        <div class="party-summary"><div><b id="partyCount">0 of 0</b> details received</div><button class="btn ghost small" id="copyAllBtn">Copy All Links</button></div>
+        <div id="partyList"><div class="soon-note">Loading your bridal party...</div></div>
+        <div id="addForm" class="card" style="display:none;margin-top:10px;">
+          <label class="label" style="margin-top:0;">Her Name</label><input type="text" id="newName" placeholder="First and last name">
+          <div class="grid2">
+            <div><label class="label">Role</label><select id="newRole"><option>Bridesmaid</option><option>Maid of Honor</option><option>Matron of Honor</option><option>Mother of the Bride</option><option>Mother of the Groom</option><option>Flower Girl</option><option>Family</option><option>Friend</option></select></div>
+            <div><label class="label">Services</label><select id="newSvc"><option>Hair &amp; Makeup</option><option>Makeup</option><option>Hair</option></select></div>
+          </div>
+          <button class="btn block" style="margin-top:16px;" id="addSave">Add to My Party</button>
+          <button class="btn ghost block" style="margin-top:8px;" onclick="toggleAdd(false)">Cancel</button>
+        </div>
+        <button class="add-person" id="addBtn" onclick="toggleAdd(true)">+ Add Someone</button>
+        <p class="fine" style="text-align:left;">Each person's link is private. She sees only her own page, never your Suite or your investment.</p>
+        <div id="linkFallback" class="card" style="display:none;margin-top:10px;">
+          <label class="label" style="margin-top:0;">Copy this link</label><textarea id="linkFallbackText" style="min-height:60px;font-size:14px;"></textarea>
+        </div>
+      </div>
     </div>
 
-    <div style="margin:22px 0 10px;"><button class="btn block" id="saveBtn">Save My Details</button></div>
-    <p class="fine" id="cutoffNote"></p>
-  </div>
+    <!-- IV. DAY-OF TIMELINE -->
+    <div class="room" data-room="day">
+      <div class="room-head"><div class="room-num">iv</div><div class="room-title"><h2>Day-Of <em>Timeline</em></h2><div class="hint">How your morning will flow</div></div><span class="pill soon" id="pill-day">Coming Soon</span><div class="chev"></div></div>
+      <div class="room-body">
+        <div id="runOfShow"><div class="soon-note">Your timeline is built once your bridal party is final, usually about six weeks before your wedding. It will appear right here.</div></div>
+        <p class="fine" id="rosNote" style="display:none;">Times may shift slightly as the day comes together.</p>
+      </div>
+    </div>
 
-  <div class="wrap" id="gError" style="display:none;">
-    <div class="soon-note" style="margin-top:30px;">This link isn't working. Please ask the bride to send it again, or text us at 770.856.1008.</div>
+    <!-- V. TEAM -->
+    <div class="room" data-room="team">
+      <div class="room-head"><div class="room-num">v</div><div class="room-title"><h2>Your <em>Team</em></h2><div class="hint">The artists on your morning</div></div><span class="pill soon" id="pill-team">Coming Soon</span><div class="chev"></div></div>
+      <div class="room-body"><div id="teamRoster"><div class="soon-note">Your team is confirmed once your party size is final. You'll meet everyone here.</div></div></div>
+    </div>
+
+    <!-- VI. INVESTMENT -->
+    <div class="room" data-room="pay">
+      <div class="room-head"><div class="room-num">vi</div><div class="room-title"><h2>Investment &amp; <em>Payments</em></h2><div class="hint">Quote, payment schedule, and status</div></div><span class="pill soon" id="pill-pay"></span><div class="chev"></div></div>
+      <div class="room-body">
+        <div class="doc-links" style="margin-top:16px;" id="docLinks"></div>
+        <div id="ledger"></div>
+        <div class="balance" id="balanceBlock"><div class="l">Remaining Balance</div><div class="n" id="balanceAmt"></div><div class="s" id="balanceNote"></div></div>
+        <div class="pay-btns"><a class="btn" href="https://venmo.com/u/MorganKellyBaird" target="_blank" rel="noopener">Pay with Venmo</a><a class="btn ghost" href="https://cash.app/$mbaird80" target="_blank" rel="noopener">Pay with Cash App</a></div>
+        <p class="fine">Or Zelle to 770.856.1008. Please include your name and wedding date in the payment note.</p>
+      </div>
+    </div>
   </div>
 
   <footer class="mfoot"><div class="b">MKBeauty Artistry</div><div class="s">Morgan Kelly Baird</div><div class="c">770.856.1008</div></footer>
 </div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
-const CUTOFF_DAYS = 14; // keep in step with GUEST_EDIT_CUTOFF_DAYS in the backend
-const params = new URLSearchParams(location.search);
-const GID = params.get('g') || '', GK = params.get('k') || '';
-let completed = false, guest = null, profile = {}, look = {makeup:[], hair:[]}, inspo = [null,null,null,null], activeSlot = 0, locked = false;
-const MAKEUP = ['Soft Glam','Natural','Bronzed','Smokey','Dewy','Matte'];
-const HAIR = ['Down, Curled','Half-Up','Low Updo','High Updo','Sleek','Soft Waves','Braided Detail'];
+/* =====================================================================
+   CONFIG: the only lines that change per bride.
+   Everything else pulls live from the Business Hub sheet.
+   ===================================================================== */
+const EVENT_ID  = "EVT-047";
+const SUITE_KEY = "xzxt5mvemb1d"; // must match this bride's "Suite Key" cell in Experience Data
+const API_URL   = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
+const GUEST_PAGE = "/party";
+
+// Payment schedule. Update "status" to "Paid" (and add "received") as payments come in.
+const PAYMENTS = {
+  total: 1430,
+  totalNote: "Bridal makeup and hair, four bridal party makeup, three bridal party hair. Travel gifted.",
+  items: [
+    { status: "Due", label: "Booking fee", sub: "Secures Friday, October 22, 2027", amount: 150 },
+    { status: "Due", label: "Half remaining balance", sub: "By Monday, August 23, 2027", amount: 640, short: "Aug 23" },
+    { status: "Due", label: "Final balance", sub: "By Tuesday, October 12, 2027", amount: 640, short: "Oct 12" }
+  ],
+  previewNote: "Your February preview ($525) is paid separately at the time of service."
+};
+
+/* ---------- State ---------- */
+let record = {};
+let visionData = {};
+let party = [];
+let pendingChanges = {};
 
 function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t = setTimeout(()=>fn(...a), ms); }; }
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-let tt; function toast(m){ const t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(()=>t.classList.remove('show'), 2600); }
-async function apiGet(p){ const qs = Object.entries(p).map(([k,v]) => k + '=' + encodeURIComponent(v)).join('&'); return (await fetch(API_URL + '?' + qs)).json(); }
-async function apiPost(p){ const r = await fetch(API_URL, {method:'POST', body: JSON.stringify(p)}); return r.json().catch(()=>({})); }
+function money(n){ return "$" + Number(n).toLocaleString("en-US", {minimumFractionDigits:2, maximumFractionDigits:2}); }
+let tt; function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(()=>t.classList.remove('show'), 2400); }
 
+async function apiGet(params){
+  const qs = Object.entries(params).map(([k,v]) => k + "=" + encodeURIComponent(v)).join("&");
+  const res = await fetch(API_URL + "?" + qs);
+  return res.json();
+}
+async function apiPost(payload){
+  const res = await fetch(API_URL, { method: "POST", body: JSON.stringify(payload) });
+  return res.json().catch(() => ({}));
+}
+
+/* ---------- Saving (batched) ---------- */
+function queueFieldSave(field, value){ pendingChanges[field] = value; flushSaves(); }
+const flushSaves = debounce(async () => {
+  if (!Object.keys(pendingChanges).length) return;
+  const payload = Object.assign({ "Event ID": EVENT_ID, k: SUITE_KEY }, pendingChanges);
+  pendingChanges = {};
+  try { await apiPost(payload); } catch(e) { console.error("Save failed", e); }
+}, 700);
+const saveVision = debounce(() => { queueFieldSave("Vision (JSON)", JSON.stringify(visionData)); refreshStatus(); }, 600);
+
+/* ---------- Rooms (accordion) ---------- */
+document.querySelectorAll('.room-head').forEach(h => h.addEventListener('click', () => h.parentElement.classList.toggle('open')));
+document.querySelectorAll('.sub-head').forEach(h => h.addEventListener('click', () => h.parentElement.classList.toggle('open')));
+function openRoom(key, scroll){
+  const r = document.querySelector('[data-room="' + key + '"]');
+  r.classList.add('open');
+  if (scroll) setTimeout(() => r.scrollIntoView({behavior:'smooth', block:'start'}), 30);
+}
+function setPill(id, text, kind){ const p = document.getElementById(id); p.textContent = text; p.className = 'pill ' + kind; }
+
+/* ---------- Wordmark fit ---------- */
 function fitWordmark(){
   document.querySelectorAll('.wordmark').forEach(w => {
     const span = w.querySelector('.wm'); const max = w.clientHeight - 12;
@@ -355,153 +502,365 @@ function fitWordmark(){
     while (span.getBoundingClientRect().height > max && size > 48) { size -= 4; span.style.fontSize = size + 'px'; }
   });
 }
-window.addEventListener('load', fitWordmark); if (document.fonts) document.fonts.ready.then(fitWordmark);
+window.addEventListener('load', fitWordmark);
+if (document.fonts) document.fonts.ready.then(fitWordmark);
 
+/* ---------- Hero ---------- */
+function eventDate(){ const d = record["Event Date"] ? new Date(record["Event Date"]) : new Date("2027-10-22T12:00:00"); return isNaN(d) ? null : d; }
+function populateHero(){
+  const name = String(record["Bride / Client Name"] || "Delia Redfern").trim();
+  const parts = name.split(" ");
+  document.getElementById('heroName').innerHTML = esc(parts[0]) + "<br><em>" + esc(parts.slice(1).join(" ")) + "</em>";
+  document.getElementById('thanksName').textContent = parts[0];
+  const d = eventDate();
+  if (d) {
+    document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    const days = Math.ceil((d - new Date()) / 86400000);
+    document.getElementById('daysLeft').textContent = days > 1 ? days + " days to go" : days === 1 ? "Tomorrow" : days === 0 ? "Today" : "";
+  }
+  const venue = [record["Venue"], record["City / Address"]].filter(Boolean).join(", ");
+  if (venue) document.getElementById('heroVenue').textContent = venue;
+}
+
+/* ---------- I. Details ---------- */
+const directFieldMap = {
+  q_bridePhone: "Phone", q_brideEmail: "Email", q_gettingReady: "Getting-Ready Address",
+  q_dayOfContact: "Day-Of Contact", q_dayOfPhone: "Day-Of Contact Phone",
+  q_ceremonyTime: "Ceremony Time", q_readyByTime: "Ready By Time"
+};
+const detailIds = ['q_bridePhone','q_brideEmail','q_gettingReady','q_dayOfContact','q_dayOfPhone'];
+function formatTimeValue(raw){
+  if (!raw) return raw;
+  const m = /^1899-12-3[01]T(\d{2}):(\d{2}):\d{2}/.exec(raw);
+  if (!m) return raw;
+  let h = parseInt(m[1], 10); const ap = h >= 12 ? 'pm' : 'am'; h = h % 12; if (h === 0) h = 12;
+  return h + ':' + m[2] + ap;
+}
+function initDetails(){
+  Object.keys(directFieldMap).forEach(id => {
+    const el = document.getElementById(id), header = directFieldMap[id];
+    if (record[header]) el.value = formatTimeValue(String(record[header]));
+    el.addEventListener('input', debounce(() => { queueFieldSave(header, el.value); refreshStatus(); }, 500));
+  });
+  const contract = record["Contract Link"];
+  if (contract) document.getElementById('contractBtn').href = contract;
+  else document.getElementById('contractCard').style.display = 'none';
+}
+
+/* ---------- II. Vision (same saved format as every Experience Page) ---------- */
+const profileFields = [
+  {id:'skinType', label:'Skin Type'}, {id:'skinConcerns', label:'Skin Concerns'},
+  {id:'eyeColor', label:'Eye Color'}, {id:'hairColor', label:'Hair Color'},
+  {id:'freckles', label:'Freckles / Texture Notes'}, {id:'allergies', label:'Allergies / Sensitivities'}
+];
+const lookConfig = [
+  {key:'hair', title:'Hair', presets:['Half-Up','Down, Curled','Low Updo','High Updo','Braided Detail','Soft Waves','Sleek','Voluminous','Textured / Undone','Unsure']},
+  {key:'base', title:'Base & Complexion', presets:['Dewy','Satin','Soft Matte','Full Coverage','Medium Coverage','Skin-Like']},
+  {key:'eyes', title:'Eyes', presets:['Soft Glam','Smokey','Warm Neutral','No Eye Makeup','Shimmer','Matte','Soft Wing']},
+  {key:'cheeks', title:'Cheeks', presets:['Warm Bronze','Pink Flush','Sculpted','Sun-Kissed','No Blush']},
+  {key:'lips', title:'Lips', presets:['Nude','Pink','Glossy Nude','Berry','Brown','Classic Red','Matte']},
+  {key:'brows', title:'Brows', presets:['Natural','Defined','Soft Powder','Full & Groomed']}
+];
+const bundledIds = ['q_vision','q_additionalEvents','q_hairDetails','q_veilAccessories','q_extensions','q_jewelry','q_everyday','q_bigDay'];
+
+function initVision(){
+  bundledIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (visionData[id]) el.value = visionData[id];
+    el.addEventListener('input', () => { visionData[id] = el.value; saveVision(); });
+  });
+  const grid = document.getElementById('profileGrid'), prof = visionData.profile || {};
+  grid.innerHTML = profileFields.map(f => `<div><label class="label">${f.label}</label><input type="text" id="pf_${f.id}" value="${esc(prof[f.id] || '')}"></div>`).join('');
+  profileFields.forEach(f => document.getElementById('pf_' + f.id).addEventListener('input', e => {
+    visionData.profile = visionData.profile || {}; visionData.profile[f.id] = e.target.value; saveVision();
+  }));
+
+  visionData.look = visionData.look || {};
+  const mk = document.getElementById('makeupChips');
+  mk.innerHTML = lookConfig.filter(s => s.key !== 'hair').map(s => `<div class="look-group"><div class="lg-t">${s.title}</div><div class="chips" id="chips_${s.key}"></div></div>`).join('');
+  lookConfig.forEach(renderChips);
+
+  const fs = document.getElementById('finishSlider');
+  fs.value = visionData.finish != null ? visionData.finish : 50; finishLabel(fs.value);
+  fs.addEventListener('input', () => { finishLabel(fs.value); visionData.finish = fs.value; saveVision(); });
+
+  const svc = document.getElementById('q_servicesBooked');
+  if (visionData.servicesBooked) svc.value = visionData.servicesBooked;
+  svc.addEventListener('change', () => { visionData.servicesBooked = svc.value; saveVision(); applyServices(); });
+  applyServices();
+
+  visionData.lovedAvoid = visionData.lovedAvoid || {loved:[], avoid:[]};
+  renderList('loved'); renderList('avoid');
+
+  if (visionData.submitted) showVisionDone();
+}
+function finishLabel(v){ v = +v; document.getElementById('finishMid').textContent = v < 33 ? 'Matte' : v > 66 ? 'Dewy / Glowy' : 'In Between'; }
+function applyServices(){
+  const v = document.getElementById('q_servicesBooked').value;
+  document.querySelectorAll('#visionForm [data-service]').forEach(el => { el.style.display = (!v || v === 'both' || el.dataset.service === v) ? '' : 'none'; });
+}
+function renderChips(sec){
+  const st = visionData.look[sec.key] = visionData.look[sec.key] || {chips: sec.presets.map(() => false)};
+  const wrap = document.getElementById('chips_' + sec.key);
+  wrap.innerHTML = '';
+  sec.presets.forEach((label, i) => {
+    const c = document.createElement('span');
+    c.className = 'chip' + (st.chips[i] ? ' on' : ''); c.textContent = label;
+    c.onclick = () => { st.chips[i] = !st.chips[i]; c.classList.toggle('on'); saveVision(); updateSubs(); };
+    wrap.appendChild(c);
+  });
+}
+function renderList(type){
+  const items = visionData.lovedAvoid[type];
+  document.getElementById(type + 'List').innerHTML = items.map((x, i) =>
+    `<div class="la-item"><span>${esc(x)}</span><span class="x" onclick="removeListItem('${type}',${i})">✕</span></div>`).join('');
+  updateSubs();
+}
+function addListItem(type){
+  const i = document.getElementById(type + 'Input'); const v = i.value.trim(); if (!v) return;
+  visionData.lovedAvoid[type].push(v); i.value = ''; renderList(type); saveVision();
+}
+function removeListItem(type, idx){ visionData.lovedAvoid[type].splice(idx, 1); renderList(type); saveVision(); }
+function submitVision(){
+  visionData.submitted = true; saveVision(); showVisionDone();
+  toast('Your vision is saved'); setTimeout(() => openRoom('party', true), 600);
+}
+function showVisionDone(){ document.getElementById('visionForm').style.display = 'none'; document.getElementById('visionDone').style.display = 'block'; }
+function reopenVision(){ document.getElementById('visionForm').style.display = ''; document.getElementById('visionDone').style.display = 'none'; }
+
+function updateSubs(){
+  document.querySelectorAll('#visionForm .sub').forEach(sub => {
+    const fields = [...sub.querySelectorAll('input[type=text],textarea,select')].filter(f => !f.closest('.la-add'));
+    const filled = fields.filter(f => f.value && f.value.trim()).length;
+    const extra = sub.querySelectorAll('.chip.on, .la-item, .tile img').length;
+    const s = sub.querySelector('.sub-head .s');
+    if (fields.length > 1) { s.textContent = filled + ' of ' + fields.length; s.classList.toggle('ok', filled === fields.length); }
+    else { const has = filled || extra; s.textContent = has ? 'Added' : ''; s.classList.toggle('ok', !!has); }
+  });
+}
+document.addEventListener('input', e => { if (e.target.closest('#visionForm')) updateSubs(); });
+
+/* ---------- Photos (compressed on the phone, saved to Drive) ---------- */
 function compressImage(file, maxDim, cb){
   const reader = new FileReader();
-  reader.onload = ev => { const img = new Image(); img.onload = () => {
-    let w = img.width, h = img.height;
-    if (w > h && w > maxDim) { h = h * maxDim / w; w = maxDim; } else if (h > maxDim) { w = w * maxDim / h; h = maxDim; }
-    const c = document.createElement('canvas'); c.width = w; c.height = h; c.getContext('2d').drawImage(img, 0, 0, w, h);
-    cb(c.toDataURL('image/jpeg', 0.82)); }; img.src = ev.target.result; };
+  reader.onload = ev => {
+    const img = new Image();
+    img.onload = () => {
+      let w = img.width, h = img.height;
+      if (w > h && w > maxDim) { h = h * maxDim / w; w = maxDim; } else if (h > maxDim) { w = w * maxDim / h; h = maxDim; }
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      c.getContext('2d').drawImage(img, 0, 0, w, h);
+      cb(c.toDataURL('image/jpeg', 0.8));
+    };
+    img.src = ev.target.result;
+  };
   reader.readAsDataURL(file);
 }
-
-/* ---------- Save details ---------- */
-async function save(status){
-  if (locked) return;
-  const r = await apiPost({ action:'saveGuest', guestId: GID, gk: GK, phone: document.getElementById('gPhone').value,
-    profile, look, notes: document.getElementById('gNotes').value, status });
-  if (r && r.error === 'locked') { lockPage(); toast(r.message); return false; }
-  return !!(r && r.success);
-}
-const autoSave = debounce(() => save(completed ? 'Complete' : 'Started'), 900);
-
-/* ---------- Selfie ---------- */
-function renderSelfie(url){
-  const s = document.getElementById('selfie');
-  if (url === 'saving') { s.innerHTML = 'Saving...'; return; }
-  s.innerHTML = url ? `<img src="${url}" alt="">` : 'Tap to add<br>your selfie';
-  s.classList.toggle('has', !!url);
-  document.getElementById('selfieRemove').style.display = url && !locked ? '' : 'none';
-}
-document.getElementById('selfie').addEventListener('click', () => { if (!locked) document.getElementById('selfieIn').click(); });
-document.getElementById('selfieIn').addEventListener('change', e => {
-  const f = e.target.files[0]; if (!f) return;
-  compressImage(f, 900, async url => {
-    renderSelfie('saving');
-    const r = await apiPost({ action:'uploadGuestPhoto', guestId: GID, gk: GK, kind:'selfie', data: url.split(',')[1], mimeType:'image/jpeg' });
-    if (r && r.success) { guest.selfie = url; toast('Selfie saved'); } else toast(r && r.message ? r.message : 'That photo did not save. Please try again.');
-    renderSelfie(guest.selfie);
-  });
-  e.target.value = '';
-});
-document.getElementById('selfieRemove').addEventListener('click', async () => {
-  const r = await apiPost({ action:'removeGuestPhoto', guestId: GID, gk: GK, kind:'selfie' });
-  if (r && r.success) { guest.selfie = null; renderSelfie(null); }
-});
-
-/* ---------- Inspo ---------- */
-function renderInspo(){
-  document.getElementById('inspoGrid').innerHTML = inspo.map((u, i) => `<div class="tile" onclick="pickTile(${i})">${
+let brideInspo = [null, null, null, null], bTile = 0;
+function renderBrideInspo(){
+  document.getElementById('brideInspo').innerHTML = brideInspo.map((u, i) => `<div class="tile" onclick="pickBrideTile(${i})">${
     u === 'saving' ? '<div>Saving...</div>' :
-    u ? `<img src="${u}" alt="">${locked ? '' : `<span class="rm" onclick="event.stopPropagation();removeTile(${i})">✕</span>`}` :
+    u ? `<img src="${u}"><span class="rm" onclick="event.stopPropagation();removeBrideTile(${i})">✕</span>` :
     '<div><span class="plus">+</span>Tap to add</div>'}</div>`).join('');
+  updateSubs();
 }
-function pickTile(i){ if (locked || inspo[i] === 'saving') return; activeSlot = i; document.getElementById('inspoIn').click(); }
-document.getElementById('inspoIn').addEventListener('change', e => {
-  const f = e.target.files[0]; if (!f) return; const slot = activeSlot;
+function pickBrideTile(i){ if (brideInspo[i] === 'saving') return; bTile = i; document.getElementById('brideInspoIn').click(); }
+function addBrideTile(){ if (brideInspo.length < 12) { brideInspo.push(null); renderBrideInspo(); } }
+document.getElementById('brideInspoIn').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return; const slot = bTile;
   compressImage(f, 1000, async url => {
-    inspo[slot] = 'saving'; renderInspo();
-    const r = await apiPost({ action:'uploadGuestPhoto', guestId: GID, gk: GK, kind:'inspo', slot, data: url.split(',')[1], mimeType:'image/jpeg' });
-    inspo[slot] = (r && r.success) ? url : null; renderInspo();
-    toast(r && r.success ? 'Photo saved' : 'That photo did not save. Please try again.');
+    brideInspo[slot] = 'saving'; renderBrideInspo();
+    const r = await apiPost({ action: 'uploadBrideInspo', "Event ID": EVENT_ID, k: SUITE_KEY, slot: slot, data: url.split(',')[1], mimeType: 'image/jpeg' });
+    if (r && r.success) { brideInspo[slot] = url; toast('Photo saved'); }
+    else { brideInspo[slot] = null; toast('That photo did not save. Please try again.'); }
+    renderBrideInspo();
   });
   e.target.value = '';
 });
-async function removeTile(i){
-  const prev = inspo[i]; inspo[i] = null; renderInspo();
-  const r = await apiPost({ action:'removeGuestPhoto', guestId: GID, gk: GK, kind:'inspo', slot: i });
-  if (!(r && r.success)) { inspo[i] = prev; renderInspo(); }
+async function removeBrideTile(i){
+  const prev = brideInspo[i]; brideInspo[i] = null; renderBrideInspo();
+  const r = await apiPost({ action: 'removeBrideInspo', "Event ID": EVENT_ID, k: SUITE_KEY, slot: i });
+  if (!(r && r.success)) { brideInspo[i] = prev; renderBrideInspo(); toast('Could not remove that photo. Please try again.'); }
+}
+async function loadBrideInspo(){
+  try {
+    const r = await apiGet({ id: EVENT_ID, k: SUITE_KEY, brideInspo: 1 });
+    const list = (r && r.inspo) || [];
+    list.forEach((u, i) => { brideInspo[i] = u || null; });
+    while (brideInspo.length < Math.max(4, list.length)) brideInspo.push(null);
+  } catch(e) {}
+  renderBrideInspo();
 }
 
-/* ---------- Chips + fields ---------- */
-function renderChips(id, list, key){
-  const wrap = document.getElementById(id);
-  wrap.innerHTML = list.map(c => `<span class="chip${look[key].includes(c) ? ' on' : ''}">${esc(c)}</span>`).join('');
-  wrap.querySelectorAll('.chip').forEach(el => el.addEventListener('click', () => {
-    if (locked) return;
-    const v = el.textContent; const arr = look[key];
-    const i = arr.indexOf(v); i === -1 ? arr.push(v) : arr.splice(i, 1);
-    el.classList.toggle('on'); autoSave();
-  }));
+/* ---------- III. Bridal Party ---------- */
+function initials(n){ return String(n).split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase(); }
+function guestLink(g){ return location.origin + GUEST_PAGE + '?g=' + encodeURIComponent(g.guestId) + '&k=' + encodeURIComponent(g.guestKey); }
+function statusText(s){ return s === 'Complete' ? 'Selfie and details received' : s === 'Started' ? 'Started, not finished' : 'Link not opened yet'; }
+function renderParty(){
+  const list = document.getElementById('partyList');
+  if (!party.length) { list.innerHTML = '<div class="soon-note">No one added yet. Tap "Add Someone" to start with your first girl.</div>'; }
+  else list.innerHTML = party.map((g, i) => `
+    <div class="person">
+      <div class="avatar ${g.selfie ? 'has' : ''}">${g.selfie ? `<img src="${g.selfie}" alt="">` : esc(initials(g.name))}</div>
+      <div class="info">
+        <div class="nm">${esc(g.name)}</div>
+        <div class="rl">${esc(g.role)}${g.services ? ' · ' + esc(g.services) : ''}</div>
+        <div class="st ${g.status === 'Complete' ? 'ok' : 'wait'}">${statusText(g.status)}</div>
+      </div>
+      <div class="act"><button class="btn small ${g.status === 'Complete' ? 'ghost' : ''}" onclick="copyLink(${i})">Copy Link</button></div>
+    </div>`).join('');
+  const done = party.filter(g => g.status === 'Complete').length;
+  document.getElementById('partyCount').textContent = done + ' of ' + party.length;
+  document.getElementById('copyAllBtn').style.display = party.length ? '' : 'none';
 }
-function lockPage(){
-  locked = true;
-  document.getElementById('lockNote').style.display = '';
-  document.querySelectorAll('#gMain input, #gMain select, #gMain textarea').forEach(el => el.disabled = true);
-  document.getElementById('saveBtn').style.display = 'none';
-  renderSelfie(guest && guest.selfie); renderInspo();
+async function copyText(text){
+  try { await navigator.clipboard.writeText(text); return true; }
+  catch(e) {
+    const box = document.getElementById('linkFallback'); box.style.display = '';
+    const ta = document.getElementById('linkFallbackText'); ta.value = text; ta.focus(); ta.select();
+    return false;
+  }
 }
+async function copyLink(i){
+  const g = party[i];
+  const msg = 'Hi ' + g.name.split(' ')[0] + '! Here is your link to share your details and a selfie for our wedding morning with MKBeauty Artistry: ' + guestLink(g);
+  if (await copyText(msg)) toast('Link for ' + g.name.split(' ')[0] + ' copied, ready to paste');
+}
+document.getElementById('copyAllBtn').addEventListener('click', async () => {
+  const pending = party.filter(g => g.status !== 'Complete');
+  const list = pending.length ? pending : party;
+  const msg = 'Hi ladies! Each of you has your own link to share your details and a selfie for our wedding morning with MKBeauty Artistry:\n\n' +
+    list.map(g => g.name.split(' ')[0] + ': ' + guestLink(g)).join('\n');
+  if (await copyText(msg)) toast('All links copied, ready to paste in your group chat');
+});
+function toggleAdd(show){
+  document.getElementById('addForm').style.display = show ? '' : 'none';
+  document.getElementById('addBtn').style.display = show ? 'none' : '';
+  if (show) document.getElementById('newName').focus();
+}
+document.getElementById('addSave').addEventListener('click', async () => {
+  const name = document.getElementById('newName').value.trim();
+  if (!name) { toast('Add her name first'); return; }
+  const btn = document.getElementById('addSave'); btn.disabled = true; btn.textContent = 'Adding...';
+  const role = document.getElementById('newRole').value, services = document.getElementById('newSvc').value;
+  const r = await apiPost({ action: 'addGuest', "Event ID": EVENT_ID, k: SUITE_KEY, name, role, services });
+  btn.disabled = false; btn.textContent = 'Add to My Party';
+  if (r && r.success) {
+    party.push({ guestId: r.guestId, guestKey: r.guestKey, name, role, services, status: 'Invited', selfie: null });
+    document.getElementById('newName').value = '';
+    toggleAdd(false); renderParty(); refreshStatus();
+    toast(name.split(' ')[0] + ' added. Tap Copy Link to send her page.');
+  } else toast('Could not add her right now. Please try again.');
+});
+async function loadParty(){
+  try { const r = await apiGet({ id: EVENT_ID, k: SUITE_KEY, party: 1 }); party = (r && r.party) || []; }
+  catch(e) { party = []; }
+  renderParty(); refreshStatus();
+  if (visionData.submitted && !(party.length && party.every(g => g.status === 'Complete'))) openRoom('party', false);
+}
+
+/* ---------- IV. Timeline + V. Team ---------- */
+function renderRunOfShow(){
+  const raw = record["Run of Show"]; if (!raw) return false;
+  const lines = String(raw).split('\n').map(l => l.trim()).filter(Boolean); if (!lines.length) return false;
+  document.getElementById('runOfShow').innerHTML = lines.map(line => {
+    const m = /^(.+?)\s*[-\u2014]\s*(.+)$/.exec(line);
+    return m ? `<div class="sched"><div class="tm">${esc(m[1])}</div><div class="ds">${esc(m[2])}</div></div>` : `<div class="sched"><div class="ds">${esc(line)}</div></div>`;
+  }).join('');
+  document.getElementById('rosNote').style.display = '';
+  return true;
+}
+function renderTeam(){
+  const roster = record["Public Roster"] || []; if (!roster.length) return false;
+  document.getElementById('teamRoster').innerHTML = '<div class="team">' + roster.map(a => `<div class="tp">${esc(a.name)}<span>${esc(a.role)}</span></div>`).join('') + '</div>';
+  return true;
+}
+
+/* ---------- VI. Investment ---------- */
+function renderPayments(){
+  const links = [];
+  if (record["Quote Link"]) links.push(`<a href="${esc(record["Quote Link"])}" target="_blank" rel="noopener">Your Quote<small>Full breakdown</small></a>`);
+  if (record["Contract Link"]) links.push(`<a href="${esc(record["Contract Link"])}" target="_blank" rel="noopener">Contract<small>Signed copy</small></a>`);
+  document.getElementById('docLinks').innerHTML = links.join('');
+  document.getElementById('docLinks').style.display = links.length ? '' : 'none';
+  const rows = [`<div class="ledger-row"><div class="d"><b>Wedding day investment</b><small>${esc(PAYMENTS.totalNote)}</small></div><div class="a">${money(PAYMENTS.total)}</div></div>`];
+  PAYMENTS.items.forEach(p => rows.push(`<div class="ledger-row"><div class="d"><span class="tag ${p.status === 'Paid' ? 'paid' : 'due'}">${p.status}</span> · ${esc(p.label)}<small>${esc(p.status === 'Paid' && p.received ? p.received : p.sub)}</small></div><div class="a">${money(p.amount)}</div></div>`));
+  document.getElementById('ledger').innerHTML = rows.join('');
+  const due = PAYMENTS.items.filter(p => p.status !== 'Paid');
+  const remaining = due.reduce((s, p) => s + Number(p.amount), 0);
+  document.getElementById('balanceAmt').textContent = money(remaining);
+  document.getElementById('balanceNote').textContent = PAYMENTS.previewNote;
+  if (!due.length) setPill('pill-pay', 'Paid in Full', 'done');
+  else setPill('pill-pay', due[0].short ? 'Next Due ' + due[0].short : due[0].label + ' Due', 'progress-p');
+}
+
+/* ---------- Status, Next Step, progress ---------- */
+let nextAction = () => openRoom('vision', true);
+function refreshStatus(){
+  const missing = detailIds.filter(id => !document.getElementById(id).value.trim()).length;
+  missing ? setPill('pill-details', missing + ' to Add', 'progress-p') : setPill('pill-details', 'Complete', 'done');
+
+  const visionDone = !!visionData.submitted;
+  const visionStarted = bundledIds.some(id => visionData[id]) || visionData.profile;
+  visionDone ? setPill('pill-vision', 'Received', 'done') : setPill('pill-vision', visionStarted ? 'In Progress' : 'Your Turn', visionStarted ? 'progress-p' : 'turn');
+
+  const partyDone = party.length > 0 && party.every(g => g.status === 'Complete');
+  const waiting = party.filter(g => g.status !== 'Complete').length;
+  partyDone ? setPill('pill-party', 'Complete', 'done') : setPill('pill-party', party.length ? waiting + ' Waiting' : 'Your Turn', party.length ? 'progress-p' : 'turn');
+
+  const hasRos = !!record["Run of Show"];
+  hasRos ? setPill('pill-day', 'Ready', 'done') : setPill('pill-day', 'Coming Soon', 'soon');
+  (record["Public Roster"] || []).length ? setPill('pill-team', 'Confirmed', 'done') : setPill('pill-team', 'Coming Soon', 'soon');
+
+  const d = eventDate(); const dayPast = d && new Date() > d;
+  const steps = [true, visionDone, partyDone, hasRos, dayPast];
+  document.querySelectorAll('#progressBar span').forEach((s, i) => s.classList.toggle('done', steps[i]));
+
+  const due = PAYMENTS.items.filter(p => p.status !== 'Paid');
+  let title, text, btn;
+  if (!visionDone) {
+    title = 'Share your <em>vision</em>'; text = 'Tell us how you want to look and feel on your wedding day. Take your time, it saves as you go.'; btn = 'Start My Vision';
+    nextAction = () => openRoom('vision', true);
+  } else if (!partyDone) {
+    title = 'Add your <em>bridal party</em>';
+    text = party.length ? (waiting === 1 ? 'One of your girls still needs to share her details.' : waiting + ' of your girls still need to share their details.') + ' Send each one her own link so she can add her selfie and inspo.'
+                        : 'Add everyone getting ready with you, then send each one her own link to share a selfie and her details.';
+    btn = 'Go to Bridal Party'; nextAction = () => openRoom('party', true);
+  } else if (due.length) {
+    title = 'Your next <em>payment</em>'; text = due[0].label + ', ' + money(due[0].amount) + ', ' + due[0].sub.replace(/^By/, 'due by') + '.'; btn = 'View Payments';
+    nextAction = () => openRoom('pay', true);
+  } else {
+    title = 'You are all <em>set</em>'; text = 'Everything is in. We will be in touch as your day gets closer.'; btn = 'View My Timeline';
+    nextAction = () => openRoom('day', true);
+  }
+  document.getElementById('nextTitle').innerHTML = title;
+  document.getElementById('nextText').textContent = text;
+  document.getElementById('nextBtn').textContent = btn;
+}
+document.getElementById('nextBtn').addEventListener('click', () => nextAction());
+document.getElementById('heroBtn').addEventListener('click', e => { e.preventDefault(); nextAction(); });
 
 /* ---------- Init ---------- */
 (async function(){
-  try { guest = GID && GK ? await apiGet({ guest: GID, gk: GK }) : { error: 'missing' }; } catch(e) { guest = { error: 'load' }; }
-  if (!guest || guest.error) {
-    document.getElementById('gError').style.display = '';
-    document.getElementById('gBtn').style.display = 'none';
-    document.getElementById('gEyebrow').innerHTML = 'Bridal Party';
-    return;
-  }
-  const ev = guest.event || {};
-  const brideFirst = String(ev["Bride / Client Name"] || 'The bride').split(' ')[0];
-  const parts = String(guest.name || '').split(' ');
-  document.title = guest.name + " | " + brideFirst + "'s Bridal Party | MKBeauty";
-  document.getElementById('gEyebrow').innerHTML = esc(brideFirst) + "'s Bridal Party<br>Prepared For";
-  document.getElementById('gName').innerHTML = esc(parts[0]) + (parts.length > 1 ? '<br><em>' + esc(parts.slice(1).join(' ')) + '</em>' : '');
-  const d = ev["Event Date"] ? new Date(ev["Event Date"]) : null;
-  if (d && !isNaN(d)) {
-    document.getElementById('gDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
-    const cutoff = new Date(d.getTime() - CUTOFF_DAYS * 86400000);
-    document.getElementById('cutoffNote').textContent = 'You can come back to this link and update anything until ' + cutoff.toLocaleDateString('en-US', {month:'long', day:'numeric'}) + '.';
-  }
-  const venue = [ev["Venue"], ev["City / Address"]].filter(Boolean).join(', ');
-  document.getElementById('gSub').innerHTML = esc([guest.role, guest.services].filter(Boolean).join(' · ')) + (venue ? '<br>' + esc(venue) : '');
-  document.getElementById('gIntro').textContent = brideFirst + ' has invited you to get ready with her and the MKBeauty team. A few details from you help your artist plan your look before the day, so the morning is all yours to enjoy.';
-  document.getElementById('gMain').style.display = '';
+  try {
+    record = await apiGet({ id: EVENT_ID, k: SUITE_KEY });
+    if (record.error) { console.error('Could not load this record. Check EVENT_ID and the Suite Key cell.'); record = {}; }
+  } catch(e) { console.error('Load failed', e); record = {}; }
+  try { visionData = record["Vision (JSON)"] ? JSON.parse(record["Vision (JSON)"]) : {}; } catch(e) { visionData = {}; }
 
-  try { profile = guest.profile ? JSON.parse(guest.profile) : {}; } catch(e) { profile = {}; }
-  try { look = Object.assign({makeup:[], hair:[]}, guest.look ? JSON.parse(guest.look) : {}); } catch(e) { look = {makeup:[], hair:[]}; }
-  document.querySelectorAll('[data-p]').forEach(el => {
-    if (profile[el.dataset.p]) el.value = profile[el.dataset.p];
-    el.addEventListener(el.tagName === 'SELECT' ? 'change' : 'input', () => { profile[el.dataset.p] = el.value; autoSave(); });
-  });
-  document.getElementById('gPhone').value = guest.phone || '';
-  document.getElementById('gNotes').value = guest.notes || '';
-  ['gPhone','gNotes'].forEach(id => document.getElementById(id).addEventListener('input', autoSave));
-
-  const svc = String(guest.services || '').toLowerCase();
-  if (svc && !svc.includes('makeup')) document.getElementById('mkWrap').style.display = 'none';
-  if (svc && !svc.includes('hair')) { document.getElementById('hrWrap').style.display = 'none'; }
-  renderChips('chipsMakeup', MAKEUP, 'makeup');
-  renderChips('chipsHair', HAIR, 'hair');
-
-  (guest.inspo || []).slice(0, 4).forEach((u, i) => { inspo[i] = u || null; });
-  completed = guest.status === 'Complete';
-  renderSelfie(guest.selfie); renderInspo();
-  if (guest.editsLocked) lockPage();
+  populateHero();
+  initDetails();
+  initVision();
+  renderRunOfShow();
+  renderTeam();
+  renderPayments();
+  updateSubs();
+  refreshStatus();
   fitWordmark();
+  loadParty();
+  loadBrideInspo();
+  if (!visionData.submitted) openRoom('vision', false);
 })();
-
-document.getElementById('gBtn').addEventListener('click', e => { e.preventDefault(); document.getElementById('selfie').scrollIntoView({behavior:'smooth', block:'center'}); });
-document.getElementById('saveBtn').addEventListener('click', async () => {
-  const b = document.getElementById('saveBtn'); b.disabled = true; b.textContent = 'Saving...';
-  completed = true;
-  const ok = await save('Complete');
-  b.disabled = false; b.textContent = 'Save My Details';
-  if (ok) toast('Saved. Your artist will see this before the morning.');
-  else if (!locked) toast('That did not save. Please try again.');
-});
 </script>
 </body>
 </html>
