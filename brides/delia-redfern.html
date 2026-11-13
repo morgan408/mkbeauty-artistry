@@ -255,37 +255,199 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 .prep-list b{font-weight:600;}
 .prep-note{font-size:14px;font-style:italic;color:var(--muted);line-height:1.55;margin:6px 0 4px;}
 .prep-card .sub:last-of-type{border-bottom:1px solid var(--border);}
+
+/* =====================================================================
+   MKBA HOTEL DIRECTION (Nov 2026). Everything below overrides the older look.
+   ===================================================================== */
+:root{
+  --wine:#4E1A26; --wine-2:#5C2230; --bordeaux:#2A070C; --cashmere:#DDC8B3; --greige:#9F8E87;
+  --porcelain:#F3EEE7; --linen:#EAE1D7; --paper:#FBF7F2; --blush:#D9AEB5; --soft:#5A3F42; --line:#E3D7CA;
+  --ink:#2A070C; --cream:#F3EEE7; --warm-white:#EAE1D7; --parchment:#FBF7F2; --field:#FFFFFF;
+  --muted:#5A3F42; --border:#E3D7CA; --burgundy:#5C2230; --tan:#9F8E87; --tan-text:#7A5F52; --pink:#D9AEB5;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+html,body{background:var(--porcelain);}
+body{color:var(--bordeaux);}
+em{color:var(--wine-2);}
+.serif{font-family:'Instrument Serif',serif;font-weight:400;}
+.eb{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;}
+.tex{position:relative;isolation:isolate;}
+.tex::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.14;mix-blend-mode:multiply;pointer-events:none;border-radius:inherit;z-index:-1;}
+
+/* hero */
+.xhero{background:var(--wine);color:#F1E4DE;border-radius:0 0 36px 36px;overflow:hidden;}
+.xtop{display:flex;padding:22px 24px 0;}
+.logo{display:grid;grid-template-columns:auto auto;column-gap:10px;align-items:center;justify-items:end;line-height:1;}
+.logo .est{grid-row:1/3;font-size:7.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.45);padding-right:10px;border-right:1px solid rgba(241,228,222,.22);align-self:stretch;display:flex;align-items:center;}
+.logo .l1{grid-column:2;font-family:'Instrument Serif',serif;font-size:15px;letter-spacing:.06em;color:rgba(241,228,222,.85);}
+.logo .l2{grid-column:2;font-family:'Instrument Serif',serif;font-style:italic;font-size:13px;color:rgba(241,228,222,.6);margin-right:2px;}
+.xstage{display:flex;align-items:flex-start;gap:16px;padding:26px 24px 34px 18px;max-width:900px;}
+.xwm{flex:none;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Instrument Serif',serif;font-size:200px;line-height:.82;white-space:nowrap;color:var(--wine);user-select:none;margin-right:.1em;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.16),-2px -2px 3px rgba(255,226,232,.06),1px 1px 1px rgba(0,0,0,.5),3px 5px 10px rgba(0,0,0,.32);}
+.xbody{flex:1;min-width:0;}
+.xkicker{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:var(--blush);}
+.xreserved{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.55);margin-top:12px;}
+.xhero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:44px;line-height:.95;text-transform:uppercase;margin:10px 0 0;color:#F1E4DE;}
+.xhero h1 span{display:block;}
+.xrule{height:1px;background:rgba(217,174,181,.5);margin:22px 0 16px;}
+.xmeta{display:grid;grid-template-columns:1fr;gap:12px;}
+.xmeta .eb{color:rgba(241,228,222,.55);font-size:9.5px;}
+.xmeta .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;margin-top:3px;}
+.xdays{font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;color:var(--blush);margin-top:3px;}
+@media(min-width:700px){.xhero{border-radius:0 0 44px 44px}.xkicker{font-size:38px}.xhero h1{font-size:68px}.xmeta{grid-template-columns:1fr 1fr}}
+
+/* after the wedding */
+.xafter{background:var(--bordeaux);color:#EBDDD5;border-radius:28px;padding:30px 24px;margin-top:22px;text-align:center;}
+.xafter .eb{color:rgba(235,221,213,.55);}
+.xafter .serif{font-size:32px;line-height:1.05;margin:8px 0 10px;}
+.xafter .serif em{color:var(--blush);}
+.xafter p{font-size:14px;color:rgba(235,221,213,.8);max-width:380px;margin:0 auto 16px;}
+.btn.light{background:#F4EDE3;color:var(--bordeaux);}
+
+/* welcome */
+.xwelcome{text-align:center;padding:46px 10px 4px;}
+.xwelcome .serif{font-size:30px;line-height:1.1;}
+.xwelcome p{color:var(--soft);max-width:440px;margin:12px auto 0;font-size:15px;line-height:1.6;}
+
+/* next step with door tag */
+.next{display:grid;grid-template-columns:92px 1fr;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:20px 22px 20px 18px;margin:28px 0 14px;}
+.next .lbl{color:var(--greige);font-size:10.5px;letter-spacing:.26em;}
+.next .ttl{font-size:28px;line-height:1.05;margin:6px 0 6px;}
+.next p{color:var(--soft);margin:0 0 12px;}
+.hanger{width:92px;height:150px;background:var(--wine);border-radius:46px 46px 12px 12px;color:#F1E4DE;text-align:center;padding:14px 8px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
+.hanger .hole{width:30px;height:30px;border-radius:50%;background:var(--paper);box-shadow:inset 1px 2px 4px rgba(0,0,0,.35);}
+.hanger .t{font-size:8px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;line-height:1.8;color:rgba(241,228,222,.8);}
+.hanger .s{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;line-height:1.05;color:var(--blush);}
+
+/* your stay */
+.xstay{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:20px 22px;}
+.xstay .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.xstay .eb{color:var(--greige);} .xstay .eb.now{color:var(--wine-2);}
+.progress span{background:#E3D7CA;}
+.progress span.done{background:var(--wine-2);}
+.progress span.now{background:linear-gradient(90deg,var(--wine-2) 50%,#E3D7CA 50%);}
+.progress-cap{color:var(--greige);font-size:10.5px;letter-spacing:.06em;text-transform:none;}
+
+/* directory */
+.xdirectory{margin-top:44px;text-align:center;}
+.xdirectory .serif{font-size:34px;text-transform:uppercase;line-height:1;}
+.xdirectory .serif em{text-transform:none;}
+.dir-list{margin-top:20px;text-align:left;border-top:1px solid #DCCFC1;}
+.dir-list a{display:flex;align-items:baseline;gap:10px;padding:13px 4px;border-bottom:1px solid #DCCFC1;text-decoration:none;color:var(--bordeaux);}
+.dir-list .n{font-family:'Instrument Serif',serif;font-size:15px;color:var(--greige);width:26px;flex:none;}
+.dir-list .t{font-family:'Instrument Serif',serif;font-size:20px;}
+.dir-list .dots{flex:1;border-bottom:1px dotted #C9B9A9;transform:translateY(-5px);min-width:10px;}
+.dir-list .st{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--greige);white-space:nowrap;}
+.dir-list .st.ok{color:var(--wine-2);}
+
+/* rooms */
+.xrooms{margin-top:44px;}
+.room{background:var(--linen);border:0;border-radius:28px;margin-bottom:14px;overflow:hidden;}
+.room.open{background:var(--cashmere);border:0;}
+.room-head{position:relative;display:block;padding:24px 24px 22px;min-height:124px;overflow:hidden;}
+.room-num{position:absolute;right:16px;top:-26px;width:auto;font-family:'Instrument Serif',serif;font-style:normal;font-size:132px;line-height:1;color:var(--linen);
+  text-shadow:-1px -1px 1px rgba(255,255,255,.6),1px 1px 1px rgba(80,50,40,.26),2px 3px 6px rgba(80,50,40,.14);pointer-events:none;}
+.room.open .room-num{color:var(--cashmere);}
+.room-title{position:relative;padding-right:46px;}
+.room-title .eb{color:#8A7064;}
+.room-title h2{font-size:31px;line-height:1.05;margin-top:4px;}
+.room-title .hint{font-size:13px;color:var(--soft);margin-top:4px;}
+.room-head .pill{position:relative;display:inline-block;margin-top:12px;font-size:9.5px;letter-spacing:.16em;padding:5px 11px;border-radius:99px;}
+.pill.turn{background:var(--wine-2);color:#F1E4DE;border:0;}
+.pill.progress-p{background:rgba(251,247,242,.75);color:var(--wine-2);border:0;}
+.pill.done{background:transparent;color:var(--wine-2);border:1px solid rgba(92,34,48,.35);}
+.pill.soon{background:transparent;color:var(--soft);border:1px dashed rgba(90,63,66,.35);}
+.room-head > .chev{position:absolute;right:24px;bottom:24px;width:30px;height:30px;border:0;border-radius:50%;background:rgba(251,247,242,.75);transform:none;margin:0;}
+.room-head > .chev::before{content:"";position:absolute;left:11px;top:10px;width:7px;height:7px;border-right:1.5px solid var(--bordeaux);border-bottom:1.5px solid var(--bordeaux);transform:rotate(45deg);}
+.room.open > .room-head .chev{transform:rotate(180deg);margin:0;}
+.room-body{border-top:0;background:var(--paper);margin:0 14px 14px;border-radius:20px;padding:4px 18px 20px;}
+@media(max-width:420px){.room-title h2{font-size:28px}.room-title .hint{display:block}}
+.room-intro{color:var(--soft);}
+.sub-head .t{font-size:21px;}
+.chip{border-color:transparent;background:var(--linen);color:var(--bordeaux);}
+.chip.on{background:var(--wine-2);border-color:var(--wine-2);color:#F1E4DE;}
+.contract-card,.doc-links a,.person{background:var(--linen);}
+.vision-box{background:var(--linen);border-color:transparent;}
+.vision-box textarea{color:var(--bordeaux);}
+.quote-line{background:var(--linen);border-color:transparent;color:var(--bordeaux);}
+.balance{background:var(--bordeaux);}
+.btn{background:var(--wine-2);letter-spacing:.18em;font-weight:500;}
+.btn.ghost{background:transparent;color:var(--wine-2);border:1px solid var(--wine-2);}
+input[type=range]::-webkit-slider-thumb{background:var(--wine-2);border-color:var(--paper);}
+input[type=text],textarea,select{background:#fff;border-color:var(--line);}
+.soon-note{border-color:#D3C4B5;color:var(--soft);}
+
+/* concierge + footer */
+.xsignoff{background:var(--bordeaux);border-radius:30px;padding:46px 22px;margin-top:44px;text-align:center;}
+.xsignoff .paper{background:#F4EDE3;max-width:360px;margin:0 auto;border-radius:6px;padding:30px 24px;position:relative;box-shadow:0 16px 34px rgba(0,0,0,.4);}
+.xsignoff .paper::before{content:"";position:absolute;inset:10px;border:1px solid #E0D3C2;border-radius:3px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.9),1px 1px 0 rgba(120,90,70,.16);}
+.xsignoff .eb{color:var(--greige);position:relative;}
+.xsignoff .serif{font-style:italic;font-size:40px;color:var(--wine-2);position:relative;margin:6px 0;}
+.xsignoff p{font-size:14px;color:var(--soft);position:relative;margin:0;}
+.xsignoff .ph{position:relative;margin-top:12px;font-size:12px;letter-spacing:.18em;color:var(--bordeaux);}
+.xfoot{text-align:center;padding:40px 20px 50px;}
+.xfoot .b{font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;}
+.xfoot .s{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--greige);margin-top:4px;}
+@media(max-width:400px){.next{grid-template-columns:78px 1fr;gap:14px;padding:18px 16px}.hanger{width:78px;height:132px}.next .ttl{font-size:25px}}
 </style>
 </head>
-<body class="theme-wine">
+<body>
 <div class="view show" id="view-suite">
-  <div class="topbar">MKBeauty Artistry</div>
-  <header class="mhero">
-    <div class="mhero-inner">
-      <div class="wordmark"><span class="wm">MKBA</span></div>
-      <div>
-        <div class="meyebrow">The Bridal Suite<br>Prepared For</div>
-        <h1 id="heroName">Delia<br><em>Redfern</em></h1>
-        <p class="mdate" id="heroDate">Friday, October 22, 2027</p>
-        <p class="msub"><span id="heroVenue">The Chattanoogan Hotel</span><br><span id="daysLeft"></span></p>
-        <a class="mbtn" href="#" id="heroBtn">Your Next Step</a>
+  <header class="xhero tex">
+    <div class="xtop"><span class="logo"><span class="est">Est.</span><span class="l1">MKBeauty</span><span class="l2">Artistry</span></span></div>
+    <div class="xstage">
+      <div class="xwm" id="xwm">MKBA</div>
+      <div class="xbody" id="xbody">
+        <div class="xkicker">The Bridal Suite</div>
+        <div class="xreserved">Reserved for</div>
+        <h1 id="heroName"><span>Delia</span><span>Redfern</span></h1>
+        <div class="xrule"></div>
+        <div class="xmeta">
+          <div><div class="eb">Check In</div><div class="v" id="heroDate">Friday, October 22, 2027</div><div class="xdays" id="daysLeft"></div></div>
+          <div><div class="eb">The Venue</div><div class="v" id="heroVenue">The Chattanoogan Hotel</div></div>
+        </div>
       </div>
     </div>
   </header>
 
   <div class="wrap">
+    <div class="xafter tex" id="afterCard" style="display:none">
+      <div class="eb">After the Wedding</div>
+      <div class="serif">How was <em>your</em> morning?</div>
+      <p>It was an honor to be part of your day. If you have a moment, we would love to hear how it felt.</p>
+      <a class="btn light" id="reviewBtn" href="https://mkbeauty-artistry.vercel.app/review" target="_blank" rel="noopener">Leave a Review</a>
+    </div>
+
+    <div class="xwelcome">
+      <div class="serif">Welcome <em>in.</em></div>
+      <p>Everything for your wedding morning lives here, room by room. We keep it updated as your day comes together, so check back anytime.</p>
+    </div>
+
     <div class="next" id="nextCard">
-      <div class="lbl">Your Next Step</div>
-      <div class="ttl" id="nextTitle">Welcome to your <em>Suite</em></div>
-      <p id="nextText">Everything for your wedding morning lives here, and it fills in as we get closer to your day.</p>
-      <button class="btn" id="nextBtn">Get Started</button>
-      <div class="progress" id="progressBar" style="margin-top:20px;"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="hanger"><div class="hole"></div><div class="t" id="tagTop">Do Not<br>Disturb</div><div class="s" id="tagLine">dreaming up<br>the look</div></div>
+      <div class="next-copy">
+        <div class="lbl">Your Next Step</div>
+        <div class="ttl" id="nextTitle">Welcome to your <em>Suite</em></div>
+        <p id="nextText">Everything for your wedding morning lives here, and it fills in as we get closer to your day.</p>
+        <button class="btn" id="nextBtn">Get Started</button>
+      </div>
+    </div>
+
+    <div class="xstay">
+      <div class="row"><span class="eb">Your Stay</span><span class="eb now" id="stayStep"></span></div>
+      <div class="progress" id="progressBar"><span></span><span></span><span></span><span></span><span></span></div>
       <div class="progress-cap"><span>Booked</span><span>Vision</span><span>Guests</span><span>Timeline</span><span>Day Of</span></div>
     </div>
 
+    <div class="xdirectory">
+      <div class="serif">The <em>Directory</em></div>
+      <div class="dir-list" id="dirList"></div>
+    </div>
+
+    <div class="xrooms">
     <!-- I. DETAILS ON FILE -->
-    <div class="room" data-room="details">
-      <div class="room-head"><div class="room-num">i</div><div class="room-title"><h2>Details on <em>File</em></h2><div class="hint">How to reach you, and your signed agreement</div></div><span class="pill soon" id="pill-details">Loading</span><div class="chev"></div></div>
+    <div class="room tex" data-room="details">
+      <div class="room-head"><div class="room-num">01</div><div class="room-title"><div class="eb">Room One</div><h2>Details on <em>File</em></h2><div class="hint">How to reach you, and your signed agreement</div></div><span class="pill soon" id="pill-details">Loading</span><div class="chev"></div></div>
       <div class="room-body">
         <p class="room-intro">Everything we need to reach you on the day. Anything blank is yours to fill in, and it saves as you type.</p>
         <div class="grid2" id="detailsGrid">
@@ -303,8 +465,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
     </div>
 
     <!-- II. VISION -->
-    <div class="room" data-room="vision">
-      <div class="room-head"><div class="room-num">ii</div><div class="room-title"><h2>Your <em>Vision</em></h2><div class="hint">Your look, in your own words</div></div><span class="pill soon" id="pill-vision">Loading</span><div class="chev"></div></div>
+    <div class="room tex" data-room="vision">
+      <div class="room-head"><div class="room-num">02</div><div class="room-title"><div class="eb">Room Two</div><h2>Your <em>Vision</em></h2><div class="hint">Your look, in your own words</div></div><span class="pill soon" id="pill-vision">Loading</span><div class="chev"></div></div>
       <div class="room-body">
         <div id="visionForm">
         <p class="room-intro">Before we meet, tell us everything. The more we know now, the more time we get to spend perfecting rather than discovering. Take your time, everything saves as you go.</p>
@@ -381,8 +543,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
     </div>
 
     <!-- III. GUESTS -->
-    <div class="room" data-room="party">
-      <div class="room-head"><div class="room-num">iii</div><div class="room-title"><h2>Your <em>Guests</em></h2><div class="hint">Everyone getting ready with you</div></div><span class="pill soon" id="pill-party">Loading</span><div class="chev"></div></div>
+    <div class="room tex" data-room="party">
+      <div class="room-head"><div class="room-num">03</div><div class="room-title"><div class="eb">Room Three</div><h2>Your <em>Guests</em></h2><div class="hint">Everyone getting ready with you</div></div><span class="pill soon" id="pill-party">Loading</span><div class="chev"></div></div>
       <div class="room-body">
         <p class="room-intro">Add everyone getting ready with you, whether that is your bridesmaids, your mom, or a few close guests. Send each one her own link. She adds a selfie and a few details, and her artist will have everything before the morning.</p>
         <div class="party-summary"><div><b id="partyCount">0 of 0</b> details received</div><button class="btn ghost small" id="copyAllBtn">Copy All Links</button></div>
@@ -405,8 +567,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
     </div>
 
     <!-- IV. SKIN & HAIR PREP -->
-    <div class="room" data-room="prep">
-      <div class="room-head"><div class="room-num">iv</div><div class="room-title"><h2>Skin &amp; Hair <em>Prep</em></h2><div class="hint">How to arrive ready for your best application</div></div><span class="pill done">Guide</span><div class="chev"></div></div>
+    <div class="room tex" data-room="prep">
+      <div class="room-head"><div class="room-num">04</div><div class="room-title"><div class="eb">Room Four</div><h2>Skin &amp; Hair <em>Prep</em></h2><div class="hint">How to arrive ready for your best application</div></div><span class="pill done">Guide</span><div class="chev"></div></div>
       <div class="room-body">
         <p class="room-intro">A few simple steps make a beautiful difference in how your look wears and photographs. Your guests have their own version of this on their pages.</p>
         <div class="sub open"><div class="sub-head"><div class="t">Skin Prep, Day Of</div><div class="s"></div><div class="chev"></div></div>
@@ -427,8 +589,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
     </div>
 
     <!-- V. DAY-OF TIMELINE -->
-    <div class="room" data-room="day">
-      <div class="room-head"><div class="room-num">v</div><div class="room-title"><h2>Day-Of <em>Timeline</em></h2><div class="hint">How your morning will flow</div></div><span class="pill soon" id="pill-day">Coming Soon</span><div class="chev"></div></div>
+    <div class="room tex" data-room="day">
+      <div class="room-head"><div class="room-num">05</div><div class="room-title"><div class="eb">Room Five</div><h2>Day-Of <em>Timeline</em></h2><div class="hint">How your morning will flow</div></div><span class="pill soon" id="pill-day">Coming Soon</span><div class="chev"></div></div>
       <div class="room-body">
         <div id="runOfShow"><div class="soon-note">Your timeline is built once your guest list is final, usually about six weeks before your wedding. It will appear right here.</div></div>
         <p class="fine" id="rosNote" style="display:none;">Times may shift slightly as the day comes together.</p>
@@ -436,14 +598,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
     </div>
 
     <!-- VI. TEAM -->
-    <div class="room" data-room="team">
-      <div class="room-head"><div class="room-num">vi</div><div class="room-title"><h2>Your <em>Team</em></h2><div class="hint">The artists on your morning</div></div><span class="pill soon" id="pill-team">Coming Soon</span><div class="chev"></div></div>
+    <div class="room tex" data-room="team">
+      <div class="room-head"><div class="room-num">06</div><div class="room-title"><div class="eb">Room Six</div><h2>Your <em>Team</em></h2><div class="hint">The artists on your morning</div></div><span class="pill soon" id="pill-team">Coming Soon</span><div class="chev"></div></div>
       <div class="room-body"><div id="teamRoster"><div class="soon-note">Your team is confirmed once your party size is final. You'll meet everyone here.</div></div></div>
     </div>
 
     <!-- VII. INVESTMENT -->
-    <div class="room" data-room="pay">
-      <div class="room-head"><div class="room-num">vii</div><div class="room-title"><h2>Investment &amp; <em>Payments</em></h2><div class="hint">Quote, payment schedule, and status</div></div><span class="pill soon" id="pill-pay"></span><div class="chev"></div></div>
+    <div class="room tex" data-room="pay">
+      <div class="room-head"><div class="room-num">07</div><div class="room-title"><div class="eb">Room Seven</div><h2>Investment &amp; <em>Payments</em></h2><div class="hint">Quote, payment schedule, and status</div></div><span class="pill soon" id="pill-pay"></span><div class="chev"></div></div>
       <div class="room-body">
         <div class="doc-links" style="margin-top:16px;" id="docLinks"></div>
         <div id="ledger"></div>
@@ -452,9 +614,19 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
         <p class="fine">Or Zelle to 770.856.1008. Please include your name and wedding date in the payment note.</p>
       </div>
     </div>
+    </div>
+
+    <div class="xsignoff tex">
+      <div class="paper">
+        <div class="eb">From Your Concierge</div>
+        <div class="serif">Merci</div>
+        <p>Questions, changes or a late-night idea, we are always a message away.</p>
+        <div class="ph">770.856.1008</div>
+      </div>
+    </div>
   </div>
 
-  <footer class="mfoot"><div class="b">MKBeauty Artistry</div><div class="s">Morgan Kelly Baird</div><div class="c">770.856.1008</div></footer>
+  <footer class="xfoot"><div class="b">MKBeauty Artistry</div><div class="s">Morgan Kelly Baird</div></footer>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -522,15 +694,14 @@ function openRoom(key, scroll){
 }
 function setPill(id, text, kind){ const p = document.getElementById(id); p.textContent = text; p.className = 'pill ' + kind; }
 
-/* ---------- Wordmark fit ---------- */
+/* ---------- Wordmark fit: MKBA runs the height of the text beside it ---------- */
 function fitWordmark(){
-  document.querySelectorAll('.wordmark').forEach(w => {
-    const span = w.querySelector('.wm'); const max = w.clientHeight - 12;
-    let size = window.innerWidth >= 700 ? 150 : 124; span.style.fontSize = size + 'px';
-    while (span.getBoundingClientRect().height > max && size > 48) { size -= 4; span.style.fontSize = size + 'px'; }
-  });
+  const w = document.getElementById('xwm'), b = document.getElementById('xbody'), h = w.closest('.xhero');
+  const target = b.offsetHeight, maxW = h.offsetWidth * 0.28; let fs = 400; w.style.fontSize = fs + 'px';
+  while ((w.offsetHeight > target || w.offsetWidth > maxW) && fs > 40) { fs -= 2; w.style.fontSize = fs + 'px'; }
 }
 window.addEventListener('load', fitWordmark);
+window.addEventListener('resize', fitWordmark);
 if (document.fonts) document.fonts.ready.then(fitWordmark);
 
 /* ---------- Hero ---------- */
@@ -538,7 +709,7 @@ function eventDate(){ const d = record["Event Date"] ? new Date(record["Event Da
 function populateHero(){
   const name = String(record["Bride / Client Name"] || "Delia Redfern").trim();
   const parts = name.split(" ");
-  document.getElementById('heroName').innerHTML = esc(parts[0]) + "<br><em>" + esc(parts.slice(1).join(" ")) + "</em>";
+  document.getElementById('heroName').innerHTML = "<span>" + esc(parts[0]) + "</span><span>" + esc(parts.slice(1).join(" ")) + "</span>";
   document.getElementById('thanksName').textContent = parts[0];
   const d = eventDate();
   if (d) {
@@ -822,6 +993,20 @@ function renderPayments(){
   else setPill('pill-pay', due[0].short ? 'Next Due ' + due[0].short : due[0].label + ' Due', 'progress-p');
 }
 
+/* ---------- Directory (lobby board) ---------- */
+function renderDirectory(){
+  const rows = [...document.querySelectorAll('.room')].map(r => {
+    const num = r.querySelector('.room-num').textContent;
+    const title = r.querySelector('.room-title h2').textContent;
+    const pill = r.querySelector('.pill'); const kind = pill ? pill.className : '';
+    const ok = /done/.test(kind);
+    return `<a href="#" data-key="${r.dataset.room}"><span class="n">${esc(num)}</span><span class="t">${esc(title)}</span><span class="dots"></span><span class="st${ok ? ' ok' : ''}">${esc(pill ? pill.textContent : '')}</span></a>`;
+  });
+  const list = document.getElementById('dirList');
+  list.innerHTML = rows.join('');
+  list.querySelectorAll('a').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openRoom(a.dataset.key, true); }));
+}
+
 /* ---------- Status, Next Step, progress ---------- */
 let nextAction = () => openRoom('vision', true);
 function refreshStatus(){
@@ -843,6 +1028,32 @@ function refreshStatus(){
   const d = eventDate(); const dayPast = d && new Date() > d;
   const steps = [true, visionDone, partyDone, hasRos, dayPast];
   document.querySelectorAll('#progressBar span').forEach((s, i) => s.classList.toggle('done', steps[i]));
+  const stepNames = ['Booked', 'Vision', 'Guests', 'Timeline', 'Day Of'];
+  const firstOpen = steps.indexOf(false);
+  document.getElementById('stayStep').textContent = firstOpen === -1 ? 'Complete' : 'Step ' + (firstOpen + 1) + ' of 5';
+  document.querySelectorAll('#progressBar span').forEach((s, i) => s.classList.toggle('now', i === firstOpen));
+
+  // Door tag follows her stay
+  const dayOf = d && Math.floor((d - new Date()) / 86400000) <= 0 && !dayPast;
+  const stage = dayPast ? 'after' : dayOf ? 'dayof' : !visionDone ? 'vision' : !partyDone ? 'guests' : 'timeline';
+  const TAGS = { vision:['Do Not<br>Disturb','dreaming up<br>the look'], guests:['Do Not<br>Disturb','gathering<br>the girls'],
+                 timeline:['Do Not<br>Disturb','counting<br>down'], dayof:['Do Not<br>Disturb','glam in<br>session'],
+                 after:['Kindly<br>Refresh','see you at the<br>Honeymoon Suite'] };
+  document.getElementById('tagTop').innerHTML = TAGS[stage][0];
+  document.getElementById('tagLine').innerHTML = TAGS[stage][1];
+
+  // After the wedding: review card, prefilled review link
+  if (dayPast) {
+    const name = String(record["Bride / Client Name"] || "").trim();
+    const iso = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    const team = (record["Public Roster"] || []).map(a => a.name).join(', ');
+    const q = ['name=' + encodeURIComponent(name), 'date=' + iso];
+    if (record["Venue"]) q.push('venue=' + encodeURIComponent(record["Venue"]));
+    if (team) q.push('team=' + encodeURIComponent(team));
+    document.getElementById('reviewBtn').href = 'https://mkbeauty-artistry.vercel.app/review?' + q.join('&');
+    document.getElementById('afterCard').style.display = 'block';
+  }
+  renderDirectory();
 
   const due = PAYMENTS.items.filter(p => p.status !== 'Paid');
   let title, text, btn;
@@ -866,7 +1077,7 @@ function refreshStatus(){
   document.getElementById('nextBtn').textContent = btn;
 }
 document.getElementById('nextBtn').addEventListener('click', () => nextAction());
-document.getElementById('heroBtn').addEventListener('click', e => { e.preventDefault(); nextAction(); });
+
 
 /* ---------- Init ---------- */
 (async function(){
