@@ -255,44 +255,133 @@ input:disabled,select:disabled,textarea:disabled{opacity:.7;}
 .prep-list b{font-weight:600;}
 .prep-note{font-size:14px;font-style:italic;color:var(--muted);line-height:1.55;margin:6px 0 4px;}
 .prep-card .sub:last-of-type{border-bottom:1px solid var(--border);}
+
+/* Embossed wordmark (matches the Artist Brief) */
+.wm{color:#5C2633;text-shadow:-1px -1px 0 rgba(255,230,236,.30),-2px -2px 2px rgba(255,230,236,.10),1px 1px 0 rgba(0,0,0,.45),2px 3px 4px rgba(0,0,0,.35);}
+
+/* ===================== MKBA HOTEL DIRECTION (Nov 2026) ===================== */
+:root{
+  --wine:#4E1A26; --wine-2:#5C2230; --bordeaux:#2A070C; --cashmere:#DDC8B3; --greige:#9F8E87;
+  --porcelain:#F3EEE7; --linen:#EAE1D7; --paper:#FBF7F2; --blush:#D9AEB5; --soft:#5A3F42; --line:#E3D7CA;
+  --ink:#2A070C; --cream:#F3EEE7; --warm-white:#EAE1D7; --parchment:#FBF7F2; --field:#FFFFFF;
+  --muted:#5A3F42; --border:#E3D7CA; --burgundy:#5C2230; --tan:#9F8E87; --tan-text:#7A5F52; --pink:#D9AEB5;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+html,body{background:var(--porcelain);} body{color:var(--bordeaux);} em{color:var(--wine-2);}
+.serif{font-family:'Instrument Serif',serif;font-weight:400;}
+.eb{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;}
+.tex{position:relative;isolation:isolate;}
+.tex::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.14;mix-blend-mode:multiply;pointer-events:none;border-radius:inherit;z-index:-1;}
+.xhero{background:var(--wine);color:#F1E4DE;border-radius:0 0 36px 36px;overflow:hidden;}
+.xtop{display:flex;padding:22px 24px 0;}
+.logo{display:grid;grid-template-columns:auto auto;column-gap:10px;align-items:center;justify-items:end;line-height:1;}
+.logo .est{grid-row:1/3;font-size:7.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.45);padding-right:10px;border-right:1px solid rgba(241,228,222,.22);align-self:stretch;display:flex;align-items:center;}
+.logo .l1{grid-column:2;font-family:'Instrument Serif',serif;font-size:15px;letter-spacing:.06em;color:rgba(241,228,222,.85);}
+.logo .l2{grid-column:2;font-family:'Instrument Serif',serif;font-style:italic;font-size:13px;color:rgba(241,228,222,.6);margin-right:2px;}
+.xstage{display:flex;align-items:flex-start;gap:16px;padding:26px 24px 34px 18px;max-width:900px;}
+.xwm{flex:none;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Instrument Serif',serif;font-size:200px;line-height:.82;white-space:nowrap;color:var(--wine);user-select:none;margin-right:.22em;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.16),-2px -2px 3px rgba(255,226,232,.06),1px 1px 1px rgba(0,0,0,.5),3px 5px 10px rgba(0,0,0,.32);}
+.xbody{flex:1;min-width:0;}
+.xkicker{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1.02;color:var(--blush);}
+.xreserved{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.55);margin-top:12px;}
+.xhero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:44px;line-height:.95;text-transform:uppercase;margin:10px 0 0;color:#F1E4DE;}
+.xhero h1 span{display:block;}
+.xrule{height:1px;background:rgba(217,174,181,.5);margin:22px 0 16px;}
+.xmeta{display:grid;grid-template-columns:1fr;gap:12px;}
+.xmeta .eb{color:rgba(241,228,222,.55);font-size:9.5px;}
+.xmeta .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;margin-top:3px;}
+.xvenue{font-size:15px;color:rgba(241,228,222,.7);margin-top:2px;}
+@media(min-width:700px){.xhero{border-radius:0 0 44px 44px}.xkicker{font-size:38px}.xhero h1{font-size:68px}.xmeta{grid-template-columns:1fr 1fr}}
+.xwelcome{text-align:center;padding:46px 10px 4px;}
+.xwelcome .serif{font-size:30px;line-height:1.1;}
+.xwelcome p{color:var(--soft);max-width:440px;margin:12px auto 0;font-size:15px;line-height:1.6;}
+.next{display:grid;grid-template-columns:92px 1fr;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:20px 22px 20px 18px;margin:28px 0 30px;}
+.next .lbl{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--greige);}
+.next .ttl{font-family:'Instrument Serif',serif;font-size:28px;line-height:1.05;margin:6px 0 6px;}
+.next p{color:var(--soft);margin:0 0 12px;font-size:14px;line-height:1.55;}
+.hanger{width:92px;height:150px;background:var(--wine);border-radius:46px 46px 12px 12px;color:#F1E4DE;text-align:center;padding:14px 8px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
+.hanger .hole{width:30px;height:30px;border-radius:50%;background:var(--paper);box-shadow:inset 1px 2px 4px rgba(0,0,0,.35);}
+.hanger .t{font-size:8px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;line-height:1.8;color:rgba(241,228,222,.8);}
+.hanger .s{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;line-height:1.05;color:var(--blush);}
+.groom{background:var(--cashmere);border-radius:28px;margin-bottom:14px;overflow:hidden;}
+.ghead{position:relative;padding:24px 24px 18px;overflow:hidden;}
+.ghead .num{position:absolute;right:16px;top:-26px;font-family:'Instrument Serif',serif;font-size:132px;line-height:1;color:var(--cashmere);
+  text-shadow:-1px -1px 1px rgba(255,255,255,.6),1px 1px 1px rgba(80,50,40,.26),2px 3px 6px rgba(80,50,40,.14);pointer-events:none;}
+.ghead .eb{color:#8A7064;position:relative;}
+.ghead h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:31px;line-height:1.05;margin:4px 0 0;position:relative;}
+.gbody{background:var(--paper);margin:0 14px 14px;border-radius:20px;padding:18px;}
+.gbody .section-hint{color:var(--soft);font-style:normal;margin-top:0;}
+.gbody .card{background:transparent;border:0;padding:0;}
+.chip{border-color:transparent;background:var(--linen);color:var(--bordeaux);}
+.chip.on{background:var(--wine-2);border-color:var(--wine-2);color:#F1E4DE;}
+.selfie{width:150px;height:190px;border-radius:75px 75px 18px 18px;background:var(--linen);border:1.5px dashed var(--greige);font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;color:var(--greige);letter-spacing:0;}
+.selfie.has{border:0;}
+.tile{background:var(--linen);border:1.5px dashed #D3C4B5;border-radius:16px;}
+input[type=text],textarea,select{background:#fff;border-color:var(--line);}
+.btn{background:var(--wine-2);letter-spacing:.18em;font-weight:500;}
+.btn.ghost{background:transparent;color:var(--wine-2);border:1px solid var(--wine-2);}
+.soon-note{border-color:#D3C4B5;color:var(--soft);}
+.lock-note{margin-bottom:14px;}
+.xsignoff{background:var(--bordeaux);border-radius:30px;padding:46px 22px;margin-top:36px;text-align:center;}
+.xsignoff .paper{background:#F4EDE3;max-width:360px;margin:0 auto;border-radius:6px;padding:30px 24px;position:relative;box-shadow:0 16px 34px rgba(0,0,0,.4);}
+.xsignoff .paper::before{content:"";position:absolute;inset:10px;border:1px solid #E0D3C2;border-radius:3px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.9),1px 1px 0 rgba(120,90,70,.16);}
+.xsignoff .eb{color:var(--greige);position:relative;}
+.xsignoff .serif{font-style:italic;font-size:40px;color:var(--wine-2);position:relative;margin:6px 0;}
+.xsignoff p{font-size:14px;color:var(--soft);position:relative;margin:0;}
+.xsignoff .ph{position:relative;margin-top:12px;font-size:12px;letter-spacing:.18em;color:var(--bordeaux);}
+.xfoot{text-align:center;padding:40px 20px 50px;}
+.xfoot .b{font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;}
+.xfoot .s{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--greige);margin-top:4px;}
+@media(max-width:400px){.next{grid-template-columns:78px 1fr;gap:14px;padding:18px 16px}.hanger{width:78px;height:132px}.next .ttl{font-size:25px}}
 </style>
 </head>
-<body class="theme-wine">
+<body>
 <div class="view show">
-  <div class="topbar">MKBeauty Artistry</div>
-  <header class="mhero">
-    <div class="mhero-inner">
-      <div class="wordmark"><span class="wm">MKBA</span></div>
-      <div>
-        <div class="meyebrow" id="gEyebrow">Getting Ready<br>Prepared For</div>
-        <h1 id="gName">Welcome</h1>
-        <p class="mdate" id="gDate"></p>
-        <p class="msub" id="gSub"></p>
-        <a class="mbtn" href="#" id="gBtn">Add Your Details</a>
+  <header class="xhero tex">
+    <div class="xtop"><span class="logo"><span class="est">Est.</span><span class="l1">MKBeauty</span><span class="l2">Artistry</span></span></div>
+    <div class="xstage">
+      <div class="xwm" id="xwm">glam.</div>
+      <div class="xbody" id="xbody">
+        <div class="xkicker" id="gEyebrow">Getting ready</div>
+        <div class="xreserved">Reserved for</div>
+        <h1 id="gName"><span>Welcome</span></h1>
+        <div class="xrule"></div>
+        <div class="xmeta">
+          <div><div class="eb">Her Big Day</div><div class="v" id="gDate"></div></div>
+          <div><div class="eb">Your Chair</div><div class="v" id="gSub"></div></div>
+        </div>
       </div>
     </div>
   </header>
 
   <div class="wrap" id="gMain" style="display:none;">
-    <div class="section-pad">
-      <p class="section-hint" style="font-size:15px;" id="gIntro"></p>
+    <div class="xwelcome">
+      <div class="serif">Pull up <em>a chair.</em></div>
+      <p id="gIntro"></p>
+    </div>
+    <div class="next">
+      <div class="hanger"><div class="hole"></div><div class="t" id="tagTop">Do Not<br>Disturb</div><div class="s" id="tagLine">selfie<br>pending</div></div>
+      <div class="next-copy">
+        <div class="lbl">Your Next Step</div>
+        <div class="ttl" id="nxTitle">Add <em>your</em> selfie</div>
+        <p id="nxText">A quick, makeup-free photo in natural light so your artist can see your skin and features.</p>
+        <a class="btn" href="#" id="gBtn">Add My Selfie</a>
+      </div>
+    </div>
+    <div>
       <div class="lock-note" id="lockNote" style="display:none;">Your details are final now. If anything changes, text us at 770.856.1008.</div>
     </div>
 
-    <div class="section-pad">
-      <div class="section-lbl">One</div>
-      <h2 class="section-ttl">A <em>Selfie</em></h2>
+    <div class="groom tex"><div class="ghead"><div class="num">01</div><div class="eb">Room One</div><h2>A <em>Selfie</em></h2></div><div class="gbody">
       <p class="section-hint">A clear, makeup-free photo in natural light, hair down. This is how your artist meets you before the morning.</p>
       <div class="card selfie-zone">
         <div class="selfie" id="selfie">Tap to add<br>your selfie</div>
         <button class="btn ghost small" id="selfieRemove" style="display:none;">Remove</button>
         <input type="file" id="selfieIn" accept="image/*">
       </div>
-    </div>
+    </div></div>
 
-    <div class="section-pad">
-      <div class="section-lbl">Two</div>
-      <h2 class="section-ttl">About <em>You</em></h2>
+    <div class="groom tex"><div class="ghead"><div class="num">02</div><div class="eb">Room Two</div><h2>About <em>You</em></h2></div><div class="gbody">
       <div class="card">
         <div class="grid2">
           <div><label class="label" style="margin-top:0;">Skin Type</label><select data-p="skinType"><option value="">Select...</option><option>Dry</option><option>Normal</option><option>Combination</option><option>Oily</option><option>Sensitive</option></select></div>
@@ -305,11 +394,9 @@ input:disabled,select:disabled,textarea:disabled{opacity:.7;}
           <div><label class="label">Your Phone</label><input type="text" id="gPhone" placeholder="For day-of timing only"></div>
         </div>
       </div>
-    </div>
+    </div></div>
 
-    <div class="section-pad">
-      <div class="section-lbl">Three</div>
-      <h2 class="section-ttl">Your <em>Look</em></h2>
+    <div class="groom tex"><div class="ghead"><div class="num">03</div><div class="eb">Room Three</div><h2>Your <em>Look</em></h2></div><div class="gbody">
       <p class="section-hint">Tap what feels like you. Your artist will tailor it to the bride's overall look.</p>
       <div class="card">
         <div id="mkWrap"><span class="label" style="margin-top:0;">Makeup</span><div class="chips" id="chipsMakeup"></div></div>
@@ -317,19 +404,15 @@ input:disabled,select:disabled,textarea:disabled{opacity:.7;}
         <span class="label">Anything else we should know</span>
         <textarea id="gNotes" placeholder="Dress neckline, glasses or contacts, how you usually wear your makeup..."></textarea>
       </div>
-    </div>
+    </div></div>
 
-    <div class="section-pad">
-      <div class="section-lbl">Four</div>
-      <h2 class="section-ttl">Your <em>Inspo</em></h2>
+    <div class="groom tex"><div class="ghead"><div class="num">04</div><div class="eb">Room Four</div><h2>Your <em>Inspo</em></h2></div><div class="gbody">
       <p class="section-hint">Up to four photos of looks you love. Optional, and always helpful. Each one saves as soon as you add it.</p>
       <div class="photo-grid" id="inspoGrid"></div>
       <input type="file" id="inspoIn" accept="image/*">
-    </div>
+    </div></div>
 
-    <div class="section-pad">
-      <div class="section-lbl">Five</div>
-      <h2 class="section-ttl">Your <em>Prep</em></h2>
+    <div class="groom tex"><div class="ghead"><div class="num">05</div><div class="eb">Room Five</div><h2>Your <em>Prep</em></h2></div><div class="gbody">
       <p class="section-hint">A few simple steps so your look wears beautifully all day.</p>
       <div class="card prep-card">
         <div class="sub open"><div class="sub-head"><div class="t">Skin Prep, Day Of</div><div class="s"></div><div class="chev"></div></div>
@@ -343,7 +426,7 @@ input:disabled,select:disabled,textarea:disabled{opacity:.7;}
         <p class="prep-note" style="margin-top:18px;">Makeup artistry is collaborative and tailored to you. Results may vary based on skin type, lighting, weather, and environment.</p>
         <a class="btn ghost small" href="https://www.canva.com/design/DAG-zklhd5M/tYJAwmZT8RqbIDkOdNDLAg/view" target="_blank" rel="noopener" style="margin-top:10px;">View the Full Prep Guide</a>
       </div>
-    </div>
+    </div></div>
 
     <div style="margin:22px 0 10px;"><button class="btn block" id="saveBtn">Save My Details</button></div>
     <p class="fine" id="cutoffNote"></p>
@@ -353,7 +436,8 @@ input:disabled,select:disabled,textarea:disabled{opacity:.7;}
     <div class="soon-note" style="margin-top:30px;">This link isn't working. Please ask the bride to send it again, or text us at 770.856.1008.</div>
   </div>
 
-  <footer class="mfoot"><div class="b">MKBeauty Artistry</div><div class="s">Morgan Kelly Baird</div><div class="c">770.856.1008</div></footer>
+  <div class="wrap"><div class="xsignoff tex"><div class="paper"><div class="eb">From Your Concierge</div><div class="serif">Merci</div><p>Questions before the big day? We are always a message away.</p><div class="ph">770.856.1008</div></div></div></div>
+  <footer class="xfoot"><div class="b">MKBeauty Artistry</div><div class="s">Morgan Kelly Baird</div></footer>
 </div>
 <div class="toast" id="toast"></div>
 
@@ -373,11 +457,23 @@ async function apiGet(p){ const qs = Object.entries(p).map(([k,v]) => k + '=' + 
 async function apiPost(p){ const r = await fetch(API_URL, {method:'POST', body: JSON.stringify(p)}); return r.json().catch(()=>({})); }
 
 function fitWordmark(){
-  document.querySelectorAll('.wordmark').forEach(w => {
-    const span = w.querySelector('.wm'); const max = w.clientHeight - 12;
-    let size = window.innerWidth >= 700 ? 150 : 124; span.style.fontSize = size + 'px';
-    while (span.getBoundingClientRect().height > max && size > 48) { size -= 4; span.style.fontSize = size + 'px'; }
-  });
+  const w = document.getElementById('xwm'), b = document.getElementById('xbody'), h = w.closest('.xhero');
+  const target = b.offsetHeight, maxW = h.offsetWidth * 0.28; let fs = 400; w.style.fontSize = fs + 'px';
+  while ((w.offsetHeight > target || w.offsetWidth > maxW) && fs > 40) { fs -= 2; w.style.fontSize = fs + 'px'; }
+}
+window.addEventListener('resize', fitWordmark);
+/* Door tag + next step follow her progress */
+let eventDay = null;
+function updateTag(){
+  const hasSelfie = !!(guest && guest.selfie);
+  const today = eventDay && Math.floor((eventDay - new Date()) / 86400000) <= 0;
+  let top = 'Do Not<br>Disturb', line, title, text, btn;
+  if (today) { line = 'glam in<br>session'; title = 'See you in <em>the chair</em>'; text = 'Today is the day. Arrive with clean skin and dry hair, and we will take it from there.'; btn = 'Review My Prep'; }
+  else if (!hasSelfie) { line = 'selfie<br>pending'; title = 'Add <em>your</em> selfie'; text = 'A quick, makeup-free photo in natural light so your artist can see your skin and features.'; btn = 'Add My Selfie'; }
+  else if (!completed) { line = 'picking<br>the look'; title = 'Choose <em>your</em> look'; text = 'Tell us a little about you and tap the looks you love, then save your details.'; btn = 'Finish My Details'; }
+  else { line = 'see you<br>soon'; title = 'You are <em>all set</em>'; text = 'Your artist has everything she needs. You can come back and update anything until the cutoff below.'; btn = 'Review My Details'; }
+  document.getElementById('tagTop').innerHTML = top; document.getElementById('tagLine').innerHTML = line;
+  document.getElementById('nxTitle').innerHTML = title; document.getElementById('nxText').textContent = text; document.getElementById('gBtn').textContent = btn;
 }
 window.addEventListener('load', fitWordmark); if (document.fonts) document.fonts.ready.then(fitWordmark);
 
@@ -403,6 +499,7 @@ const autoSave = debounce(() => save(completed ? 'Complete' : 'Started'), 900);
 
 /* ---------- Selfie ---------- */
 function renderSelfie(url){
+  if (url !== "saving" && guest && !guest.error) setTimeout(updateTag, 0);
   const s = document.getElementById('selfie');
   if (url === 'saving') { s.innerHTML = 'Saving...'; return; }
   s.innerHTML = url ? `<img src="${url}" alt="">` : 'Tap to add<br>your selfie';
@@ -474,23 +571,24 @@ function lockPage(){
   if (!guest || guest.error) {
     document.getElementById('gError').style.display = '';
     document.getElementById('gBtn').style.display = 'none';
-    document.getElementById('gEyebrow').innerHTML = 'Getting Ready';
+    document.getElementById('gEyebrow').innerHTML = 'Getting ready';
     return;
   }
   const ev = guest.event || {};
   const brideFirst = String(ev["Bride / Client Name"] || 'The bride').split(' ')[0];
   const parts = String(guest.name || '').split(' ');
   document.title = guest.name + " | Getting Ready with " + brideFirst + " | MKBeauty";
-  document.getElementById('gEyebrow').innerHTML = 'Getting Ready with ' + esc(brideFirst) + '<br>Prepared For';
-  document.getElementById('gName').innerHTML = esc(parts[0]) + (parts.length > 1 ? '<br><em>' + esc(parts.slice(1).join(' ')) + '</em>' : '');
+  document.getElementById('gEyebrow').innerHTML = 'Getting ready with ' + esc(brideFirst);
+  document.getElementById('gName').innerHTML = '<span>' + esc(parts[0]) + '</span>' + (parts.length > 1 ? '<span>' + esc(parts.slice(1).join(' ')) + '</span>' : '');
   const d = ev["Event Date"] ? new Date(ev["Event Date"]) : null;
   if (d && !isNaN(d)) {
+    eventDay = d;
     document.getElementById('gDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
     const cutoff = new Date(d.getTime() - CUTOFF_DAYS * 86400000);
     document.getElementById('cutoffNote').textContent = 'You can come back to this link and update anything until ' + cutoff.toLocaleDateString('en-US', {month:'long', day:'numeric'}) + '.';
   }
   const venue = [ev["Venue"], ev["City / Address"]].filter(Boolean).join(', ');
-  document.getElementById('gSub').innerHTML = esc([guest.role, guest.services].filter(Boolean).join(' · ')) + (venue ? '<br>' + esc(venue) : '');
+  document.getElementById('gSub').innerHTML = esc(guest.services || guest.role || '') + (venue ? '<div class="xvenue">' + esc(venue) + '</div>' : '');
   document.getElementById('gIntro').textContent = brideFirst + ' has invited you to get ready with her and the MKBeauty team. A few details from you help your artist plan your look before the day, so the morning is all yours to enjoy.';
   document.getElementById('gMain').style.display = '';
 
@@ -514,17 +612,21 @@ function lockPage(){
   completed = guest.status === 'Complete';
   renderSelfie(guest.selfie); renderInspo();
   if (guest.editsLocked) lockPage();
+  updateTag();
   fitWordmark();
 })();
 
 document.querySelectorAll('.sub-head').forEach(h => h.addEventListener('click', () => h.parentElement.classList.toggle('open')));
-document.getElementById('gBtn').addEventListener('click', e => { e.preventDefault(); document.getElementById('selfie').scrollIntoView({behavior:'smooth', block:'center'}); });
+document.getElementById('gBtn').addEventListener('click', e => { e.preventDefault();
+  const hasSelfie = !!(guest && guest.selfie);
+  const target = !hasSelfie ? document.getElementById('selfie') : !completed ? document.querySelector('[data-p="skinType"]') : document.getElementById('gName');
+  target.scrollIntoView({behavior:'smooth', block:'center'}); });
 document.getElementById('saveBtn').addEventListener('click', async () => {
   const b = document.getElementById('saveBtn'); b.disabled = true; b.textContent = 'Saving...';
   completed = true;
   const ok = await save('Complete');
   b.disabled = false; b.textContent = 'Save My Details';
-  if (ok) toast('Saved. Your artist will see this before the morning.');
+  if (ok) { toast('Saved. Your artist will see this before the morning.'); updateTag(); }
   else if (!locked) toast('That did not save. Please try again.');
 });
 </script>
