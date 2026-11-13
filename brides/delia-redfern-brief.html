@@ -2,288 +2,376 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Delia Redfern Artist Brief 10.22.27 | MKBeauty</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;450;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --cream:#DCD9D4; --warm-white:#E0DDD9; --parchment:#E7E4DF;
-    --ink:#191714; --muted:#797672; --border:#CBC5BE;
-    --accent-dark:#AC9A8A; --accent-light:#EFEAE5; --accent:#D9AEB5;
-    --burgundy:#632B37; --stone:#AC9A8A;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;overflow-x:hidden;background:var(--cream);}
-  body{font-family:'Inter Tight',sans-serif;font-weight:300;color:var(--ink);}
-  h1,h2,h3,.serif{font-family:'Instrument Serif',serif;}
-  em{font-style:italic;color:var(--burgundy);}
-
-  .navbar{position:sticky;top:0;z-index:50;background:rgba(220,217,212,0.94);backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--border);padding:10px 16px;display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .navbar a{flex:0 0 auto;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);
-    text-decoration:none;padding:10px 14px;border-radius:20px;border:1px solid var(--border);white-space:nowrap;
-    min-height:36px;display:flex;align-items:center;}
-
-  .hero{background:radial-gradient(ellipse at top, #332C27 0%, #241F1B 60%);color:var(--cream);
-    padding:44px 24px 36px;text-align:center;}
-  .eyebrow{font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:14px;}
-  .hero h1{font-size:34px;font-weight:400;margin:0 0 6px;line-height:1.15;color:var(--cream);}
-  .hero h1 em{color:var(--accent-dark);}
-  .hero .sub{font-family:'Instrument Serif';font-style:italic;font-size:16px;color:rgba(220,217,212,0.7);margin-bottom:16px;}
-  .divider{width:50px;height:1px;background:var(--accent-dark);margin:16px auto;}
-  .hero-meta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font-size:12px;letter-spacing:0.05em;color:rgba(220,217,212,0.85);margin-bottom:22px;}
-  .hero-meta span{border:1px solid rgba(172,154,138,0.4);border-radius:14px;padding:8px 14px;}
-  .experience-link{display:inline-block;background:var(--burgundy);color:var(--cream);text-decoration:none;
-    font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:13px 26px;border-radius:24px;font-weight:500;}
-
-  .section{padding:36px 20px;max-width:760px;margin:0 auto;scroll-margin-top:64px;}
-  .section-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--burgundy);
-    display:flex;align-items:center;gap:12px;margin-bottom:6px;}
-  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-  .section-title{font-size:24px;font-weight:400;margin:0 0 16px;}
-  .mini-label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--burgundy);margin-bottom:12px;}
-
-  .card{background:var(--warm-white);border:1px solid var(--border);border-left:3px solid var(--burgundy);border-radius:10px;padding:20px;margin-bottom:14px;}
-  .card.featured{background:var(--parchment);border-color:var(--burgundy);}
-  .row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--border);}
-  .row:last-child{border-bottom:none;}
-  .row .label{color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;flex:0 0 auto;}
-  .row .value{text-align:right;}
-
-  .roster-pill{display:inline-block;background:var(--parchment);border:1px solid var(--burgundy);border-radius:20px;
-    padding:10px 18px;font-size:14px;margin:4px 8px 4px 0;color:var(--ink);}
-  .roster-pill .role{display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
-
-  .chip-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
-  .pay-pill{font-family:'Inter Tight';font-size:13px;padding:9px 16px;border-radius:18px;border:1px solid var(--accent-dark);
-    background:var(--warm-white);color:var(--ink);min-height:38px;display:inline-flex;align-items:center;cursor:pointer;user-select:none;}
-  .pay-pill.active{background:var(--burgundy);border-color:var(--burgundy);color:var(--cream);}
-  .look-chip{font-size:12px;padding:6px 12px;border-radius:14px;border:1px solid var(--accent-dark);background:var(--parchment);display:inline-block;margin:0 6px 6px 0;}
-
-  .team-card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:22px;margin-bottom:14px;}
-  .team-card-inner{display:flex;gap:16px;align-items:flex-start;}
-  .team-initials{flex:0 0 84px;width:84px;height:84px;border-radius:50%;background:var(--parchment);
-    border:1px solid var(--burgundy);display:flex;align-items:center;justify-content:center;overflow:hidden;
-    font-family:'Instrument Serif';font-style:italic;font-size:24px;color:var(--burgundy);}
-  .team-initials img{width:100%;height:100%;object-fit:cover;}
-  .team-name{font-family:'Instrument Serif';font-size:20px;}
-  .team-name .role{font-style:italic;color:var(--burgundy);}
-  .team-roster-line{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
-  .team-flag{margin-top:8px;font-size:12px;color:var(--burgundy);font-style:italic;}
-
-  /* Clients (Bridal Party tab, live) */
-  .artist-group{margin-bottom:26px;}
-  .artist-group-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-  .artist-group-head .nm{font-family:'Instrument Serif';font-size:22px;}
-  .artist-group-head .ct{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
-  .client-card{background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px;}
-  .client-top{display:flex;gap:16px;align-items:center;margin-bottom:10px;}
-  .client-selfie{flex:0 0 110px;width:110px;height:138px;border-radius:10px;overflow:hidden;background:var(--parchment);
-    border:1px solid var(--burgundy);display:flex;align-items:center;justify-content:center;
-    font-family:'Instrument Serif';font-style:italic;font-size:26px;color:var(--burgundy);cursor:zoom-in;}
-  .client-selfie img{width:100%;height:100%;object-fit:cover;}
-  .client-name{font-family:'Instrument Serif';font-size:22px;line-height:1.2;}
-  .client-role{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
-  .client-status{font-size:12px;margin-top:8px;}
-  .client-status.ok{color:var(--accent-dark);} .client-status.wait{color:var(--burgundy);}
-  .client-notes{font-size:14px;line-height:1.6;margin-top:6px;}
-
-  .placeholder-note{border:1px dashed var(--accent-dark);border-radius:10px;padding:20px;text-align:center;
-    color:var(--accent-dark);font-family:'Instrument Serif';font-style:italic;font-size:16px;line-height:1.6;}
-
-  .schedule-block{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
-  .schedule-block:last-child{border-bottom:none;}
-  .schedule-time{flex:0 0 auto;min-width:78px;font-family:'Instrument Serif';font-size:16px;color:var(--burgundy);font-weight:500;}
-  .schedule-desc{font-size:14px;color:var(--ink);padding-top:1px;}
-
-  .photo-grid{display:flex;flex-wrap:wrap;gap:3%;margin-top:12px;}
-  .photo-tile{width:31%;aspect-ratio:3/4;margin-bottom:10px;border-radius:8px;overflow:hidden;border:1px solid var(--border);cursor:zoom-in;}
-  .photo-tile img{width:100%;height:100%;object-fit:cover;display:block;}
-
-  .lightbox{position:fixed;inset:0;background:rgba(25,23,20,0.92);display:none;align-items:center;justify-content:center;z-index:100;padding:20px;}
-  .lightbox.show{display:flex;}
-  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;}
-
-  .footer{background:var(--ink);color:var(--cream);text-align:center;padding:32px 20px 40px;margin-top:10px;}
-  .footer .brand{font-family:'Instrument Serif';font-size:20px;font-style:italic;color:var(--cream);}
-  .footer .sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,228,223,0.55);margin-top:6px;}
-  .footer .internal{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-dark);margin-top:12px;}
-
-/* ===== Suite look: wine hero with "brief." wordmark ===== */
-:root{--cream:#F4F0EC;--warm-white:#FFFFFF;--parchment:#FFFFFF;--border:#E3D9D2;--ink:#0E0C0A;--muted:#3F3B37;--accent-dark:#6A5847;--accent-light:#F6F0EE;
-  --h-bg:#632B37;--h-word:#57222E;--h-s1:rgba(255,255,255,.10);--h-s2:rgba(0,0,0,.35);--h-text:#F7EFEC;--h-muted:rgba(247,239,236,.8);--h-accent:#EBC3CB;}
-body{font-family:'Inter Tight',sans-serif;font-weight:450;}
-h1,h2,h3,.serif{font-family:'Instrument Serif',serif;font-weight:400;}
-.navbar{background:rgba(244,240,236,0.95);}
-.navbar a{font-weight:500;}
-.section-title{font-size:28px;}
-.section-label,.mini-label,.row .label{font-weight:600;}
-.card{border-radius:20px;background:#fff;}
-.team-card,.client-card{border-radius:20px;background:#fff;}
-.client-selfie,.photo-tile{border-radius:14px;}
-.placeholder-note{border-radius:18px;color:var(--accent-dark);}
-.look-chip,.pay-pill,.roster-pill{background:#fff;}
-.topbar{background:#57222E;color:#EBC3CB;text-align:center;padding:14px 16px 6px;font-family:'Instrument Serif',serif;font-style:italic;font-size:23px;}
-.mhero{background:var(--h-bg);color:var(--h-text);border-radius:0 0 48px 48px;overflow:hidden;padding:18px 18px 38px;}
-.mhero-inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start;}
-.wordmark{align-self:center;margin-left:-6px;writing-mode:vertical-rl;transform:rotate(180deg);height:310px;display:flex;align-items:center;justify-content:center;overflow:hidden;user-select:none;}
-.wm{font-family:'Instrument Serif',serif;font-size:124px;line-height:1;color:var(--h-word);text-shadow:1px 1px 1px var(--h-s1),-1px -1px 1px var(--h-s2);white-space:nowrap;}
-.meyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;line-height:1.6;color:var(--h-accent);}
-.mhero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(46px,13vw,64px);line-height:1;margin:12px 0;color:var(--h-text);}
-.mhero h1 em{color:var(--h-accent);}
-.mdate{font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;margin:0;}
-.mmeta{font-size:14px;line-height:1.6;margin:10px 0 18px;color:var(--h-muted);}
-.mbtn{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:999px;background:#F7EFEC;color:#632B37;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;}
-@media(min-width:700px){.wordmark{height:340px}.wm{font-size:150px}}
-.footer{background:var(--h-bg);color:#F7EFEC;border-radius:48px 48px 0 0;margin-top:40px;}
-.footer .brand{font-family:'Instrument Serif',serif;font-size:25px;color:#F7EFEC;}
-.footer .sub{color:#EBC3CB;}
-.footer .internal{color:rgba(247,239,236,.75);}
-.lightbox img{border-radius:14px;}
-
-/* ===== Solid maroon hero + embossed "brief." ===== */
-:root{--h-bg:#632B37;}
-.topbar{background:#57222E;color:#EBC3CB;}
-.mhero{background:#632B37;}
-.wm{
-  color:#5C2633;
-  background:none;
-  text-shadow:
-    -1px -1px 0 rgba(255,230,236,.30),
-    -2px -2px 2px rgba(255,230,236,.10),
-    1px 1px 0 rgba(0,0,0,.45),
-    2px 3px 4px rgba(0,0,0,.35);
-  filter:none;
+:root{
+  --wine:#4E1A26;       /* deepened from #632B37 */
+  --wine-2:#5C2230;     /* buttons, active chips */
+  --bordeaux:#2A070C;   /* text + footer */
+  --cashmere:#DDC8B3;
+  --greige:#9F8E87;
+  --porcelain:#F3EEE7;
+  --linen:#EAE1D7;
+  --paper:#FBF7F2;
+  --blush:#D9AEB5;
+  --soft:#5A3F42;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
-.footer{background:#632B37;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--porcelain);color:var(--bordeaux);font-family:'Inter Tight',sans-serif;font-weight:450;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+.eb{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+.serif{font-family:'Instrument Serif',serif;font-weight:400}
+.tex{position:relative;isolation:isolate}
+.tex::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.14;mix-blend-mode:multiply;pointer-events:none;border-radius:inherit;z-index:-1}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--wine);color:#F1E4DE;border-radius:0 0 36px 36px;overflow:hidden;min-height:540px;display:flex;flex-direction:column;position:relative}
+.hero .top{display:flex;justify-content:space-between;padding:22px 24px 0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(241,228,222,.6)}
+.hero .wm{position:absolute;left:-4px;bottom:-12px;writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:'Instrument Serif',serif;font-size:200px;line-height:.82;letter-spacing:.01em;color:var(--wine);white-space:nowrap;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.16),-2px -2px 3px rgba(255,226,232,.06),1px 1px 1px rgba(0,0,0,.5),3px 5px 10px rgba(0,0,0,.32)}
+.hero .body{margin-top:auto;padding:0 28px 40px 140px}
+.hero .reserved{font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--blush)}
+.hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:.95;text-transform:uppercase;margin:8px 0 0;letter-spacing:.005em}
+.hero h1 span{display:block}
+.hero .rule{height:1px;background:rgba(217,174,181,.55);margin:26px 0 18px}
+.hero .meta{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero .meta .eb{color:rgba(241,228,222,.55);font-size:9.5px}
+.hero .meta .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;margin-top:3px}
+
+/* ---------- WELCOME / KEY CARD ---------- */
+.welcome{text-align:center;padding:52px 10px 8px}
+.welcome .serif{font-size:30px;line-height:1.1}
+.welcome .serif em{color:var(--wine-2)}
+.welcome p{color:var(--soft);max-width:440px;margin:12px auto 0}
+
+/* hanger as next step */
+.next{display:grid;grid-template-columns:92px 1fr;gap:18px;align-items:center;background:var(--paper);border:1px solid #E6DACD;border-radius:26px;padding:20px 22px 20px 18px;margin-top:30px}
+.hanger{width:92px;height:150px;background:var(--wine);border-radius:46px 46px 12px 12px;color:#F1E4DE;text-align:center;padding:14px 8px 14px;display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.hanger .hole{width:30px;height:30px;border-radius:50%;background:var(--paper);box-shadow:inset 1px 2px 4px rgba(0,0,0,.35)}
+.hanger .t{font-size:8px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;line-height:1.8;color:rgba(241,228,222,.8)}
+.hanger .s{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:var(--blush)}
+.next .eb{color:var(--greige)}
+.next h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.05;margin:6px 0 6px}
+.next h3 em{color:var(--wine-2)}
+.next p{font-size:14px;color:var(--soft)}
+.btn{display:inline-block;margin-top:12px;background:var(--wine-2);color:#F1E4DE;border-radius:99px;padding:11px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;text-decoration:none;border:0}
+
+/* ---------- YOUR STAY (progress) ---------- */
+.stay{margin-top:14px;background:var(--paper);border:1px solid #E6DACD;border-radius:26px;padding:20px 22px}
+.stay .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.stay .eb{color:var(--greige)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.step .bar{height:3px;border-radius:3px;background:#E3D7CA}
+.step.done .bar{background:var(--wine-2)}
+.step.now .bar{background:linear-gradient(90deg,var(--wine-2) 50%,#E3D7CA 50%)}
+.step span{display:block;font-size:11px;margin-top:8px;color:var(--greige)}
+.step.done span,.step.now span{color:var(--bordeaux)}
+
+/* ---------- DIRECTORY ---------- */
+.directory{margin-top:44px;text-align:center}
+.directory .serif{font-size:34px;text-transform:uppercase;line-height:1}
+.directory .serif em{text-transform:none;color:var(--wine-2)}
+.dir-list{margin-top:20px;text-align:left;border-top:1px solid #DCCFC1}
+.dir-list a{display:flex;align-items:baseline;gap:10px;padding:13px 4px;border-bottom:1px solid #DCCFC1;text-decoration:none;color:var(--bordeaux)}
+.dir-list .n{font-family:'Instrument Serif',serif;font-size:15px;color:var(--greige);width:28px}
+.dir-list .t{font-family:'Instrument Serif',serif;font-size:21px}
+.dir-list .dots{flex:1;border-bottom:1px dotted #C9B9A9;transform:translateY(-5px)}
+.dir-list .st{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--greige)}
+.dir-list .st.ok{color:var(--wine-2)}
+
+/* ---------- ROOMS ---------- */
+.rooms{margin-top:44px;display:grid;gap:14px}
+details.room{background:var(--linen);border-radius:28px;overflow:hidden}
+details.room[open]{background:var(--cashmere)}
+details.room summary{list-style:none;cursor:pointer;position:relative;padding:24px 24px 22px;min-height:118px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+details.room summary::-webkit-details-marker{display:none}
+.room .num{position:absolute;right:18px;top:-24px;font-family:'Instrument Serif',serif;font-size:132px;line-height:1;color:var(--linen);
+  text-shadow:-1px -1px 1px rgba(255,255,255,.6),1px 1px 1px rgba(80,50,40,.26),2px 3px 6px rgba(80,50,40,.14)}
+details.room[open] .num{color:var(--cashmere)}
+.room .eb{color:#8A7064;position:relative}
+.room h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:31px;line-height:1.05;margin-top:4px;position:relative;padding-right:44px}
+.room h2 em{color:var(--wine-2)}
+.room .chev{position:absolute;right:24px;bottom:26px;width:30px;height:30px;border-radius:50%;background:rgba(251,247,242,.7);display:flex;align-items:center;justify-content:center;transition:transform .25s}
+.room .chev::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--bordeaux);border-bottom:1.5px solid var(--bordeaux);transform:translateY(-2px) rotate(45deg)}
+details.room[open] .chev{transform:rotate(180deg)}
+.inner{padding:0 14px 14px;display:grid;gap:10px}
+.panel{background:var(--paper);border-radius:20px;padding:18px 18px}
+.panel .eb{color:var(--greige);font-size:9.5px;margin-bottom:8px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kv .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2}
+.kv .k{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige)}
+.quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:21px;line-height:1.3;color:var(--bordeaux)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{border-radius:99px;padding:6px 13px;font-size:12.5px;background:var(--linen)}
+.chip.on{background:var(--wine-2);color:#F1E4DE}
+.slider{margin-top:6px}
+.slider .track{height:3px;border-radius:3px;background:linear-gradient(90deg,var(--greige),var(--blush));position:relative;margin:14px 0 8px}
+.slider .knob{position:absolute;left:68%;top:50%;width:16px;height:16px;border-radius:50%;background:var(--wine-2);transform:translate(-50%,-50%);box-shadow:0 0 0 4px var(--paper)}
+.slider .ends{display:flex;justify-content:space-between;font-size:11px;color:var(--greige);letter-spacing:.14em;text-transform:uppercase}
+.list .r{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #EDE3D8}
+.list .r:last-child{border-bottom:0}
+.list .nm{font-family:'Instrument Serif',serif;font-size:19px}
+.list .sub{font-size:12px;color:var(--greige)}
+.pill{font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:99px;background:var(--linen);color:var(--soft)}
+.pill.ok{background:var(--wine-2);color:#F1E4DE}
+.time{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #EDE3D8}
+.time:last-child{border-bottom:0}
+.time b{font-family:'Instrument Serif',serif;font-weight:400;font-size:18px;color:var(--wine-2)}
+.team{display:flex;gap:14px;flex-wrap:wrap}
+.member{text-align:center;width:88px}
+.member .ini{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;background:var(--wine);color:var(--wine);font-family:'Instrument Serif',serif;font-size:26px;display:flex;align-items:center;justify-content:center;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.2),1px 1px 1px rgba(0,0,0,.5)}
+.member .nm{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.1}
+.member .sub{font-size:11px;color:var(--greige)}
+.total{background:var(--bordeaux);color:#EBDDD5;border-radius:20px;padding:22px 20px;display:flex;justify-content:space-between;align-items:flex-end}
+.total .eb{color:rgba(235,221,213,.55)}
+.total .amt{font-family:'Instrument Serif',serif;font-size:42px;line-height:1}
+.note{font-size:12.5px;color:var(--soft)}
+.sample{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--greige);text-align:right;margin-top:-4px}
+
+/* concierge sign-off */
+.signoff{background:var(--bordeaux);border-radius:30px;padding:46px 22px;margin-top:44px;text-align:center}
+.card{background:#F4EDE3;max-width:360px;margin:0 auto;border-radius:6px;padding:30px 24px;position:relative;box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.card::before{content:"";position:absolute;inset:10px;border:1px solid #E0D3C2;border-radius:3px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.9),1px 1px 0 rgba(120,90,70,.16)}
+.card .eb{color:var(--greige);position:relative}
+.card .serif{font-style:italic;font-size:40px;color:var(--wine-2);position:relative;margin:6px 0}
+.card p{font-size:14px;color:var(--soft);position:relative}
+.card .ph{position:relative;margin-top:12px;font-size:12px;letter-spacing:.18em;color:var(--bordeaux)}
+
+footer{text-align:center;padding:40px 20px 50px}
+footer .serif{font-style:italic;font-size:24px}
+footer .eb{color:var(--greige);font-size:9.5px;margin-top:4px}
+
+@media(max-width:520px){
+  .hero .wm{font-size:164px}
+  .hero .body{padding:0 22px 34px 112px}
+  .hero h1{font-size:44px}
+  .hero .meta{grid-template-columns:1fr}
+}
+@media(min-width:700px){.hero{border-radius:0 0 44px 44px}.hero h1{font-size:72px}.hero .wm{font-size:250px}.hero .body{padding-left:190px}}
+
+
+/* Side MKBA, fully on screen, sized to the content beside it */
+.hero{min-height:0 !important;max-height:none}
+.hero .stage{display:flex;align-items:flex-start;gap:16px;padding:26px 24px 34px 18px}
+.hero .wm{position:static !important;flex:none;padding:0 !important;line-height:.78}
+.hero .body{margin:0;padding:0 !important;flex:1;min-width:0}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige);margin-bottom:5px}
+.field input{width:100%;border:1px solid #E3D7CA;background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:var(--bordeaux)}
+.field input:focus{outline:none;border-color:var(--wine-2)}
+.hero .wm .art{display:block;font-style:italic;font-size:.4em;line-height:1;letter-spacing:.01em;margin-left:.04em;padding-top:.06em}
+.hero .top{align-items:flex-start}
+.logo{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;justify-items:end;text-transform:none;letter-spacing:0;line-height:1}
+.logo .l1{font-family:'Instrument Serif',serif;font-size:19px;letter-spacing:.06em;color:#F1E4DE}
+.logo .l2{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:var(--blush);margin-top:1px;margin-right:2px}
+.logo .est{grid-row:1/3;font-family:'Inter Tight',sans-serif;font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.55);padding-right:10px;border-right:1px solid rgba(217,174,181,.4);align-self:stretch;display:flex;align-items:center}
+.logo .l1,.logo .l2{grid-column:2}
+.hero .top{justify-content:flex-start}
+.logo .l1{font-size:15px !important;color:rgba(241,228,222,.85) !important}
+.logo .l2{font-size:13px !important;color:rgba(241,228,222,.6) !important}
+.logo .est{font-size:7.5px !important;color:rgba(241,228,222,.45) !important;border-right-color:rgba(241,228,222,.22) !important}
+.hero .suite{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:var(--blush)}
+.hero .reserved{font-family:'Inter Tight',sans-serif !important;font-style:normal !important;font-size:10px !important;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.55) !important;margin-top:12px}
+@media(min-width:700px){.hero .suite{font-size:38px}}
+.hanger .s{line-height:1.05}
+.hanger .s{font-size:14px !important}
+.after{background:var(--bordeaux);color:#EBDDD5;border-radius:28px;padding:30px 24px;margin-top:22px;text-align:center}
+.after .eb{color:rgba(235,221,213,.55)}
+.after .serif{font-size:32px;line-height:1.05;margin:8px 0 10px}
+.after .serif em{color:var(--blush)}
+.after p{font-size:14px;color:rgba(235,221,213,.8);max-width:380px;margin:0 auto}
+.btn.light{background:#F4EDE3;color:var(--bordeaux)}
+.proto{text-align:center;padding:0 0 40px}
+.proto button{background:none;border:1px dashed var(--greige);color:var(--greige);border-radius:99px;padding:9px 18px;font:inherit;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+</style>
+<style>
+.hero .kicker{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:var(--blush)}
+.hero .reserved{margin-top:12px}
+.hero .wm{line-height:.82}
+@media(min-width:700px){.hero .kicker{font-size:38px}}
+.selfie{display:flex;gap:16px;align-items:center}
+.selfie .ph{width:92px;height:116px;border-radius:46px 46px 14px 14px;background:var(--linen);border:1.5px dashed var(--greige);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-style:italic;color:var(--greige);font-size:15px;text-align:center;flex:none}
+.inspo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.inspo div{aspect-ratio:4/5;border-radius:16px;background:var(--linen);border:1.5px dashed #D3C4B5;display:flex;align-items:center;justify-content:center;color:var(--greige);font-size:24px;font-family:'Instrument Serif',serif}
+.client{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid #EDE3D8}
+.client:last-child{border-bottom:0}
+.client .pic{width:64px;height:80px;border-radius:32px 32px 10px 10px;background:var(--cashmere)}
+.paypills{display:flex;flex-wrap:wrap;gap:8px}
+.paypill{border:0;font:inherit;font-size:13px;padding:10px 16px;border-radius:99px;background:var(--linen);color:var(--bordeaux);cursor:pointer}
+.paypill.on{background:var(--wine-2);color:#F1E4DE}
+.payout{display:none;margin-top:12px}
+.payout.on{display:block}
+.internal{display:inline-block;margin-top:14px;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#F1E4DE;border:1px solid rgba(241,228,222,.3);border-radius:99px;padding:6px 12px}
+.hero .wm{margin-right:.22em}
+.ros-row{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid #EDE3D8}
+.ros-row:last-child{border-bottom:0}
+.ros-row b{font-family:'Instrument Serif',serif;font-weight:400;font-size:18px;color:var(--wine-2);line-height:1.3}
+.ros-row .what{font-size:14px;line-height:1.5}
+.ros-row .what span{display:inline-block;margin:2px 6px 2px 0;padding:3px 10px;border-radius:99px;background:var(--linen);font-size:12.5px}
+.ros-row .what span i{font-style:normal;color:var(--greige)}
+.ros-row.all .what{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px}
+.artist{background:var(--paper);border-radius:22px;overflow:hidden}
+.artist+.artist{margin-top:10px}
+.a-head{display:flex;gap:14px;align-items:center;padding:18px 18px 14px;border-bottom:1px solid #EDE3D8}
+.a-head .ini{width:52px;height:52px;border-radius:50%;background:var(--wine);color:var(--wine);font-family:'Instrument Serif',serif;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none;text-shadow:-1px -1px 1px rgba(255,226,232,.2),1px 1px 1px rgba(0,0,0,.5)}
+.a-head .nm{font-family:'Instrument Serif',serif;font-size:24px;line-height:1}
+.a-head .sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--greige);margin-top:4px}
+.a-body{padding:6px 18px 18px}
+.a-body .eb{color:var(--greige);font-size:9.5px;margin:14px 0 4px}
+.a-note{background:var(--linen);border-radius:16px;padding:14px 16px;font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;line-height:1.35}
+.a-note.empty{font-family:'Inter Tight',sans-serif;font-style:normal;font-size:13px;color:var(--greige)}
+.a-flag{margin-top:10px;font-size:12.5px;color:var(--wine-2)}
+.cl{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #EDE3D8}
+.cl:last-child{border-bottom:0}
+.cl .pic{width:76px;height:96px;border-radius:38px 38px 12px 12px;background:linear-gradient(160deg,#E7D5C4,#C9AE98);display:flex;align-items:flex-end;justify-content:center;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(42,7,12,.55);padding-bottom:8px}
+.cl .nm{font-family:'Instrument Serif',serif;font-size:20px;line-height:1.1}
+.cl .sub{font-size:12px;color:var(--greige);margin:2px 0 8px}
+.cl .prof{font-size:12.5px;color:var(--soft);line-height:1.5;margin-bottom:8px}
+.cl .chips .chip{font-size:11.5px;padding:4px 10px}
+.cl .ins{display:flex;gap:6px;margin-top:10px}
+.cl .ins div{width:44px;height:56px;border-radius:10px;background:linear-gradient(160deg,#EADBCD,#D6BFAA)}
+.artist summary{list-style:none;cursor:pointer;border-bottom:0}
+details.room .artist summary.a-head{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;min-height:0;padding:16px 18px;overflow:visible}
+.artist summary::-webkit-details-marker{display:none}
+.artist[open] summary{border-bottom:1px solid #EDE3D8}
+.a-chev{width:30px;height:30px;border-radius:50%;background:var(--linen);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .25s}
+.a-chev::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--bordeaux);border-bottom:1.5px solid var(--bordeaux);transform:translateY(-2px) rotate(45deg)}
+.artist[open] .a-chev{transform:rotate(180deg)}
+.tapname{font-size:12.5px;color:var(--soft);margin:0 4px 10px}
+</style>
+<style>
+.hero-links{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+.internal{margin-top:0}
+.suite-link{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--blush);text-decoration:none;border-bottom:1px solid rgba(217,174,181,.5);padding-bottom:2px}
+.hero .meta{grid-template-columns:1fr 1fr !important}
+.hero .meta .full{grid-column:1/-1}
+@media(min-width:700px){.hero .meta .full{grid-column:auto}}
+.note{font-size:14px;line-height:1.6;color:var(--soft);white-space:pre-line}
+.vr-quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:21px;line-height:1.3}
+.vr-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #EDE3D8;font-size:14px}
+.vr-row:last-child{border-bottom:0}
+.vr-row span:first-child{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige);padding-top:3px}
+.vr-row span:last-child{text-align:right}
+.vr-look{margin-bottom:8px}
+.vr-look b{display:block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige);font-weight:500;margin-bottom:5px}
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.photo-tile{aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:var(--linen)}
+.photo-tile img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;display:block}
+.cl .pic{overflow:hidden;font-family:'Instrument Serif',serif;font-size:22px;letter-spacing:0;align-items:center;padding:0}
+.cl .pic img{width:100%;height:100%;object-fit:cover;cursor:zoom-in}
+.cl .status{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.cl .status.ok{color:var(--wine-2)} .cl .status.wait{color:var(--greige)}
+.cl .cnotes{font-size:13px;color:var(--soft);background:var(--linen);border-radius:12px;padding:10px 12px;margin-top:10px}
+.cl .ins{flex-wrap:wrap}
+.cl .ins img{width:52px;height:66px;border-radius:10px;object-fit:cover;cursor:zoom-in}
+.ros-row .what span.unas{background:transparent;border:1px dashed var(--greige)}
+.artist.unassigned .a-head .ini{background:var(--linen);color:var(--greige);text-shadow:none;font-style:italic}
+.pay-item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #EDE3D8;font-size:14px}
+.pay-total{font-family:'Instrument Serif',serif;font-size:28px;text-align:right;color:var(--wine-2);margin-top:10px}
+.lightbox{position:fixed;inset:0;background:rgba(42,7,12,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.lightbox.show{display:flex}
+.lightbox img{max-width:100%;max-height:100%;border-radius:12px}
+.team .member .sub{min-height:14px}
 </style>
 </head>
 <body>
 
-<div class="topbar">MKBeauty Artistry</div>
-<header class="mhero">
-  <div class="mhero-inner">
-    <div class="wordmark"><span class="wm">brief.</span></div>
-    <div>
-      <div class="meyebrow">Artist Brief<br>Internal Use Only</div>
-      <h1 id="heroName">Delia<br><em>Redfern</em></h1>
-      <p class="mdate" id="heroDate">Friday, October 22, 2027</p>
-      <p class="mmeta"><span id="heroCallTime">Call Time</span><br><span id="heroVenue">The Chattanoogan Hotel</span></p>
-      <a href="#" id="experienceLinkButton" target="_blank" rel="noopener" class="mbtn">View Her Bridal Suite</a>
+<header class="hero tex">
+  <div class="top"><span class="logo"><span class="est">Est.</span><span class="l1">MKBeauty</span><span class="l2">Artistry</span></span></div>
+  <div class="stage"><div class="wm" id="xwm">brief.</div><div class="body" id="xbody">
+    <div class="kicker">The Artist Brief</div>
+    <div class="reserved">Prepared for the team of</div>
+    <h1 id="heroName"><span>Delia</span><span>Redfern</span></h1>
+    <div class="rule"></div>
+    <div class="meta">
+      <div class="full"><div class="eb">Event Day</div><div class="v" id="heroDate">Friday, October 22, 2027</div></div>
+      <div class="full"><div class="eb">Venue</div><div class="v" id="heroVenue">The Chattanoogan Hotel</div></div>
+      <div id="callWrap" style="display:none"><div class="eb">Call Time</div><div class="v" id="heroCall"></div></div>
+      <div id="readyWrap" style="display:none"><div class="eb">Ready By</div><div class="v" id="heroReady"></div></div>
     </div>
-  </div>
+    <div class="hero-links"><span class="internal">Internal · Team Only</span><a class="suite-link" id="experienceLinkButton" href="#" target="_blank" rel="noopener">View her Bridal Suite</a></div>
+  </div></div>
 </header>
 
-<nav class="navbar">
-  <a href="#overview">Overview</a>
-  <a href="#vision">Vision Recap</a>
-  <a href="#logistics">Logistics</a>
-  <a href="#details">Note</a>
-  <a href="#team">Team</a>
-  <a href="#clients">Clients</a>
-  <a href="#pay">Pay</a>
-</nav>
-
-<div style="padding:22px 20px 4px;text-align:center;max-width:760px;margin:0 auto;">
-  <div id="topRoster"></div>
-</div>
-
-<!-- ===================== I. OVERVIEW ===================== -->
-<div class="section" id="overview">
-  <div class="section-label">I</div>
-  <h2 class="section-title">Event <em>Overview</em></h2>
-  <div class="card">
-    <div class="row"><span class="label">Party Size</span><span class="value" id="ov_partySize">Not set</span></div>
-    <div class="row"><span class="label">Day-Of Contact</span><span class="value" id="ov_dayOfContact">Not set</span></div>
-    <div class="row"><span class="label">Getting-Ready Address</span><span class="value" id="ov_gettingReady">Not set</span></div>
-    <div class="row"><span class="label">Ceremony Time</span><span class="value" id="ov_ceremonyTime">Not set</span></div>
-    <div class="row"><span class="label">Ready By</span><span class="value" id="ov_readyByTime">Not set</span></div>
+<main class="wrap">
+  <div class="directory">
+    <div class="serif">The <em>Directory</em></div>
+    <div class="dir-list">
+      <a href="#overview"><span class="n">01</span><span class="t">Overview</span><span class="dots"></span></a>
+      <a href="#vision"><span class="n">02</span><span class="t">Vision Recap</span><span class="dots"></span></a>
+      <a href="#logistics"><span class="n">03</span><span class="t">Run of Show &amp; Logistics</span><span class="dots"></span></a>
+      <a href="#note"><span class="n">04</span><span class="t">A Note from Morgan</span><span class="dots"></span></a>
+      <a href="#team"><span class="n">05</span><span class="t">The Team</span><span class="dots"></span></a>
+      <a href="#clients"><span class="n">06</span><span class="t">Your Schedule &amp; Clients</span><span class="dots"></span></a>
+      <a href="#pay"><span class="n">07</span><span class="t">Pay</span><span class="dots"></span></a>
+    </div>
   </div>
-  <div class="card featured" style="text-align:center;" id="ov_contractCard">
-    <div class="mini-label" style="margin-bottom:6px;">Contract</div>
-    <a href="#" id="ov_contractLink" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;background:var(--burgundy);
-      color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-      padding:13px 26px;border-radius:24px;">View Signed Contract</a>
+  <div class="rooms">
+
+  <details class="room tex" id="overview" open>
+    <summary><div class="num">01</div><div class="eb">Section One</div><h2><em>Overview</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="kv">
+        <div><div class="k">Party Size</div><div class="v" id="ov_partySize">Not set</div></div>
+        <div><div class="k">Getting Ready</div><div class="v" id="ov_gettingReady">Not set</div></div>
+        <div><div class="k">Ceremony</div><div class="v" id="ov_ceremonyTime">Not set</div></div>
+        <div><div class="k">Ready By</div><div class="v" id="ov_readyByTime">Not set</div></div>
+      </div></div>
+      <div class="panel"><div class="eb">Who to Call</div><div class="kv">
+        <div><div class="k">Day-Of Contact</div><div class="v" id="ov_dayOfContact">Not set</div></div>
+        <div><div class="k">Their Phone</div><div class="v" id="ov_dayOfPhone">Not set</div></div>
+        <div><div class="k">Bride Phone</div><div class="v" id="ov_bridePhone">Not set</div></div>
+        <div><div class="k">Bride Email</div><div class="v" id="ov_brideEmail" style="word-break:break-all">Not set</div></div>
+      </div></div>
+      <div class="panel"><div class="eb">Wedding Feel</div><div class="note" id="ov_weddingFeel">Nothing added yet.</div></div>
+      <div class="panel" id="ov_contractCard" style="text-align:center"><a class="btn" id="ov_contractLink" href="#" target="_blank" rel="noopener">View Signed Contract</a></div></div>
+  </details>
+  <details class="room tex" id="vision">
+    <summary><div class="num">02</div><div class="eb">Section Two</div><h2>Vision <em>Recap</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div id="visionRecap"><div class="panel"><div class="note">She hasn't submitted her Vision yet.</div></div></div>
+      <div class="panel" id="brideInspoWrap" style="display:none"><div class="eb">Her Inspo</div><div id="brideInspo"></div></div></div>
+  </details>
+  <details class="room tex" id="logistics">
+    <summary><div class="num">03</div><div class="eb">Section Three</div><h2>Run of Show <em>&amp; Logistics</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="eb">Full Run of Show</div><div id="masterRos"><div class="note">The run of show will appear here once it's built.</div></div></div>
+      <div class="panel"><div class="eb">Travel &amp; Logistics</div><div class="note" id="lg_travel">Nothing added yet.</div></div>
+      <div class="panel"><div class="eb">Internal Notes</div><div class="note" id="lg_notes">Nothing added yet.</div></div>
+      <div class="panel"><div class="eb">Glam Team Notes</div><div class="note" id="lg_glam">Nothing added yet.</div></div></div>
+  </details>
+  <details class="room tex" id="note">
+    <summary><div class="num">04</div><div class="eb">Section Four</div><h2>A Note from <em>Morgan</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="note" id="morganNote">Nothing yet for this bride. A little something from Morgan, just for this event, goes here once she's shared it.</div></div></div>
+  </details>
+  <details class="room tex" id="team">
+    <summary><div class="num">05</div><div class="eb">Section Five</div><h2>The <em>Team</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="team" id="teamRoster"><div class="note">No artist assignments yet. Add them in the Artist Assignments column on Bookings Pipeline.</div></div></div>
+      <div class="panel" id="teamDoneWrap" style="display:none"><div class="note" id="teamDone"></div></div></div>
+  </details>
+  <details class="room tex" id="clients" open>
+    <summary><div class="num">06</div><div class="eb">Section Six</div><h2>Your Schedule <em>&amp; Clients</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="tapname">Tap your name to see your schedule, your notes and your clients. Tap any photo to see it larger.</div>
+      <div id="artistViews"><div class="panel"><div class="note">Loading...</div></div></div></div>
+  </details>
+  <details class="room tex" id="pay">
+    <summary><div class="num">07</div><div class="eb">Section Seven</div><h2><em>Pay</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="eb">Tap your name</div><div class="paypills" id="artistPayPills"></div><div id="artistPayReveal"></div></div></div>
+  </details>
   </div>
-  <div class="card featured">
-    <div class="row" style="border:none;"><span class="label">Wedding Feel / Notes</span></div>
-    <div id="ov_weddingFeel" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
-  </div>
-</div>
-
-<!-- ===================== II. VISION RECAP ===================== -->
-<div class="section" id="vision">
-  <div class="section-label">II</div>
-  <h2 class="section-title">Bride's <em>Vision</em> Recap</h2>
-  <div id="visionRecap"><div class="placeholder-note">She hasn't submitted her Vision yet.</div></div>
-  <div id="brideInspoWrap" style="display:none;">
-    <div class="mini-label" style="margin-top:8px;">Her Inspo</div>
-    <div class="photo-grid" id="brideInspo"></div>
-  </div>
-</div>
-
-<!-- ===================== III. LOGISTICS ===================== -->
-<div class="section" id="logistics">
-  <div class="section-label">III</div>
-  <h2 class="section-title">Run of Show &amp; <em>Logistics</em></h2>
-  <div class="card">
-    <div class="row" style="border:none;"><span class="label">Run of Show</span></div>
-    <div id="lg_runOfShow"><div class="placeholder-note" style="padding:16px;">Nothing added yet.</div></div>
-  </div>
-  <div class="card">
-    <div class="row" style="border:none;"><span class="label">Travel &amp; Logistics</span></div>
-    <div id="lg_travel" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
-  </div>
-  <div class="card">
-    <div class="row" style="border:none;"><span class="label">Notes from Morgan</span></div>
-    <div id="lg_notes" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
-  </div>
-  <div class="card">
-    <div class="row" style="border:none;"><span class="label">Glam Team Notes</span></div>
-    <div id="lg_glam" style="font-size:14px;line-height:1.6;">Nothing added yet.</div>
-  </div>
-</div>
-
-<!-- ===================== IV. A NOTE FROM MORGAN (build-time) ===================== -->
-<div class="section" id="details">
-  <div class="section-label">IV</div>
-  <h2 class="section-title">A Note from <em>Morgan</em></h2>
-  <div class="placeholder-note">Nothing yet for this bride. A little something from Morgan, just for this event, goes here once she's shared it.</div>
-</div>
-
-<!-- ===================== V. TEAM ===================== -->
-<div class="section" id="team">
-  <div class="section-label">V</div>
-  <h2 class="section-title">The <em>Team</em></h2>
-  <div class="mini-label">Meet Your Team</div>
-  <div id="meetTeam"><div class="placeholder-note">No artist assignments yet. Add them in the Artist Assignments column on Bookings Pipeline.</div></div>
-</div>
-
-<!-- ===================== VI. CLIENTS (live from the Bridal Party tab) ===================== -->
-<div class="section" id="clients">
-  <div class="section-label">VI</div>
-  <h2 class="section-title">Your <em>Clients</em></h2>
-  <p style="font-size:13px;color:var(--muted);font-style:italic;margin:-6px 0 18px;line-height:1.6;">Each guest's selfie, details, and inspo, grouped by artist. This fills in on its own as guests complete their pages. Tap any photo to see it larger.</p>
-  <div id="clientsWrap"><div class="placeholder-note">Loading guests...</div></div>
-</div>
-
-<!-- ===================== VII. ARTIST PAY ===================== -->
-<div class="section" id="pay">
-  <div class="section-label">VII</div>
-  <h2 class="section-title">Artist <em>Pay</em></h2>
-  <p style="font-size:12px;color:var(--muted);font-style:italic;margin-bottom:14px;">Tap a name to view that artist's pay. Only one shows at a time.</p>
-  <div id="artistPayPills" class="chip-group"></div>
-  <div id="artistPayReveal"></div>
-</div>
-
-<div class="footer">
-  <div class="brand">MKBeauty Artistry</div>
-  <div class="sub">Morgan Kelly Baird</div>
-  <div class="internal">Internal Event Brief &middot; Not for Client Distribution</div>
-</div>
-
+</main>
+<footer><div class="serif">MKBeauty Artistry</div><div class="eb">Internal Event Brief · Not for Client Distribution</div></footer>
 <div class="lightbox" id="lightbox" onclick="this.classList.remove('show')"><img id="lightboxImg" alt=""></div>
 
 <script>
@@ -291,19 +379,17 @@ h1,h2,h3,.serif{font-family:'Instrument Serif',serif;font-weight:400;}
    CONFIG: set these per bride when building this file.
    ===================================================================== */
 const EVENT_ID = "EVT-047";
-const EXPERIENCE_URL = "https://mkbeauty-artistry.vercel.app/brides/delia-redfern";
+const EXPERIENCE_URL = "https://mkbeauty-artistry.vercel.app/brides/delia-redfern"; // her Bridal Suite
 const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
 const TEAM_PASSWORD = "MKB2026"; // sent automatically, no prompt, this page is never shared with the bride
+const FALLBACK_NAME = "Delia Redfern";
 
-let record = {};
-let visionData = {};
-let party = [];
-
+let record = {}, visionData = {}, party = [];
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-function blank(v){ return v === undefined || v === null || v === ''; }
+function blank(v){ return v === undefined || v === null || String(v).trim() === ''; }
 function orNotSet(v){ return blank(v) ? 'Not set' : v; }
-function orFallback(v, f){ return blank(v) ? f : v; }
 function initials(n){ return String(n || '').split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase(); }
+function parseJSON(s, fb){ try { return s ? JSON.parse(s) : fb; } catch(e) { return fb; } }
 async function apiGet(params){
   const qs = Object.entries(Object.assign({ id: EVENT_ID, pw: TEAM_PASSWORD }, params)).map(([k,v]) => k + "=" + encodeURIComponent(v)).join("&");
   return (await fetch(API_URL + "?" + qs)).json();
@@ -316,32 +402,34 @@ function formatTimeValue(raw){
   return h + ':' + m[2] + ap;
 }
 function openPhoto(src){ document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').classList.add('show'); }
-document.addEventListener('click', e => { const img = e.target.closest('.photo-tile img, .client-selfie img'); if (img) openPhoto(img.src); });
+document.addEventListener('click', e => { const img = e.target.closest('.photo-tile img, .cl .pic img, .cl .ins img'); if (img) { e.preventDefault(); openPhoto(img.src); } });
 function photoGrid(list){ return '<div class="photo-grid">' + list.filter(Boolean).map(u => `<div class="photo-tile"><img src="${u}" alt=""></div>`).join('') + '</div>'; }
 
 /* ---------- Hero + Overview ---------- */
 function populateHeroAndOverview(){
-  const name = record["Bride / Client Name"] || "Delia Redfern";
-  document.getElementById('heroName').innerHTML = esc(name.split(' ')[0]) + '<br><em>' + esc(name.split(' ').slice(1).join(' ')) + '</em>';
-  if (record["Event Date"]) {
-    const d = new Date(record["Event Date"]);
-    if (!isNaN(d)) document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
-  }
+  const name = String(record["Bride / Client Name"] || FALLBACK_NAME).trim();
+  const parts = name.split(' ');
+  document.getElementById('heroName').innerHTML = '<span>' + esc(parts[0]) + '</span><span>' + esc(parts.slice(1).join(' ')) + '</span>';
+  document.title = name + ' Artist Brief | MKBeauty';
+  if (record["Event Date"]) { const d = new Date(record["Event Date"]); if (!isNaN(d)) document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'}); }
   const venue = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
   if (venue) document.getElementById('heroVenue').textContent = venue;
   const call = formatTimeValue(record["Call Time"]);
-  const callEl = document.getElementById('heroCallTime');
-  if (call) callEl.textContent = 'Call Time ' + call; else callEl.style.display = 'none';
+  if (call) { document.getElementById('heroCall').textContent = call; document.getElementById('callWrap').style.display = ''; }
+  const ready = formatTimeValue(record["Ready By Time"]);
+  if (ready) { document.getElementById('heroReady').textContent = ready; document.getElementById('readyWrap').style.display = ''; }
   document.getElementById('experienceLinkButton').href = EXPERIENCE_URL;
-
   document.getElementById('ov_partySize').textContent = orNotSet(record["Party Size"]);
-  if (record["Contract Link"]) document.getElementById('ov_contractLink').href = record["Contract Link"];
-  else document.getElementById('ov_contractCard').style.display = 'none';
-  document.getElementById('ov_dayOfContact').textContent = orNotSet([record["Day-Of Contact"], record["Day-Of Contact Phone"]].filter(Boolean).join(', '));
   document.getElementById('ov_gettingReady').textContent = orNotSet(record["Getting-Ready Address"]);
   document.getElementById('ov_ceremonyTime').textContent = orNotSet(formatTimeValue(record["Ceremony Time"]));
-  document.getElementById('ov_readyByTime').textContent = orNotSet(formatTimeValue(record["Ready By Time"]));
-  document.getElementById('ov_weddingFeel').textContent = orFallback(record["Wedding Feel / Notes"], 'Nothing added yet.');
+  document.getElementById('ov_readyByTime').textContent = orNotSet(ready);
+  document.getElementById('ov_dayOfContact').textContent = orNotSet(record["Day-Of Contact"]);
+  document.getElementById('ov_dayOfPhone').textContent = orNotSet(record["Day-Of Contact Phone"]);
+  document.getElementById('ov_bridePhone').textContent = orNotSet(record["Phone"]);
+  document.getElementById('ov_brideEmail').textContent = orNotSet(record["Email"]);
+  if (!blank(record["Wedding Feel / Notes"])) document.getElementById('ov_weddingFeel').textContent = record["Wedding Feel / Notes"];
+  if (record["Contract Link"]) document.getElementById('ov_contractLink').href = record["Contract Link"];
+  else document.getElementById('ov_contractCard').style.display = 'none';
 }
 
 /* ---------- Vision recap ---------- */
@@ -354,86 +442,194 @@ const LOOK_LABELS = {
   brows:['Natural','Defined','Soft Powder','Full & Groomed']
 };
 const LOOK_TITLES = {base:'Base', eyes:'Eyes', cheeks:'Cheeks', lips:'Lips', brows:'Brows', hair:'Hair'};
+function brideLookChips(){
+  const v = visionData || {}, out = [];
+  if (!v.look) return out;
+  Object.keys(LOOK_TITLES).forEach(k => { const st = v.look[k]; if (st && st.chips) LOOK_LABELS[k].forEach((l, i) => { if (st.chips[i]) out.push(l); }); });
+  return out;
+}
 function populateVisionRecap(){
-  const wrap = document.getElementById('visionRecap');
-  if (!visionData || !Object.keys(visionData).length) return;
-  const v = visionData, bits = [];
-  if (v.q_vision) bits.push(`<div class="card featured"><div class="row" style="border:none;"><span class="label">In Her Words</span></div><div style="font-family:'Instrument Serif';font-style:italic;font-size:17px;">${esc(v.q_vision)}</div></div>`);
+  const v = visionData;
+  if (!v || !Object.keys(v).length) return;
+  const bits = [];
+  if (v.q_vision) bits.push(`<div class="panel"><div class="eb">In Her Words</div><div class="vr-quote">${esc(v.q_vision)}</div></div>`);
   if (v.profile) {
     const p = v.profile;
     const rows = [['Skin Type',p.skinType],['Skin Concerns',p.skinConcerns],['Eye Color',p.eyeColor],['Hair Color',p.hairColor],['Freckles / Texture',p.freckles],['Allergies',p.allergies]].filter(r => r[1]);
-    if (rows.length) bits.push('<div class="card">' + rows.map(r => `<div class="row"><span class="label">${r[0]}</span><span class="value">${esc(r[1])}</span></div>`).join('') + '</div>');
+    if (rows.length) bits.push('<div class="panel"><div class="eb">Bridal Profile</div>' + rows.map(r => `<div class="vr-row"><span>${r[0]}</span><span>${esc(r[1])}</span></div>`).join('') + '</div>');
   }
   if (v.look) {
     const lines = Object.keys(LOOK_TITLES).map(k => {
       const st = v.look[k]; if (!st || !st.chips) return '';
       const on = LOOK_LABELS[k].filter((_, i) => st.chips[i]);
-      return on.length ? `<div style="margin-bottom:6px;"><span class="label" style="color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-right:8px;">${LOOK_TITLES[k]}</span>${on.map(x => `<span class="look-chip">${esc(x)}</span>`).join('')}</div>` : '';
+      return on.length ? `<div class="vr-look"><b>${LOOK_TITLES[k]}</b><div class="chips">${on.map(x => `<span class="chip on">${esc(x)}</span>`).join('')}</div></div>` : '';
     }).join('');
-    const finish = v.finish != null ? (v.finish < 33 ? 'Matte' : v.finish > 66 ? 'Dewy / Glowy' : 'In Between') : '';
-    if (lines || finish) bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Her Look</span>${finish ? `<span class="value">Finish: ${finish}</span>` : ''}</div>${lines}</div>`);
+    const finish = v.finish != null && v.finish !== '' ? (v.finish < 33 ? 'Matte' : v.finish > 66 ? 'Dewy / Glowy' : 'In Between') : '';
+    if (lines || finish) bits.push(`<div class="panel"><div class="eb">Her Look${finish ? ' · Finish: ' + finish : ''}</div>${lines}</div>`);
   }
   [['Big Day Considerations', v.q_bigDay], ['Hair Details', v.q_hairDetails], ['Veil / Accessories', v.q_veilAccessories], ['Clip-In Extensions', v.q_extensions], ['Jewelry', v.q_jewelry], ['Everyday Habits', v.q_everyday]].forEach(([l, t]) => {
-    if (t) bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">${l}</span></div><div style="font-size:14px;line-height:1.6;">${esc(t)}</div></div>`);
+    if (t) bits.push(`<div class="panel"><div class="eb">${l}</div><div class="note">${esc(t)}</div></div>`);
   });
   const la = v.lovedAvoid || {};
-  if ((la.loved && la.loved.length) || (la.avoid && la.avoid.length)) {
-    bits.push(`<div class="card"><div class="row" style="border:none;"><span class="label">Loved</span></div><div style="font-size:14px;">${esc((la.loved||[]).join(', ') || 'None listed')}</div>
-      <div class="row" style="border:none;margin-top:10px;"><span class="label">To Avoid</span></div><div style="font-size:14px;">${esc((la.avoid||[]).join(', ') || 'None listed')}</div></div>`);
-  }
-  if (bits.length) wrap.innerHTML = bits.join('');
+  if ((la.loved && la.loved.length) || (la.avoid && la.avoid.length))
+    bits.push(`<div class="panel"><div class="eb">Loved</div><div class="note">${esc((la.loved||[]).join(', ') || 'None listed')}</div><div class="eb" style="margin-top:12px">To Avoid</div><div class="note">${esc((la.avoid||[]).join(', ') || 'None listed')}</div></div>`);
+  if (bits.length) document.getElementById('visionRecap').innerHTML = bits.join('');
 }
 
-/* ---------- Roster + Meet Your Team ---------- */
-function renderTeam(){
-  const roster = record["Public Roster"] || [];
-  if (!roster.length) return;
-  document.getElementById('topRoster').innerHTML = `<div class="mini-label" style="margin-bottom:8px;">Your Team</div>`
-    + roster.map(a => `<span class="roster-pill" style="padding:7px 14px;">${esc(a.name)}</span>`).join('');
-  document.getElementById('meetTeam').innerHTML = roster.map(a => {
-    const queue = party.filter(g => String(g.artist || '').trim() === a.name).map(g => esc(String(g.name).split(' ')[0]) + (g.role ? ' (' + esc(g.role) + ')' : ''));
-    return `<div class="team-card"><div class="team-card-inner">
-      <div class="team-initials">${esc(String(a.name).slice(0, 2).toUpperCase())}</div>
-      <div style="flex:1;">
-        <div class="team-name">${esc(a.name)} <span class="role">&middot; ${esc(a.role)}</span></div>
-        <div class="team-roster-line">${queue.length ? 'On your chair: ' + queue.join(', ') : 'Clients assigned in the Bridal Party tab'}</div>
-      </div></div></div>`;
+/* ---------- Logistics text ---------- */
+function populateLogistics(){
+  if (!blank(record["Travel Logistics"])) document.getElementById('lg_travel').textContent = record["Travel Logistics"];
+  if (!blank(record["Internal Notes"])) document.getElementById('lg_notes').textContent = record["Internal Notes"];
+  if (!blank(record["Glam Team Notes"])) document.getElementById('lg_glam').textContent = record["Glam Team Notes"];
+}
+
+/* =====================================================================
+   RUN OF SHOW
+   One line per time in the Run of Show cell: "8:30 AM - Susie hair, Tory hair, Tanya makeup"
+   Each client ends with "hair" or "makeup". Who does it comes from:
+     bride:  Bride Makeup Artist / Bride Hair Stylist (Experience Data)
+     guests: Makeup Artist / Hair Stylist (Bridal Party tab), falling back to Artist
+   Lines without a client (call time, content, photos) are for everyone,
+   and also show on any artist whose name or station appears in the line.
+   ===================================================================== */
+const ROLE_ALIASES = { 'mob':'mother of the bride', 'mog':'mother of the groom', 'moh':'maid of honor', 'fg':'flower girl' };
+let ros = [], team = [], clients = {};
+function norm(s){ return String(s || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+function brideNames(){ const n = String(record["Bride / Client Name"] || FALLBACK_NAME).trim(); return ['bride', 'the bride', norm(n), norm(n.split(' ')[0])]; }
+function buildClients(){
+  clients = {};
+  const bn = String(record["Bride / Client Name"] || FALLBACK_NAME).trim();
+  clients.__bride = { key:'__bride', name: bn, display: 'Bride', role: 'Bride', isBride: true,
+    makeup: String(record["Bride Makeup Artist"] || '').trim(), hair: String(record["Bride Hair Stylist"] || '').trim(), services: record["Services Booked"] || '' };
+  party.forEach(g => {
+    const svc = norm(g.services);
+    const legacy = String(g.artist || '').trim();
+    clients[g.guestId] = Object.assign({}, g, { key: g.guestId, display: g.name,
+      makeup: String(g.makeupArtist || '').trim() || (svc.includes('makeup') || !svc ? legacy : ''),
+      hair: String(g.hairStylist || '').trim() || (!svc.includes('makeup') && svc.includes('hair') ? legacy : '') });
+  });
+}
+function findClient(label){
+  const l = norm(label); if (!l) return null;
+  if (brideNames().includes(l)) return clients.__bride;
+  const want = ROLE_ALIASES[l] || l;
+  const gs = Object.values(clients).filter(c => !c.isBride);
+  return gs.find(c => norm(c.name) === want) || gs.find(c => norm(String(c.name).split(' ')[0]) === want) || gs.find(c => norm(c.role) === want) || null;
+}
+function parseRos(){
+  const raw = record["Run of Show"]; if (blank(raw)) return [];
+  return String(raw).split('\n').map(l => l.trim()).filter(Boolean).map(line => {
+    const m = /^(.+?)\s+[-\u2014\u2013]\s+(.+)$/.exec(line) || /^(.+?)\s*[-\u2014\u2013]\s*(.+)$/.exec(line);
+    const time = m ? m[1].trim() : '', rest = m ? m[2] : line;
+    const items = rest.split(',').map(x => x.trim()).filter(Boolean).map(text => {
+      const mm = /^(.*?)\s+(hair|makeup)$/i.exec(text);
+      if (!mm) return { text, client: null, service: null };
+      const c = findClient(mm[1]);
+      const service = mm[2].toLowerCase();
+      return { text, label: mm[1], client: c, service, who: c ? c[service] : '' };
+    });
+    return { time, items };
+  });
+}
+function stationRank(role){ const r = norm(role); return r.includes('lead') ? 0 : r.includes('makeup') || r.includes('mua') ? 1 : r.includes('hair') || r.includes('styl') ? 3 : 2; }
+function artistNotes(){
+  const out = {}; const raw = record["Artist Notes"]; if (blank(raw)) return out;
+  String(raw).split('\n').forEach(line => { const m = /^\s*([^:]+):\s*(.+)$/.exec(line); if (m) { const k = norm(m[1]); out[k] = (out[k] ? out[k] + '\n' : '') + m[2].trim(); } });
+  return out;
+}
+
+function renderMasterRos(){
+  if (!ros.length) return;
+  document.getElementById('masterRos').innerHTML = ros.map(r => {
+    const all = r.items.every(i => !i.service);
+    const what = all ? esc(r.items.map(i => i.text).join(', '))
+      : r.items.map(i => i.service ? `<span class="${i.who ? '' : 'unas'}">${esc(i.text)}${i.who ? ' <i>· ' + esc(i.who) + '</i>' : ' <i>· unassigned</i>'}</span>` : `<span>${esc(i.text)}</span>`).join('');
+    return `<div class="ros-row${all ? ' all' : ''}"><b>${esc(r.time)}</b><div class="what">${what}</div></div>`;
   }).join('');
 }
 
-/* ---------- Clients (Bridal Party tab) ---------- */
-function parseJSON(s, fb){ try { return s ? JSON.parse(s) : fb; } catch(e) { return fb; } }
-function clientCard(g){
-  const p = parseJSON(g.profile, {}), look = parseJSON(g.look, {makeup:[], hair:[]});
-  const rows = [['Skin Type',p.skinType],['Allergies',p.allergies],['Hair Length',p.hairLength],['Hair Thickness',p.hairThickness],['Texture',p.hairTexture],['Extensions',p.extensions],['Lashes',p.lashes],['Phone',g.phone]].filter(r => r[1]);
-  const chips = (look.makeup || []).map(x => `<span class="look-chip">${esc(x)}</span>`).join('') + (look.hair || []).map(x => `<span class="look-chip">${esc(x)}</span>`).join('');
-  const inspo = (g.inspo || []).filter(Boolean);
-  const done = g.status === 'Complete';
-  return `<div class="client-card">
-    <div class="client-top">
-      <div class="client-selfie">${g.selfie ? `<img src="${g.selfie}" alt="">` : esc(initials(g.name))}</div>
-      <div style="flex:1;min-width:0;">
-        <div class="client-name">${esc(g.name)}</div>
-        <div class="client-role">${esc(g.role || '')}${g.services ? ' &middot; ' + esc(g.services) : ''}</div>
-        <div class="client-status ${done ? 'ok' : 'wait'}">${done ? 'Details complete' : g.status === 'Started' ? 'Started, not finished' : 'Has not opened her link yet'}</div>
-      </div>
-    </div>
-    ${rows.length ? rows.map(r => `<div class="row"><span class="label">${r[0]}</span><span class="value">${esc(r[1])}</span></div>`).join('') : ''}
-    ${chips ? `<div style="margin-top:10px;">${chips}</div>` : ''}
-    ${g.notes ? `<div class="client-notes"><span class="label" style="color:var(--burgundy);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;">Notes</span><br>${esc(g.notes)}</div>` : ''}
-    ${inspo.length ? photoGrid(inspo) : ''}
-  </div>`;
+function clientCard(c, times){
+  if (c.isBride) {
+    const v = visionData || {}, p = v.profile || {};
+    const prof = [p.skinType, p.allergies ? 'Allergies: ' + p.allergies : '', p.hairColor].filter(Boolean).join(' · ');
+    const chips = brideLookChips();
+    const ins = (window.__brideInspo || []).slice(0, 6);
+    return `<div class="cl"><div class="pic">${ins[0] ? `<img src="${ins[0]}" alt="">` : 'B'}</div><div>
+      <div class="nm">${esc(c.name)}</div><div class="sub">Bride${times.length ? ' · ' + esc(times.join(', ')) : ''}</div>
+      ${prof ? `<div class="prof">${esc(prof)}</div>` : ''}
+      ${chips.length ? `<div class="chips">${chips.map(x => `<span class="chip on">${esc(x)}</span>`).join('')}</div>` : ''}
+      ${ins.length > 1 ? `<div class="ins">${ins.slice(1).map(u => `<img src="${u}" alt="">`).join('')}</div>` : ''}
+      <div class="cnotes">Her full vision is in Section Two.</div></div></div>`;
+  }
+  const p = parseJSON(c.profile, {}), look = parseJSON(c.look, {makeup:[], hair:[]});
+  const prof = [p.skinType, p.allergies ? 'Allergies: ' + p.allergies : '', [p.hairLength, p.hairThickness, p.hairTexture].filter(Boolean).join(', '), p.extensions && /yes/i.test(p.extensions) ? 'Bringing extensions' : '', p.lashes ? 'Lashes: ' + p.lashes : '', c.phone].filter(Boolean).join(' · ');
+  const chips = [...(look.makeup || []), ...(look.hair || [])];
+  const ins = (c.inspo || []).filter(Boolean);
+  const done = c.status === 'Complete';
+  return `<div class="cl"><div class="pic">${c.selfie ? `<img src="${c.selfie}" alt="">` : esc(initials(c.name))}</div><div>
+    <div class="nm">${esc(c.name)}</div><div class="sub">${esc(c.role || '')}${times.length ? ' · ' + esc(times.join(', ')) : c.services ? ' · ' + esc(c.services) : ''}</div>
+    <div class="status ${done ? 'ok' : 'wait'}">${done ? 'Details complete' : c.status === 'Started' ? 'Started, not finished' : 'Has not opened her link yet'}</div>
+    ${prof ? `<div class="prof">${esc(prof)}</div>` : ''}
+    ${chips.length ? `<div class="chips">${chips.map(x => `<span class="chip on">${esc(x)}</span>`).join('')}</div>` : ''}
+    ${c.notes ? `<div class="cnotes">${esc(c.notes)}</div>` : ''}
+    ${ins.length ? `<div class="ins">${ins.map(u => `<img src="${u}" alt="">`).join('')}</div>` : ''}
+  </div></div>`;
 }
-function renderClients(){
-  const wrap = document.getElementById('clientsWrap');
-  if (!party.length) { wrap.innerHTML = '<div class="placeholder-note">No guests added yet. They appear here as soon as the bride adds them in her Suite.</div>'; return; }
-  const groups = {};
-  party.forEach(g => { const a = String(g.artist || '').trim() || 'Not Yet Assigned'; (groups[a] = groups[a] || []).push(g); });
-  const order = Object.keys(groups).sort((a, b) => (a === 'Not Yet Assigned') - (b === 'Not Yet Assigned'));
-  wrap.innerHTML = order.map(a => `<div class="artist-group">
-    <div class="artist-group-head"><div class="nm">${a === 'Not Yet Assigned' ? '<em>Not Yet Assigned</em>' : esc(a)}</div><div class="ct">${groups[a].length} ${groups[a].length === 1 ? 'client' : 'clients'}</div></div>
-    ${groups[a].map(clientCard).join('')}
-  </div>`).join('') + (groups['Not Yet Assigned'] ? '<p style="font-size:12px;color:var(--muted);font-style:italic;">To assign a guest, type the artist\'s name (as it appears in Artist Assignments) in the Artist column of the Bridal Party tab.</p>' : '');
+
+function renderArtistViews(){
+  const wrap = document.getElementById('artistViews');
+  const notes = artistNotes();
+  const roster = (record["Public Roster"] || []).slice().sort((a, b) => stationRank(a.role) - stationRank(b.role));
+  // anyone named in an assignment but missing from Artist Assignments still gets a card
+  const named = new Set(roster.map(a => norm(a.name)));
+  Object.values(clients).forEach(c => ['makeup', 'hair'].forEach(s => { if (c[s] && !named.has(norm(c[s]))) { named.add(norm(c[s])); roster.push({ name: c[s], role: s === 'hair' ? 'Hair' : 'Makeup' }); } }));
+  team = roster;
+
+  const cards = roster.map(a => {
+    const me = norm(a.name), station = norm(a.role).replace(/^lead\s+/, '');
+    const mine = [];
+    ros.forEach(r => {
+      const rows = [];
+      r.items.forEach(i => {
+        if (i.service) { if (norm(i.who) === me) rows.push(i.text); }
+        else if (/call time/i.test(i.text) || norm(i.text).includes(me) || (station && norm(i.text).includes(station.split(' ')[0]))) rows.push(i.text);
+      });
+      if (rows.length) mine.push({ time: r.time, rows, hasService: r.items.some(i => i.service && norm(i.who) === me) });
+    });
+    // clients: from assignments, in run of show order
+    const mineClients = [];
+    const times = {};
+    ros.forEach(r => r.items.forEach(i => { if (i.client && norm(i.who) === me) { (times[i.client.key] = times[i.client.key] || []).push(i.service + ' at ' + r.time); if (!mineClients.includes(i.client)) mineClients.push(i.client); } }));
+    Object.values(clients).forEach(c => { if ((norm(c.makeup) === me || norm(c.hair) === me) && !mineClients.includes(c)) mineClients.push(c); });
+    const lastSvc = mine.filter(x => x.hasService).pop();
+    const note = notes[me] || notes[norm(String(a.name).split(' ')[0])];
+    const cnt = mineClients.length;
+    return `<details class="artist"><summary class="a-head"><div class="ini">${esc(String(a.name).slice(0, 2).toUpperCase())}</div><div style="flex:1"><div class="nm">${esc(a.name)}</div><div class="sub">${esc(a.role || '')}${cnt ? ' · ' + cnt + ' client' + (cnt > 1 ? 's' : '') : ''}</div></div><span class="a-chev"></span></summary>
+      <div class="a-body">
+        <div class="eb">Your Run of Show</div>
+        ${mine.length ? mine.map(x => `<div class="ros-row"><b>${esc(x.time)}</b><div class="what">${x.rows.map(esc).join('<br>')}</div></div>`).join('') : '<div class="a-note empty">Your times appear here once the run of show is built.</div>'}
+        <div class="eb">Notes from Morgan</div>
+        ${note ? `<div class="a-note">${esc(note).replace(/\n/g, '<br>')}</div>` : '<div class="a-note empty">No notes yet.</div>'}
+        ${lastSvc ? `<div class="a-flag">Last service starts ${esc(lastSvc.time)}</div>` : ''}
+        ${cnt ? '<div class="eb">Your Clients</div>' + mineClients.map(c => clientCard(c, times[c.key] || [])).join('') : ''}
+      </div></details>`;
+  });
+  // guests with a service nobody is assigned to yet
+  const open = Object.values(clients).filter(c => !c.isBride && (!c.makeup && (norm(c.services).includes('makeup') || !c.services) || !c.hair && norm(c.services).includes('hair')));
+  if (open.length) cards.push(`<details class="artist unassigned"><summary class="a-head"><div class="ini">?</div><div style="flex:1"><div class="nm"><em>Not Yet Assigned</em></div><div class="sub">${open.length} ${open.length === 1 ? 'guest' : 'guests'}</div></div><span class="a-chev"></span></summary>
+    <div class="a-body"><div class="a-note empty" style="margin-top:12px">Assign each guest in the Makeup Artist and Hair Stylist columns of the Bridal Party tab, using names exactly as they appear in Artist Assignments.</div>${open.map(c => clientCard(c, [])).join('')}</div></details>`);
+  wrap.innerHTML = cards.length ? cards.join('') : '<div class="panel"><div class="note">Each artist\'s schedule and clients appear here once the team is set in Artist Assignments and guests are added.</div></div>';
+}
+
+function renderTeam(){
+  if (!team.length) return;
+  document.getElementById('teamRoster').innerHTML = team.map(a => `<div class="member"><div class="ini">${esc(String(a.name).slice(0, 2).toUpperCase())}</div><div class="nm">${esc(a.name)}</div><div class="sub">${esc(a.role || '')}</div></div>`).join('');
+  const svcTimes = ros.filter(r => r.items.some(i => i.service));
+  if (svcTimes.length) {
+    const last = svcTimes[svcTimes.length - 1].time, ready = formatTimeValue(record["Ready By Time"]);
+    document.getElementById('teamDone').textContent = 'Last service starts ' + last + (ready ? '. Everyone ready by ' + ready + '.' : '.');
+    document.getElementById('teamDoneWrap').style.display = '';
+  }
 }
 
 /* ---------- Artist Pay (tap-to-reveal, one at a time) ---------- */
@@ -441,70 +637,53 @@ let payByArtist = {}, openPayArtist = null;
 function renderArtistPayouts(){
   const pills = document.getElementById('artistPayPills');
   const rows = record["Artist Payouts"] || [];
-  if (!rows.length) { pills.innerHTML = '<div class="placeholder-note">Pay hasn\'t been entered yet.</div>'; return; }
+  if (!rows.length) { pills.innerHTML = '<div class="note">Pay hasn\'t been entered yet.</div>'; return; }
   payByArtist = {};
   rows.forEach(r => { const n = r.artist || 'Unassigned'; (payByArtist[n] = payByArtist[n] || []).push(r); });
-  pills.innerHTML = Object.keys(payByArtist).map(n => `<span class="pay-pill" data-artist="${esc(n)}" onclick="togglePayReveal(this)">${esc(n)}</span>`).join('');
+  pills.innerHTML = Object.keys(payByArtist).map(n => `<button class="paypill" data-artist="${esc(n)}" onclick="togglePayReveal(this)">${esc(n)}</button>`).join('');
 }
 function togglePayReveal(el){
   const name = el.getAttribute('data-artist'), pills = document.getElementById('artistPayPills'), reveal = document.getElementById('artistPayReveal');
-  if (openPayArtist === name) { reveal.innerHTML = ''; openPayArtist = null; pills.querySelectorAll('.pay-pill').forEach(p => p.classList.remove('active')); return; }
+  if (openPayArtist === name) { reveal.innerHTML = ''; openPayArtist = null; pills.querySelectorAll('.paypill').forEach(p => p.classList.remove('on')); return; }
   openPayArtist = name;
-  pills.querySelectorAll('.pay-pill').forEach(p => p.classList.toggle('active', p.getAttribute('data-artist') === name));
+  pills.querySelectorAll('.paypill').forEach(p => p.classList.toggle('on', p.getAttribute('data-artist') === name));
   const items = payByArtist[name] || [];
   const total = items.reduce((s, i) => s + (parseFloat(i.subtotal) || 0), 0);
-  reveal.innerHTML = `<div class="card featured"><div style="font-family:'Instrument Serif';font-size:20px;margin-bottom:8px;">${esc(name)}</div>
-    ${items.map(i => { const q = Number(i.qty) || 1, r = Number(i.rate) || 0;
-      return `<div class="row"><span class="label" style="text-transform:none;font-size:13px;">${esc(i.service)}${q > 1 ? ` (${q} &times; $${r.toFixed(2)})` : ''}</span><span class="value">$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`; }).join('')}
-    <div style="font-family:'Instrument Serif';font-size:24px;text-align:right;margin-top:10px;color:var(--burgundy);">$${total.toFixed(2)}</div></div>`;
+  reveal.innerHTML = '<div style="margin-top:12px">' + items.map(i => { const q = Number(i.qty) || 1, r = Number(i.rate) || 0;
+      return `<div class="pay-item"><span>${esc(i.service)}${q > 1 ? ` (${q} × $${r.toFixed(2)})` : ''}</span><span>$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`; }).join('')
+    + `<div class="pay-total">$${total.toFixed(2)}</div></div>`;
 }
 
-/* ---------- Logistics ---------- */
-function renderScheduleBlocks(elId, raw){
-  if (!raw) return;
-  const lines = String(raw).split('\n').map(l => l.trim()).filter(Boolean);
-  if (!lines.length) return;
-  document.getElementById(elId).innerHTML = lines.map(line => {
-    const m = /^(.+?)\s*[-\u2014]\s*(.+)$/.exec(line);
-    return m ? `<div class="schedule-block"><div class="schedule-time">${esc(m[1])}</div><div class="schedule-desc">${esc(m[2])}</div></div>` : `<div class="schedule-block"><div class="schedule-desc">${esc(line)}</div></div>`;
-  }).join('');
+document.querySelectorAll('.dir-list a').forEach(a => a.addEventListener('click', e => {
+  const d = document.querySelector(a.getAttribute('href')); if (!d) return; e.preventDefault(); d.open = true; d.scrollIntoView({behavior:'smooth', block:'start'}); }));
+
+/* ---------- Wordmark fit ---------- */
+function fitWordmark(){
+  const w = document.getElementById('xwm'), b = document.getElementById('xbody'), h = w.closest('.hero');
+  const target = b.offsetHeight, maxW = h.offsetWidth * 0.28; let fs = 400; w.style.fontSize = fs + 'px';
+  while ((w.offsetHeight > target || w.offsetWidth > maxW) && fs > 40) { fs -= 2; w.style.fontSize = fs + 'px'; }
 }
-function populateLogistics(){
-  renderScheduleBlocks('lg_runOfShow', record["Run of Show"]);
-  document.getElementById('lg_travel').textContent = orFallback(record["Travel Logistics"], 'Nothing added yet.');
-  document.getElementById('lg_notes').textContent = orFallback(record["Internal Notes"], 'Nothing added yet.');
-  document.getElementById('lg_glam').textContent = orFallback(record["Glam Team Notes"], 'Nothing added yet.');
-}
+window.addEventListener('load', fitWordmark); window.addEventListener('resize', fitWordmark);
+if (document.fonts) document.fonts.ready.then(fitWordmark);
 
 /* ---------- Init ---------- */
 (async function(){
-  fitWordmark();
   try { record = await apiGet({}); if (record.error) { console.error('Check EVENT_ID'); record = {}; } } catch(e) { record = {}; }
   visionData = parseJSON(record["Vision (JSON)"], {});
   populateHeroAndOverview();
   populateVisionRecap();
   populateLogistics();
   renderArtistPayouts();
+  fitWordmark();
+  try { const r = await apiGet({ brideInspo: 1 }); window.__brideInspo = ((r && r.inspo) || []).filter(Boolean); } catch(e) { window.__brideInspo = []; }
+  if (window.__brideInspo.length) { document.getElementById('brideInspo').innerHTML = photoGrid(window.__brideInspo); document.getElementById('brideInspoWrap').style.display = ''; }
   try { const r = await apiGet({ party: 1 }); party = (r && r.party) || []; } catch(e) { party = []; }
+  buildClients();
+  ros = parseRos();
+  renderMasterRos();
+  renderArtistViews();
   renderTeam();
-  renderClients();
-  try {
-    const r = await apiGet({ brideInspo: 1 });
-    const list = ((r && r.inspo) || []).filter(Boolean);
-    if (list.length) { document.getElementById('brideInspo').outerHTML = photoGrid(list); document.getElementById('brideInspoWrap').style.display = ''; }
-  } catch(e) {}
 })();
-
-/* ---------- Wordmark fit ---------- */
-function fitWordmark(){
-  document.querySelectorAll('.wordmark').forEach(w => {
-    const span = w.querySelector('.wm'); const max = w.clientHeight - 12;
-    let size = window.innerWidth >= 700 ? 150 : 124; span.style.fontSize = size + 'px';
-    while (span.getBoundingClientRect().height > max && size > 48) { size -= 4; span.style.fontSize = size + 'px'; }
-  });
-}
-window.addEventListener('load', fitWordmark);
-if (document.fonts) document.fonts.ready.then(fitWordmark);
 </script>
 </body>
 </html>
