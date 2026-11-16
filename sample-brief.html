@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sample Artist Brief | MKBeauty</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#4E1A26;       /* deepened from #632B37 */
+  --wine-2:#5C2230;     /* buttons, active chips */
+  --bordeaux:#2A070C;   /* text + footer */
+  --cashmere:#DDC8B3;
+  --greige:#9F8E87;
+  --porcelain:#F3EEE7;
+  --linen:#EAE1D7;
+  --paper:#FBF7F2;
+  --blush:#D9AEB5;
+  --soft:#5A3F42;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--porcelain);color:var(--bordeaux);font-family:'Inter Tight',sans-serif;font-weight:450;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+.eb{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+.serif{font-family:'Instrument Serif',serif;font-weight:400}
+.tex{position:relative;isolation:isolate}
+.tex::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.14;mix-blend-mode:multiply;pointer-events:none;border-radius:inherit;z-index:-1}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--wine);color:#F1E4DE;border-radius:0 0 36px 36px;overflow:hidden;min-height:540px;display:flex;flex-direction:column;position:relative}
+.hero .top{display:flex;justify-content:space-between;padding:22px 24px 0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(241,228,222,.6)}
+.hero .wm{position:absolute;left:-4px;bottom:-12px;writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:'Instrument Serif',serif;font-size:200px;line-height:.82;letter-spacing:.01em;color:var(--wine);white-space:nowrap;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.16),-2px -2px 3px rgba(255,226,232,.06),1px 1px 1px rgba(0,0,0,.5),3px 5px 10px rgba(0,0,0,.32)}
+.hero .body{margin-top:auto;padding:0 28px 40px 140px}
+.hero .reserved{font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--blush)}
+.hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:.95;text-transform:uppercase;margin:8px 0 0;letter-spacing:.005em}
+.hero h1 span{display:block}
+.hero .rule{height:1px;background:rgba(217,174,181,.55);margin:26px 0 18px}
+.hero .meta{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero .meta .eb{color:rgba(241,228,222,.55);font-size:9.5px}
+.hero .meta .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;margin-top:3px}
+
+/* ---------- WELCOME / KEY CARD ---------- */
+.welcome{text-align:center;padding:52px 10px 8px}
+.welcome .serif{font-size:30px;line-height:1.1}
+.welcome .serif em{color:var(--wine-2)}
+.welcome p{color:var(--soft);max-width:440px;margin:12px auto 0}
+
+/* hanger as next step */
+.next{display:grid;grid-template-columns:92px 1fr;gap:18px;align-items:center;background:var(--paper);border:1px solid #E6DACD;border-radius:26px;padding:20px 22px 20px 18px;margin-top:30px}
+.hanger{width:92px;height:150px;background:var(--wine);border-radius:46px 46px 12px 12px;color:#F1E4DE;text-align:center;padding:14px 8px 14px;display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+.hanger .hole{width:30px;height:30px;border-radius:50%;background:var(--paper);box-shadow:inset 1px 2px 4px rgba(0,0,0,.35)}
+.hanger .t{font-size:8px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;line-height:1.8;color:rgba(241,228,222,.8)}
+.hanger .s{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:var(--blush)}
+.next .eb{color:var(--greige)}
+.next h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.05;margin:6px 0 6px}
+.next h3 em{color:var(--wine-2)}
+.next p{font-size:14px;color:var(--soft)}
+.btn{display:inline-block;margin-top:12px;background:var(--wine-2);color:#F1E4DE;border-radius:99px;padding:11px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;text-decoration:none;border:0}
+
+/* ---------- YOUR STAY (progress) ---------- */
+.stay{margin-top:14px;background:var(--paper);border:1px solid #E6DACD;border-radius:26px;padding:20px 22px}
+.stay .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.stay .eb{color:var(--greige)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.step .bar{height:3px;border-radius:3px;background:#E3D7CA}
+.step.done .bar{background:var(--wine-2)}
+.step.now .bar{background:linear-gradient(90deg,var(--wine-2) 50%,#E3D7CA 50%)}
+.step span{display:block;font-size:11px;margin-top:8px;color:var(--greige)}
+.step.done span,.step.now span{color:var(--bordeaux)}
+
+/* ---------- DIRECTORY ---------- */
+.directory{margin-top:44px;text-align:center}
+.directory .serif{font-size:34px;text-transform:uppercase;line-height:1}
+.directory .serif em{text-transform:none;color:var(--wine-2)}
+.dir-list{margin-top:20px;text-align:left;border-top:1px solid #DCCFC1}
+.dir-list a{display:flex;align-items:baseline;gap:10px;padding:13px 4px;border-bottom:1px solid #DCCFC1;text-decoration:none;color:var(--bordeaux)}
+.dir-list .n{font-family:'Instrument Serif',serif;font-size:15px;color:var(--greige);width:28px}
+.dir-list .t{font-family:'Instrument Serif',serif;font-size:21px}
+.dir-list .dots{flex:1;border-bottom:1px dotted #C9B9A9;transform:translateY(-5px)}
+.dir-list .st{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--greige)}
+.dir-list .st.ok{color:var(--wine-2)}
+
+/* ---------- ROOMS ---------- */
+.rooms{margin-top:44px;display:grid;gap:14px}
+details.room{background:var(--linen);border-radius:28px;overflow:hidden}
+details.room[open]{background:var(--cashmere)}
+details.room summary{list-style:none;cursor:pointer;position:relative;padding:24px 24px 22px;min-height:118px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+details.room summary::-webkit-details-marker{display:none}
+.room .num{position:absolute;right:18px;top:-24px;font-family:'Instrument Serif',serif;font-size:132px;line-height:1;color:var(--linen);
+  text-shadow:-1px -1px 1px rgba(255,255,255,.6),1px 1px 1px rgba(80,50,40,.26),2px 3px 6px rgba(80,50,40,.14)}
+details.room[open] .num{color:var(--cashmere)}
+.room .eb{color:#8A7064;position:relative}
+.room h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:31px;line-height:1.05;margin-top:4px;position:relative;padding-right:44px}
+.room h2 em{color:var(--wine-2)}
+.room .chev{position:absolute;right:24px;bottom:26px;width:30px;height:30px;border-radius:50%;background:rgba(251,247,242,.7);display:flex;align-items:center;justify-content:center;transition:transform .25s}
+.room .chev::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--bordeaux);border-bottom:1.5px solid var(--bordeaux);transform:translateY(-2px) rotate(45deg)}
+details.room[open] .chev{transform:rotate(180deg)}
+.inner{padding:0 14px 14px;display:grid;gap:10px}
+.panel{background:var(--paper);border-radius:20px;padding:18px 18px}
+.panel .eb{color:var(--greige);font-size:9.5px;margin-bottom:8px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kv .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2}
+.kv .k{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige)}
+.quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:21px;line-height:1.3;color:var(--bordeaux)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{border-radius:99px;padding:6px 13px;font-size:12.5px;background:var(--linen)}
+.chip.on{background:var(--wine-2);color:#F1E4DE}
+.slider{margin-top:6px}
+.slider .track{height:3px;border-radius:3px;background:linear-gradient(90deg,var(--greige),var(--blush));position:relative;margin:14px 0 8px}
+.slider .knob{position:absolute;left:68%;top:50%;width:16px;height:16px;border-radius:50%;background:var(--wine-2);transform:translate(-50%,-50%);box-shadow:0 0 0 4px var(--paper)}
+.slider .ends{display:flex;justify-content:space-between;font-size:11px;color:var(--greige);letter-spacing:.14em;text-transform:uppercase}
+.list .r{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #EDE3D8}
+.list .r:last-child{border-bottom:0}
+.list .nm{font-family:'Instrument Serif',serif;font-size:19px}
+.list .sub{font-size:12px;color:var(--greige)}
+.pill{font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;border-radius:99px;background:var(--linen);color:var(--soft)}
+.pill.ok{background:var(--wine-2);color:#F1E4DE}
+.time{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #EDE3D8}
+.time:last-child{border-bottom:0}
+.time b{font-family:'Instrument Serif',serif;font-weight:400;font-size:18px;color:var(--wine-2)}
+.team{display:flex;gap:14px;flex-wrap:wrap}
+.member{text-align:center;width:88px}
+.member .ini{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;background:var(--wine);color:var(--wine);font-family:'Instrument Serif',serif;font-size:26px;display:flex;align-items:center;justify-content:center;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.2),1px 1px 1px rgba(0,0,0,.5)}
+.member .nm{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.1}
+.member .sub{font-size:11px;color:var(--greige)}
+.total{background:var(--bordeaux);color:#EBDDD5;border-radius:20px;padding:22px 20px;display:flex;justify-content:space-between;align-items:flex-end}
+.total .eb{color:rgba(235,221,213,.55)}
+.total .amt{font-family:'Instrument Serif',serif;font-size:42px;line-height:1}
+.note{font-size:12.5px;color:var(--soft)}
+.sample{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--greige);text-align:right;margin-top:-4px}
+
+/* concierge sign-off */
+.signoff{background:var(--bordeaux);border-radius:30px;padding:46px 22px;margin-top:44px;text-align:center}
+.card{background:#F4EDE3;max-width:360px;margin:0 auto;border-radius:6px;padding:30px 24px;position:relative;box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.card::before{content:"";position:absolute;inset:10px;border:1px solid #E0D3C2;border-radius:3px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.9),1px 1px 0 rgba(120,90,70,.16)}
+.card .eb{color:var(--greige);position:relative}
+.card .serif{font-style:italic;font-size:40px;color:var(--wine-2);position:relative;margin:6px 0}
+.card p{font-size:14px;color:var(--soft);position:relative}
+.card .ph{position:relative;margin-top:12px;font-size:12px;letter-spacing:.18em;color:var(--bordeaux)}
+
+footer{text-align:center;padding:40px 20px 50px}
+footer .serif{font-style:italic;font-size:24px}
+footer .eb{color:var(--greige);font-size:9.5px;margin-top:4px}
+
+@media(max-width:520px){
+  .hero .wm{font-size:164px}
+  .hero .body{padding:0 22px 34px 112px}
+  .hero h1{font-size:44px}
+  .hero .meta{grid-template-columns:1fr}
+}
+@media(min-width:700px){.hero{border-radius:0 0 44px 44px}.hero h1{font-size:72px}.hero .wm{font-size:250px}.hero .body{padding-left:190px}}
+
+
+/* Side MKBA, fully on screen, sized to the content beside it */
+.hero{min-height:0 !important;max-height:none}
+.hero .stage{display:flex;align-items:flex-start;gap:16px;padding:26px 24px 34px 18px}
+.hero .wm{position:static !important;flex:none;padding:0 !important;line-height:.78}
+.hero .body{margin:0;padding:0 !important;flex:1;min-width:0}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige);margin-bottom:5px}
+.field input{width:100%;border:1px solid #E3D7CA;background:#fff;border-radius:14px;padding:12px 14px;font:inherit;color:var(--bordeaux)}
+.field input:focus{outline:none;border-color:var(--wine-2)}
+.hero .wm .art{display:block;font-style:italic;font-size:.4em;line-height:1;letter-spacing:.01em;margin-left:.04em;padding-top:.06em}
+.hero .top{align-items:flex-start}
+.logo{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;justify-items:end;text-transform:none;letter-spacing:0;line-height:1}
+.logo .l1{font-family:'Instrument Serif',serif;font-size:19px;letter-spacing:.06em;color:#F1E4DE}
+.logo .l2{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;color:var(--blush);margin-top:1px;margin-right:2px}
+.logo .est{grid-row:1/3;font-family:'Inter Tight',sans-serif;font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.55);padding-right:10px;border-right:1px solid rgba(217,174,181,.4);align-self:stretch;display:flex;align-items:center}
+.logo .l1,.logo .l2{grid-column:2}
+.hero .top{justify-content:flex-start}
+.logo .l1{font-size:15px !important;color:rgba(241,228,222,.85) !important}
+.logo .l2{font-size:13px !important;color:rgba(241,228,222,.6) !important}
+.logo .est{font-size:7.5px !important;color:rgba(241,228,222,.45) !important;border-right-color:rgba(241,228,222,.22) !important}
+.hero .suite{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:var(--blush)}
+.hero .reserved{font-family:'Inter Tight',sans-serif !important;font-style:normal !important;font-size:10px !important;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.55) !important;margin-top:12px}
+@media(min-width:700px){.hero .suite{font-size:38px}}
+.hanger .s{line-height:1.05}
+.hanger .s{font-size:14px !important}
+.after{background:var(--bordeaux);color:#EBDDD5;border-radius:28px;padding:30px 24px;margin-top:22px;text-align:center}
+.after .eb{color:rgba(235,221,213,.55)}
+.after .serif{font-size:32px;line-height:1.05;margin:8px 0 10px}
+.after .serif em{color:var(--blush)}
+.after p{font-size:14px;color:rgba(235,221,213,.8);max-width:380px;margin:0 auto}
+.btn.light{background:#F4EDE3;color:var(--bordeaux)}
+.proto{text-align:center;padding:0 0 40px}
+.proto button{background:none;border:1px dashed var(--greige);color:var(--greige);border-radius:99px;padding:9px 18px;font:inherit;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+</style>
+<style>
+.hero .kicker{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:var(--blush)}
+.hero .reserved{margin-top:12px}
+.hero .wm{line-height:.82}
+@media(min-width:700px){.hero .kicker{font-size:38px}}
+.selfie{display:flex;gap:16px;align-items:center}
+.selfie .ph{width:92px;height:116px;border-radius:46px 46px 14px 14px;background:var(--linen);border:1.5px dashed var(--greige);display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-style:italic;color:var(--greige);font-size:15px;text-align:center;flex:none}
+.inspo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.inspo div{aspect-ratio:4/5;border-radius:16px;background:var(--linen);border:1.5px dashed #D3C4B5;display:flex;align-items:center;justify-content:center;color:var(--greige);font-size:24px;font-family:'Instrument Serif',serif}
+.client{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid #EDE3D8}
+.client:last-child{border-bottom:0}
+.client .pic{width:64px;height:80px;border-radius:32px 32px 10px 10px;background:var(--cashmere)}
+.paypills{display:flex;flex-wrap:wrap;gap:8px}
+.paypill{border:0;font:inherit;font-size:13px;padding:10px 16px;border-radius:99px;background:var(--linen);color:var(--bordeaux);cursor:pointer}
+.paypill.on{background:var(--wine-2);color:#F1E4DE}
+.payout{display:none;margin-top:12px}
+.payout.on{display:block}
+.internal{display:inline-block;margin-top:14px;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#F1E4DE;border:1px solid rgba(241,228,222,.3);border-radius:99px;padding:6px 12px}
+.hero .wm{margin-right:.22em}
+.ros-row{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid #EDE3D8}
+.ros-row:last-child{border-bottom:0}
+.ros-row b{font-family:'Instrument Serif',serif;font-weight:400;font-size:18px;color:var(--wine-2);line-height:1.3}
+.ros-row .what{font-size:14px;line-height:1.5}
+.ros-row .what span{display:inline-block;margin:2px 6px 2px 0;padding:3px 10px;border-radius:99px;background:var(--linen);font-size:12.5px}
+.ros-row .what span i{font-style:normal;color:var(--greige)}
+.ros-row.all .what{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px}
+.artist{background:var(--paper);border-radius:22px;overflow:hidden}
+.artist+.artist{margin-top:10px}
+.a-head{display:flex;gap:14px;align-items:center;padding:18px 18px 14px;border-bottom:1px solid #EDE3D8}
+.a-head .ini{width:52px;height:52px;border-radius:50%;background:var(--wine);color:var(--wine);font-family:'Instrument Serif',serif;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none;text-shadow:-1px -1px 1px rgba(255,226,232,.2),1px 1px 1px rgba(0,0,0,.5)}
+.a-head .nm{font-family:'Instrument Serif',serif;font-size:24px;line-height:1}
+.a-head .sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--greige);margin-top:4px}
+.a-body{padding:6px 18px 18px}
+.a-body .eb{color:var(--greige);font-size:9.5px;margin:14px 0 4px}
+.a-note{background:var(--linen);border-radius:16px;padding:14px 16px;font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;line-height:1.35}
+.a-note.empty{font-family:'Inter Tight',sans-serif;font-style:normal;font-size:13px;color:var(--greige)}
+.a-flag{margin-top:10px;font-size:12.5px;color:var(--wine-2)}
+.cl{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #EDE3D8}
+.cl:last-child{border-bottom:0}
+.cl .pic{width:76px;height:96px;border-radius:38px 38px 12px 12px;background:linear-gradient(160deg,#E7D5C4,#C9AE98);display:flex;align-items:flex-end;justify-content:center;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(42,7,12,.55);padding-bottom:8px}
+.cl .nm{font-family:'Instrument Serif',serif;font-size:20px;line-height:1.1}
+.cl .sub{font-size:12px;color:var(--greige);margin:2px 0 8px}
+.cl .prof{font-size:12.5px;color:var(--soft);line-height:1.5;margin-bottom:8px}
+.cl .chips .chip{font-size:11.5px;padding:4px 10px}
+.cl .ins{display:flex;gap:6px;margin-top:10px}
+.cl .ins div{width:56px;height:70px;border-radius:10px;background:linear-gradient(160deg,#EADBCD,#D6BFAA)}
+.artist summary{list-style:none;cursor:pointer;border-bottom:0}
+details.room .artist summary.a-head{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;min-height:0;padding:16px 18px;overflow:visible}
+.artist summary::-webkit-details-marker{display:none}
+.artist[open] summary{border-bottom:1px solid #EDE3D8}
+.a-chev{width:30px;height:30px;border-radius:50%;background:var(--linen);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .25s}
+.a-chev::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--bordeaux);border-bottom:1.5px solid var(--bordeaux);transform:translateY(-2px) rotate(45deg)}
+.artist[open] .a-chev{transform:rotate(180deg)}
+.tapname{font-size:12.5px;color:var(--soft);margin:0 4px 10px}
+</style><style>
+.samplebar{background:var(--bordeaux);color:#F1E4DE;text-align:center;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;padding:10px 16px;line-height:1.6}
+.ros-row.ready b{color:var(--wine)}
+.payout .r .rate{font-style:italic;color:var(--soft);font-size:13px}
+</style></head><body>
+
+<div class="samplebar">Sample Brief · Names, times and details are examples</div>
+<header class="hero tex">
+  <div class="top"><span class="logo"><span class="est">Est.</span><span class="l1">MKBeauty</span><span class="l2">Artistry</span></span></div>
+  <div class="stage"><div class="wm">brief.</div><div class="body">
+    <div class="kicker">The Artist Brief</div>
+    <div class="reserved">Prepared for the team of</div>
+    <h1><span>Eleanor</span><span>Whitfield</span></h1>
+    <div class="rule"></div>
+    <div class="meta">
+      <div><div class="eb">Event Day</div><div class="v">Saturday, June 12, 2027</div></div>
+      <div><div class="eb">Ready By</div><div class="v">1:30 PM</div></div>
+    </div>
+    <span class="internal">Internal · Team Only</span>
+  </div></div>
+</header>
+<main class="wrap">
+  <div class="directory">
+    <div class="serif">The <em>Directory</em></div>
+    <div class="dir-list">
+      <a href="#s1"><span class="n">01</span><span class="t">Overview</span><span class="dots"></span></a>
+      <a href="#s2"><span class="n">02</span><span class="t">Vision Recap</span><span class="dots"></span></a>
+      <a href="#s3"><span class="n">03</span><span class="t">Run of Show</span><span class="dots"></span></a>
+      <a href="#s4"><span class="n">04</span><span class="t">A Note from Morgan</span><span class="dots"></span></a>
+      <a href="#s5"><span class="n">05</span><span class="t">Team</span><span class="dots"></span></a>
+      <a href="#s6"><span class="n">06</span><span class="t">Your Clients</span><span class="dots"></span></a>
+      <a href="#s7"><span class="n">07</span><span class="t">Pay</span><span class="dots"></span></a>
+    </div>
+  </div>
+  <div class="rooms">
+<details class="room tex" id="s1" open><summary><div class="num">01</div><div class="eb">Section One</div><h2><em>Overview</em></h2><span class="chev"></span></summary><div class="inner"><div class="panel"><div class="kv">
+<div><div class="k">Services</div><div class="v">Bride makeup and hair, 4 makeup, 4 hair</div></div>
+<div><div class="k">Getting Ready</div><div class="v">Bridal suite at the venue</div></div>
+<div><div class="k">Ceremony</div><div class="v">4:00 PM</div></div>
+<div><div class="k">Day-Of Contact</div><div class="v">Margaret, Maid of Honor · 423.555.0142</div></div>
+<div><div class="k">Parking</div><div class="v">Back lot, enter through the side door</div></div>
+<div><div class="k">Contract</div><div class="v">Signed</div></div>
+</div></div></div></details>
+<details class="room tex" id="s2" open><summary><div class="num">02</div><div class="eb">Section Two</div><h2>Vision <em>Recap</em></h2><span class="chev"></span></summary><div class="inner">
+<div class="panel"><div class="eb">In Her Words</div><div class="quote">"I want to look like the best version of me. Glowy skin, soft eyes, and a lip I can actually eat in."</div></div>
+<div class="panel"><div class="eb">Her Look</div><div class="chips"><span class="chip on">Skin first</span><span class="chip on">Soft glam</span><span class="chip on">Wispy lashes</span><span class="chip on">Rosy cheek</span><span class="chip on">Low textured bun</span><span class="chip on">Cathedral veil</span></div></div>
+<div class="panel"><div class="kv">
+<div><div class="k">Loves</div><div class="v">Dewy finish, a little shimmer on the lid</div></div>
+<div><div class="k">Avoid</div><div class="v">Heavy contour, dark liner</div></div>
+<div><div class="k">Skin</div><div class="v">Combination, sensitive around the eyes</div></div>
+<div><div class="k">Hair</div><div class="v">Long, fine, holds curl best with prep</div></div>
+</div></div></div></details>
+<details class="room tex" id="s3" open><summary><div class="num">03</div><div class="eb">Section Three</div><h2>Run of <em>Show</em></h2><span class="chev"></span></summary><div class="inner"><div class="panel"><div class="eb">The Full Day</div><div id="masterRos"></div></div></div></details>
+<details class="room tex" id="s4"><summary><div class="num">04</div><div class="eb">Section Four</div><h2>A Note from <em>Morgan</em></h2><span class="chev"></span></summary><div class="inner"><div class="panel"><div class="quote" style="font-size:19px">Eleanor is calm and easygoing, and her mom is the one who will want updates. Keep the room light, keep the music on, and keep the bride's chair clear for her photographer at 11:00. We are a team in that room. Help each other wrap up, and check in with me before you leave.</div></div></div></details>
+<details class="room tex" id="s5"><summary><div class="num">05</div><div class="eb">Section Five</div><h2>The <em>Team</em></h2><span class="chev"></span></summary><div class="inner"><div class="panel"><div class="team" id="teamGrid"></div></div></div></details>
+<details class="room tex" id="s6" open><summary><div class="num">06</div><div class="eb">Section Six</div><h2>Your <em>Clients</em></h2><span class="chev"></span></summary><div class="inner"><div class="tapname">Tap your name to see your schedule and clients.</div><div id="artistViews"></div></div></details>
+<details class="room tex" id="s7"><summary><div class="num">07</div><div class="eb">Section Seven</div><h2><em>Pay</em></h2><span class="chev"></span></summary><div class="inner"><div class="panel"><div class="eb">Tap your name</div><div class="paypills" id="payPills"></div><div id="payOuts"></div></div></div></details>
+  </div>
+</main>
+<footer><div class="serif">MKBeauty Artistry</div><div class="eb">Internal Event Brief · Not for Client Distribution</div></footer>
+<script>
+var RUN_OF_SHOW = [
+  "8:00 AM - Call time, set up in the bridal suite",
+  "8:30 AM - Margaret makeup, Claire hair, Mother of the Bride hair",
+  "9:30 AM - Claire makeup, Margaret hair, Bride hair",
+  "10:00 AM - Mother of the Bride makeup, Lily hair",
+  "11:00 AM - Bride makeup",
+  "11:30 AM - Lily makeup",
+  "12:30 PM - Touch-ups and content gathering",
+  "1:30 PM - Ready by, all services complete"
+];
+var ASSIGN = {
+  "Bride":{hair:"Patty",makeup:"Morgan"},
+  "Margaret":{hair:"Jenifer",makeup:"Mari"},
+  "Claire":{hair:"Patty",makeup:"Mari"},
+  "Mother of the Bride":{hair:"Jenifer",makeup:"Morgan"},
+  "Lily":{hair:"Jenifer",makeup:"Mari"}
+};
+var TEAM = [
+  {name:"Morgan",station:"Lead Makeup"},
+  {name:"Mari",station:"Makeup"},
+  {name:"Anastasia",station:"Content",tasks:["content gathering"]},
+  {name:"Patty",station:"Hair"},
+  {name:"Jenifer",station:"Hair"}
+];
+var CLIENTS = {
+  "Bride":{role:"Bride",prof:"Combination skin · Sensitive eyes · Long, fine hair",look:["Skin first","Soft glam","Low textured bun"],selfie:"cachemire-7.jpg",inspo:["cachemire-2.jpg","soie-4.jpg","cachemire-8.jpg"]},
+  "Margaret":{role:"Maid of Honor",prof:"Oily T-zone · Shoulder length, thick",look:["Soft glam","Soft waves"],selfie:"soie-3.jpg",inspo:["chiffon-5.jpg","soie-5.jpg"]},
+  "Claire":{role:"Bridesmaid",prof:"Long, wavy hair · Clip-in extensions",look:["Natural","Half up"],selfie:"soie-6.jpg",inspo:["cachemire-4.jpg","cachemire-6.jpg"]},
+  "Mother of the Bride":{role:"Mother of the Bride",prof:"Mature, dry skin · Short, fine hair",look:["Hydrating base","Soft volume"],selfie:"chiffon-1.jpg",inspo:["chiffon-7.jpg"]},
+  "Lily":{role:"Bridesmaid",prof:"Dry skin · No allergies · Long, straight hair",look:["Sleek","Lashes"],selfie:"chiffon-8.jpg",inspo:["soie-7.jpg","chiffon-2.jpg"]}
+};
+var NOTES = {
+  "Morgan":"Bride makeup at 11:00 with the photographer in the room.",
+  "Mari":"Margaret is first, so she sets the tone for the room. Lily wants to look like herself, keep her soft.",
+  "Anastasia":"Capture the bride's reveal at the end of her makeup, then the girls together at 12:30.",
+  "Patty":"Bride hair goes at 9:30 so it can set while Morgan does her makeup. Back to back, no buffer.",
+  "Jenifer":"Three clients in a row. Mother of the Bride wants volume at the crown, check in with her before pinning."
+};
+var PAY_LINES = { /* service lines only in the sample, amounts come from the sheet */
+  "Morgan":["Bride makeup","Mother of the Bride makeup"],
+  "Mari":["Bridal party makeup × 3"],
+  "Anastasia":["Content gathering"],
+  "Patty":["Bride hair","Bridal party hair × 1"],
+  "Jenifer":["Bridal party hair × 3"]
+};
+</script>
+<script>
+/* ---- build ---- */
+function parse(){
+  return RUN_OF_SHOW.map(function(line){
+    var i=line.indexOf(' - '), time=line.slice(0,i).trim(), rest=line.slice(i+3).trim();
+    var items=rest.split(',').map(function(x){x=x.trim();
+      var m=x.match(/^(.*)\s+(hair|makeup)$/i);
+      return m?{client:m[1].trim(),service:m[2].toLowerCase(),text:x}:{client:null,service:null,text:x};});
+    return {time:time,items:items};
+  });
+}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function whoDoes(it){var a=ASSIGN[it.client];return a&&a[it.service];}
+var ros=parse();
+
+/* master list */
+document.getElementById('masterRos').innerHTML=ros.map(function(r){
+  var allClient=r.items.every(function(it){return !it.client});
+  var what=allClient?esc(r.items.map(function(i){return i.text}).join(', ')):
+    r.items.map(function(it){var w=it.client&&whoDoes(it);return '<span>'+esc(it.text)+(w?' <i>· '+esc(w)+'</i>':'')+'</span>'}).join('');
+  return '<div class="ros-row'+(allClient?' all':'')+'"><b>'+esc(r.time)+'</b><div class="what">'+what+'</div></div>';
+}).join('');
+
+/* per artist */
+document.getElementById('artistViews').innerHTML=TEAM.map(function(m){
+  var mine=[];
+  ros.forEach(function(r){
+    var rows=[];
+    r.items.forEach(function(it){
+      if(it.client){ if(whoDoes(it)===m.name) rows.push(it.text); }
+      else if(/call time/i.test(it.text)) rows.push(it.text);
+      else if(m.tasks&&m.tasks.some(function(t){return it.text.toLowerCase().indexOf(t)>-1})) rows.push(it.text);
+    });
+    if(rows.length) mine.push({time:r.time,rows:rows});
+  });
+  var clients={};mine.forEach(function(x){x.rows.forEach(function(t){var mm=t.match(/^(.*)\s+(hair|makeup)$/i);if(mm)clients[mm[1]]=1;})});
+  var cnt=Object.keys(clients).length;
+  var last=mine.length?mine[mine.length-1].time:'';
+  var note=NOTES[m.name];
+  return '<details class="artist"><summary class="a-head"><div class="ini">'+esc(m.name.slice(0,2).toUpperCase())+'</div><div style="flex:1"><div class="nm">'+esc(m.name)+'</div><div class="sub">'+esc(m.station)+(cnt?' · '+cnt+' client'+(cnt>1?'s':''):'')+'</div></div><span class="a-chev"></span></summary>'+
+    '<div class="a-body"><div class="eb">Your Run of Show</div>'+
+    mine.map(function(x){return '<div class="ros-row"><b>'+esc(x.time)+'</b><div class="what">'+x.rows.map(esc).join('<br>')+'</div></div>'}).join('')+
+    '<div class="eb">Notes from Morgan</div>'+
+    (note?'<div class="a-note">'+esc(note)+'</div>':'<div class="a-note empty">No notes yet.</div>')+
+    (last?'<div class="a-flag">Last service starts '+esc(last)+'</div>':'')+
+    (cnt?'<div class="eb">Your Clients</div>'+Object.keys(clients).map(function(c){var d=CLIENTS[c]||{};
+      var svc=[];mine.forEach(function(x){x.rows.forEach(function(t){var mm=t.match(/^(.*)\s+(hair|makeup)$/i);if(mm&&mm[1]===c)svc.push(mm[2].toLowerCase()+' at '+x.time)})});
+      return '<div class="cl">'+(d.selfie?'<div class="pic" style="background:url('+d.selfie+') center/cover"></div>':'<div class="pic">Her selfie</div>')+'<div><div class="nm">'+esc(c)+'</div><div class="sub">'+esc(d.role||'')+' · '+esc(svc.join(', '))+'</div>'+
+      (d.prof?'<div class="prof">'+esc(d.prof)+'</div>':'')+
+      '<div class="chips">'+(d.look||[]).map(function(l){return '<span class="chip on">'+esc(l)+'</span>'}).join('')+'</div>'+
+      (d.inspo&&d.inspo.length?'<div class="ins">'+d.inspo.map(function(u){return '<div style="background:url('+u+') center/cover"></div>'}).join('')+'</div>':'')+'</div></div>'}).join(''):'')+
+    '</div></details>';
+}).join('');
+
+document.getElementById('masterRos').querySelectorAll('.ros-row').forEach(function(r){if(/Ready by/i.test(r.textContent))r.classList.add('ready')});
+document.getElementById('teamGrid').innerHTML=TEAM.map(function(m){return '<div class="member"><div class="ini">'+esc(m.name.slice(0,2).toUpperCase())+'</div><div class="nm">'+esc(m.name)+'</div><div class="sub">'+esc(m.station)+'</div></div>'}).join('');
+document.getElementById('payPills').innerHTML=TEAM.map(function(m,i){return '<button class="paypill" data-p="'+i+'">'+esc(m.name)+'</button>'}).join('');
+document.getElementById('payOuts').innerHTML=TEAM.map(function(m,i){return '<div class="payout" id="p-'+i+'"><div class="list">'+(PAY_LINES[m.name]||[]).map(function(l){return '<div class="r"><span>'+esc(l)+'</span><span class="rate">Your rate</span></div>'}).join('')+'<div class="r"><span><b>Total</b></span><span class="pill">Shown here</span></div></div></div>'}).join('');
+document.querySelectorAll('.paypill').forEach(function(btn){btn.onclick=function(){var id='p-'+btn.dataset.p,open=btn.classList.contains('on');
+document.querySelectorAll('.paypill').forEach(function(x){x.classList.remove('on')});document.querySelectorAll('.payout').forEach(function(x){x.classList.remove('on')});
+if(!open){btn.classList.add('on');document.getElementById(id).classList.add('on');}}});
+</script>
+<script>
+function fitHero(){var h=document.querySelector('.hero'),w=h.querySelector('.wm'),b=h.querySelector('.body');
+ var target=b.offsetHeight,maxW=h.offsetWidth*0.28,fs=400;w.style.fontSize=fs+'px';
+ while((w.offsetHeight>target||w.offsetWidth>maxW)&&fs>40){fs-=2;w.style.fontSize=fs+'px';}}
+window.addEventListener('load',fitHero);window.addEventListener('resize',fitHero);if(document.fonts)document.fonts.ready.then(fitHero);
+</script></body></html>
