@@ -235,12 +235,12 @@ footer .eb{color:var(--greige);font-size:9.5px;margin-top:4px}
     <div class="inner">
       <div class="panel"><div class="eb">Full Run of Show</div><div id="masterRos"><div class="note">The run of show will appear here once it's built.</div></div></div>
       <div class="panel"><div class="eb">Travel &amp; Logistics</div><div class="note" id="lg_travel">Nothing added yet.</div></div>
-      <div class="panel"><div class="eb">Glam Team Notes</div><div class="note" id="lg_glam">Nothing added yet.</div></div></div>
+    </div>
   </details>
   <details class="room tex" id="note">
     <summary><div class="num">04</div><div class="eb">Section Four</div><h2>A Note from <em>Morgan</em></h2><span class="chev"></span></summary>
     <div class="inner">
-      <div class="panel"><div class="note" id="morganNote">Nothing yet for this bride. A little something from Morgan, just for this event, goes here once she's shared it.</div></div></div>
+      <div class="panel"><div class="note" id="morganNote">We have a little extra time with Rachel for content capture. Kenzie does not need to stay the entire time.</div></div></div>
   </details>
   <details class="room tex" id="team">
     <summary><div class="num">05</div><div class="eb">Section Five</div><h2>The <em>Team</em></h2><span class="chev"></span></summary>
@@ -368,7 +368,7 @@ function populateVisionRecap(){
 /* Logistics text */
 function populateLogistics(){
   if (!blank(record["Travel Logistics"])) document.getElementById('lg_travel').textContent = record["Travel Logistics"];
-  if (!blank(record["Glam Team Notes"])) document.getElementById('lg_glam').textContent = record["Glam Team Notes"];
+  if (!blank(record["Glam Team Notes"])) document.getElementById('morganNote').textContent += "\n\n" + record["Glam Team Notes"];
 }
 
 /* RUN OF SHOW
@@ -401,17 +401,27 @@ function findClient(label){
   const gs = Object.values(clients).filter(c => !c.isBride);
   return gs.find(c => norm(c.name) === want) || gs.find(c => norm(String(c.name).split(' ')[0]) === want) || gs.find(c => norm(c.role) === want) || null;
 }
+// If the bride's artist columns are blank, fall back to the one artist whose title names only that service.
+function whoFor(c, service){
+  if (c[service]) return c[service];
+  if (!c.isBride) return '';
+  const other = service === 'hair' ? 'makeup' : 'hair';
+  const m = (record["Public Roster"] || []).filter(a => { const r = norm(a.role); return r.includes(service) && !r.includes(other); });
+  return m.length === 1 ? m[0].name : '';
+}
 function parseRos(){
   const raw = record["Run of Show"]; if (blank(raw)) return [];
   return String(raw).split('\n').map(l => l.trim()).filter(Boolean).map(line => {
     const m = /^(.+?)\s+[-—–]\s+(.+)$/.exec(line) || /^(.+?)\s*[-—–]\s*(.+)$/.exec(line);
     const time = m ? m[1].trim() : '', rest = m ? m[2] : line;
     const items = rest.split(',').map(x => x.trim()).filter(Boolean).map(text => {
-      const mm = /^(.*?)\s+(hair|makeup)$/i.exec(text);
+      let mm = /^(.*?)\s+(hair|makeup)$/i.exec(text);
+      // also read natural wording like "Bridal makeup begins" or "Bride hair"
+      if (!mm) { const nb = /\b(bridal|bride)\b\s+(hair|makeup)\b/i.exec(text); if (nb) mm = [text, 'bride', nb[2]]; }
       if (!mm) return { text, client: null, service: null };
       const c = findClient(mm[1]);
       const service = mm[2].toLowerCase();
-      return { text, label: mm[1], client: c, service, who: c ? c[service] : '' };
+      return { text, label: mm[1], client: c, service, who: c ? whoFor(c, service) : '' };
     });
     return { time, items };
   });
@@ -476,7 +486,7 @@ function renderArtistViews(){
       const rows = [];
       r.items.forEach(i => {
         if (i.service) { if (norm(i.who) === me) rows.push(i.text); }
-        else if (/call time/i.test(i.text) || norm(i.text).includes(me) || (station && norm(i.text).includes(station.split(' ')[0]))) rows.push(i.text);
+        else rows.push(i.text); // lines with no client (arrival, content, dress time) are for everyone
       });
       if (rows.length) mine.push({ time: r.time, rows, hasService: r.items.some(i => i.service && norm(i.who) === me) });
     });
