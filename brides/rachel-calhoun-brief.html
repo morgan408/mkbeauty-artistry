@@ -401,13 +401,20 @@ function findClient(label){
   const gs = Object.values(clients).filter(c => !c.isBride);
   return gs.find(c => norm(c.name) === want) || gs.find(c => norm(String(c.name).split(' ')[0]) === want) || gs.find(c => norm(c.role) === want) || null;
 }
-// If the bride's artist columns are blank, fall back to the one artist whose title names only that service.
+// If the bride's artist columns are blank, work it out from artist titles in the roster:
+// an artist whose title names only that service gets it; otherwise whoever's title includes it and isn't already on the other service.
 function whoFor(c, service){
   if (c[service]) return c[service];
   if (!c.isBride) return '';
   const other = service === 'hair' ? 'makeup' : 'hair';
-  const m = (record["Public Roster"] || []).filter(a => { const r = norm(a.role); return r.includes(service) && !r.includes(other); });
-  return m.length === 1 ? m[0].name : '';
+  const roster = record["Public Roster"] || [];
+  const has = (a, w) => norm(a.role).includes(w);
+  const only = (w, o) => roster.filter(a => has(a, w) && !has(a, o));
+  const mine = only(service, other);
+  if (mine.length === 1) return mine[0].name;
+  const otherWho = c[other] || (only(other, service).length === 1 ? only(other, service)[0].name : '');
+  const rest = roster.filter(a => has(a, service) && norm(a.name) !== norm(otherWho));
+  return rest.length === 1 ? rest[0].name : '';
 }
 function parseRos(){
   const raw = record["Run of Show"]; if (blank(raw)) return [];
