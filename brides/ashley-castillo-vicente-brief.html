@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashley Castillo Vicente Artist Brief 11.28.26 | MKBeauty</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wine:#4E1A26;
+  --wine-2:#5C2230;
+  --bordeaux:#2A070C;
+  --cashmere:#DDC8B3;
+  --greige:#9F8E87;
+  --porcelain:#F3EEE7;
+  --linen:#EAE1D7;
+  --paper:#FBF7F2;
+  --blush:#D9AEB5;
+  --soft:#5A3F42;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--porcelain);color:var(--bordeaux);font-family:'Inter Tight',sans-serif;font-weight:450;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+.eb{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+.serif{font-family:'Instrument Serif',serif;font-weight:400}
+.tex{position:relative;isolation:isolate}
+.tex::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.14;mix-blend-mode:multiply;pointer-events:none;border-radius:inherit;z-index:-1}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--wine);color:#F1E4DE;border-radius:0 0 36px 36px;overflow:hidden;min-height:540px;display:flex;flex-direction:column;position:relative}
+.hero .top{display:flex;justify-content:space-between;padding:22px 24px 0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(241,228,222,.6)}
+.hero .wm{position:absolute;left:-4px;bottom:-12px;writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:'Instrument Serif',serif;font-size:200px;line-height:.82;letter-spacing:.01em;color:var(--wine);white-space:nowrap;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.16),-2px -2px 3px rgba(255,226,232,.06),1px 1px 1px rgba(0,0,0,.5),3px 5px 10px rgba(0,0,0,.32)}
+.hero .body{margin-top:auto;padding:0 28px 40px 140px}
+.hero .reserved{font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--blush)}
+.hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:.95;text-transform:uppercase;margin:8px 0 0;letter-spacing:.005em}
+.hero h1 span{display:block}
+.hero .rule{height:1px;background:rgba(217,174,181,.55);margin:26px 0 18px}
+.hero .meta{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero .meta .eb{color:rgba(241,228,222,.55);font-size:9.5px}
+.hero .meta .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2;margin-top:3px}
+
+.btn{display:inline-block;margin-top:12px;background:var(--wine-2);color:#F1E4DE;border-radius:99px;padding:11px 22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;text-decoration:none;border:0}
+
+/* ---------- DIRECTORY ---------- */
+.directory{margin-top:44px;text-align:center}
+.directory .serif{font-size:34px;text-transform:uppercase;line-height:1}
+.directory .serif em{text-transform:none;color:var(--wine-2)}
+.dir-list{margin-top:20px;text-align:left;border-top:1px solid #DCCFC1}
+.dir-list a{display:flex;align-items:baseline;gap:10px;padding:13px 4px;border-bottom:1px solid #DCCFC1;text-decoration:none;color:var(--bordeaux)}
+.dir-list .n{font-family:'Instrument Serif',serif;font-size:15px;color:var(--greige);width:28px}
+.dir-list .t{font-family:'Instrument Serif',serif;font-size:21px}
+.dir-list .dots{flex:1;border-bottom:1px dotted #C9B9A9;transform:translateY(-5px)}
+
+/* ---------- ROOMS ---------- */
+.rooms{margin-top:44px;display:grid;gap:14px}
+details.room{background:var(--linen);border-radius:28px;overflow:hidden}
+details.room[open]{background:var(--cashmere)}
+details.room summary{list-style:none;cursor:pointer;position:relative;padding:24px 24px 22px;min-height:118px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+details.room summary::-webkit-details-marker{display:none}
+.room .num{position:absolute;right:18px;top:-24px;font-family:'Instrument Serif',serif;font-size:132px;line-height:1;color:var(--linen);
+  text-shadow:-1px -1px 1px rgba(255,255,255,.6),1px 1px 1px rgba(80,50,40,.26),2px 3px 6px rgba(80,50,40,.14)}
+details.room[open] .num{color:var(--cashmere)}
+.room .eb{color:#8A7064;position:relative}
+.room h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:31px;line-height:1.05;margin-top:4px;position:relative;padding-right:44px}
+.room h2 em{color:var(--wine-2)}
+.room .chev{position:absolute;right:24px;bottom:26px;width:30px;height:30px;border-radius:50%;background:rgba(251,247,242,.7);display:flex;align-items:center;justify-content:center;transition:transform .25s}
+.room .chev::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--bordeaux);border-bottom:1.5px solid var(--bordeaux);transform:translateY(-2px) rotate(45deg)}
+details.room[open] .chev{transform:rotate(180deg)}
+.inner{padding:0 14px 14px;display:grid;gap:10px}
+.panel{background:var(--paper);border-radius:20px;padding:18px 18px}
+.panel .eb{color:var(--greige);font-size:9.5px;margin-bottom:8px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kv .v{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.2}
+.kv .k{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{border-radius:99px;padding:6px 13px;font-size:12.5px;background:var(--linen)}
+.chip.on{background:var(--wine-2);color:#F1E4DE}
+.team{display:flex;gap:14px;flex-wrap:wrap}
+.member{text-align:center;width:88px}
+.member .ini{width:64px;height:64px;border-radius:50%;margin:0 auto 8px;background:var(--wine);color:var(--wine);font-family:'Instrument Serif',serif;font-size:26px;display:flex;align-items:center;justify-content:center;
+  text-shadow:-1px -1px 1px rgba(255,226,232,.2),1px 1px 1px rgba(0,0,0,.5)}
+.member .nm{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.1}
+.member .sub{font-size:11px;color:var(--greige)}
+
+footer{text-align:center;padding:40px 20px 50px}
+footer .serif{font-style:italic;font-size:24px}
+footer .eb{color:var(--greige);font-size:9.5px;margin-top:4px}
+
+@media(max-width:520px){
+  .hero .wm{font-size:164px}
+  .hero .body{padding:0 22px 34px 112px}
+  .hero h1{font-size:44px}
+  .hero .meta{grid-template-columns:1fr}
+}
+@media(min-width:700px){.hero{border-radius:0 0 44px 44px}.hero h1{font-size:72px}.hero .wm{font-size:250px}.hero .body{padding-left:190px}}
+
+/* Side wordmark, fully on screen, sized to the content beside it */
+.hero{min-height:0 !important;max-height:none}
+.hero .stage{display:flex;align-items:flex-start;gap:16px;padding:26px 24px 34px 18px}
+.hero .wm{position:static !important;flex:none;padding:0 !important;line-height:.78}
+.hero .body{margin:0;padding:0 !important;flex:1;min-width:0}
+.hero .top{align-items:flex-start;justify-content:flex-start}
+.logo{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;justify-items:end;text-transform:none;letter-spacing:0;line-height:1}
+.logo .l1{font-family:'Instrument Serif',serif;font-size:15px;letter-spacing:.06em;color:rgba(241,228,222,.85)}
+.logo .l2{font-family:'Instrument Serif',serif;font-style:italic;font-size:13px;color:rgba(241,228,222,.6);margin-top:1px;margin-right:2px}
+.logo .est{grid-row:1/3;font-family:'Inter Tight',sans-serif;font-size:7.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.45);padding-right:10px;border-right:1px solid rgba(241,228,222,.22);align-self:stretch;display:flex;align-items:center}
+.logo .l1,.logo .l2{grid-column:2}
+.hero .reserved{font-family:'Inter Tight',sans-serif !important;font-style:normal !important;font-size:10px !important;letter-spacing:.3em;text-transform:uppercase;color:rgba(241,228,222,.55) !important;margin-top:12px}
+.hero .kicker{font-family:'Instrument Serif',serif;font-style:italic;font-size:30px;line-height:1;color:var(--blush)}
+.hero .wm{line-height:.82;margin-right:.22em}
+@media(min-width:700px){.hero .kicker{font-size:38px}}
+.paypills{display:flex;flex-wrap:wrap;gap:8px}
+.paypill{border:0;font:inherit;font-size:13px;padding:10px 16px;min-height:44px;border-radius:99px;background:var(--linen);color:var(--bordeaux);cursor:pointer}
+.paypill.on{background:var(--wine-2);color:#F1E4DE}
+.internal{display:inline-block;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#F1E4DE;border:1px solid rgba(241,228,222,.3);border-radius:99px;padding:6px 12px}
+.ros-row{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:11px 0;border-bottom:1px solid #EDE3D8}
+.ros-row:last-child{border-bottom:0}
+.ros-row b{font-family:'Instrument Serif',serif;font-weight:400;font-size:18px;color:var(--wine-2);line-height:1.3}
+.ros-row .what{font-size:14px;line-height:1.5}
+.ros-row .what span{display:inline-block;margin:2px 6px 2px 0;padding:3px 10px;border-radius:99px;background:var(--linen);font-size:12.5px}
+.ros-row .what span i{font-style:normal;color:var(--greige)}
+.ros-row.all .what{font-family:'Instrument Serif',serif;font-style:italic;font-size:17px}
+.artist{background:var(--paper);border-radius:22px;overflow:hidden}
+.artist+.artist{margin-top:10px}
+.a-head{display:flex;gap:14px;align-items:center;padding:18px 18px 14px;border-bottom:1px solid #EDE3D8}
+.a-head .ini{width:52px;height:52px;border-radius:50%;background:var(--wine);color:var(--wine);font-family:'Instrument Serif',serif;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none;text-shadow:-1px -1px 1px rgba(255,226,232,.2),1px 1px 1px rgba(0,0,0,.5)}
+.a-head .nm{font-family:'Instrument Serif',serif;font-size:24px;line-height:1}
+.a-head .sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--greige);margin-top:4px}
+.a-body{padding:6px 18px 18px}
+.a-body .eb{color:var(--greige);font-size:9.5px;margin:14px 0 4px}
+.a-note{background:var(--linen);border-radius:16px;padding:14px 16px;font-family:'Instrument Serif',serif;font-style:italic;font-size:17px;line-height:1.35}
+.a-note.empty{font-family:'Inter Tight',sans-serif;font-style:normal;font-size:13px;color:var(--greige)}
+.a-flag{margin-top:10px;font-size:12.5px;color:var(--wine-2)}
+.cl{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #EDE3D8}
+.cl:last-child{border-bottom:0}
+.cl .pic{width:76px;height:96px;border-radius:38px 38px 12px 12px;background:linear-gradient(160deg,#E7D5C4,#C9AE98);display:flex;justify-content:center;color:rgba(42,7,12,.55);overflow:hidden;font-family:'Instrument Serif',serif;font-size:22px;align-items:center;padding:0}
+.cl .pic img{width:100%;height:100%;object-fit:cover;cursor:zoom-in}
+.cl .nm{font-family:'Instrument Serif',serif;font-size:20px;line-height:1.1}
+.cl .sub{font-size:12px;color:var(--greige);margin:2px 0 8px}
+.cl .prof{font-size:12.5px;color:var(--soft);line-height:1.5;margin-bottom:8px}
+.cl .chips .chip{font-size:11.5px;padding:4px 10px}
+.cl .ins{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.cl .ins img{width:52px;height:66px;border-radius:10px;object-fit:cover;cursor:zoom-in}
+.cl .status{font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.cl .status.ok{color:var(--wine-2)} .cl .status.wait{color:var(--greige)}
+.cl .cnotes{font-size:13px;color:var(--soft);background:var(--linen);border-radius:12px;padding:10px 12px;margin-top:10px}
+.artist summary{list-style:none;cursor:pointer;border-bottom:0}
+details.room .artist summary.a-head{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;min-height:0;padding:16px 18px;overflow:visible}
+.artist summary::-webkit-details-marker{display:none}
+.artist[open] summary{border-bottom:1px solid #EDE3D8}
+.a-chev{width:30px;height:30px;border-radius:50%;background:var(--linen);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .25s}
+.a-chev::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--bordeaux);border-bottom:1.5px solid var(--bordeaux);transform:translateY(-2px) rotate(45deg)}
+.artist[open] .a-chev{transform:rotate(180deg)}
+.tapname{font-size:12.5px;color:var(--soft);margin:0 4px 10px}
+.hero-links{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+.suite-link{font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--blush);text-decoration:none;border-bottom:1px solid rgba(217,174,181,.5);padding-bottom:2px}
+.hero .meta{grid-template-columns:1fr 1fr !important}
+.hero .meta .full{grid-column:1/-1}
+@media(min-width:700px){.hero .meta .full{grid-column:auto}}
+.note{font-size:14px;line-height:1.6;color:var(--soft);white-space:pre-line}
+.vr-quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:21px;line-height:1.3}
+.vr-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #EDE3D8;font-size:14px}
+.vr-row:last-child{border-bottom:0}
+.vr-row span:first-child{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige);padding-top:3px}
+.vr-row span:last-child{text-align:right}
+.vr-look{margin-bottom:8px}
+.vr-look b{display:block;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--greige);font-weight:500;margin-bottom:5px}
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.photo-tile{aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:var(--linen)}
+.photo-tile img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;display:block}
+.ros-row .what span.unas{background:transparent;border:1px dashed var(--greige)}
+.artist.unassigned .a-head .ini{background:var(--linen);color:var(--greige);text-shadow:none;font-style:italic}
+.pay-item{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #EDE3D8;font-size:14px;flex-wrap:wrap}
+.pay-total{font-family:'Instrument Serif',serif;font-size:28px;text-align:right;color:var(--wine-2);margin-top:10px}
+.lightbox{position:fixed;inset:0;background:rgba(42,7,12,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.lightbox.show{display:flex}
+.lightbox img{max-width:100%;max-height:100%;border-radius:12px}
+.team .member .sub{min-height:14px}
+</style>
+</head>
+<body>
+
+<header class="hero tex">
+  <div class="top"><span class="logo"><span class="est">Est.</span><span class="l1">MKBeauty</span><span class="l2">Artistry</span></span></div>
+  <div class="stage"><div class="wm" id="xwm">brief.</div><div class="body" id="xbody">
+    <div class="kicker">The Artist Brief</div>
+    <div class="reserved">Prepared for the team of</div>
+    <h1 id="heroName"><span>Ashley</span><span>Castillo Vicente</span></h1>
+    <div class="rule"></div>
+    <div class="meta">
+      <div class="full"><div class="eb">Event Day</div><div class="v" id="heroDate">Saturday, November 28, 2026</div></div>
+      <div class="full"><div class="eb">Venue</div><div class="v" id="heroVenue">To be confirmed</div></div>
+      <div id="callWrap" style="display:none"><div class="eb">Call Time</div><div class="v" id="heroCall"></div></div>
+      <div id="readyWrap" style="display:none"><div class="eb">Ready By</div><div class="v" id="heroReady"></div></div>
+    </div>
+    <div class="hero-links"><span class="internal">Internal · Team Only</span><a class="suite-link" id="experienceLinkButton" href="#" target="_blank" rel="noopener">View her Suite</a></div>
+  </div></div>
+</header>
+
+<main class="wrap">
+  <div class="directory">
+    <div class="serif">The <em>Directory</em></div>
+    <div class="dir-list">
+      <a href="#overview"><span class="n">01</span><span class="t">Overview</span><span class="dots"></span></a>
+      <a href="#vision"><span class="n">02</span><span class="t">Vision Recap</span><span class="dots"></span></a>
+      <a href="#logistics"><span class="n">03</span><span class="t">Run of Show and Logistics</span><span class="dots"></span></a>
+      <a href="#note"><span class="n">04</span><span class="t">A Note from Morgan</span><span class="dots"></span></a>
+      <a href="#team"><span class="n">05</span><span class="t">The Team</span><span class="dots"></span></a>
+      <a href="#clients"><span class="n">06</span><span class="t">Your Schedule and Clients</span><span class="dots"></span></a>
+      <a href="#pay"><span class="n">07</span><span class="t">Pay</span><span class="dots"></span></a>
+    </div>
+  </div>
+  <div class="rooms">
+
+  <details class="room tex" id="overview" open>
+    <summary><div class="num">01</div><div class="eb">Section One</div><h2><em>Overview</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="kv">
+        <div><div class="k">Party Size</div><div class="v" id="ov_partySize">Not set</div></div>
+        <div><div class="k">Getting Ready</div><div class="v" id="ov_gettingReady">Not set</div></div>
+        <div><div class="k">Event Start</div><div class="v" id="ov_ceremonyTime">Not set</div></div>
+        <div><div class="k">Ready By</div><div class="v" id="ov_readyByTime">Not set</div></div>
+      </div></div>
+      <div class="panel"><div class="eb">Who to Call</div><div class="kv">
+        <div><div class="k">Day-Of Contact</div><div class="v" id="ov_dayOfContact">Not set</div></div>
+        <div><div class="k">Their Phone</div><div class="v" id="ov_dayOfPhone">Not set</div></div>
+        <div><div class="k">Client Phone</div><div class="v" id="ov_bridePhone">Not set</div></div>
+        <div><div class="k">Client Email</div><div class="v" id="ov_brideEmail" style="word-break:break-all">Not set</div></div>
+      </div></div>
+      <div class="panel"><div class="eb">Event Feel</div><div class="note" id="ov_weddingFeel">Nothing added yet.</div></div>
+      <div class="panel" id="ov_contractCard" style="text-align:center"><a class="btn" id="ov_contractLink" href="#" target="_blank" rel="noopener">View Signed Contract</a></div></div>
+  </details>
+  <details class="room tex" id="vision">
+    <summary><div class="num">02</div><div class="eb">Section Two</div><h2>Vision <em>Recap</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div id="visionRecap"><div class="panel"><div class="note">She hasn't submitted her Vision yet.</div></div></div>
+      <div class="panel" id="brideInspoWrap" style="display:none"><div class="eb">Her Inspo</div><div id="brideInspo"></div></div></div>
+  </details>
+  <details class="room tex" id="logistics">
+    <summary><div class="num">03</div><div class="eb">Section Three</div><h2>Run of Show <em>and Logistics</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="eb">Full Run of Show</div><div id="masterRos"><div class="note">The run of show will appear here once it's built.</div></div></div>
+      <div class="panel"><div class="eb">Travel and Logistics</div><div class="note" id="lg_travel">Nothing added yet.</div></div>
+      <div class="panel"><div class="eb">Internal Notes</div><div class="note" id="lg_notes">Nothing added yet.</div></div>
+      <div class="panel"><div class="eb">Glam Team Notes</div><div class="note" id="lg_glam">Nothing added yet.</div></div></div>
+  </details>
+  <details class="room tex" id="note">
+    <summary><div class="num">04</div><div class="eb">Section Four</div><h2>A Note from <em>Morgan</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="note" id="morganNote">Nothing yet for Ashley's day. A little something from Morgan goes here once she's shared it.</div></div></div>
+  </details>
+  <details class="room tex" id="team">
+    <summary><div class="num">05</div><div class="eb">Section Five</div><h2>The <em>Team</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="team" id="teamRoster"><div class="note">No artist assignments yet. Add them in the Artist Assignments column on Bookings Pipeline.</div></div></div>
+      <div class="panel" id="teamDoneWrap" style="display:none"><div class="note" id="teamDone"></div></div></div>
+  </details>
+  <details class="room tex" id="clients" open>
+    <summary><div class="num">06</div><div class="eb">Section Six</div><h2>Your Schedule <em>and Clients</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="tapname">Tap your name to see your schedule, your notes and your clients. Tap any photo to see it larger.</div>
+      <div id="artistViews"><div class="panel"><div class="note">Loading...</div></div></div></div>
+  </details>
+  <details class="room tex" id="pay">
+    <summary><div class="num">07</div><div class="eb">Section Seven</div><h2><em>Pay</em></h2><span class="chev"></span></summary>
+    <div class="inner">
+      <div class="panel"><div class="eb">Tap your name</div><div class="paypills" id="artistPayPills"></div><div id="artistPayReveal"></div></div></div>
+  </details>
+  </div>
+</main>
+<footer><div class="serif">MKBeauty Artistry</div><div class="eb">Internal Event Brief · Not for Client Distribution</div></footer>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')"><img id="lightboxImg" alt=""></div>
+
+<script>
+/* =====================================================================
+   CONFIG: Ashley Castillo Vicente, EVT-048, Saturday November 28, 2026
+   ===================================================================== */
+const EVENT_ID = "EVT-048";
+const EXPERIENCE_URL = "https://mkbeauty-artistry.vercel.app/brides/ashley-castillo-vicente";
+const API_URL = "https://script.google.com/macros/s/AKfycbxMJvQ184CDgnjIGg1P0e1i2AQOWmcB5EYwsx7F0K8rtfmdeIhPRZPTGMIxg6jR9YkP/exec";
+const TEAM_PASSWORD = "MKB2026";
+const FALLBACK_NAME = "Ashley Castillo Vicente";
+
+let record = {}, visionData = {}, party = [];
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function blank(v){ return v === undefined || v === null || String(v).trim() === ''; }
+function orNotSet(v){ return blank(v) ? 'Not set' : v; }
+function initials(n){ return String(n || '').split(' ').filter(Boolean).map(p => p[0]).join('').slice(0, 2).toUpperCase(); }
+function parseJSON(s, fb){ try { return s ? JSON.parse(s) : fb; } catch(e) { return fb; } }
+async function apiGet(params){
+  const qs = Object.entries(Object.assign({ id: EVENT_ID, pw: TEAM_PASSWORD }, params)).map(([k,v]) => k + "=" + encodeURIComponent(v)).join("&");
+  return (await fetch(API_URL + "?" + qs)).json();
+}
+function formatTimeValue(raw){
+  if (!raw) return raw;
+  const m = /^1899-12-3[01]T(\d{2}):(\d{2}):\d{2}/.exec(raw);
+  if (!m) return raw;
+  let h = parseInt(m[1], 10); const ap = h >= 12 ? 'pm' : 'am'; h = h % 12; if (h === 0) h = 12;
+  return h + ':' + m[2] + ap;
+}
+function openPhoto(src){ document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').classList.add('show'); }
+document.addEventListener('click', e => { const img = e.target.closest('.photo-tile img, .cl .pic img, .cl .ins img'); if (img) { e.preventDefault(); openPhoto(img.src); } });
+function photoGrid(list){ return '<div class="photo-grid">' + list.filter(Boolean).map(u => `<div class="photo-tile"><img src="${u}" alt=""></div>`).join('') + '</div>'; }
+
+/* ---------- Hero + Overview ---------- */
+function populateHeroAndOverview(){
+  const name = String(record["Bride / Client Name"] || FALLBACK_NAME).trim();
+  const parts = name.split(' ');
+  document.getElementById('heroName').innerHTML = '<span>' + esc(parts[0]) + '</span><span>' + esc(parts.slice(1).join(' ')) + '</span>';
+  if (record["Event Date"]) { const d = new Date(record["Event Date"]); if (!isNaN(d)) document.getElementById('heroDate').textContent = d.toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'}); }
+  const venue = [record["Venue"], record["City / Address"]].filter(Boolean).join(', ');
+  if (venue) document.getElementById('heroVenue').textContent = venue;
+  const call = formatTimeValue(record["Call Time"]);
+  if (call) { document.getElementById('heroCall').textContent = call; document.getElementById('callWrap').style.display = ''; }
+  const ready = formatTimeValue(record["Ready By Time"]);
+  if (ready) { document.getElementById('heroReady').textContent = ready; document.getElementById('readyWrap').style.display = ''; }
+  document.getElementById('experienceLinkButton').href = EXPERIENCE_URL;
+  document.getElementById('ov_partySize').textContent = orNotSet(record["Party Size"]);
+  document.getElementById('ov_gettingReady').textContent = orNotSet(record["Getting-Ready Address"]);
+  document.getElementById('ov_ceremonyTime').textContent = orNotSet(formatTimeValue(record["Ceremony Time"]));
+  document.getElementById('ov_readyByTime').textContent = orNotSet(ready);
+  document.getElementById('ov_dayOfContact').textContent = orNotSet(record["Day-Of Contact"]);
+  document.getElementById('ov_dayOfPhone').textContent = orNotSet(record["Day-Of Contact Phone"]);
+  document.getElementById('ov_bridePhone').textContent = orNotSet(record["Phone"]);
+  document.getElementById('ov_brideEmail').textContent = orNotSet(record["Email"]);
+  if (!blank(record["Wedding Feel / Notes"])) document.getElementById('ov_weddingFeel').textContent = record["Wedding Feel / Notes"];
+  if (record["Contract Link"]) document.getElementById('ov_contractLink').href = record["Contract Link"];
+  else document.getElementById('ov_contractCard').style.display = 'none';
+}
+
+/* ---------- Vision recap ---------- */
+const LOOK_LABELS = {
+  hair:['Half-Up','Down, Curled','Low Updo','High Updo','Braided Detail','Soft Waves','Sleek','Voluminous','Textured / Undone','Unsure'],
+  base:['Dewy','Satin','Soft Matte','Full Coverage','Medium Coverage','Skin-Like'],
+  eyes:['Soft Glam','Smokey','Warm Neutral','No Eye Makeup','Shimmer','Matte','Soft Wing'],
+  cheeks:['Warm Bronze','Pink Flush','Sculpted','Sun-Kissed','No Blush'],
+  lips:['Nude','Pink','Glossy Nude','Berry','Brown','Classic Red','Matte'],
+  brows:['Natural','Defined','Soft Powder','Full & Groomed']
+};
+const LOOK_TITLES = {base:'Base', eyes:'Eyes', cheeks:'Cheeks', lips:'Lips', brows:'Brows', hair:'Hair'};
+function brideLookChips(){
+  const v = visionData || {}, out = [];
+  if (!v.look) return out;
+  Object.keys(LOOK_TITLES).forEach(k => { const st = v.look[k]; if (st && st.chips) LOOK_LABELS[k].forEach((l, i) => { if (st.chips[i]) out.push(l); }); });
+  return out;
+}
+function populateVisionRecap(){
+  const v = visionData;
+  if (!v || !Object.keys(v).length) return;
+  const bits = [];
+  if (v.q_vision) bits.push(`<div class="panel"><div class="eb">In Her Words</div><div class="vr-quote">${esc(v.q_vision)}</div></div>`);
+  if (v.profile) {
+    const p = v.profile;
+    const rows = [['Skin Type',p.skinType],['Skin Concerns',p.skinConcerns],['Eye Color',p.eyeColor],['Hair Color',p.hairColor],['Freckles / Texture',p.freckles],['Allergies',p.allergies]].filter(r => r[1]);
+    if (rows.length) bits.push('<div class="panel"><div class="eb">Her Profile</div>' + rows.map(r => `<div class="vr-row"><span>${r[0]}</span><span>${esc(r[1])}</span></div>`).join('') + '</div>');
+  }
+  if (v.look) {
+    const lines = Object.keys(LOOK_TITLES).map(k => {
+      const st = v.look[k]; if (!st || !st.chips) return '';
+      const on = LOOK_LABELS[k].filter((_, i) => st.chips[i]);
+      return on.length ? `<div class="vr-look"><b>${LOOK_TITLES[k]}</b><div class="chips">${on.map(x => `<span class="chip on">${esc(x)}</span>`).join('')}</div></div>` : '';
+    }).join('');
+    const finish = v.finish != null && v.finish !== '' ? (v.finish < 33 ? 'Matte' : v.finish > 66 ? 'Dewy / Glowy' : 'In Between') : '';
+    if (lines || finish) bits.push(`<div class="panel"><div class="eb">Her Look${finish ? ' · Finish: ' + finish : ''}</div>${lines}</div>`);
+  }
+  [['Big Day Considerations', v.q_bigDay], ['Hair Details', v.q_hairDetails], ['Veil / Accessories', v.q_veilAccessories], ['Clip-In Extensions', v.q_extensions], ['Jewelry', v.q_jewelry], ['Everyday Habits', v.q_everyday]].forEach(([l, t]) => {
+    if (t) bits.push(`<div class="panel"><div class="eb">${l}</div><div class="note">${esc(t)}</div></div>`);
+  });
+  const la = v.lovedAvoid || {};
+  if ((la.loved && la.loved.length) || (la.avoid && la.avoid.length))
+    bits.push(`<div class="panel"><div class="eb">Loved</div><div class="note">${esc((la.loved||[]).join(', ') || 'None listed')}</div><div class="eb" style="margin-top:12px">To Avoid</div><div class="note">${esc((la.avoid||[]).join(', ') || 'None listed')}</div></div>`);
+  if (bits.length) document.getElementById('visionRecap').innerHTML = bits.join('');
+}
+
+/* ---------- Logistics text ---------- */
+function populateLogistics(){
+  const travel = record["Travel Logistics"] || record["Travel & Logistics"] || record["Travel Logstics"];
+  if (!blank(travel)) document.getElementById('lg_travel').textContent = travel;
+  if (!blank(record["Internal Notes"])) document.getElementById('lg_notes').textContent = record["Internal Notes"];
+  if (!blank(record["Glam Team Notes"])) document.getElementById('lg_glam').textContent = record["Glam Team Notes"];
+}
+
+/* =====================================================================
+   RUN OF SHOW
+   One line per time in the Run of Show cell: "8:30 AM - Bride makeup, Sarah makeup"
+   Each client ends with "hair" or "makeup". Who does it comes from:
+     bride:  Bride Makeup Artist / Bride Hair Stylist (Experience Data)
+     guests: Makeup Artist / Hair Stylist (Bridal Party tab), falling back to Artist
+   Lines without a client (call time, content, photos) are for everyone.
+   ===================================================================== */
+const ROLE_ALIASES = { 'mob':'mother of the bride', 'mog':'mother of the groom', 'moh':'maid of honor', 'fg':'flower girl' };
+let ros = [], team = [], clients = {};
+function norm(s){ return String(s || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+function brideNames(){ const n = String(record["Bride / Client Name"] || FALLBACK_NAME).trim(); return ['bride', 'the bride', norm(n), norm(n.split(' ')[0])]; }
+function buildClients(){
+  clients = {};
+  const bn = String(record["Bride / Client Name"] || FALLBACK_NAME).trim();
+  clients.__bride = { key:'__bride', name: bn, display: 'Bride', role: 'Bride', isBride: true,
+    makeup: String(record["Bride Makeup Artist"] || '').trim(), hair: String(record["Bride Hair Stylist"] || '').trim(), services: record["Services Booked"] || '' };
+  party.forEach(g => {
+    const svc = norm(g.services);
+    const legacy = String(g.artist || '').trim();
+    clients[g.guestId] = Object.assign({}, g, { key: g.guestId, display: g.name,
+      makeup: String(g.makeupArtist || '').trim() || (svc.includes('makeup') || !svc ? legacy : ''),
+      hair: String(g.hairStylist || '').trim() || (!svc.includes('makeup') && svc.includes('hair') ? legacy : '') });
+  });
+}
+function findClient(label){
+  const l = norm(label); if (!l) return null;
+  if (brideNames().includes(l)) return clients.__bride;
+  const want = ROLE_ALIASES[l] || l;
+  const gs = Object.values(clients).filter(c => !c.isBride);
+  return gs.find(c => norm(c.name) === want) || gs.find(c => norm(String(c.name).split(' ')[0]) === want) || gs.find(c => norm(c.role) === want) || null;
+}
+function parseRos(){
+  const raw = record["Run of Show"]; if (blank(raw)) return [];
+  return String(raw).split('\n').map(l => l.trim()).filter(Boolean).map(line => {
+    const m = /^(.+?)\s+[-\u2014\u2013]\s+(.+)$/.exec(line) || /^(.+?)\s*[-\u2014\u2013]\s*(.+)$/.exec(line);
+    const time = m ? m[1].trim() : '', rest = m ? m[2] : line;
+    const items = rest.split(',').map(x => x.trim()).filter(Boolean).map(text => {
+      const mm = /^(.*?)\s+(hair|makeup)$/i.exec(text);
+      if (!mm) return { text, client: null, service: null };
+      const c = findClient(mm[1]);
+      const service = mm[2].toLowerCase();
+      return { text, label: mm[1], client: c, service, who: c ? c[service] : '' };
+    });
+    return { time, items };
+  });
+}
+function stationRank(role){ const r = norm(role); return r.includes('lead') ? 0 : r.includes('makeup') || r.includes('mua') ? 1 : r.includes('hair') || r.includes('styl') ? 3 : 2; }
+function artistNotes(){
+  const out = {}; const raw = record["Artist Notes"]; if (blank(raw)) return out;
+  String(raw).split('\n').forEach(line => { const m = /^\s*([^:]+):\s*(.+)$/.exec(line); if (m) { const k = norm(m[1]); out[k] = (out[k] ? out[k] + '\n' : '') + m[2].trim(); } });
+  return out;
+}
+
+function renderMasterRos(){
+  if (!ros.length) return;
+  document.getElementById('masterRos').innerHTML = ros.map(r => {
+    const all = r.items.every(i => !i.service);
+    const what = all ? esc(r.items.map(i => i.text).join(', '))
+      : r.items.map(i => i.service ? `<span class="${i.who ? '' : 'unas'}">${esc(i.text)}${i.who ? ' <i>· ' + esc(i.who) + '</i>' : ' <i>· unassigned</i>'}</span>` : `<span>${esc(i.text)}</span>`).join('');
+    return `<div class="ros-row${all ? ' all' : ''}"><b>${esc(r.time)}</b><div class="what">${what}</div></div>`;
+  }).join('');
+}
+
+function clientCard(c, times){
+  if (c.isBride) {
+    const v = visionData || {}, p = v.profile || {};
+    const prof = [p.skinType, p.allergies ? 'Allergies: ' + p.allergies : '', p.hairColor].filter(Boolean).join(' · ');
+    const chips = brideLookChips();
+    const ins = (window.__brideInspo || []).slice(0, 6);
+    return `<div class="cl"><div class="pic">${ins[0] ? `<img src="${ins[0]}" alt="">` : 'B'}</div><div>
+      <div class="nm">${esc(c.name)}</div><div class="sub">Main Client${times.length ? ' · ' + esc(times.join(', ')) : ''}</div>
+      ${prof ? `<div class="prof">${esc(prof)}</div>` : ''}
+      ${chips.length ? `<div class="chips">${chips.map(x => `<span class="chip on">${esc(x)}</span>`).join('')}</div>` : ''}
+      ${ins.length > 1 ? `<div class="ins">${ins.slice(1).map(u => `<img src="${u}" alt="">`).join('')}</div>` : ''}
+      <div class="cnotes">Her full vision is in Section Two.</div></div></div>`;
+  }
+  const p = parseJSON(c.profile, {}), look = parseJSON(c.look, {makeup:[], hair:[]});
+  const prof = [p.skinType, p.allergies ? 'Allergies: ' + p.allergies : '', [p.hairLength, p.hairThickness, p.hairTexture].filter(Boolean).join(', '), p.extensions && /yes/i.test(p.extensions) ? 'Bringing extensions' : '', p.lashes ? 'Lashes: ' + p.lashes : '', c.phone].filter(Boolean).join(' · ');
+  const chips = [...(look.makeup || []), ...(look.hair || [])];
+  const ins = (c.inspo || []).filter(Boolean);
+  const done = c.status === 'Complete';
+  return `<div class="cl"><div class="pic">${c.selfie ? `<img src="${c.selfie}" alt="">` : esc(initials(c.name))}</div><div>
+    <div class="nm">${esc(c.name)}</div><div class="sub">${esc(c.role || '')}${times.length ? ' · ' + esc(times.join(', ')) : c.services ? ' · ' + esc(c.services) : ''}</div>
+    <div class="status ${done ? 'ok' : 'wait'}">${done ? 'Details complete' : c.status === 'Started' ? 'Started, not finished' : 'Has not opened her link yet'}</div>
+    ${prof ? `<div class="prof">${esc(prof)}</div>` : ''}
+    ${chips.length ? `<div class="chips">${chips.map(x => `<span class="chip on">${esc(x)}</span>`).join('')}</div>` : ''}
+    ${c.notes ? `<div class="cnotes">${esc(c.notes)}</div>` : ''}
+    ${ins.length ? `<div class="ins">${ins.map(u => `<img src="${u}" alt="">`).join('')}</div>` : ''}
+  </div></div>`;
+}
+
+function renderArtistViews(){
+  const wrap = document.getElementById('artistViews');
+  const notes = artistNotes();
+  const roster = (record["Public Roster"] || []).slice().sort((a, b) => stationRank(a.role) - stationRank(b.role));
+  const named = new Set(roster.map(a => norm(a.name)));
+  Object.values(clients).forEach(c => ['makeup', 'hair'].forEach(s => { if (c[s] && !named.has(norm(c[s]))) { named.add(norm(c[s])); roster.push({ name: c[s], role: s === 'hair' ? 'Hair' : 'Makeup' }); } }));
+  team = roster;
+
+  const cards = roster.map(a => {
+    const me = norm(a.name), station = norm(a.role).replace(/^lead\s+/, '');
+    const mine = [];
+    ros.forEach(r => {
+      const rows = [];
+      r.items.forEach(i => {
+        if (i.service) { if (norm(i.who) === me) rows.push(i.text); }
+        else if (/call time/i.test(i.text) || norm(i.text).includes(me) || (station && norm(i.text).includes(station.split(' ')[0]))) rows.push(i.text);
+      });
+      if (rows.length) mine.push({ time: r.time, rows, hasService: r.items.some(i => i.service && norm(i.who) === me) });
+    });
+    const mineClients = [];
+    const times = {};
+    ros.forEach(r => r.items.forEach(i => { if (i.client && norm(i.who) === me) { (times[i.client.key] = times[i.client.key] || []).push(i.service + ' at ' + r.time); if (!mineClients.includes(i.client)) mineClients.push(i.client); } }));
+    Object.values(clients).forEach(c => { if ((norm(c.makeup) === me || norm(c.hair) === me) && !mineClients.includes(c)) mineClients.push(c); });
+    const lastSvc = mine.filter(x => x.hasService).pop();
+    const note = notes[me] || notes[norm(String(a.name).split(' ')[0])];
+    const cnt = mineClients.length;
+    return `<details class="artist"><summary class="a-head"><div class="ini">${esc(String(a.name).slice(0, 2).toUpperCase())}</div><div style="flex:1"><div class="nm">${esc(a.name)}</div><div class="sub">${esc(a.role || '')}${cnt ? ' · ' + cnt + ' client' + (cnt > 1 ? 's' : '') : ''}</div></div><span class="a-chev"></span></summary>
+      <div class="a-body">
+        <div class="eb">Your Run of Show</div>
+        ${mine.length ? mine.map(x => `<div class="ros-row"><b>${esc(x.time)}</b><div class="what">${x.rows.map(esc).join('<br>')}</div></div>`).join('') : '<div class="a-note empty">Your times appear here once the run of show is built.</div>'}
+        <div class="eb">Notes from Morgan</div>
+        ${note ? `<div class="a-note">${esc(note).replace(/\n/g, '<br>')}</div>` : '<div class="a-note empty">No notes yet.</div>'}
+        ${lastSvc ? `<div class="a-flag">Last service starts ${esc(lastSvc.time)}</div>` : ''}
+        ${cnt ? '<div class="eb">Your Clients</div>' + mineClients.map(c => clientCard(c, times[c.key] || [])).join('') : ''}
+      </div></details>`;
+  });
+  const open = Object.values(clients).filter(c => !c.isBride && (!c.makeup && (norm(c.services).includes('makeup') || !c.services) || !c.hair && norm(c.services).includes('hair')));
+  if (open.length) cards.push(`<details class="artist unassigned"><summary class="a-head"><div class="ini">?</div><div style="flex:1"><div class="nm"><em>Not Yet Assigned</em></div><div class="sub">${open.length} ${open.length === 1 ? 'guest' : 'guests'}</div></div><span class="a-chev"></span></summary>
+    <div class="a-body"><div class="a-note empty" style="margin-top:12px">Assign each guest in the Makeup Artist and Hair Stylist columns of the Bridal Party tab, using names exactly as they appear in Artist Assignments.</div>${open.map(c => clientCard(c, [])).join('')}</div></details>`);
+  wrap.innerHTML = cards.length ? cards.join('') : '<div class="panel"><div class="note">Each artist\'s schedule and clients appear here once the team is set in Artist Assignments and guests are added.</div></div>';
+}
+
+function renderTeam(){
+  if (!team.length) return;
+  document.getElementById('teamRoster').innerHTML = team.map(a => `<div class="member"><div class="ini">${esc(String(a.name).slice(0, 2).toUpperCase())}</div><div class="nm">${esc(a.name)}</div><div class="sub">${esc(a.role || '')}</div></div>`).join('');
+  const svcTimes = ros.filter(r => r.items.some(i => i.service));
+  if (svcTimes.length) {
+    const last = svcTimes[svcTimes.length - 1].time, ready = formatTimeValue(record["Ready By Time"]);
+    document.getElementById('teamDone').textContent = 'Last service starts ' + last + (ready ? '. Everyone ready by ' + ready + '.' : '.');
+    document.getElementById('teamDoneWrap').style.display = '';
+  }
+}
+
+/* ---------- Artist Pay (tap-to-reveal, one at a time) ---------- */
+let payByArtist = {}, openPayArtist = null;
+function renderArtistPayouts(){
+  const pills = document.getElementById('artistPayPills');
+  const rows = record["Artist Payouts"] || [];
+  if (!rows.length) { pills.innerHTML = '<div class="note">Pay hasn\'t been entered yet.</div>'; return; }
+  payByArtist = {};
+  rows.forEach(r => { const n = r.artist || 'Unassigned'; (payByArtist[n] = payByArtist[n] || []).push(r); });
+  pills.innerHTML = Object.keys(payByArtist).map(n => `<button class="paypill" data-artist="${esc(n)}" onclick="togglePayReveal(this)">${esc(n)}</button>`).join('');
+}
+function togglePayReveal(el){
+  const name = el.getAttribute('data-artist'), pills = document.getElementById('artistPayPills'), reveal = document.getElementById('artistPayReveal');
+  if (openPayArtist === name) { reveal.innerHTML = ''; openPayArtist = null; pills.querySelectorAll('.paypill').forEach(p => p.classList.remove('on')); return; }
+  openPayArtist = name;
+  pills.querySelectorAll('.paypill').forEach(p => p.classList.toggle('on', p.getAttribute('data-artist') === name));
+  const items = payByArtist[name] || [];
+  const total = items.reduce((s, i) => s + (parseFloat(i.subtotal) || 0), 0);
+  reveal.innerHTML = '<div style="margin-top:12px">' + items.map(i => { const q = Number(i.qty) || 1, r = Number(i.rate) || 0;
+      return `<div class="pay-item"><span>${esc(i.service)}${q > 1 ? ` (${q} × $${r.toFixed(2)})` : ''}</span><span>$${(Number(i.subtotal) || 0).toFixed(2)}</span></div>`; }).join('')
+    + `<div class="pay-total">$${total.toFixed(2)}</div></div>`;
+}
+
+document.querySelectorAll('.dir-list a').forEach(a => a.addEventListener('click', e => {
+  const d = document.querySelector(a.getAttribute('href')); if (!d) return; e.preventDefault(); d.open = true; d.scrollIntoView({behavior:'smooth', block:'start'}); }));
+
+/* ---------- Wordmark fit ---------- */
+function fitWordmark(){
+  const w = document.getElementById('xwm'), b = document.getElementById('xbody'), h = w.closest('.hero');
+  const target = b.offsetHeight, maxW = h.offsetWidth * 0.28; let fs = 400; w.style.fontSize = fs + 'px';
+  while ((w.offsetHeight > target || w.offsetWidth > maxW) && fs > 40) { fs -= 2; w.style.fontSize = fs + 'px'; }
+}
+window.addEventListener('load', fitWordmark); window.addEventListener('resize', fitWordmark);
+if (document.fonts) document.fonts.ready.then(fitWordmark);
+
+/* ---------- Init ---------- */
+(async function(){
+  try { record = await apiGet({}); if (record.error) { console.error('Check EVENT_ID'); record = {}; } } catch(e) { record = {}; }
+  visionData = parseJSON(record["Vision (JSON)"], {});
+  populateHeroAndOverview();
+  populateVisionRecap();
+  populateLogistics();
+  renderArtistPayouts();
+  fitWordmark();
+  try { const r = await apiGet({ brideInspo: 1 }); window.__brideInspo = ((r && r.inspo) || []).filter(Boolean); } catch(e) { window.__brideInspo = []; }
+  if (window.__brideInspo.length) { document.getElementById('brideInspo').innerHTML = photoGrid(window.__brideInspo); document.getElementById('brideInspoWrap').style.display = ''; }
+  try { const r = await apiGet({ party: 1 }); party = (r && r.party) || []; } catch(e) { party = []; }
+  buildClients();
+  ros = parseRos();
+  renderMasterRos();
+  renderArtistViews();
+  renderTeam();
+})();
+</script>
+</body>
+</html>
